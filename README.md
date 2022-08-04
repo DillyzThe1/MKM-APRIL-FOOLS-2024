@@ -6,3 +6,12 @@
 [Go to the google drive link for windows here.](https://gamebanana.com/mods/393531)<br>
 If you're on linux or mac, you *can* try out the artifacts released for all platforms [here](https://github.com/DillyzThe1/FNF-MKM/actions).<br>
 If you need an HTML build to upload to your goofy website that steals mods for profits, <b>screw off</b>.
+## IF YOU DOWNLOAD THE SOUUCE CODE OR MOD THEN YOU AGREE TO:
+NOT CHANGE THE CREDITS (add ur own category)
+NOT UPLOAD TO A DUMB WEBSITE THAT TAKES MODS FOR THEIR OWN PROFIT
+NOT TAKE CREDIT FOR ANY ASSETS OR PROGRAMMING
+FULLY CREDIT THE ORIGINAL DEVS (DillyzThe1, That1LazerBoi, Zarzok, & Impostor)
+NOT MAKE AN ANNOYING MOBILE BUILD
+
+IF YOU WANT HTML5 OR MOBILE, ASK <i>ME</i> AND I'LL KINDLY TELL YOU <b>NO</b>.<br>
+![Don't do it.](/docs/endself.png)
