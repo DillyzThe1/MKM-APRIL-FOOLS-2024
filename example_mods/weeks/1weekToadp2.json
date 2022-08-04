@@ -1,0 +1,32 @@
+{
+	"storyName": "Guess Lmao",
+	"difficulties": "Hard,Skill Issue",
+	"hideFreeplay": true,
+	"weekBackground": "empty",
+	"weekBefore": "your mom",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": false,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"???",
+			"toad",
+			[
+				255,
+				50,
+				40
+			],
+			false
+		]
+	],
+	"weekCharacters": [
+		"",
+		"bf",
+		""
+	],
+	"weekName": "Week Toad 2"
+}

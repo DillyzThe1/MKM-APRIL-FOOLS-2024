@@ -1,0 +1,3 @@
+Toggles bf's "friendly" game over "reminder".
+
+V1: True/False (default to toggle)

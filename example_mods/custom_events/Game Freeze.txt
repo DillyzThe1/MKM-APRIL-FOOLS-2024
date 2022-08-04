@@ -1,0 +1,4 @@
+Freezes the game.
+That's it.
+
+V1: True/False of if active.

@@ -1,0 +1,3 @@
+Used in Extra Screwed to change to the NES mode.
+
+V1: True/False

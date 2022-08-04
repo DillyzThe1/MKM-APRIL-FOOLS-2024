@@ -1,0 +1,3 @@
+Displays closed captions on screen.
+
+V1: The text for the captions. Make it blank to delete closed captions.

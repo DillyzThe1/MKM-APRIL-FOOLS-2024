@@ -1,0 +1,66 @@
+{
+	"storyName": "Toad's House (3am)",
+	"difficulties": "Hard,Skill Issue",
+	"hideFreeplay": false,
+	"weekBackground": "toad-house",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"toad-new",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		[
+			"House",
+			"toad",
+			[
+				255,
+				50,
+				40
+			],
+			false,
+			"house-start"
+		],
+		[
+			"No Shrooms",
+			"toadcraft",
+			[
+				255,
+				50,
+				40
+			],
+			false,
+			"no-shrooms-start"
+		],
+		[
+			"Chaotically Stupid",
+			"toad-up-in-3d",
+			[
+				255,
+				50,
+				40
+			],
+			false,
+			"chaotically-stupid-start"
+		],
+		[
+			"Bup",
+			"bup",
+			[
+				253,
+				200,
+				173
+			],
+			true,
+			"bup-start"
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "Week Toad"
+}

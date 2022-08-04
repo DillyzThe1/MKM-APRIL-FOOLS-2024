@@ -1,0 +1,217 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				5,
+				-6
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "BF NOTE LEFT0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-20,
+				-51
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "BF NOTE DOWN0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-46,
+				27
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "BF NOTE UP0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-48,
+				-7
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "BF NOTE RIGHT0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				7,
+				8
+			],
+			"anim": "singLEFTmiss",
+			"fps": 24,
+			"name": "BF NOTE LEFT MISS",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-24,
+				-29
+			],
+			"anim": "singDOWNmiss",
+			"fps": 24,
+			"name": "BF NOTE DOWN MISS",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-44,
+				24
+			],
+			"anim": "singUPmiss",
+			"fps": 24,
+			"name": "BF NOTE UP MISS",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-45,
+				8
+			],
+			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "BF NOTE RIGHT MISS",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-3,
+				-1
+			],
+			"anim": "hey",
+			"fps": 24,
+			"name": "BF HEY",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-99,
+				-130
+			],
+			"anim": "areyoupurple",
+			"fps": 30,
+			"name": "AreYouPurple0",
+			"indices": []
+		},
+		{
+			"offsets": [
+				-5,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "BF idle dance"
+		},
+		{
+			"offsets": [
+				20,
+				40
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "shocked",
+			"indices": [],
+			"name": "BF Caught Off Gaurd"
+		},
+		{
+			"offsets": [
+				18,
+				57
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "look back",
+			"indices": [],
+			"name": "BF Look Back"
+		},
+		{
+			"offsets": [
+				-6,
+				305
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "le artist",
+			"indices": [],
+			"name": "BF Draw"
+		},
+		{
+			"offsets": [
+				-5,
+				17
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "literal horror",
+			"indices": [],
+			"name": "BF Shocked Loop"
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-6,
+				305
+			],
+			"anim": "he drawin",
+			"fps": 24,
+			"name": "BF Draw",
+			"indices": [
+				2,
+				3,
+				4,
+				5,
+				6,
+				7
+			]
+		},
+		{
+			"offsets": [
+				32,
+				1
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "symbol bug",
+			"loop": false,
+			"name": "BF symbol bug"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/BF_Bup",
+	"position": [
+		-10,
+		340
+	],
+	"healthicon": "bf",
+	"flip_x": true,
+	"healthbar_colors": [
+		49,
+		176,
+		209
+	],
+	"camera_position": [
+		20,
+		10
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

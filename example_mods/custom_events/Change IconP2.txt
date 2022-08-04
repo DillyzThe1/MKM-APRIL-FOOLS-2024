@@ -1,0 +1,4 @@
+Changes the healthbar icon and color.
+
+V1: Icon name.
+V2: Color in hexadecimal.

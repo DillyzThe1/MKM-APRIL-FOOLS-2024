@@ -1,0 +1,11 @@
+{
+	"idle_anim": "Toad Idle",
+	"image": "toad-new",
+	"position": [
+		70,
+		65
+	],
+	"flipX": false,
+	"scale": 0.75,
+	"confirm_anim": "M Dad Idle"
+}

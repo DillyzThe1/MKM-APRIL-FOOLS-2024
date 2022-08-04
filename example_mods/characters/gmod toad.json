@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": false,
+			"name": "GT Idle"
+		},
+		{
+			"offsets": [
+				50,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "GT Note Right"
+		},
+		{
+			"offsets": [
+				50,
+				-130
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "GT Note Left"
+		},
+		{
+			"offsets": [
+				-470,
+				-150
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "GT Note Down"
+		},
+		{
+			"offsets": [
+				-100,
+				13
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "GT Note Up"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/GMOD Toad",
+	"position": [
+		-350,
+		-100
+	],
+	"healthicon": "toad-up-in-3d",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		45,
+		50
+	],
+	"camera_position": [
+		250,
+		150
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

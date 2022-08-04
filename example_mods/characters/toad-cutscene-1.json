@@ -1,0 +1,84 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "Toad Idle"
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-56,
+				-16
+			],
+			"anim": "idle-shock",
+			"fps": 24,
+			"name": "Toad Shock",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-56,
+				-19
+			],
+			"anim": "door",
+			"fps": 24,
+			"name": "Toad Door Shout",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-56,
+				-19
+			],
+			"anim": "door-loop",
+			"fps": 24,
+			"name": "Toad Door Shout",
+			"indices": [
+				36,
+				37
+			]
+		},
+		{
+			"offsets": [
+				-56,
+				-19
+			],
+			"indices": [
+				36,
+				37
+			],
+			"fps": 24,
+			"anim": "idle-door",
+			"loop": true,
+			"name": "Toad Door Shout"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "cutscenes/pre-house/toad door",
+	"position": [
+		60,
+		230
+	],
+	"healthicon": "toad",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		0,
+		51
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

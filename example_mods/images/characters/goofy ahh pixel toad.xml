@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="goofy ahh pixel toad.json.png">
+	<!-- Auto-Generated through a java program made by DillyzThe1 -->
+	<!-- https://www.github.com/DillyzThe1 -->
+	<!-- Original Sprites made in Asperite -->
+	<!-- https://www.aseprite.org/ -->
+	<SubTexture name="Idle0000" x="1" y="1" width="17" height="11" frameX="-5" frameY="-12" frameWidth="25" frameHeight="25"/>
+	<SubTexture name="Idle0001" x="20" y="1" width="16" height="13" frameX="-5" frameY="-10" frameWidth="25" frameHeight="25"/>
+	<SubTexture name="Idle0002" x="38" y="1" width="16" height="14" frameX="-5" frameY="-8" frameWidth="25" frameHeight="25"/>
+	<SubTexture name="Idle0003" x="56" y="1" width="15" height="15" frameX="-6" frameY="-7" frameWidth="25" frameHeight="25"/>
+	<SubTexture name="Idle0004" x="73" y="1" width="15" height="16" frameX="-6" frameY="-6" frameWidth="25" frameHeight="25"/>
+	<SubTexture name="Left0000" x="90" y="1" width="12" height="15" frameX="-4" frameY="-7" frameWidth="25" frameHeight="25"/>
+	<SubTexture name="Left0001" x="104" y="1" width="13" height="15" frameX="-5" frameY="-7" frameWidth="25" frameHeight="25"/>
+	<SubTexture name="Down0000" x="119" y="1" width="12" height="14" frameX="-7" frameY="-8" frameWidth="25" frameHeight="25"/>
+	<SubTexture name="Down0001" x="133" y="1" width="12" height="15" frameX="-8" frameY="-7" frameWidth="25" frameHeight="25"/>
+	<SubTexture name="Right0000" x="147" y="1" width="15" height="14" frameX="-7" frameY="-8" frameWidth="25" frameHeight="25"/>
+	<SubTexture name="Right0001" x="164" y="1" width="14" height="15" frameX="-7" frameY="-7" frameWidth="25" frameHeight="25"/>
+	<SubTexture name="Up0000" x="180" y="1" width="14" height="16" frameX="-4" frameY="-6" frameWidth="25" frameHeight="25"/>
+	<SubTexture name="Up0001" x="196" y="1" width="13" height="15" frameX="-5" frameY="-7" frameWidth="25" frameHeight="25"/>
+</TextureAtlas>

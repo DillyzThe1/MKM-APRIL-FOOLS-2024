@@ -1,0 +1,100 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "Toad Idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				58,
+				20
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "Toad Note Up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				93,
+				-2
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Toad Note Left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				72,
+				-36
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "Toad Note Down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				41,
+				-23
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Toad Note Right",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-55,
+				-22
+			],
+			"anim": "idle-shock",
+			"fps": 24,
+			"name": "Toad Shout Post",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "normal pills",
+			"loop": false,
+			"name": "Toad Becomes Normal"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/VS Nokia",
+	"position": [
+		60,
+		230
+	],
+	"healthicon": "nokia",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		0,
+		51
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

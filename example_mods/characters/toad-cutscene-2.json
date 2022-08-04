@@ -1,0 +1,45 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "Toad Idle",
+			"indices": []
+		},
+		{
+			"offsets": [
+				45,
+				13
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "spittin fax machine",
+			"loop": false,
+			"name": "Toad PostHouse"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "cutscenes/post-house/heheheha",
+	"position": [
+		60,
+		230
+	],
+	"healthicon": "toad",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		0,
+		51
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

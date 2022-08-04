@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="toad door.png">
+	<!-- Created with Adobe Animate version 22.0.6.202 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Toad Door Shout0000" x="0" y="0" width="323" height="466" frameX="0" frameY="0" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0001" x="323" y="0" width="327" height="457" frameX="0" frameY="-9" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0002" x="650" y="0" width="325" height="459" frameX="0" frameY="-7" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0003" x="975" y="0" width="325" height="459" frameX="0" frameY="-7" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0004" x="1300" y="0" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0005" x="1625" y="0" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0006" x="1950" y="0" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0007" x="2275" y="0" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0008" x="2600" y="0" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0009" x="2925" y="0" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0010" x="3250" y="0" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0011" x="3575" y="0" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0012" x="0" y="466" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0013" x="325" y="466" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0014" x="650" y="466" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0015" x="975" y="466" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0016" x="1300" y="466" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0017" x="1625" y="466" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0018" x="1950" y="466" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0019" x="2275" y="466" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0020" x="2600" y="466" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0021" x="2925" y="466" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0022" x="3250" y="466" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0023" x="3575" y="466" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0024" x="0" y="929" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0025" x="325" y="929" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0026" x="650" y="929" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0027" x="975" y="929" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0028" x="1300" y="929" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0029" x="1625" y="929" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0030" x="1300" y="929" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0031" x="1625" y="929" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0032" x="1300" y="929" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0033" x="1625" y="929" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0034" x="1300" y="929" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0035" x="1625" y="929" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0036" x="1300" y="929" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Door Shout0037" x="1625" y="929" width="325" height="463" frameX="0" frameY="-3" frameWidth="327" frameHeight="466"/>
+	<SubTexture name="Toad Idle0000" x="1950" y="929" width="295" height="465" frameX="-27" frameY="-20" frameWidth="327" frameHeight="485"/>
+	<SubTexture name="Toad Idle0001" x="1950" y="929" width="295" height="465" frameX="-27" frameY="-20" frameWidth="327" frameHeight="485"/>
+	<SubTexture name="Toad Idle0002" x="2245" y="929" width="306" height="471" frameX="-21" frameY="-14" frameWidth="327" frameHeight="485"/>
+	<SubTexture name="Toad Idle0003" x="2245" y="929" width="306" height="471" frameX="-21" frameY="-14" frameWidth="327" frameHeight="485"/>
+	<SubTexture name="Toad Idle0004" x="2551" y="929" width="304" height="478" frameX="-17" frameY="-7" frameWidth="327" frameHeight="485"/>
+	<SubTexture name="Toad Idle0005" x="2551" y="929" width="304" height="478" frameX="-17" frameY="-7" frameWidth="327" frameHeight="485"/>
+	<SubTexture name="Toad Idle0006" x="2855" y="929" width="285" height="482" frameX="-15" frameY="-3" frameWidth="327" frameHeight="485"/>
+	<SubTexture name="Toad Idle0007" x="2855" y="929" width="285" height="482" frameX="-15" frameY="-3" frameWidth="327" frameHeight="485"/>
+	<SubTexture name="Toad Idle0008" x="3140" y="929" width="274" height="484" frameX="-14" frameY="-1" frameWidth="327" frameHeight="485"/>
+	<SubTexture name="Toad Idle0009" x="3140" y="929" width="274" height="484" frameX="-14" frameY="-1" frameWidth="327" frameHeight="485"/>
+	<SubTexture name="Toad Idle0010" x="3414" y="929" width="286" height="485" frameX="0" frameY="0" frameWidth="327" frameHeight="485"/>
+	<SubTexture name="Toad Idle0011" x="3414" y="929" width="286" height="485" frameX="0" frameY="0" frameWidth="327" frameHeight="485"/>
+	<SubTexture name="Toad Idle0012" x="3414" y="929" width="286" height="485" frameX="0" frameY="0" frameWidth="327" frameHeight="485"/>
+	<SubTexture name="Toad Idle0013" x="3414" y="929" width="286" height="485" frameX="0" frameY="0" frameWidth="327" frameHeight="485"/>
+	<SubTexture name="Toad Shock0000" x="3700" y="929" width="318" height="469"/>
+	<SubTexture name="Toad Shock0001" x="0" y="1414" width="318" height="469"/>
+	<SubTexture name="Toad Shock0002" x="3700" y="929" width="318" height="469"/>
+	<SubTexture name="Toad Shock0003" x="0" y="1414" width="318" height="469"/>
+	<SubTexture name="Toad Shock0004" x="3700" y="929" width="318" height="469"/>
+	<SubTexture name="Toad Shock0005" x="0" y="1414" width="318" height="469"/>
+	<SubTexture name="Toad Shock0006" x="3700" y="929" width="318" height="469"/>
+	<SubTexture name="Toad Shock0007" x="0" y="1414" width="318" height="469"/>
+	<SubTexture name="Toad Shock0008" x="3700" y="929" width="318" height="469"/>
+	<SubTexture name="Toad Shock0009" x="0" y="1414" width="318" height="469"/>
+	<SubTexture name="Toad Shock0010" x="3700" y="929" width="318" height="469"/>
+	<SubTexture name="Toad Shock0011" x="0" y="1414" width="318" height="469"/>
+	<SubTexture name="Toad Shock0012" x="3700" y="929" width="318" height="469"/>
+	<SubTexture name="Toad Shock0013" x="0" y="1414" width="318" height="469"/>
+</TextureAtlas>

@@ -1,0 +1,3 @@
+Toggles the "BotPlay" text above bf's head.
+
+V1: True/False (leave blank for toggle)

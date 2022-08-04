@@ -1,0 +1,10 @@
+{
+	"idle_anim": "toad dies of cringe",
+	"image": "toadreal",
+	"position": [
+		110,
+		-20
+	],
+	"scale": 0.7,
+	"confirm_anim": "M Dad Idle"
+}

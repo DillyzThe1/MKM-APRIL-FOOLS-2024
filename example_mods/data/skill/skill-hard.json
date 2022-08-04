@@ -1,0 +1,18 @@
+{
+	"song": {
+		"player1": "bf",
+		"gfVersion": "gf",
+		"notes": [],
+		"events": [],
+		"player2": "toad",
+		"mania": 0,
+		"splashSkin": "noteSplashes",
+		"song": "skill",
+		"needsVoices": true,
+		"arrowSkin": "",
+		"stage": "house",
+		"validScore": true,
+		"bpm": 160,
+		"speed": 2
+	}
+}

@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="toad mc.png">
+	<!-- Created with Adobe Animate version 22.0.6.202 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Toad Down0000" x="0" y="0" width="833" height="710" frameX="0" frameY="-43" frameWidth="833" frameHeight="756"/>
+	<SubTexture name="Toad Down0001" x="0" y="0" width="833" height="710" frameX="0" frameY="-43" frameWidth="833" frameHeight="756"/>
+	<SubTexture name="Toad Down0002" x="833" y="0" width="801" height="732" frameX="-15" frameY="-23" frameWidth="833" frameHeight="756"/>
+	<SubTexture name="Toad Down0003" x="833" y="0" width="801" height="732" frameX="-15" frameY="-23" frameWidth="833" frameHeight="756"/>
+	<SubTexture name="Toad Down0004" x="1634" y="0" width="756" height="756" frameX="-35" frameY="0" frameWidth="833" frameHeight="756"/>
+	<SubTexture name="Toad Down0005" x="1634" y="0" width="756" height="756" frameX="-35" frameY="0" frameWidth="833" frameHeight="756"/>
+	<SubTexture name="Toad Down0006" x="1634" y="0" width="756" height="756" frameX="-35" frameY="0" frameWidth="833" frameHeight="756"/>
+	<SubTexture name="Toad Down0007" x="1634" y="0" width="756" height="756" frameX="-35" frameY="0" frameWidth="833" frameHeight="756"/>
+	<SubTexture name="Toad Down0008" x="1634" y="0" width="756" height="756" frameX="-35" frameY="0" frameWidth="833" frameHeight="756"/>
+	<SubTexture name="Toad Down0009" x="1634" y="0" width="756" height="756" frameX="-35" frameY="0" frameWidth="833" frameHeight="756"/>
+	<SubTexture name="Toad Down0010" x="1634" y="0" width="756" height="756" frameX="-35" frameY="0" frameWidth="833" frameHeight="756"/>
+	<SubTexture name="Toad Down0011" x="1634" y="0" width="756" height="756" frameX="-35" frameY="0" frameWidth="833" frameHeight="756"/>
+	<SubTexture name="Toad Down0012" x="1634" y="0" width="756" height="756" frameX="-35" frameY="0" frameWidth="833" frameHeight="756"/>
+	<SubTexture name="Toad Down0013" x="1634" y="0" width="756" height="756" frameX="-35" frameY="0" frameWidth="833" frameHeight="756"/>
+	<SubTexture name="Toad Idle0000" x="2390" y="0" width="756" height="756" frameX="0" frameY="0" frameWidth="780" frameHeight="761"/>
+	<SubTexture name="Toad Idle0001" x="3146" y="0" width="756" height="756" frameX="0" frameY="0" frameWidth="780" frameHeight="761"/>
+	<SubTexture name="Toad Idle0002" x="0" y="756" width="756" height="756" frameX="-8" frameY="0" frameWidth="780" frameHeight="761"/>
+	<SubTexture name="Toad Idle0003" x="0" y="756" width="756" height="756" frameX="-8" frameY="0" frameWidth="780" frameHeight="761"/>
+	<SubTexture name="Toad Idle0004" x="756" y="756" width="756" height="756" frameX="-16" frameY="-3" frameWidth="780" frameHeight="761"/>
+	<SubTexture name="Toad Idle0005" x="756" y="756" width="756" height="756" frameX="-16" frameY="-3" frameWidth="780" frameHeight="761"/>
+	<SubTexture name="Toad Idle0006" x="1512" y="756" width="756" height="756" frameX="-23" frameY="-4" frameWidth="780" frameHeight="761"/>
+	<SubTexture name="Toad Idle0007" x="1512" y="756" width="756" height="756" frameX="-23" frameY="-4" frameWidth="780" frameHeight="761"/>
+	<SubTexture name="Toad Idle0008" x="2268" y="756" width="756" height="756" frameX="-24" frameY="-5" frameWidth="780" frameHeight="761"/>
+	<SubTexture name="Toad Idle0009" x="2268" y="756" width="756" height="756" frameX="-24" frameY="-5" frameWidth="780" frameHeight="761"/>
+	<SubTexture name="Toad Idle0010" x="2268" y="756" width="756" height="756" frameX="-24" frameY="-5" frameWidth="780" frameHeight="761"/>
+	<SubTexture name="Toad Idle0011" x="2268" y="756" width="756" height="756" frameX="-24" frameY="-5" frameWidth="780" frameHeight="761"/>
+	<SubTexture name="Toad Idle0012" x="2268" y="756" width="756" height="756" frameX="-24" frameY="-5" frameWidth="780" frameHeight="761"/>
+	<SubTexture name="Toad Idle0013" x="2268" y="756" width="756" height="756" frameX="-24" frameY="-5" frameWidth="780" frameHeight="761"/>
+	<SubTexture name="Toad Left0000" x="3024" y="756" width="871" height="756" frameX="0" frameY="0" frameWidth="871" frameHeight="763"/>
+	<SubTexture name="Toad Left0001" x="3024" y="756" width="871" height="756" frameX="0" frameY="0" frameWidth="871" frameHeight="763"/>
+	<SubTexture name="Toad Left0002" x="0" y="1512" width="802" height="756" frameX="-65" frameY="-2" frameWidth="871" frameHeight="763"/>
+	<SubTexture name="Toad Left0003" x="0" y="1512" width="802" height="756" frameX="-65" frameY="-2" frameWidth="871" frameHeight="763"/>
+	<SubTexture name="Toad Left0004" x="802" y="1512" width="763" height="756" frameX="-102" frameY="-7" frameWidth="871" frameHeight="763"/>
+	<SubTexture name="Toad Left0005" x="1565" y="1512" width="756" height="756" frameX="-102" frameY="-7" frameWidth="871" frameHeight="763"/>
+	<SubTexture name="Toad Left0006" x="1565" y="1512" width="756" height="756" frameX="-102" frameY="-7" frameWidth="871" frameHeight="763"/>
+	<SubTexture name="Toad Left0007" x="1565" y="1512" width="756" height="756" frameX="-102" frameY="-7" frameWidth="871" frameHeight="763"/>
+	<SubTexture name="Toad Left0008" x="1565" y="1512" width="756" height="756" frameX="-102" frameY="-7" frameWidth="871" frameHeight="763"/>
+	<SubTexture name="Toad Left0009" x="1565" y="1512" width="756" height="756" frameX="-102" frameY="-7" frameWidth="871" frameHeight="763"/>
+	<SubTexture name="Toad Left0010" x="1565" y="1512" width="756" height="756" frameX="-102" frameY="-7" frameWidth="871" frameHeight="763"/>
+	<SubTexture name="Toad Left0011" x="1565" y="1512" width="756" height="756" frameX="-102" frameY="-7" frameWidth="871" frameHeight="763"/>
+	<SubTexture name="Toad Left0012" x="1565" y="1512" width="756" height="756" frameX="-102" frameY="-7" frameWidth="871" frameHeight="763"/>
+	<SubTexture name="Toad Left0013" x="1565" y="1512" width="756" height="756" frameX="-102" frameY="-7" frameWidth="871" frameHeight="763"/>
+	<SubTexture name="Toad Right0000" x="2321" y="1512" width="823" height="756"/>
+	<SubTexture name="Toad Right0001" x="2321" y="1512" width="823" height="756"/>
+	<SubTexture name="Toad Right0002" x="3144" y="1512" width="792" height="756" frameX="-1" frameY="0" frameWidth="823" frameHeight="756"/>
+	<SubTexture name="Toad Right0003" x="3144" y="1512" width="792" height="756" frameX="-1" frameY="0" frameWidth="823" frameHeight="756"/>
+	<SubTexture name="Toad Right0004" x="0" y="2268" width="756" height="756" frameX="-4" frameY="0" frameWidth="823" frameHeight="756"/>
+	<SubTexture name="Toad Right0005" x="0" y="2268" width="756" height="756" frameX="-4" frameY="0" frameWidth="823" frameHeight="756"/>
+	<SubTexture name="Toad Right0006" x="0" y="2268" width="756" height="756" frameX="-4" frameY="0" frameWidth="823" frameHeight="756"/>
+	<SubTexture name="Toad Right0007" x="0" y="2268" width="756" height="756" frameX="-4" frameY="0" frameWidth="823" frameHeight="756"/>
+	<SubTexture name="Toad Right0008" x="0" y="2268" width="756" height="756" frameX="-4" frameY="0" frameWidth="823" frameHeight="756"/>
+	<SubTexture name="Toad Right0009" x="0" y="2268" width="756" height="756" frameX="-4" frameY="0" frameWidth="823" frameHeight="756"/>
+	<SubTexture name="Toad Right0010" x="0" y="2268" width="756" height="756" frameX="-4" frameY="0" frameWidth="823" frameHeight="756"/>
+	<SubTexture name="Toad Right0011" x="0" y="2268" width="756" height="756" frameX="-4" frameY="0" frameWidth="823" frameHeight="756"/>
+	<SubTexture name="Toad Right0012" x="0" y="2268" width="756" height="756" frameX="-4" frameY="0" frameWidth="823" frameHeight="756"/>
+	<SubTexture name="Toad Right0013" x="0" y="2268" width="756" height="756" frameX="-4" frameY="0" frameWidth="823" frameHeight="756"/>
+	<SubTexture name="Toad Up0000" x="756" y="2268" width="746" height="832" frameX="-10" frameY="0" frameWidth="783" frameHeight="832"/>
+	<SubTexture name="Toad Up0001" x="756" y="2268" width="746" height="832" frameX="-10" frameY="0" frameWidth="783" frameHeight="832"/>
+	<SubTexture name="Toad Up0002" x="1502" y="2268" width="767" height="781" frameX="0" frameY="-45" frameWidth="783" frameHeight="832"/>
+	<SubTexture name="Toad Up0003" x="1502" y="2268" width="767" height="781" frameX="0" frameY="-45" frameWidth="783" frameHeight="832"/>
+	<SubTexture name="Toad Up0004" x="2269" y="2268" width="756" height="756" frameX="-27" frameY="-70" frameWidth="783" frameHeight="832"/>
+	<SubTexture name="Toad Up0005" x="2269" y="2268" width="756" height="756" frameX="-27" frameY="-70" frameWidth="783" frameHeight="832"/>
+	<SubTexture name="Toad Up0006" x="2269" y="2268" width="756" height="756" frameX="-27" frameY="-70" frameWidth="783" frameHeight="832"/>
+	<SubTexture name="Toad Up0007" x="2269" y="2268" width="756" height="756" frameX="-27" frameY="-70" frameWidth="783" frameHeight="832"/>
+	<SubTexture name="Toad Up0008" x="2269" y="2268" width="756" height="756" frameX="-27" frameY="-70" frameWidth="783" frameHeight="832"/>
+	<SubTexture name="Toad Up0009" x="2269" y="2268" width="756" height="756" frameX="-27" frameY="-70" frameWidth="783" frameHeight="832"/>
+	<SubTexture name="Toad Up0010" x="2269" y="2268" width="756" height="756" frameX="-27" frameY="-70" frameWidth="783" frameHeight="832"/>
+	<SubTexture name="Toad Up0011" x="2269" y="2268" width="756" height="756" frameX="-27" frameY="-70" frameWidth="783" frameHeight="832"/>
+	<SubTexture name="Toad Up0012" x="2269" y="2268" width="756" height="756" frameX="-27" frameY="-70" frameWidth="783" frameHeight="832"/>
+	<SubTexture name="Toad Up0013" x="2269" y="2268" width="756" height="756" frameX="-27" frameY="-70" frameWidth="783" frameHeight="832"/>
+</TextureAtlas>
