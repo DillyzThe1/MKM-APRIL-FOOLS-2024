@@ -1,0 +1,33 @@
+{
+	"storyName": "1.5 Extra Songs",
+	"difficulties": "Hard",
+	"hideFreeplay": false,
+	"weekBackground": "toad-house",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "0weekToad",
+	"startUnlocked": false,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"songs": [
+		[
+			"Normalized",
+			"luigi",
+			[
+				51,
+				255,
+				51
+			],
+			false,
+			"normalized-start"
+		]
+	],
+	"hideStoryMode": true,
+	"weekName": "The 1.5 Extra Songs"
+}

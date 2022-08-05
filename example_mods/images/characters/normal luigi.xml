@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="normal luigi.png">
+	<!-- Created with Adobe Animate version 22.0.7.214 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Luigi Idle Dance0000" x="0" y="0" width="330" height="315" frameX="0" frameY="0" frameWidth="331" frameHeight="315"/>
+	<SubTexture name="Luigi Idle Dance0001" x="0" y="0" width="330" height="315" frameX="0" frameY="0" frameWidth="331" frameHeight="315"/>
+	<SubTexture name="Luigi Idle Dance0002" x="330" y="0" width="331" height="315"/>
+	<SubTexture name="Luigi Idle Dance0003" x="330" y="0" width="331" height="315"/>
+	<SubTexture name="Luigi Idle Dance0004" x="661" y="0" width="323" height="315" frameX="0" frameY="0" frameWidth="331" frameHeight="315"/>
+	<SubTexture name="Luigi Idle Dance0005" x="661" y="0" width="323" height="315" frameX="0" frameY="0" frameWidth="331" frameHeight="315"/>
+	<SubTexture name="Luigi Idle Dance0006" x="984" y="0" width="323" height="315" frameX="0" frameY="0" frameWidth="331" frameHeight="315"/>
+	<SubTexture name="Luigi Idle Dance0007" x="984" y="0" width="323" height="315" frameX="0" frameY="0" frameWidth="331" frameHeight="315"/>
+	<SubTexture name="Luigi Idle Dance0008" x="1307" y="0" width="323" height="315" frameX="0" frameY="0" frameWidth="331" frameHeight="315"/>
+	<SubTexture name="Luigi Idle Dance0009" x="1307" y="0" width="323" height="315" frameX="0" frameY="0" frameWidth="331" frameHeight="315"/>
+	<SubTexture name="Luigi Idle Dance0010" x="1630" y="0" width="323" height="315" frameX="0" frameY="0" frameWidth="331" frameHeight="315"/>
+	<SubTexture name="Luigi Idle Dance0011" x="1630" y="0" width="323" height="315" frameX="0" frameY="0" frameWidth="331" frameHeight="315"/>
+	<SubTexture name="Luigi Idle Dance0012" x="1630" y="0" width="323" height="315" frameX="0" frameY="0" frameWidth="331" frameHeight="315"/>
+	<SubTexture name="Luigi Idle Dance0013" x="1630" y="0" width="323" height="315" frameX="0" frameY="0" frameWidth="331" frameHeight="315"/>
+	<SubTexture name="Luigi Note Down0000" x="0" y="315" width="335" height="323" frameX="0" frameY="0" frameWidth="336" frameHeight="323"/>
+	<SubTexture name="Luigi Note Down0001" x="0" y="315" width="335" height="323" frameX="0" frameY="0" frameWidth="336" frameHeight="323"/>
+	<SubTexture name="Luigi Note Down0002" x="335" y="315" width="336" height="315" frameX="0" frameY="0" frameWidth="336" frameHeight="323"/>
+	<SubTexture name="Luigi Note Down0003" x="671" y="315" width="335" height="315" frameX="0" frameY="0" frameWidth="336" frameHeight="323"/>
+	<SubTexture name="Luigi Note Down0004" x="671" y="315" width="335" height="315" frameX="0" frameY="0" frameWidth="336" frameHeight="323"/>
+	<SubTexture name="Luigi Note Down0005" x="1006" y="315" width="334" height="315" frameX="0" frameY="0" frameWidth="336" frameHeight="323"/>
+	<SubTexture name="Luigi Note Down0006" x="1006" y="315" width="334" height="315" frameX="0" frameY="0" frameWidth="336" frameHeight="323"/>
+	<SubTexture name="Luigi Note Down0007" x="1006" y="315" width="334" height="315" frameX="0" frameY="0" frameWidth="336" frameHeight="323"/>
+	<SubTexture name="Luigi Note Down0008" x="1006" y="315" width="334" height="315" frameX="0" frameY="0" frameWidth="336" frameHeight="323"/>
+	<SubTexture name="Luigi Note Down0009" x="1006" y="315" width="334" height="315" frameX="0" frameY="0" frameWidth="336" frameHeight="323"/>
+	<SubTexture name="Luigi Note Down0010" x="1006" y="315" width="334" height="315" frameX="0" frameY="0" frameWidth="336" frameHeight="323"/>
+	<SubTexture name="Luigi Note Down0011" x="1006" y="315" width="334" height="315" frameX="0" frameY="0" frameWidth="336" frameHeight="323"/>
+	<SubTexture name="Luigi Note Down0012" x="1006" y="315" width="334" height="315" frameX="0" frameY="0" frameWidth="336" frameHeight="323"/>
+	<SubTexture name="Luigi Note Down0013" x="1006" y="315" width="334" height="315" frameX="0" frameY="0" frameWidth="336" frameHeight="323"/>
+	<SubTexture name="Luigi Note Left0000" x="1340" y="315" width="323" height="315"/>
+	<SubTexture name="Luigi Note Left0001" x="1340" y="315" width="323" height="315"/>
+	<SubTexture name="Luigi Note Left0002" x="1663" y="315" width="323" height="315"/>
+	<SubTexture name="Luigi Note Left0003" x="0" y="638" width="323" height="315"/>
+	<SubTexture name="Luigi Note Left0004" x="323" y="638" width="323" height="315"/>
+	<SubTexture name="Luigi Note Left0005" x="323" y="638" width="323" height="315"/>
+	<SubTexture name="Luigi Note Left0006" x="646" y="638" width="323" height="315"/>
+	<SubTexture name="Luigi Note Left0007" x="646" y="638" width="323" height="315"/>
+	<SubTexture name="Luigi Note Left0008" x="969" y="638" width="323" height="315"/>
+	<SubTexture name="Luigi Note Left0009" x="969" y="638" width="323" height="315"/>
+	<SubTexture name="Luigi Note Left0010" x="969" y="638" width="323" height="315"/>
+	<SubTexture name="Luigi Note Left0011" x="969" y="638" width="323" height="315"/>
+	<SubTexture name="Luigi Note Left0012" x="969" y="638" width="323" height="315"/>
+	<SubTexture name="Luigi Note Left0013" x="969" y="638" width="323" height="315"/>
+	<SubTexture name="Luigi Note Mid0000" x="1292" y="638" width="323" height="324"/>
+	<SubTexture name="Luigi Note Mid0001" x="1292" y="638" width="323" height="324"/>
+	<SubTexture name="Luigi Note Mid0002" x="1615" y="638" width="323" height="315" frameX="0" frameY="0" frameWidth="323" frameHeight="324"/>
+	<SubTexture name="Luigi Note Mid0003" x="0" y="962" width="323" height="315" frameX="0" frameY="0" frameWidth="323" frameHeight="324"/>
+	<SubTexture name="Luigi Note Mid0004" x="0" y="962" width="323" height="315" frameX="0" frameY="0" frameWidth="323" frameHeight="324"/>
+	<SubTexture name="Luigi Note Mid0005" x="0" y="962" width="323" height="315" frameX="0" frameY="0" frameWidth="323" frameHeight="324"/>
+	<SubTexture name="Luigi Note Mid0006" x="0" y="962" width="323" height="315" frameX="0" frameY="0" frameWidth="323" frameHeight="324"/>
+	<SubTexture name="Luigi Note Mid0007" x="0" y="962" width="323" height="315" frameX="0" frameY="0" frameWidth="323" frameHeight="324"/>
+	<SubTexture name="Luigi Note Mid0008" x="0" y="962" width="323" height="315" frameX="0" frameY="0" frameWidth="323" frameHeight="324"/>
+	<SubTexture name="Luigi Note Mid0009" x="0" y="962" width="323" height="315" frameX="0" frameY="0" frameWidth="323" frameHeight="324"/>
+	<SubTexture name="Luigi Note Mid0010" x="0" y="962" width="323" height="315" frameX="0" frameY="0" frameWidth="323" frameHeight="324"/>
+	<SubTexture name="Luigi Note Mid0011" x="0" y="962" width="323" height="315" frameX="0" frameY="0" frameWidth="323" frameHeight="324"/>
+	<SubTexture name="Luigi Note Mid0012" x="0" y="962" width="323" height="315" frameX="0" frameY="0" frameWidth="323" frameHeight="324"/>
+	<SubTexture name="Luigi Note Mid0013" x="0" y="962" width="323" height="315" frameX="0" frameY="0" frameWidth="323" frameHeight="324"/>
+	<SubTexture name="Luigi Note Right0000" x="323" y="962" width="400" height="315"/>
+	<SubTexture name="Luigi Note Right0001" x="323" y="962" width="400" height="315"/>
+	<SubTexture name="Luigi Note Right0002" x="723" y="962" width="362" height="315" frameX="0" frameY="0" frameWidth="400" frameHeight="315"/>
+	<SubTexture name="Luigi Note Right0003" x="1085" y="962" width="355" height="315" frameX="0" frameY="0" frameWidth="400" frameHeight="315"/>
+	<SubTexture name="Luigi Note Right0004" x="1085" y="962" width="355" height="315" frameX="0" frameY="0" frameWidth="400" frameHeight="315"/>
+	<SubTexture name="Luigi Note Right0005" x="1085" y="962" width="355" height="315" frameX="0" frameY="0" frameWidth="400" frameHeight="315"/>
+	<SubTexture name="Luigi Note Right0006" x="1085" y="962" width="355" height="315" frameX="0" frameY="0" frameWidth="400" frameHeight="315"/>
+	<SubTexture name="Luigi Note Right0007" x="1085" y="962" width="355" height="315" frameX="0" frameY="0" frameWidth="400" frameHeight="315"/>
+	<SubTexture name="Luigi Note Right0008" x="1085" y="962" width="355" height="315" frameX="0" frameY="0" frameWidth="400" frameHeight="315"/>
+	<SubTexture name="Luigi Note Right0009" x="1085" y="962" width="355" height="315" frameX="0" frameY="0" frameWidth="400" frameHeight="315"/>
+	<SubTexture name="Luigi Note Right0010" x="1085" y="962" width="355" height="315" frameX="0" frameY="0" frameWidth="400" frameHeight="315"/>
+	<SubTexture name="Luigi Note Right0011" x="1085" y="962" width="355" height="315" frameX="0" frameY="0" frameWidth="400" frameHeight="315"/>
+	<SubTexture name="Luigi Note Right0012" x="1085" y="962" width="355" height="315" frameX="0" frameY="0" frameWidth="400" frameHeight="315"/>
+	<SubTexture name="Luigi Note Right0013" x="1085" y="962" width="355" height="315" frameX="0" frameY="0" frameWidth="400" frameHeight="315"/>
+	<SubTexture name="Luigi Note Up0000" x="1440" y="962" width="323" height="339"/>
+	<SubTexture name="Luigi Note Up0001" x="1440" y="962" width="323" height="339"/>
+	<SubTexture name="Luigi Note Up0002" x="0" y="1301" width="323" height="315" frameX="0" frameY="-24" frameWidth="323" frameHeight="339"/>
+	<SubTexture name="Luigi Note Up0003" x="323" y="1301" width="323" height="315" frameX="0" frameY="-24" frameWidth="323" frameHeight="339"/>
+	<SubTexture name="Luigi Note Up0004" x="323" y="1301" width="323" height="315" frameX="0" frameY="-24" frameWidth="323" frameHeight="339"/>
+	<SubTexture name="Luigi Note Up0005" x="646" y="1301" width="323" height="315" frameX="0" frameY="-24" frameWidth="323" frameHeight="339"/>
+	<SubTexture name="Luigi Note Up0006" x="646" y="1301" width="323" height="315" frameX="0" frameY="-24" frameWidth="323" frameHeight="339"/>
+	<SubTexture name="Luigi Note Up0007" x="969" y="1301" width="323" height="315" frameX="0" frameY="-24" frameWidth="323" frameHeight="339"/>
+	<SubTexture name="Luigi Note Up0008" x="969" y="1301" width="323" height="315" frameX="0" frameY="-24" frameWidth="323" frameHeight="339"/>
+	<SubTexture name="Luigi Note Up0009" x="969" y="1301" width="323" height="315" frameX="0" frameY="-24" frameWidth="323" frameHeight="339"/>
+	<SubTexture name="Luigi Note Up0010" x="969" y="1301" width="323" height="315" frameX="0" frameY="-24" frameWidth="323" frameHeight="339"/>
+	<SubTexture name="Luigi Note Up0011" x="969" y="1301" width="323" height="315" frameX="0" frameY="-24" frameWidth="323" frameHeight="339"/>
+	<SubTexture name="Luigi Note Up0012" x="969" y="1301" width="323" height="315" frameX="0" frameY="-24" frameWidth="323" frameHeight="339"/>
+	<SubTexture name="Luigi Note Up0013" x="969" y="1301" width="323" height="315" frameX="0" frameY="-24" frameWidth="323" frameHeight="339"/>
+</TextureAtlas>

@@ -1,0 +1,100 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "danceLeft",
+			"fps": 24,
+			"name": "Toad Dance Left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-18,
+				0
+			],
+			"anim": "danceRight",
+			"fps": 24,
+			"name": "Toad Dance Right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-30,
+				-55
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Toad Note Left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-19,
+				-120
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "Toad Note Down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-140,
+				60
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "Toad Note Up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-160,
+				-80
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Toad Note Right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-104,
+				57
+			],
+			"anim": "singMIDDLE",
+			"fps": 24,
+			"name": "Toad Note Mid",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/irregular-toad",
+	"position": [
+		35,
+		400
+	],
+	"healthicon": "toad",
+	"flip_x": true,
+	"healthbar_colors": [
+		255,
+		0,
+		51
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

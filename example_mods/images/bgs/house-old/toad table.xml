@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="toad table.png">
+	<!-- someone generated this using my java program?!? cool! -->
+	<!-- they probably animated this with opentoonz and ran the txt through -->
+	<!-- http://www.github.com/DillyzThe1 -->
+	<SubTexture name="toad left0000" x="0" y="0" width="524" height="257"/>
+	<SubTexture name="toad left0001" x="524" y="0" width="524" height="257"/>
+	<SubTexture name="toad left0002" x="1048" y="0" width="524" height="257"/>
+	<SubTexture name="toad right0000" x="0" y="257" width="524" height="257"/>
+	<SubTexture name="toad right0001" x="524" y="257" width="524" height="257"/>
+	<SubTexture name="toad right0002" x="1048" y="0" width="524" height="257"/>
+</TextureAtlas>
