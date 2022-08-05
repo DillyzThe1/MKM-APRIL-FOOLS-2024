@@ -151,7 +151,7 @@ class ChartingState extends MusicBeatState
 	var curRenderedNotes:FlxTypedGroup<Note>;
 	var curRenderedNoteType:FlxTypedGroup<FlxText>;
 
-	var nextRenderedSustains:FlxTypedGroup<FlxSprite>;
+	var nextRenderedSustains:FlxTypedGroup<SusSprite>;
 	var nextRenderedNotes:FlxTypedGroup<Note>;
 
 	var gridBG:FlxSprite;
@@ -205,6 +205,8 @@ class ChartingState extends MusicBeatState
 
 	var peeMyPantsOffset:Int = 175;
 
+	var eventIcon:FlxSprite;
+
 	override function create()
 	{
 		if (PlayState.SONG != null)
@@ -253,7 +255,7 @@ class ChartingState extends MusicBeatState
 		waveformSprite = new FlxSprite(GRID_SIZE, 0).makeGraphic(FlxG.width, FlxG.height, 0x00FFFFFF);
 		add(waveformSprite);
 
-		var eventIcon:FlxSprite = new FlxSprite(-GRID_SIZE - 5, -90).loadGraphic(Paths.image('eventArrow'));
+		eventIcon = new FlxSprite(-GRID_SIZE - 5, -90).loadGraphic(Paths.image('eventArrow'));
 		leftIcon = new HealthIcon('bf');
 		rightIcon = new HealthIcon('dad');
 		eventIcon.scrollFactor.set(1, 1);
@@ -275,7 +277,7 @@ class ChartingState extends MusicBeatState
 		curRenderedNotes = new FlxTypedGroup<Note>();
 		curRenderedNoteType = new FlxTypedGroup<FlxText>();
 
-		nextRenderedSustains = new FlxTypedGroup<FlxSprite>();
+		nextRenderedSustains = new FlxTypedGroup<SusSprite>();
 		nextRenderedNotes = new FlxTypedGroup<Note>();
 
 		if (curSec >= _song.notes.length)
@@ -315,7 +317,7 @@ class ChartingState extends MusicBeatState
 		add(quant);
 
 		strumLineNotes = new FlxTypedGroup<StrumNote>();
-		for (i in 0...getKeyCount())
+		for (i in 0...getKeyCount() * 2)
 		{
 			var note:StrumNote = new StrumNote(GRID_SIZE * (i + 1), strumLine.y, i % getKeyCount(), 0);
 			note.setGraphicSize(GRID_SIZE, GRID_SIZE);
@@ -399,6 +401,8 @@ class ChartingState extends MusicBeatState
 
 		updateGrid();
 		super.create();
+
+		reloadGridLayer();
 	}
 
 	var check_mute_inst:FlxUICheckBox = null;
@@ -2226,7 +2230,30 @@ class ChartingState extends MusicBeatState
 			if (i.parentNote.noteData == -1)
 				i.x = gridBG.x;
 			else if (strumLineNotes.members[ind] != null)
-				i.x = strumLineNotes.members[ind].x + strumLineNotes.members[ind].x / 2 - i.width / 2;
+				i.x = strumLineNotes.members[ind].x + strumLineNotes.members[ind].width / 2 - i.width / 2;
+		}
+
+		for (i in nextRenderedNotes)
+		{
+			var ind = i.noteData % (getKeyCount() * 2);
+			if (i.noteData != -1 && i.mustPress != _song.notes[curSec].mustHitSection)
+				ind += getKeyCount();
+
+			if (i.noteData == -1)
+				i.x = gridBG.x;
+			if (strumLineNotes.members[ind] != null)
+				i.x = strumLineNotes.members[ind].x;
+		}
+		for (i in nextRenderedSustains)
+		{
+			var ind = i.parentNote.noteData % (getKeyCount() * 2);
+			if (i.parentNote.noteData != -1 && i.parentNote.mustPress != _song.notes[curSec].mustHitSection)
+				ind += getKeyCount();
+
+			if (i.parentNote.noteData == -1)
+				i.x = gridBG.x;
+			else if (strumLineNotes.members[ind] != null)
+				i.x = strumLineNotes.members[ind].x + strumLineNotes.members[ind].width / 2 - i.width / 2;
 		}
 	}
 
@@ -2307,6 +2334,10 @@ class ChartingState extends MusicBeatState
 		}
 		#end
 
+		eventIcon.setPosition(-GRID_SIZE - 5 + realOFfset, -90);
+		leftIcon.setPosition(((GRID_SIZE * (getKeyCount() / 2)) + realOFfset - GRID_SIZE) + (GRID_SIZE / 2 - 45 / 2), -100);
+		rightIcon.setPosition(((GRID_SIZE * (getKeyCount() + (getKeyCount() / 2))) + realOFfset - GRID_SIZE) + (GRID_SIZE / 2 - 45 / 2), -100);
+
 		var leHeight:Int = Std.int(gridBG.height);
 		var foundNextSec:Bool = false;
 		if (sectionStartTime(1) <= FlxG.sound.music.length)
@@ -2317,6 +2348,7 @@ class ChartingState extends MusicBeatState
 		}
 		else
 			nextGridBG = new FlxSprite().makeGraphic(1, 1, FlxColor.TRANSPARENT);
+		nextGridBG.x = gridBG.x;
 		nextGridBG.y = gridBG.height;
 
 		gridLayer.add(nextGridBG);
@@ -2324,7 +2356,7 @@ class ChartingState extends MusicBeatState
 
 		if (foundNextSec)
 		{
-			var gridBlack:FlxSprite = new FlxSprite(0, gridBG.height).makeGraphic(gridRealWidth, Std.int(nextGridBG.height), FlxColor.BLACK);
+			var gridBlack:FlxSprite = new FlxSprite(gridBG.x, gridBG.height).makeGraphic(gridRealWidth, Std.int(nextGridBG.height), FlxColor.BLACK);
 			gridBlack.alpha = 0.4;
 			gridLayer.add(gridBlack);
 		}
@@ -2347,13 +2379,13 @@ class ChartingState extends MusicBeatState
 		remove(strumLine);
 		if (strumLine != null)
 			strumLine.destroy();
-		strumLine = new FlxSprite(0, 50).makeGraphic(gridRealWidth, 4);
+		strumLine = new FlxSprite(realOFfset, 50).makeGraphic(gridRealWidth, 4);
 		if (quant != null)
 		{
 			quant.sprTracker = strumLine;
-			quant.x = gridBG.x;
-			if (quant.x < 0 + quant.width)
-				quant.x = quant.width;
+			quant.x = gridBG.x + realOFfset;
+			if (quant.x < 0)
+				quant.x = 0;
 		}
 		add(strumLine);
 
