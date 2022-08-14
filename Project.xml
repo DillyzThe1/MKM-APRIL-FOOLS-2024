@@ -163,7 +163,8 @@
 	<haxedef name="HXCPP_CHECK_POINTER" if="CRASH_HANDLER" />
 	<haxedef name="HXCPP_STACK_LINE" if="CRASH_HANDLER" />
 
-	<!--haxeflag name="-dce full" /-->
+	<haxeflag name="-dce full" />
+	<macro keep="flixel.FlxCamera" />
 	<haxeflag name="--no-traces" if="release"/>
 	<!-- _________________________________ Custom _______________________________ -->
 
