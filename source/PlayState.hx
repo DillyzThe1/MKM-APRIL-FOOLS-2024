@@ -1122,6 +1122,8 @@ class PlayState extends MusicBeatState
 
 		FlxG.camera.setFilters(camGameFilters);
 		FlxG.camera.filtersEnabled = true;
+
+		camGame.angle = camHUD.angle = 0;
 	}
 
 	function set_songSpeed(value:Float):Float
