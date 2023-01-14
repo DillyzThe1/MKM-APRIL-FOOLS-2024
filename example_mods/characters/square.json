@@ -1,0 +1,89 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": false,
+			"name": "Square Idle Dance"
+		},
+		{
+			"offsets": [
+				77,
+				-9
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "Square Note Sing Left"
+		},
+		{
+			"offsets": [
+				11,
+				-74
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "Square Note Sing Down"
+		},
+		{
+			"offsets": [
+				10,
+				50
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "Square Note Sing Up"
+		},
+		{
+			"offsets": [
+				-21,
+				8
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "Square Note Sing Right"
+		},
+		{
+			"offsets": [
+				0,
+				-30
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "hey",
+			"loop": false,
+			"name": "Square Hey"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/square",
+	"position": [
+		10,
+		470
+	],
+	"healthicon": "square",
+	"flip_x": false,
+	"healthbar_colors": [
+		39,
+		28,
+		65
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}
