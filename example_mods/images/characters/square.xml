@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="square.png">
+	<!-- Created with Adobe Animate version 22.0.8.217 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Square Hey0000" x="0" y="1158" width="406" height="233" frameX="0" frameY="0" frameWidth="427" frameHeight="233"/>
+	<SubTexture name="Square Hey0001" x="0" y="1158" width="406" height="233" frameX="0" frameY="0" frameWidth="427" frameHeight="233"/>
+	<SubTexture name="Square Hey0002" x="763" y="609" width="421" height="232" frameX="-6" frameY="0" frameWidth="427" frameHeight="233"/>
+	<SubTexture name="Square Hey0003" x="763" y="609" width="421" height="232" frameX="-6" frameY="0" frameWidth="427" frameHeight="233"/>
+	<SubTexture name="Square Hey0004" x="768" y="845" width="416" height="232" frameX="-4" frameY="0" frameWidth="427" frameHeight="233"/>
+	<SubTexture name="Square Hey0005" x="768" y="845" width="416" height="232" frameX="-4" frameY="0" frameWidth="427" frameHeight="233"/>
+	<SubTexture name="Square Hey0006" x="768" y="845" width="416" height="232" frameX="-4" frameY="0" frameWidth="427" frameHeight="233"/>
+	<SubTexture name="Square Hey0007" x="768" y="845" width="416" height="232" frameX="-4" frameY="0" frameWidth="427" frameHeight="233"/>
+	<SubTexture name="Square Hey0008" x="768" y="845" width="416" height="232" frameX="-4" frameY="0" frameWidth="427" frameHeight="233"/>
+	<SubTexture name="Square Hey0009" x="768" y="845" width="416" height="232" frameX="-4" frameY="0" frameWidth="427" frameHeight="233"/>
+	<SubTexture name="Square Hey0010" x="768" y="845" width="416" height="232" frameX="-4" frameY="0" frameWidth="427" frameHeight="233"/>
+	<SubTexture name="Square Hey0011" x="768" y="845" width="416" height="232" frameX="-4" frameY="0" frameWidth="427" frameHeight="233"/>
+	<SubTexture name="Square Hey0012" x="768" y="845" width="416" height="232" frameX="-4" frameY="0" frameWidth="427" frameHeight="233"/>
+	<SubTexture name="Square Hey0013" x="768" y="845" width="416" height="232" frameX="-4" frameY="0" frameWidth="427" frameHeight="233"/>
+	<SubTexture name="Square Hey0014" x="768" y="845" width="416" height="232" frameX="-4" frameY="0" frameWidth="427" frameHeight="233"/>
+	<SubTexture name="Square Idle Dance0000" x="1541" y="1158" width="383" height="241" frameX="-2" frameY="-15" frameWidth="391" frameHeight="256"/>
+	<SubTexture name="Square Idle Dance0001" x="1541" y="1158" width="383" height="241" frameX="-2" frameY="-15" frameWidth="391" frameHeight="256"/>
+	<SubTexture name="Square Idle Dance0002" x="768" y="1081" width="387" height="247" frameX="-4" frameY="-9" frameWidth="391" frameHeight="256"/>
+	<SubTexture name="Square Idle Dance0003" x="768" y="1081" width="387" height="247" frameX="-4" frameY="-9" frameWidth="391" frameHeight="256"/>
+	<SubTexture name="Square Idle Dance0004" x="1159" y="1081" width="378" height="251" frameX="-4" frameY="-5" frameWidth="391" frameHeight="256"/>
+	<SubTexture name="Square Idle Dance0005" x="1159" y="1081" width="378" height="251" frameX="-4" frameY="-5" frameWidth="391" frameHeight="256"/>
+	<SubTexture name="Square Idle Dance0006" x="0" y="640" width="382" height="254" frameX="0" frameY="-2" frameWidth="391" frameHeight="256"/>
+	<SubTexture name="Square Idle Dance0007" x="0" y="640" width="382" height="254" frameX="0" frameY="-2" frameWidth="391" frameHeight="256"/>
+	<SubTexture name="Square Idle Dance0008" x="386" y="845" width="378" height="256" frameX="0" frameY="0" frameWidth="391" frameHeight="256"/>
+	<SubTexture name="Square Idle Dance0009" x="386" y="845" width="378" height="256" frameX="0" frameY="0" frameWidth="391" frameHeight="256"/>
+	<SubTexture name="Square Idle Dance0010" x="0" y="898" width="377" height="256" frameX="0" frameY="0" frameWidth="391" frameHeight="256"/>
+	<SubTexture name="Square Idle Dance0011" x="0" y="898" width="377" height="256" frameX="0" frameY="0" frameWidth="391" frameHeight="256"/>
+	<SubTexture name="Square Idle Dance0012" x="1550" y="898" width="376" height="256" frameX="0" frameY="0" frameWidth="391" frameHeight="256"/>
+	<SubTexture name="Square Idle Dance0013" x="1550" y="898" width="376" height="256" frameX="0" frameY="0" frameWidth="391" frameHeight="256"/>
+	<SubTexture name="Square Idle Dance0014" x="1550" y="898" width="376" height="256" frameX="0" frameY="0" frameWidth="391" frameHeight="256"/>
+	<SubTexture name="Square Note Sing Alt Up0000" x="0" y="0" width="387" height="363" frameX="-2" frameY="0" frameWidth="389" frameHeight="363"/>
+	<SubTexture name="Square Note Sing Alt Up0001" x="0" y="0" width="387" height="363" frameX="-2" frameY="0" frameWidth="389" frameHeight="363"/>
+	<SubTexture name="Square Note Sing Alt Up0002" x="391" y="0" width="369" height="341" frameX="0" frameY="-22" frameWidth="389" frameHeight="363"/>
+	<SubTexture name="Square Note Sing Alt Up0003" x="391" y="0" width="369" height="341" frameX="0" frameY="-22" frameWidth="389" frameHeight="363"/>
+	<SubTexture name="Square Note Sing Alt Up0004" x="764" y="0" width="366" height="338" frameX="0" frameY="-25" frameWidth="389" frameHeight="363"/>
+	<SubTexture name="Square Note Sing Alt Up0005" x="764" y="0" width="366" height="338" frameX="0" frameY="-25" frameWidth="389" frameHeight="363"/>
+	<SubTexture name="Square Note Sing Alt Up0006" x="1134" y="0" width="366" height="338" frameX="0" frameY="-25" frameWidth="389" frameHeight="363"/>
+	<SubTexture name="Square Note Sing Alt Up0007" x="1134" y="0" width="366" height="338" frameX="0" frameY="-25" frameWidth="389" frameHeight="363"/>
+	<SubTexture name="Square Note Sing Alt Up0008" x="1504" y="0" width="362" height="334" frameX="0" frameY="-29" frameWidth="389" frameHeight="363"/>
+	<SubTexture name="Square Note Sing Alt Up0009" x="1504" y="0" width="362" height="334" frameX="0" frameY="-29" frameWidth="389" frameHeight="363"/>
+	<SubTexture name="Square Note Sing Alt Up0010" x="761" y="1332" width="346" height="245" frameX="0" frameY="-118" frameWidth="389" frameHeight="363"/>
+	<SubTexture name="Square Note Sing Alt Up0011" x="761" y="1332" width="346" height="245" frameX="0" frameY="-118" frameWidth="389" frameHeight="363"/>
+	<SubTexture name="Square Note Sing Alt Up0012" x="761" y="1332" width="346" height="245" frameX="0" frameY="-118" frameWidth="389" frameHeight="363"/>
+	<SubTexture name="Square Note Sing Alt Up0013" x="761" y="1332" width="346" height="245" frameX="0" frameY="-118" frameWidth="389" frameHeight="363"/>
+	<SubTexture name="Square Note Sing Alt Up0014" x="761" y="1332" width="346" height="245" frameX="0" frameY="-118" frameWidth="389" frameHeight="363"/>
+	<SubTexture name="Square Note Sing Down0000" x="1440" y="1403" width="363" height="180" frameX="0" frameY="-8" frameWidth="369" frameHeight="189"/>
+	<SubTexture name="Square Note Sing Down0001" x="1440" y="1403" width="363" height="180" frameX="0" frameY="-8" frameWidth="369" frameHeight="189"/>
+	<SubTexture name="Square Note Sing Down0002" x="0" y="1395" width="362" height="188" frameX="-6" frameY="-1" frameWidth="369" frameHeight="189"/>
+	<SubTexture name="Square Note Sing Down0003" x="0" y="1395" width="362" height="188" frameX="-6" frameY="-1" frameWidth="369" frameHeight="189"/>
+	<SubTexture name="Square Note Sing Down0004" x="386" y="641" width="363" height="189" frameX="-6" frameY="0" frameWidth="369" frameHeight="189"/>
+	<SubTexture name="Square Note Sing Down0005" x="386" y="641" width="363" height="189" frameX="-6" frameY="0" frameWidth="369" frameHeight="189"/>
+	<SubTexture name="Square Note Sing Down0006" x="386" y="641" width="363" height="189" frameX="-6" frameY="0" frameWidth="369" frameHeight="189"/>
+	<SubTexture name="Square Note Sing Down0007" x="386" y="641" width="363" height="189" frameX="-6" frameY="0" frameWidth="369" frameHeight="189"/>
+	<SubTexture name="Square Note Sing Down0008" x="386" y="641" width="363" height="189" frameX="-6" frameY="0" frameWidth="369" frameHeight="189"/>
+	<SubTexture name="Square Note Sing Down0009" x="386" y="641" width="363" height="189" frameX="-6" frameY="0" frameWidth="369" frameHeight="189"/>
+	<SubTexture name="Square Note Sing Down0010" x="386" y="641" width="363" height="189" frameX="-6" frameY="0" frameWidth="369" frameHeight="189"/>
+	<SubTexture name="Square Note Sing Down0011" x="386" y="641" width="363" height="189" frameX="-6" frameY="0" frameWidth="369" frameHeight="189"/>
+	<SubTexture name="Square Note Sing Down0012" x="386" y="641" width="363" height="189" frameX="-6" frameY="0" frameWidth="369" frameHeight="189"/>
+	<SubTexture name="Square Note Sing Down0013" x="386" y="641" width="363" height="189" frameX="-6" frameY="0" frameWidth="369" frameHeight="189"/>
+	<SubTexture name="Square Note Sing Down0014" x="386" y="641" width="363" height="189" frameX="-6" frameY="0" frameWidth="369" frameHeight="189"/>
+	<SubTexture name="Square Note Sing Left0000" x="410" y="1105" width="347" height="253" frameX="0" frameY="0" frameWidth="348" frameHeight="253"/>
+	<SubTexture name="Square Note Sing Left0001" x="410" y="1105" width="347" height="253" frameX="0" frameY="0" frameWidth="348" frameHeight="253"/>
+	<SubTexture name="Square Note Sing Left0002" x="1111" y="1336" width="325" height="252" frameX="-23" frameY="-1" frameWidth="348" frameHeight="253"/>
+	<SubTexture name="Square Note Sing Left0003" x="1111" y="1336" width="325" height="252" frameX="-23" frameY="-1" frameWidth="348" frameHeight="253"/>
+	<SubTexture name="Square Note Sing Left0004" x="410" y="1362" width="322" height="252" frameX="-26" frameY="-1" frameWidth="348" frameHeight="253"/>
+	<SubTexture name="Square Note Sing Left0005" x="410" y="1362" width="322" height="252" frameX="-26" frameY="-1" frameWidth="348" frameHeight="253"/>
+	<SubTexture name="Square Note Sing Left0006" x="410" y="1362" width="322" height="252" frameX="-26" frameY="-1" frameWidth="348" frameHeight="253"/>
+	<SubTexture name="Square Note Sing Left0007" x="410" y="1362" width="322" height="252" frameX="-26" frameY="-1" frameWidth="348" frameHeight="253"/>
+	<SubTexture name="Square Note Sing Left0008" x="410" y="1362" width="322" height="252" frameX="-26" frameY="-1" frameWidth="348" frameHeight="253"/>
+	<SubTexture name="Square Note Sing Left0009" x="410" y="1362" width="322" height="252" frameX="-26" frameY="-1" frameWidth="348" frameHeight="253"/>
+	<SubTexture name="Square Note Sing Left0010" x="410" y="1362" width="322" height="252" frameX="-26" frameY="-1" frameWidth="348" frameHeight="253"/>
+	<SubTexture name="Square Note Sing Left0011" x="410" y="1362" width="322" height="252" frameX="-26" frameY="-1" frameWidth="348" frameHeight="253"/>
+	<SubTexture name="Square Note Sing Left0012" x="410" y="1362" width="322" height="252" frameX="-26" frameY="-1" frameWidth="348" frameHeight="253"/>
+	<SubTexture name="Square Note Sing Left0013" x="410" y="1362" width="322" height="252" frameX="-26" frameY="-1" frameWidth="348" frameHeight="253"/>
+	<SubTexture name="Square Note Sing Left0014" x="410" y="1362" width="322" height="252" frameX="-26" frameY="-1" frameWidth="348" frameHeight="253"/>
+	<SubTexture name="Square Note Sing Right0000" x="0" y="367" width="407" height="269" frameX="-4" frameY="0" frameWidth="423" frameHeight="269"/>
+	<SubTexture name="Square Note Sing Right0001" x="0" y="367" width="407" height="269" frameX="-4" frameY="0" frameWidth="423" frameHeight="269"/>
+	<SubTexture name="Square Note Sing Right0002" x="1504" y="338" width="422" height="264" frameX="0" frameY="-5" frameWidth="423" frameHeight="269"/>
+	<SubTexture name="Square Note Sing Right0003" x="1504" y="338" width="422" height="264" frameX="0" frameY="-5" frameWidth="423" frameHeight="269"/>
+	<SubTexture name="Square Note Sing Right0004" x="764" y="342" width="423" height="263" frameX="0" frameY="-6" frameWidth="423" frameHeight="269"/>
+	<SubTexture name="Square Note Sing Right0005" x="764" y="342" width="423" height="263" frameX="0" frameY="-6" frameWidth="423" frameHeight="269"/>
+	<SubTexture name="Square Note Sing Right0006" x="764" y="342" width="423" height="263" frameX="0" frameY="-6" frameWidth="423" frameHeight="269"/>
+	<SubTexture name="Square Note Sing Right0007" x="764" y="342" width="423" height="263" frameX="0" frameY="-6" frameWidth="423" frameHeight="269"/>
+	<SubTexture name="Square Note Sing Right0008" x="764" y="342" width="423" height="263" frameX="0" frameY="-6" frameWidth="423" frameHeight="269"/>
+	<SubTexture name="Square Note Sing Right0009" x="764" y="342" width="423" height="263" frameX="0" frameY="-6" frameWidth="423" frameHeight="269"/>
+	<SubTexture name="Square Note Sing Right0010" x="764" y="342" width="423" height="263" frameX="0" frameY="-6" frameWidth="423" frameHeight="269"/>
+	<SubTexture name="Square Note Sing Right0011" x="764" y="342" width="423" height="263" frameX="0" frameY="-6" frameWidth="423" frameHeight="269"/>
+	<SubTexture name="Square Note Sing Right0012" x="764" y="342" width="423" height="263" frameX="0" frameY="-6" frameWidth="423" frameHeight="269"/>
+	<SubTexture name="Square Note Sing Right0013" x="764" y="342" width="423" height="263" frameX="0" frameY="-6" frameWidth="423" frameHeight="269"/>
+	<SubTexture name="Square Note Sing Right0014" x="764" y="342" width="423" height="263" frameX="0" frameY="-6" frameWidth="423" frameHeight="269"/>
+	<SubTexture name="Square Note Sing Up0000" x="1191" y="606" width="355" height="307" frameX="-2" frameY="0" frameWidth="357" frameHeight="307"/>
+	<SubTexture name="Square Note Sing Up0001" x="1191" y="606" width="355" height="307" frameX="-2" frameY="0" frameWidth="357" frameHeight="307"/>
+	<SubTexture name="Square Note Sing Up0002" x="411" y="345" width="348" height="292" frameX="0" frameY="-15" frameWidth="357" frameHeight="307"/>
+	<SubTexture name="Square Note Sing Up0003" x="411" y="345" width="348" height="292" frameX="0" frameY="-15" frameWidth="357" frameHeight="307"/>
+	<SubTexture name="Square Note Sing Up0004" x="1550" y="606" width="347" height="288" frameX="0" frameY="-19" frameWidth="357" frameHeight="307"/>
+	<SubTexture name="Square Note Sing Up0005" x="1550" y="606" width="347" height="288" frameX="0" frameY="-19" frameWidth="357" frameHeight="307"/>
+	<SubTexture name="Square Note Sing Up0006" x="1550" y="606" width="347" height="288" frameX="0" frameY="-19" frameWidth="357" frameHeight="307"/>
+	<SubTexture name="Square Note Sing Up0007" x="1550" y="606" width="347" height="288" frameX="0" frameY="-19" frameWidth="357" frameHeight="307"/>
+	<SubTexture name="Square Note Sing Up0008" x="1550" y="606" width="347" height="288" frameX="0" frameY="-19" frameWidth="357" frameHeight="307"/>
+	<SubTexture name="Square Note Sing Up0009" x="1550" y="606" width="347" height="288" frameX="0" frameY="-19" frameWidth="357" frameHeight="307"/>
+	<SubTexture name="Square Note Sing Up0010" x="1550" y="606" width="347" height="288" frameX="0" frameY="-19" frameWidth="357" frameHeight="307"/>
+	<SubTexture name="Square Note Sing Up0011" x="1550" y="606" width="347" height="288" frameX="0" frameY="-19" frameWidth="357" frameHeight="307"/>
+	<SubTexture name="Square Note Sing Up0012" x="1550" y="606" width="347" height="288" frameX="0" frameY="-19" frameWidth="357" frameHeight="307"/>
+	<SubTexture name="Square Note Sing Up0013" x="1550" y="606" width="347" height="288" frameX="0" frameY="-19" frameWidth="357" frameHeight="307"/>
+	<SubTexture name="Square Note Sing Up0014" x="1550" y="606" width="347" height="288" frameX="0" frameY="-19" frameWidth="357" frameHeight="307"/>
+</TextureAtlas>
