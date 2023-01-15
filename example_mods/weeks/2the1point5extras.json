@@ -3,18 +3,14 @@
 	"difficulties": "Hard",
 	"hideFreeplay": false,
 	"weekBackground": "toad-house",
+	"weekBefore": "0weekToad",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
-	"weekBefore": "0weekToad",
 	"startUnlocked": false,
-	"weekCharacters": [
-		"",
-		"",
-		""
-	],
+	"hideStoryMode": true,
 	"songs": [
 		[
 			"Normalized",
@@ -33,12 +29,27 @@
 			[
 				60,
 				60,
-				60			
+				60
 			],
 			false,
 			""
+		],
+		[
+			"Square",
+			"square",
+			[
+				40,
+				40,
+				60
+			],
+			false,
+			"square-start"
 		]
 	],
-	"hideStoryMode": true,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
 	"weekName": "The 1.5 Extra Songs"
 }
