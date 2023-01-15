@@ -14,7 +14,8 @@ local creditsMatch = {
 	{'extra screwed skill issue', 'Composed By DillyzThe1'},
 	{'welcom toad', 'Original Song By Novatos Team'},
 	{'welcom toad skill issue', 'Original Song By Novatos Team'},
-	{'academic failure', 'Composed by Zarzok'}
+	{'academic failure', 'Composed by Zarzok'},
+	{'square', 'Composed by DillyzThe1'}
 }
 
 function onCreatePost()
