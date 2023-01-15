@@ -55,9 +55,9 @@ class WeekData
 	{
 		var weekFile:WeekFile = {
 			songs: [
-				["Bopeebo", "dad", [146, 113, 253], false, 'bopeebo-start'],
-				["Fresh", "dad", [146, 113, 253], false, 'fresh-start'],
-				["Dad Battle", "dad", [146, 113, 253], false, 'dad-battle-start']
+				["Bopeebo", "dad", [146, 113, 253], false, 'bopeebo-start', 'null'],
+				["Fresh", "dad", [146, 113, 253], false, 'fresh-start', 'null'],
+				["Dad Battle", "dad", [146, 113, 253], false, 'dad-battle-start', 'null']
 			],
 			weekCharacters: ['dad', 'bf', 'gf'],
 			weekBackground: 'stage',

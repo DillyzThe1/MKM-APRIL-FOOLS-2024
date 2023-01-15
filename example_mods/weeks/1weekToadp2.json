@@ -20,7 +20,9 @@
 				50,
 				40
 			],
-			false
+			false,
+			"???-start",
+			"toad"
 		]
 	],
 	"weekCharacters": [
