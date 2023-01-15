@@ -230,7 +230,7 @@ class FreeplayState extends MusicBeatState
 		songs.push(new SongMetadata(songName, weekNum, songCharacter, color, hideStory, unlockKey));
 	}
 
-	function weekIsLocked(name:String):Bool
+	public static function weekIsLocked(name:String):Bool
 	{
 		var leWeek:WeekData = WeekData.weeksLoaded.get(name);
 		return (!leWeek.startUnlocked
@@ -612,6 +612,8 @@ class SongMetadata
 
 	public var hiddenFromStoryMode:Bool = false;
 	public var unlockerKey:String = '';
+
+	public var methlab:String = 'null';
 
 	public function new(song:String, week:Int, songCharacter:String, color:Int, hideFromStoryMode:Bool, unlockerKey:String)
 	{
