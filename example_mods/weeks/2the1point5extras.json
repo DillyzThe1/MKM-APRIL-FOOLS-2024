@@ -47,6 +47,18 @@
 			false,
 			"square-start",
 			"square"
+		],
+		[
+			"Academic Failure",
+			"gf",
+			[
+				160,
+				0,
+				70
+			],
+			false,
+			"academic-failure-start",
+			"little-brother"
 		]
 	],
 	"weekCharacters": [
