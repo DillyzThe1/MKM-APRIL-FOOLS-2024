@@ -8,7 +8,18 @@
 			],
 			"anim": "idle",
 			"fps": 24,
-			"name": "BF Idle Dance",
+			"name": "BF Idle Dance0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle-alt",
+			"fps": 24,
+			"name": "BF Idle Dance Alt0",
 			"indices": []
 		},
 		{
