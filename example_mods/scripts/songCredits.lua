@@ -4,7 +4,7 @@ local creditsMatch = {
 	{'tutorial', 'Composed By KawaiSprite'},
 	{'house', 'Composed By DillyzThe1'},
 	{'house skill issue', 'Composed By DillyzThe1'},
-	{'no shrooms', 'Composed By DillyzThe1, Remixed by DillyzThe1'},
+	{'no shrooms', 'Composed By DillyzThe1'},
 	{'no shrooms skill issue', 'Composed By DillyzThe1'},
 	{'chaotically stupid', 'Composed By That1LazerBoi & DillyzThe1'},
 	{'chaotically stupid skill issue', 'Composed By That1LazerBoi & DillyzThe1'},
@@ -13,7 +13,7 @@ local creditsMatch = {
 	{'extra screwed', 'Composed By DillyzThe1'},
 	{'extra screwed skill issue', 'Composed By DillyzThe1'},
 	{'welcom toad', 'Original Song By Novatos Team'},
-	{'welcom toad skill issue', 'Original Song By Novatos Team'},
+	{'welcom toad skill issue', 'Original Song By Novatos Team, Cover by DillyzThe1'},
 	{'academic failure', 'Composed by Zarzok'},
 	{'square', 'Composed by DillyzThe1'}
 }
