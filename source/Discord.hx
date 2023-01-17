@@ -87,7 +87,7 @@ class DiscordClient
 			state: state,
 			largeImageKey: largekey,
 			largeImageText: "v1.5.0 (DEV BUILD)",
-			smallImageKey: smallImageKey,
+			smallImageKey: '',
 			// Obtained times are in milliseconds so they are divided so Discord can use it
 			startTimestamp: Std.int(startTimestamp / 1000),
 			endTimestamp: Std.int(endTimestamp / 1000)
