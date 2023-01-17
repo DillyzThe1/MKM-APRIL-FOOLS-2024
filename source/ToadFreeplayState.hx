@@ -94,6 +94,8 @@ class ToadFreeplayState extends MusicBeatState
 			portrait.y = (FlxG.height / 2) - (portrait.height / 2) - 75;
 			portrait.x = (FlxG.width / 2 + (i * 600)) - (portrait.width / 2);
 
+			portrait.antialiasing = ClientPrefs.globalAntialiasing;
+
 			var songText:Alphabet = new Alphabet(0, portrait.y + portrait.height + 20, songIsUnlockedEmoji ? songs[i].songName : '???', true, false);
 			grpSongs.add(songText);
 
