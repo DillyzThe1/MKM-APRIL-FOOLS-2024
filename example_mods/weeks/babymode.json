@@ -1,0 +1,34 @@
+{
+	"storyName": "Baby Mode",
+	"difficulties": "Hard",
+	"hideFreeplay": false,
+	"weekBackground": "toad-house",
+	"weekBefore": "0weekToad",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": false,
+	"hideStoryMode": true,
+	"songs": [
+		[
+			"Jhonny",
+			"toad-baby",
+			[
+				255,
+				0,
+				51
+			],
+			false,
+			"",
+			"null"
+		]
+	],
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"weekName": "The Baby Mode Songs"
+}
