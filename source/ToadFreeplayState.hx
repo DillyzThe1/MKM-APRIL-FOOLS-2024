@@ -15,7 +15,7 @@ using StringTools;
 class ToadFreeplayState extends MusicBeatState
 {
 	var songs:Array<SongMetadata> = [];
-
+	var bgalt:FlxSprite;
 	var bg:FlxSprite;
 
 	var portraits:Array<FlxSprite> = [];
@@ -38,6 +38,12 @@ class ToadFreeplayState extends MusicBeatState
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 		bg.screenCenter();
+
+		bgalt = new FlxSprite().loadGraphic(Paths.image('menuDesat-Luigi'));
+		bgalt.antialiasing = ClientPrefs.globalAntialiasing;
+		add(bgalt);
+		bgalt.screenCenter();
+		bgalt.visible = false;
 
 		var songsToLoad:Int = 0;
 		for (i in 0...WeekData.weeksList.length)
@@ -195,6 +201,8 @@ class ToadFreeplayState extends MusicBeatState
 			grpSongs.members[i].x = (portraits[i].x + portraits[i].width / 2) + a;
 			iconArray[i].x = (portraits[i].x + portraits[i].width / 2) - (iconArray[i].width / 2);
 		}
+		bgalt.color = bg.color;
+		bgalt.visible = songs[curIndex].songName.toLowerCase() == "normalized";
 	}
 
 	var intendedScore:Int = 0;
