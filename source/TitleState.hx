@@ -244,10 +244,10 @@ class TitleState extends MusicBeatState
 			// music.play();
 
 			if (FlxG.sound.music == null || forceIntro)
-				FlxG.sound.playMusic(Paths.music('freakyMenu', 'preload'), 0);
+				FlxG.sound.playMusic(Paths.music(CoolUtil.babyMode() ? 'babyMenu' : 'freakyMenu', 'preload'), 0);
 		}
 
-		Conductor.changeBPM(titleJSON.bpm);
+		Conductor.changeBPM(CoolUtil.babyMode() ? 82 : titleJSON.bpm);
 		persistentUpdate = true;
 
 		var bg:FlxSprite = new FlxSprite();
@@ -292,8 +292,10 @@ class TitleState extends MusicBeatState
 				// EDIT THIS ONE IF YOU'RE MAKING A SOURCE CODE MOD!!!!
 				// EDIT THIS ONE IF YOU'RE MAKING A SOURCE CODE MOD!!!!
 				gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle');
-				gfDance.animation.addByIndices('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
-				gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+				gfDance.animation.addByIndices('danceLeft', CoolUtil.babyMode() ? 'gfDanceAlt' : 'gfDance',
+					[30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+				gfDance.animation.addByIndices('danceRight', CoolUtil.babyMode() ? 'gfDanceAlt' : 'gfDance',
+					[15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
 		}
 		gfDance.antialiasing = ClientPrefs.globalAntialiasing;
 
@@ -579,7 +581,8 @@ class TitleState extends MusicBeatState
 			{
 				case 1:
 					// FlxG.sound.music.stop();
-					FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+					FlxG.sound.playMusic(Paths.music(CoolUtil.babyMode() ? 'babyMenu' : 'freakyMenu'), 0);
+					Conductor.changeBPM(CoolUtil.babyMode() ? 82 : titleJSON.bpm);
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 				case 2:
 					#if PSYCH_WATERMARKS
@@ -694,7 +697,8 @@ class TitleState extends MusicBeatState
 						skippedIntro = true;
 						playJingle = false;
 
-						FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+						FlxG.sound.playMusic(Paths.music(CoolUtil.babyMode() ? 'babyMenu' : 'freakyMenu'), 0);
+						Conductor.changeBPM(CoolUtil.babyMode() ? 82 : titleJSON.bpm);
 						FlxG.sound.music.fadeIn(4, 0, 0.7);
 						return;
 				}
@@ -717,7 +721,8 @@ class TitleState extends MusicBeatState
 					FlxG.camera.flash(FlxColor.WHITE, 3);
 					sound.onComplete = function()
 					{
-						FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+						FlxG.sound.playMusic(Paths.music(CoolUtil.babyMode() ? 'babyMenu' : 'freakyMenu'), 0);
+						Conductor.changeBPM(CoolUtil.babyMode() ? 82 : titleJSON.bpm);
 						FlxG.sound.music.fadeIn(4, 0, 0.7);
 						transitioning = false;
 					};
@@ -737,7 +742,8 @@ class TitleState extends MusicBeatState
 
 				if (forceIntro)
 				{
-					FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+					FlxG.sound.playMusic(Paths.music(CoolUtil.babyMode() ? 'babyMenu' : 'freakyMenu'), 0);
+					Conductor.changeBPM(CoolUtil.babyMode() ? 82 : titleJSON.bpm);
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 				}
 			}
