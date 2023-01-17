@@ -1089,6 +1089,7 @@ class PlayState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence.
+		DiscordClient.updateLargeImage(false);
 		DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 		#end
 
@@ -1124,10 +1125,6 @@ class PlayState extends MusicBeatState
 		FlxG.camera.filtersEnabled = true;
 
 		camGame.angle = camHUD.angle = 0;
-
-		#if desktop
-		DiscordClient.updateLargeImage(false);
-		#end
 	}
 
 	function set_songSpeed(value:Float):Float
