@@ -91,10 +91,8 @@ class ToadFreeplayState extends MusicBeatState
 			portrait.y = (FlxG.height / 2) - (portrait.height / 2) - 75;
 			portrait.x = (FlxG.width / 2 + (i * 600)) - (portrait.width / 2);
 
-			var songText:Alphabet = new Alphabet(0, portrait.y + portrait.height + 35, songIsUnlockedEmoji ? songs[i].songName : '???', true, false);
+			var songText:Alphabet = new Alphabet(0, portrait.y + portrait.height + 20, songIsUnlockedEmoji ? songs[i].songName : '???', true, false);
 			grpSongs.add(songText);
-
-			songText.x -= songText.frameWidth / 2;
 
 			if (songText.width > 980)
 			{
@@ -111,7 +109,7 @@ class ToadFreeplayState extends MusicBeatState
 
 			Paths.currentModDirectory = songs[i].folder;
 			var icon:HealthIcon = new HealthIcon(songs[i].songCharacter);
-			icon.y = portrait.y + portrait.height + 65;
+			icon.y = portrait.y + portrait.height + 75;
 
 			if (!songIsUnlockedEmoji)
 				icon.color = FlxColor.BLACK;
@@ -181,7 +179,10 @@ class ToadFreeplayState extends MusicBeatState
 		for (i in 0...songs.length)
 		{
 			portraits[i].x = FlxMath.lerp((FlxG.width / 2 + ((i - curIndex) * 600)) - (portraits[i].width / 2), portraits[i].x, e * 114);
-			grpSongs.members[i].x = (portraits[i].x - portraits[i].width / 2); // - (grpSongs.members[i].width / 2);
+			var a:Float = 0;
+			for (o in 0...grpSongs.members[i].lettersArray.length)
+				a += grpSongs.members[i].lettersArray[o].width * -0.5 * grpSongs.members[i].textSize * grpSongs.members[i].lettersArray[o].scale.x;
+			grpSongs.members[i].x = (portraits[i].x + portraits[i].width / 2) + a;
 			iconArray[i].x = (portraits[i].x + portraits[i].width / 2) - (iconArray[i].width / 2);
 		}
 	}
@@ -225,7 +226,10 @@ class ToadFreeplayState extends MusicBeatState
 		#end
 
 		for (i in 0...iconArray.length)
-			portraits[i].alpha = iconArray[i].alpha = grpSongs.members[i].alpha = (curIndex == i ? 1 : 0.6);
+		{
+			portraits[i].alpha = iconArray[i].alpha = (curIndex == i ? 1 : 0.6);
+			grpSongs.members[i].alpha = (curIndex == i ? 1 : 0.1);
+		}
 
 		Paths.currentModDirectory = songs[curIndex].folder;
 		PlayState.storyWeek = songs[curIndex].week;
