@@ -23,6 +23,18 @@
 			false,
 			"",
 			"null"
+		],
+		[
+			"Cupcake",
+			"cupcake",
+			[
+				125,
+				125,
+				125
+			],
+			false,
+			"edp445",
+			"null"
 		]
 	],
 	"weekCharacters": [

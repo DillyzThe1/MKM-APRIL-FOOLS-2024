@@ -80,13 +80,11 @@ class DiscordClient
 			endTimestamp = startTimestamp + endTimestamp;
 		}
 
-		DiscordRpc.presence({details: details,
+		DiscordRpc.presence({
+			details: details,
 			state: state,
 			largeImageKey: 'icon',
-			largeImageText: "Psych Engine: "
-			+ MainMenuState.psychEngineVersion
-			+ " + Dillyz Extensions "
-			+ MainMenuState.dillyzExtensionsVersion,
+			largeImageText: "v1.5.0 (DEV BUILD)",
 			smallImageKey: smallImageKey,
 			// Obtained times are in milliseconds so they are divided so Discord can use it
 			startTimestamp: Std.int(startTimestamp / 1000),
