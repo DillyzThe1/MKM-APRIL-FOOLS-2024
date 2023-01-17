@@ -65,7 +65,7 @@ class FreeplayState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.inMenus();
 		#end
 
 		for (i in 0...WeekData.weeksList.length)
@@ -612,8 +612,6 @@ class SongMetadata
 
 	public var hiddenFromStoryMode:Bool = false;
 	public var unlockerKey:String = '';
-
-	public var methlab:String = 'null';
 
 	public function new(song:String, week:Int, songCharacter:String, color:Int, hideFromStoryMode:Bool, unlockerKey:String)
 	{

@@ -71,6 +71,8 @@ class DiscordClient
 		isInitialized = true;
 	}
 
+	private static var largekey:String = 'icon';
+
 	public static function changePresence(details:String, state:Null<String>, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float)
 	{
 		var startTimestamp:Float = if (hasStartTimestamp) Date.now().getTime() else 0;
@@ -83,7 +85,7 @@ class DiscordClient
 		DiscordRpc.presence({
 			details: details,
 			state: state,
-			largeImageKey: 'icon',
+			largeImageKey: largekey,
 			largeImageText: "v1.5.0 (DEV BUILD)",
 			smallImageKey: smallImageKey,
 			// Obtained times are in milliseconds so they are divided so Discord can use it
@@ -92,6 +94,27 @@ class DiscordClient
 		});
 
 		// trace('Discord RPC Updated. Arguments: $details, $state, $smallImageKey, $hasStartTimestamp, $endTimestamp');
+	}
+
+	public static function inMenus()
+	{
+		updateLargeImage(true);
+		DiscordClient.changePresence("In the Menus", null);
+	}
+
+	public static function updateLargeImage(?forceIcon:Bool = false)
+	{
+		if (forceIcon || PlayState.instance == null || PlayState.SONG == null || PlayState.SONG.song == null || PlayState.SONG.song == ""
+			|| PlayState.instance.endingSong)
+		{
+			largekey = 'icon';
+			trace(largekey);
+			return;
+		}
+		largekey = PlayState.SONG.song.toLowerCase().replace(" ", "-");
+		if (largekey == "top-10-great-amazing-super-duper-wonderful-outstanding-saster-level-music-that-ever-has-been-heard")
+			largekey = "t10gasdwoslmtehbh";
+		trace(largekey);
 	}
 
 	#if LUA_ALLOWED

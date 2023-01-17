@@ -21,8 +21,7 @@
 				51
 			],
 			false,
-			"normalized-start",
-			"luigi"
+			"normalized-start"
 		],
 		[
 			"Top 10 Great Amazing Super Duper Wonderful Outstanding Saster Level Music That Ever Has Been Heard",
@@ -33,8 +32,7 @@
 				60
 			],
 			false,
-			"",
-			"top10"
+			""
 		],
 		[
 			"Square",
@@ -45,8 +43,7 @@
 				60
 			],
 			false,
-			"square-start",
-			"square"
+			"square-start"
 		],
 		[
 			"Academic Failure",
@@ -57,8 +54,7 @@
 				70
 			],
 			false,
-			"academic-failure-start",
-			"little-brother"
+			"academic-failure-start"
 		]
 	],
 	"weekCharacters": [

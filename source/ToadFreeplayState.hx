@@ -39,10 +39,6 @@ class ToadFreeplayState extends MusicBeatState
 		add(bg);
 		bg.screenCenter();
 
-		#if desktop
-		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
-		#end
 		var songsToLoad:Int = 0;
 		for (i in 0...WeekData.weeksList.length)
 			for (o in 0...WeekData.weeksLoaded.get(WeekData.weeksList[i]).songs.length)
@@ -70,7 +66,7 @@ class ToadFreeplayState extends MusicBeatState
 					colors = [146, 113, 253];
 				}
 				addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]), song.length >= 4 ? song[3] : false,
-					song.length >= 5 ? song[4] : '${song[0].toLowerCase().replace(' ', '-')}-start').methlab = (song.length >= 6 ? song[5] : 'null');
+					song.length >= 5 ? song[4] : '${song[0].toLowerCase().replace(' ', '-')}-start');
 			}
 		}
 		WeekData.loadTheFirstEnabledMod();
@@ -83,7 +79,14 @@ class ToadFreeplayState extends MusicBeatState
 			var songIsUnlockedEmoji:Bool = ClientPrefs.getKeyUnlocked(songs[i].unlockerKey)
 				&& !FreeplayState.weekIsLocked(WeekData.weeksList[songs[i].week]);
 
-			var gwagwa = 'portraits/${songIsUnlockedEmoji ? songs[i].methlab : 'null'}';
+			var fixedsongname:String = songs[i].songName.toLowerCase().replace(" ", "-");
+
+			trace(fixedsongname);
+
+			if (fixedsongname == "top-10-great-amazing-super-duper-wonderful-outstanding-saster-level-music-that-ever-has-been-heard")
+				fixedsongname = "t10gasdwoslmtehbh";
+
+			var gwagwa = 'portraits/${songIsUnlockedEmoji ? fixedsongname : 'null'}';
 			trace(gwagwa);
 			var portrait:FlxSprite = new FlxSprite().loadGraphic(Paths.image(gwagwa, 'shared'));
 			add(portrait);
@@ -125,6 +128,11 @@ class ToadFreeplayState extends MusicBeatState
 		WeekData.setDirectoryFromWeek();
 
 		changeSelection(0, false);
+
+		#if desktop
+		// Updating Discord Rich Presence
+		DiscordClient.inMenus();
+		#end
 	}
 
 	override function update(e:Float)

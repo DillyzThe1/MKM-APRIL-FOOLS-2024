@@ -25,8 +25,7 @@
 				40
 			],
 			false,
-			"house-start",
-			"toad"
+			"house-start"
 		],
 		[
 			"No Shrooms",
@@ -37,8 +36,7 @@
 				40
 			],
 			false,
-			"no-shrooms-start",
-			"toad2"
+			"no-shrooms-start"
 		],
 		[
 			"Chaotically Stupid",
@@ -49,8 +47,7 @@
 				40
 			],
 			false,
-			"chaotically-stupid-start",
-			"toad3"
+			"chaotically-stupid-start"
 		],
 		[
 			"Bup",
@@ -61,8 +58,7 @@
 				173
 			],
 			true,
-			"bup-start",
-			"bup"
+			"bup-start"
 		]
 	],
 	"hideStoryMode": false,

@@ -1124,6 +1124,10 @@ class PlayState extends MusicBeatState
 		FlxG.camera.filtersEnabled = true;
 
 		camGame.angle = camHUD.angle = 0;
+
+		#if desktop
+		DiscordClient.updateLargeImage(false);
+		#end
 	}
 
 	function set_songSpeed(value:Float):Float
