@@ -159,6 +159,10 @@ class CoolUtil
 	{
 		FlxG.save.data.babymode = active;
 		TitleState.forceIntro = true;
+
+		if (active)
+			ClientPrefs.setKeyUnlocked("babymode", true);
+
 		// FlxG.sound.playMusic(Paths.music('freakyMenu', 'preload'));
 		// FlxG.sound.music.fadeIn(1.75, 0, 1);
 		LoadingState.loadAndSwitchState(new TitleState(), false);

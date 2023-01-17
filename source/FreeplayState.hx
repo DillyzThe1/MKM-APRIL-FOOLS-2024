@@ -625,4 +625,9 @@ class SongMetadata
 		this.hiddenFromStoryMode = hideFromStoryMode;
 		this.unlockerKey = unlockerKey;
 	}
+
+	public var portrait:FlxSprite;
+	public var text:Alphabet;
+	public var icon:HealthIcon;
+	public var loadedIn:Bool = true;
 }

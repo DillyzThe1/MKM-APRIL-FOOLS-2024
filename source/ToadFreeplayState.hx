@@ -85,6 +85,12 @@ class ToadFreeplayState extends MusicBeatState
 			var songIsUnlockedEmoji:Bool = ClientPrefs.getKeyUnlocked(songs[i].unlockerKey)
 				&& !FreeplayState.weekIsLocked(WeekData.weeksList[songs[i].week]);
 
+			if (!songIsUnlockedEmoji && songs[i].hiddenFromStoryMode)
+			{
+				songs[i].loadedIn = false;
+				continue;
+			}
+
 			var fixedsongname:String = songs[i].songName.toLowerCase().replace(" ", "-");
 
 			trace(fixedsongname);
@@ -132,6 +138,10 @@ class ToadFreeplayState extends MusicBeatState
 			// songText.x += 40;
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
 			// songText.screenCenter(X);
+
+			songs[i].portrait = portrait;
+			songs[i].text = songText;
+			songs[i].icon = icon;
 		}
 		WeekData.setDirectoryFromWeek();
 
@@ -192,14 +202,19 @@ class ToadFreeplayState extends MusicBeatState
 			}
 		}
 
+		var posind:Int = 0;
 		for (i in 0...songs.length)
 		{
-			portraits[i].x = FlxMath.lerp((FlxG.width / 2 + ((i - curIndex) * 600)) - (portraits[i].width / 2), portraits[i].x, e * 114);
+			if (!songs[i].loadedIn)
+				continue;
+			songs[i].portrait.x = FlxMath.lerp((FlxG.width / 2 + ((posind - curIndex) * 600)) - (songs[i].portrait.width / 2), songs[i].portrait.x, e * 114);
 			var a:Float = 0;
-			for (o in 0...grpSongs.members[i].lettersArray.length)
-				a += grpSongs.members[i].lettersArray[o].width * -0.5 * grpSongs.members[i].textSize * grpSongs.members[i].lettersArray[o].scale.x;
-			grpSongs.members[i].x = (portraits[i].x + portraits[i].width / 2) + a;
-			iconArray[i].x = (portraits[i].x + portraits[i].width / 2) - (iconArray[i].width / 2);
+			for (o in 0...songs[i].text.lettersArray.length)
+				a += songs[i].text.lettersArray[o].width * -0.5 * songs[i].text.textSize * songs[i].text.lettersArray[o].scale.x;
+			songs[i].text.x = (songs[i].portrait.x + songs[i].portrait.width / 2) + a;
+			songs[i].icon.x = (songs[i].portrait.x + songs[i].portrait.width / 2) - (songs[i].icon.width / 2);
+
+			posind++;
 		}
 		bgalt.color = bg.color;
 		bgalt.visible = songs[curIndex].songName.toLowerCase() == "normalized";
@@ -223,6 +238,12 @@ class ToadFreeplayState extends MusicBeatState
 			curIndex = songs.length - 1;
 		if (curIndex >= songs.length)
 			curIndex = 0;
+
+		if (!songs[curIndex].loadedIn)
+		{
+			changeSelection(change, false);
+			return;
+		}
 
 		var newColor:Int = songs[curIndex].color;
 		if (newColor != intendedColor)
