@@ -523,6 +523,7 @@ class PlayState extends MusicBeatState
 		bruhhhh = Note.noteManiaSettings[keyCount][6];
 		reloadNoteAnimsHeHeHeHa();
 		Note.reloadNoteStuffs();
+		PauseSubState.parentalControls_vals = [true, false, false, true];
 
 		keysArray = getKeys();
 
@@ -2163,6 +2164,13 @@ class PlayState extends MusicBeatState
 
 		super.update(elapsed);
 
+		if (PauseSubState.parentalControls_vals[1])
+		{
+			health += elapsed * 0.2;
+			if (health > 2)
+				health = 2;
+		}
+
 		setOnLuas('curDecStep', curDecStep);
 		setOnLuas('curDecBeat', curDecBeat);
 
@@ -2402,7 +2410,7 @@ class PlayState extends MusicBeatState
 					opponentNoteHit(daNote);
 				}
 
-				if (daNote.mustPress && cpuControlled)
+				if (PauseSubState.parentalControls_vals[0] && daNote.mustPress && cpuControlled)
 				{
 					if (daNote.isSustainNote)
 					{
@@ -2481,6 +2489,8 @@ class PlayState extends MusicBeatState
 			}
 		}
 		// #end
+
+		camHUD.visible = PauseSubState.parentalControls_vals[3];
 
 		setOnLuas('cameraX', camFollowPos.x);
 		setOnLuas('cameraY', camFollowPos.y);
@@ -3382,6 +3392,9 @@ class PlayState extends MusicBeatState
 
 	private function onKeyPress(event:KeyboardEvent):Void
 	{
+		if (!PauseSubState.parentalControls_vals[0])
+			return;
+
 		var eventKey:FlxKey = event.keyCode;
 		var key:Int = getKeyFromEvent(eventKey);
 		// trace('Pressed: ' + eventKey);
@@ -3913,6 +3926,9 @@ class PlayState extends MusicBeatState
 
 	function noteMissPress(direction:Int = 1):Void // You pressed a key when there was no notes to press for this key
 	{
+		if (!PauseSubState.parentalControls_vals[0])
+			return;
+
 		if (ClientPrefs.ghostTapping)
 			return; // fuck it
 
@@ -4026,6 +4042,9 @@ class PlayState extends MusicBeatState
 
 	function goodNoteHit(note:Note):Void
 	{
+		if (!PauseSubState.parentalControls_vals[0])
+			return;
+
 		if (!note.wasGoodHit)
 		{
 			if (cpuControlled && (note.ignoreNote || note.hitCausesMiss))
@@ -4362,6 +4381,8 @@ class PlayState extends MusicBeatState
 		}
 		else
 		{
+			if (!PauseSubState.parentalControls_vals[0])
+				return;
 			spr = playerStrums.members[id];
 		}
 

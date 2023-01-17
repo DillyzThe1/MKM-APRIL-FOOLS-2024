@@ -15,13 +15,19 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxStringUtil;
 
+using StringTools;
+
 class PauseSubState extends MusicBeatSubstate
 {
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
 	var menuItems:Array<String> = [];
 	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Exit to menu'];
-	var difficultyChoices = [];
+
+	public static var parentalControls_vals:Array<Bool> = [true, false, false, true];
+
+	var parentalControls:Array<String> = ['Input', 'Health Regen', 'Baby Mode', 'UI', 'Back'];
+	var difficultyChoices:Array<String> = [];
 	var curSelected:Int = 0;
 
 	var pauseMusic:FlxSound;
@@ -54,6 +60,9 @@ class PauseSubState extends MusicBeatSubstate
 			menuItemsOG.insert(5 + num, 'Toggle Botplay');
 		}
 		menuItems = menuItemsOG;
+
+		if (PlayState.SONG.song.toLowerCase().replace(" ", "-") == "house")
+			menuItemsOG.insert(2, 'Parental Controls');
 
 		for (i in 0...CoolUtil.difficulties.length)
 		{
@@ -218,6 +227,27 @@ class PauseSubState extends MusicBeatSubstate
 				regenMenu();
 			}
 
+			if (menuItems == parentalControls)
+			{
+				if (menuItems.length - 1 != curSelected && parentalControls.contains(daSelected))
+				{
+					// regenMenu();
+					FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+					parentalControls_vals[curSelected] = !parentalControls_vals[curSelected];
+					grpMenuShit.members[curSelected].changeText(menuItems[curSelected] + " - " + (parentalControls_vals[curSelected] ? "On" : "Off"));
+					return;
+				}
+
+				if (parentalControls_vals[2])
+				{
+					CoolUtil.toggleBabyMode(true);
+					return;
+				}
+
+				menuItems = menuItemsOG;
+				regenMenu();
+			}
+
 			switch (daSelected)
 			{
 				case "Resume":
@@ -226,6 +256,13 @@ class PauseSubState extends MusicBeatSubstate
 					menuItems = difficultyChoices;
 					deleteSkipTimeText();
 					regenMenu();
+				case 'Parental Controls':
+					menuItems = parentalControls;
+					deleteSkipTimeText();
+					regenMenu();
+
+					for (i in 0...(menuItems.length - 1))
+						grpMenuShit.members[i].changeText(menuItems[i] + " - " + (parentalControls_vals[i] ? "On" : "Off"));
 				case 'Toggle Practice Mode':
 					PlayState.instance.practiceMode = !PlayState.instance.practiceMode;
 					PlayState.changedDifficulty = true;

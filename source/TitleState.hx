@@ -216,9 +216,11 @@ class TitleState extends MusicBeatState
 	var titleText:FlxSprite;
 	var swagShader:ColorSwap = null;
 
+	public static var forceIntro:Bool = false;
+
 	function startIntro()
 	{
-		if (!initialized)
+		if (!initialized || forceIntro)
 		{
 			/*var diamond:FlxGraphic = FlxGraphic.fromClass(GraphicTransTileDiamond);
 				diamond.persist = true;
@@ -241,10 +243,8 @@ class TitleState extends MusicBeatState
 			// FlxG.sound.list.add(music);
 			// music.play();
 
-			if (FlxG.sound.music == null)
-			{
-				FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
-			}
+			if (FlxG.sound.music == null || forceIntro)
+				FlxG.sound.playMusic(Paths.music('freakyMenu', 'preload'), 0);
 		}
 
 		Conductor.changeBPM(titleJSON.bpm);
@@ -381,10 +381,15 @@ class TitleState extends MusicBeatState
 
 		FlxTween.tween(credTextShit, {y: credTextShit.y + 20}, 2.9, {ease: FlxEase.quadInOut, type: PINGPONG});
 
-		if (initialized)
+		if (initialized && !forceIntro)
 			skipIntro();
 		else
 			initialized = true;
+
+		if (forceIntro)
+			closedState = false;
+
+		forceIntro = false;
 
 		// credGroup.add(credTextShit);
 	}
@@ -451,7 +456,7 @@ class TitleState extends MusicBeatState
 
 		// EASTER EGG
 
-		if (initialized && !transitioning && skippedIntro)
+		if (initialized && !transitioning && skippedIntro && !forceIntro)
 		{
 			if (newTitle && !pressedEnter)
 			{
@@ -495,7 +500,7 @@ class TitleState extends MusicBeatState
 			}
 		}
 
-		if (initialized && pressedEnter && !skippedIntro)
+		if (initialized && pressedEnter && !skippedIntro && !forceIntro)
 		{
 			skipIntro();
 		}
@@ -729,6 +734,12 @@ class TitleState extends MusicBeatState
 				if (easteregg == null)
 					easteregg = '';
 				easteregg = easteregg.toUpperCase();
+
+				if (forceIntro)
+				{
+					FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+					FlxG.sound.music.fadeIn(4, 0, 0.7);
+				}
 			}
 			skippedIntro = true;
 		}
