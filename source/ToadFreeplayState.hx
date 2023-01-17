@@ -91,10 +91,7 @@ class ToadFreeplayState extends MusicBeatState
 			portrait.y = (FlxG.height / 2) - (portrait.height / 2) - 75;
 			portrait.x = (FlxG.width / 2 + (i * 600)) - (portrait.width / 2);
 
-			var songText:Alphabet = new Alphabet((FlxG.width / 2 + (i * 600)), portrait.y + portrait.height + 35,
-				songIsUnlockedEmoji ? songs[i].songName : '???', true, false);
-			songText.isMenuItem = true;
-			songText.targetY = i;
+			var songText:Alphabet = new Alphabet(0, portrait.y + portrait.height + 35, songIsUnlockedEmoji ? songs[i].songName : '???', true, false);
 			grpSongs.add(songText);
 
 			songText.x -= songText.frameWidth / 2;
@@ -184,7 +181,7 @@ class ToadFreeplayState extends MusicBeatState
 		for (i in 0...songs.length)
 		{
 			portraits[i].x = FlxMath.lerp((FlxG.width / 2 + ((i - curIndex) * 600)) - (portraits[i].width / 2), portraits[i].x, e * 114);
-			grpSongs.members[i].x = (portraits[i].x - portraits[i].width / 2) - (grpSongs.members[i].width / 2);
+			grpSongs.members[i].x = (portraits[i].x - portraits[i].width / 2); // - (grpSongs.members[i].width / 2);
 			iconArray[i].x = (portraits[i].x + portraits[i].width / 2) - (iconArray[i].width / 2);
 		}
 	}
