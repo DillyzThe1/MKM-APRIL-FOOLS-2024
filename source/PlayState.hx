@@ -3080,6 +3080,18 @@ class PlayState extends MusicBeatState
 				return;
 			}
 
+			if (CoolUtil.babyMode() && SONG.song.toLowerCase() == "jhonny")
+			{
+				WeekData.loadTheFirstEnabledMod();
+				cancelMusicFadeTween();
+				if (FlxTransitionableState.skipNextTransIn)
+					CustomFadeTransition.nextCamera = null;
+				changedDifficulty = false;
+				transitioning = true;
+				CoolUtil.toggleBabyMode(false);
+				return;
+			}
+
 			if (isStoryMode)
 			{
 				campaignScore += songScore;
