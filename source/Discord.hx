@@ -73,6 +73,8 @@ class DiscordClient
 
 	private static var largekey:String = 'icon';
 
+	public static var lastDetails:String = "";
+
 	public static function changePresence(details:String, state:Null<String>, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float)
 	{
 		var startTimestamp:Float = if (hasStartTimestamp) Date.now().getTime() else 0;
@@ -82,6 +84,7 @@ class DiscordClient
 			endTimestamp = startTimestamp + endTimestamp;
 		}
 
+		lastDetails = details;
 		DiscordRpc.presence({
 			details: details,
 			state: state,

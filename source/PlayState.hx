@@ -9,6 +9,7 @@ import Section.SwagSection;
 import Song.SwagSong;
 import StageData;
 import animateatlas.AtlasFrameMaker;
+import discord_rpc.DiscordRpc;
 import editors.CharacterEditorState;
 import editors.ChartingState;
 import flixel.FlxBasic;
@@ -343,6 +344,7 @@ class PlayState extends MusicBeatState
 	var storyDifficultyText:String = "";
 	var detailsText:String = "";
 	var detailsPausedText:String = "";
+	var detailsCutsceneText:String = "";
 	#end
 
 	// Achievement shit
@@ -606,6 +608,7 @@ class PlayState extends MusicBeatState
 
 		// String for when the game is paused
 		detailsPausedText = "Paused - " + detailsText;
+		detailsCutsceneText = "In Cutscene - " + detailsText;
 		#end
 
 		GameOverSubstate.resetVariables();
@@ -1457,6 +1460,7 @@ class PlayState extends MusicBeatState
 				{
 					case 0:
 						FlxG.sound.play(Paths.sound('intro3' + introSoundsSuffix), 0.6);
+						DiscordClient.changePresence("3 - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 					case 1:
 						countdownReady = new FlxSprite().loadGraphic(Paths.image(introAlts[0]));
 						countdownReady.cameras = [camHUD];
@@ -1475,6 +1479,7 @@ class PlayState extends MusicBeatState
 							}
 						});
 						FlxG.sound.play(Paths.sound('intro2' + introSoundsSuffix), 0.6);
+						DiscordClient.changePresence("2 - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 					case 2:
 						countdownSet = new FlxSprite().loadGraphic(Paths.image(introAlts[1]));
 						countdownSet.cameras = [camHUD];
@@ -1492,6 +1497,7 @@ class PlayState extends MusicBeatState
 							}
 						});
 						FlxG.sound.play(Paths.sound('intro1' + introSoundsSuffix), 0.6);
+						DiscordClient.changePresence("1 - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 					case 3:
 						countdownGo = new FlxSprite().loadGraphic(Paths.image(introAlts[2]));
 						countdownGo.cameras = [camHUD];
@@ -1511,6 +1517,7 @@ class PlayState extends MusicBeatState
 							}
 						});
 						FlxG.sound.play(Paths.sound('introGo' + introSoundsSuffix), 0.6);
+						DiscordClient.changePresence("Go! - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 					case 4:
 						ClientPrefs.setKeyUnlocked('${SONG.song.toLowerCase().replace(' ', '-')}-start', true);
 				}
@@ -2473,23 +2480,35 @@ class PlayState extends MusicBeatState
 		}
 		checkEventNote();
 
-		// #if debug
+		#if debug
 		if (!endingSong && !startingSong)
 		{
 			if (FlxG.keys.justPressed.ONE)
 			{
 				KillNotes();
 				FlxG.sound.music.onComplete();
+				DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 			}
 			if (FlxG.keys.justPressed.TWO)
 			{ // Go 10 seconds into the future :O
 				setSongTime(Conductor.songPosition + 10000);
 				clearNotesBefore(Conductor.songPosition);
+
+				DiscordClient.changePresence(detailsText, SONG.song
+					+ " ("
+					+ storyDifficultyText
+					+ ")", iconP2.getCharacter(), true,
+					songLength
+					- Conductor.songPosition
+					- ClientPrefs.noteOffset);
 			}
 		}
-		// #end
+		#end
 
 		camHUD.visible = PauseSubState.parentalControls_vals[3];
+
+		if (inCutscene && DiscordClient.lastDetails != detailsCutsceneText)
+			DiscordClient.changePresence(detailsCutsceneText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 
 		setOnLuas('cameraX', camFollowPos.x);
 		setOnLuas('cameraY', camFollowPos.y);
