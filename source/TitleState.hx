@@ -192,9 +192,13 @@ class TitleState extends MusicBeatState
 				DiscordClient.initialize();
 				Application.current.onExit.add(function(exitCode)
 				{
+					DiscordClient.epicPrank = true;
+					DiscordClient.changePresence(null, null);
 					DiscordClient.shutdown();
 				});
 			}
+
+			DiscordClient.inMenus();
 			#end
 
 			if (initialized)

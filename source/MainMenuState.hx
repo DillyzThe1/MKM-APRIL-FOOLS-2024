@@ -359,6 +359,7 @@ class MainMenuState extends MusicBeatState
 											MusicBeatState.switchState(new MainMenuState());
 											return;
 										}
+										DiscordClient.changePresence("In the Menus", "top 10 albums ever1!!");
 									#end
 									case 'normalized':
 										PlayState.isStoryMode = false;

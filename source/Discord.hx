@@ -14,6 +14,7 @@ import llua.State;
 class DiscordClient
 {
 	public static var isInitialized:Bool = false;
+	public static var epicPrank:Bool = false;
 
 	public function new()
 	{
@@ -28,7 +29,10 @@ class DiscordClient
 
 		while (true)
 		{
-			DiscordRpc.process();
+			if (!epicPrank)
+				DiscordRpc.process();
+			else
+				break;
 			sleep(2);
 			// trace("Discord Client Update");
 		}
