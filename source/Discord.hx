@@ -37,7 +37,8 @@ class DiscordClient
 			// trace("Discord Client Update");
 		}
 
-		DiscordRpc.shutdown();
+		if (!epicPrank)
+			DiscordRpc.shutdown();
 	}
 
 	public static function shutdown()
@@ -93,7 +94,7 @@ class DiscordClient
 			details: details,
 			state: state,
 			largeImageKey: largekey,
-			largeImageText: "v1.5.0 (DEV BUILD)",
+			largeImageText: "v" + MainMenuState.mushroomKingdomMadnessVersion.trim() + " (DEV BUILD)",
 			smallImageKey: '',
 			// Obtained times are in milliseconds so they are divided so Discord can use it
 			startTimestamp: Std.int(startTimestamp / 1000),

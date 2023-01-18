@@ -150,7 +150,8 @@ class FunkinLua
 		set('ratingName', '');
 		set('ratingFC', '');
 		set('version', MainMenuState.psychEngineVersion.trim());
-		set('deVersions', MainMenuState.dillyzExtensionsVersion.trim());
+		set('deVersion', "0.1.0");
+		set('mkmVersion', MainMenuState.mushroomKingdomMadnessVersion.trim());
 
 		set('inGameOver', false);
 		set('mustHitSection', false);

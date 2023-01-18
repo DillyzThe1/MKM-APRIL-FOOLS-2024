@@ -78,7 +78,9 @@ class TitleState extends MusicBeatState
 
 	var titleJSON:TitleData;
 
+	public static var updateTracker:Int = 0;
 	public static var updateVersion:String = '';
+	public static var updateURL:String = "";
 
 	override public function create():Void
 	{
@@ -127,29 +129,35 @@ class TitleState extends MusicBeatState
 
 		ClientPrefs.loadPrefs();
 
-		/*#if CHECK_FOR_UPDATES
-			if(ClientPrefs.checkForUpdates && !closedState) {
-				trace('checking for update');
-				var http = new haxe.Http("https://raw.githubusercontent.com/ShadowMario/FNF-PsychEngine/main/gitVersion.txt");
+		#if CHECK_FOR_UPDATES
+		if (!closedState)
+		{
+			trace('checking for update');
+			var http = new haxe.Http("https://raw.githubusercontent.com/DillyzThe1/FNF-MKM/main/gitVersion.txt");
 
-				http.onData = function (data:String)
+			http.onData = function(data:String)
+			{
+				var datavalues:Array<String> = data.split('\n');
+				updateVersion = datavalues[0].trim();
+				updateTracker = Std.parseInt(datavalues[1].trim());
+				updateURL = datavalues[2].trim();
+				var curVersion:String = MainMenuState.mushroomKingdomMadnessVersion.trim();
+				trace('version online: ' + updateVersion + ', your version: ' + curVersion);
+				if (updateTracker != MainMenuState.mkm_RELEASE_TRACKER)
 				{
-					updateVersion = data.split('\n')[0].trim();
-					var curVersion:String = MainMenuState.psychEngineVersion.trim();
-					trace('version online: ' + updateVersion + ', your version: ' + curVersion);
-					if(updateVersion != curVersion) {
-						trace('versions arent matching!');
-						mustUpdate = true;
-					}
+					trace('versions arent matching!');
+					mustUpdate = true;
 				}
-
-				http.onError = function (error) {
-					trace('error: $error');
-				}
-
-				http.request();
 			}
-			#end */
+
+			http.onError = function(error)
+			{
+				trace('error: $error');
+			}
+
+			http.request();
+		}
+		#end
 
 		Highscore.load();
 
@@ -590,26 +598,14 @@ class TitleState extends MusicBeatState
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 				case 2:
 					#if PSYCH_WATERMARKS
-					createCoolText(['Psych Engine'], 15);
-					addMoreText('Dillyz Extensions', 15);
-					addMoreText('by', 15);
+					createCoolText(['DillyzThe1', 'That1LazerBoi', 'Zarzok', 'Impostor5875']);
 					#else
 					createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
 					#end
-				// credTextShit.visible = true;
 				case 4:
-					#if PSYCH_WATERMARKS
-					addMoreText('DillyzThe1', 30);
-					#else
 					addMoreText('present');
-					#end
-				// credTextShit.text += '\npresent...';
-				// credTextShit.addText();
 				case 5:
 					deleteCoolText();
-				// credTextShit.visible = false;
-				// credTextShit.text = 'In association \nwith';
-				// credTextShit.screenCenter();
 				case 6:
 					#if PSYCH_WATERMARKS
 					createCoolText(['Original engine by'], -40);
@@ -624,43 +620,22 @@ class TitleState extends MusicBeatState
 					#else
 					ngSpr.visible = true;
 					#end
-				// credTextShit.text += '\nNewgrounds';
 				case 9:
 					deleteCoolText();
-				// ngSpr.visible = false;
-				// credTextShit.visible = false;
-
-				// credTextShit.text = 'Shoutouts Tom Fulp';
-				// credTextShit.screenCenter();
 				case 10:
 					createCoolText([curWacky[0]]);
-				// credTextShit.visible = true;
 				case 12:
 					addMoreText(curWacky[1]);
-				// credTextShit.text += '\nlmao';
 				case 13:
 					deleteCoolText();
-				// credTextShit.visible = false;
-				// credTextShit.text = "Friday";
-				// credTextShit.screenCenter();
 				case 14:
 					logoBl.screenCenter();
 					logoBl.animation.play('intro1', true);
-				// FlxTween.tween(logoBl.scale, {x: 1.025, y: 1.025}, Conductor.stepCrochet / 1000, {ease: FlxEase.cubeInOut});
-				// addMoreText('Friday');
-				// credTextShit.visible = true;
 				case 15:
 					logoBl.animation.play('intro2', true);
-				// FlxTween.tween(logoBl.scale, {x: 1.05, y: 1.05}, Conductor.stepCrochet / 1000, {ease: FlxEase.cubeInOut});
-				// addMoreText('Night');
-				// credTextShit.text += '\nNight';
 				case 16:
 					logoBl.animation.play('intro3', true);
-				// FlxTween.tween(logoBl.scale, {x: 1.075, y: 1.075}, Conductor.stepCrochet / 1000, {ease: FlxEase.cubeInOut});
-				// addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
-
 				case 17:
-					// FlxTween.tween(logoBl.scale, {x: 1, y: 1}, Conductor.stepCrochet / 1000, {ease: FlxEase.cubeInOut});
 					skipIntro();
 			}
 		}

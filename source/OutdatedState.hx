@@ -23,22 +23,34 @@ class OutdatedState extends MusicBeatState
 
 		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		add(bg);
-
-		warnText = new FlxText(0, 0, FlxG.width, "Sup bro, looks like you're running an   \n
-			outdated version of PE "
-			+ MainMenuState.psychEngineVersion
-			+ " + Dillyz Extensions ("
-			+ MainMenuState.dillyzExtensionsVersion
-			+ "),\n
-			please update to "
-			+ TitleState.updateVersion
-			+ "!\n
-			Press ESCAPE to proceed anyway.\n
-			\n
-			Thank you for using the Engine!", 32);
+		warnText = new FlxText(0, 0, FlxG.width, getStr(), 32);
 		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		warnText.screenCenter(Y);
 		add(warnText);
+	}
+
+	function getStr()
+	{
+		if (MainMenuState.mkm_RELEASE_TRACKER > TitleState.updateTracker)
+			return "Hey, looks like you're enjoying MKM!\nUnfortunately, this version (update v"
+				+ MainMenuState.mushroomKingdomMadnessVersion
+				+ ") is a leaked dev-build.\nPlease download the official v"
+				+ TitleState.updateVersion
+				+ " build instead!"
+				+ "\n(hit enter to download, hit escape to disappoint your father).\n
+			\n\nThank you for playing Mushroom Kingdom Madness!";
+
+		if (MainMenuState.mkm_RELEASE_TRACKER == TitleState.updateTracker)
+			return "Hey, looks like you're enjoying MKM!\nIt appears this message has appeared by mistake.\nPlease hit ESCAPE to ignore this!
+			\n\nThank you for playing Mushroom Kingdom Madness!";
+
+		return "Hey, looks like you're enjoying MKM!\nUnfortunately, this version (update v"
+			+ MainMenuState.mushroomKingdomMadnessVersion
+			+ ") is out of date.\nPlease update to v"
+			+ TitleState.updateVersion
+			+ "!"
+			+ "\n(hit enter to download, hit escape to whine about it).\n
+			\n\nThank you for playing Mushroom Kingdom Madness!";
 	}
 
 	override function update(elapsed:Float)
@@ -48,12 +60,10 @@ class OutdatedState extends MusicBeatState
 			if (controls.ACCEPT)
 			{
 				leftState = true;
-				CoolUtil.browserLoad("https://github.com/ShadowMario/FNF-PsychEngine/releases");
+				CoolUtil.browserLoad(TitleState.updateURL);
 			}
 			else if (controls.BACK)
-			{
 				leftState = true;
-			}
 
 			if (leftState)
 			{

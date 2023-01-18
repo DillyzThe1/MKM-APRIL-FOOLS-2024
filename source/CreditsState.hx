@@ -88,7 +88,7 @@ class CreditsState extends MusicBeatState
 			[
 				'DillyzThe1',
 				'dillyz',
-				'Programmer, Artist, Animator, Musician, etc.',
+				'Programmer, Artist, Animator, Musician, Voice Actor, etc.',
 				'https://github.com/DillyzThe1/',
 				'FF9933'
 			],
@@ -102,24 +102,16 @@ class CreditsState extends MusicBeatState
 			[
 				'Zarzok',
 				'zarzok',
-				'Feedback, Play Testing, & Strong Ideas.',
+				'Musician, Feedback, & Play Tester.',
 				'https://gamebanana.com/members/1862368/',
 				'FF99CC'
 			],
 			[
 				'Impostor',
 				'impostor',
-				'Feedback & Play Testing.',
+				'Musician, Feedback, & Play Tester.',
 				'https://gamebanana.com/members/1895937/',
 				'505050'
-			],
-			['Dillyz Extensions Dev'],
-			[
-				'DillyzThe1',
-				'dillyz',
-				'Made everything in PEDE that PE 0.6.2 doesn\'t have.',
-				'https://github.com/DillyzThe1/',
-				'FF9933'
 			],
 			[''],
 			['Psych Engine Team'],

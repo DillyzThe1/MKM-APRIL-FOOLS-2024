@@ -30,7 +30,8 @@ import vlc.MP4Handler;
 class MainMenuState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '0.6.2'; // This is also used for Discord RPC
-	public static var dillyzExtensionsVersion:String = '0.1.0'; // This is also used for Discord RPC
+	public static var mushroomKingdomMadnessVersion:String = '1.5.0';
+	public static var mkm_RELEASE_TRACKER:Int = 4;
 	public static var curSelected:Int = 0;
 	public static var selOnRight:Bool = false;
 
@@ -193,7 +194,7 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "Dillyz Extensions v" + MainMenuState.dillyzExtensionsVersion, 12);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "Mushroom Kingdom Madness v" + MainMenuState.mushroomKingdomMadnessVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
