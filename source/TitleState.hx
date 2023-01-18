@@ -578,7 +578,7 @@ class TitleState extends MusicBeatState
 				gfDance.animation.play('danceLeft');
 		}
 
-		if (!closedState)
+		if (!closedState && !skippedIntro)
 		{
 			sickBeats++;
 			switch (sickBeats)
