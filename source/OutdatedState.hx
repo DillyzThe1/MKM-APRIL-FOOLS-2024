@@ -68,6 +68,8 @@ class OutdatedState extends MusicBeatState
 			if (leftState)
 			{
 				FlxG.sound.play(Paths.sound('cancelMenu'));
+				if (MainMenuState.mkm_RELEASE_TRACKER > TitleState.updateTracker)
+					FlxG.sound.play(Paths.sound('leaked build'), 1.35, false).persist = true;
 				FlxTween.tween(warnText, {alpha: 0}, 1, {
 					onComplete: function(twn:FlxTween)
 					{
