@@ -1,0 +1,14 @@
+{
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:jungle": "2019-12-06 16:31:57 -0600",
+      "minecraft:birch_forest": "2019-12-06 16:34:01 -0600",
+      "minecraft:dark_forest": "2019-12-06 16:33:12 -0600",
+      "minecraft:river": "2019-12-06 16:32:17 -0600",
+      "minecraft:savanna": "2019-12-06 16:32:18 -0600",
+      "minecraft:plains": "2019-12-06 16:33:34 -0600"
+    },
+    "done": false
+  },
+  "DataVersion": 1976
+}
