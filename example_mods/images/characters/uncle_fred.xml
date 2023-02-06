@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="uncle_fred.png">
+	<!-- Created with Adobe Animate version 21.0.9.42677 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="fred dies0000" x="0" y="0" width="236" height="282" frameX="-127" frameY="0" frameWidth="488" frameHeight="282"/>
+	<SubTexture name="fred dies0001" x="236" y="0" width="288" height="231" frameX="-102" frameY="-51" frameWidth="488" frameHeight="282"/>
+	<SubTexture name="fred dies0002" x="524" y="0" width="331" height="187" frameX="-81" frameY="-95" frameWidth="488" frameHeight="282"/>
+	<SubTexture name="fred dies0003" x="855" y="0" width="368" height="148" frameX="-62" frameY="-133" frameWidth="488" frameHeight="282"/>
+	<SubTexture name="fred dies0004" x="1223" y="0" width="398" height="117" frameX="-47" frameY="-164" frameWidth="488" frameHeight="282"/>
+	<SubTexture name="fred dies0005" x="1621" y="0" width="423" height="92" frameX="-34" frameY="-189" frameWidth="488" frameHeight="282"/>
+	<SubTexture name="fred dies0006" x="2044" y="0" width="442" height="71" frameX="-24" frameY="-210" frameWidth="488" frameHeight="282"/>
+	<SubTexture name="fred dies0007" x="2486" y="0" width="458" height="56" frameX="-16" frameY="-225" frameWidth="488" frameHeight="282"/>
+	<SubTexture name="fred dies0008" x="2944" y="0" width="469" height="44" frameX="-10" frameY="-237" frameWidth="488" frameHeight="282"/>
+	<SubTexture name="fred dies0009" x="3413" y="0" width="477" height="35" frameX="-6" frameY="-246" frameWidth="488" frameHeight="282"/>
+	<SubTexture name="fred dies0010" x="0" y="282" width="482" height="29" frameX="-3" frameY="-252" frameWidth="488" frameHeight="282"/>
+	<SubTexture name="fred dies0011" x="482" y="282" width="486" height="26" frameX="-1" frameY="-255" frameWidth="488" frameHeight="282"/>
+	<SubTexture name="fred dies0012" x="968" y="282" width="488" height="24" frameX="0" frameY="-257" frameWidth="488" frameHeight="282"/>
+	<SubTexture name="fred dies0013" x="1456" y="282" width="488" height="23" frameX="0" frameY="-258" frameWidth="488" frameHeight="282"/>
+	<SubTexture name="fred dies0014" x="1944" y="282" width="488" height="23" frameX="0" frameY="-258" frameWidth="488" frameHeight="282"/>
+	<SubTexture name="uncle fred breaks his back0000" x="2432" y="282" width="342" height="282"/>
+	<SubTexture name="uncle fred breaks his back0001" x="2774" y="282" width="310" height="282" frameX="-32" frameY="0" frameWidth="342" frameHeight="282"/>
+	<SubTexture name="uncle fred breaks his back0002" x="3084" y="282" width="210" height="282" frameX="-39" frameY="0" frameWidth="342" frameHeight="282"/>
+	<SubTexture name="uncle fred breaks his back0003" x="3294" y="282" width="232" height="282" frameX="-19" frameY="0" frameWidth="342" frameHeight="282"/>
+	<SubTexture name="uncle fred breaks his back0004" x="3526" y="282" width="236" height="282" frameX="-17" frameY="0" frameWidth="342" frameHeight="282"/>
+	<SubTexture name="uncle fred down0000" x="3762" y="282" width="278" height="259" frameX="0" frameY="-22" frameWidth="278" frameHeight="281"/>
+	<SubTexture name="uncle fred down0001" x="0" y="564" width="269" height="271" frameX="0" frameY="-10" frameWidth="278" frameHeight="281"/>
+	<SubTexture name="uncle fred down0002" x="269" y="564" width="266" height="275" frameX="0" frameY="-6" frameWidth="278" frameHeight="281"/>
+	<SubTexture name="uncle fred down0003" x="535" y="564" width="264" height="280" frameX="0" frameY="-1" frameWidth="278" frameHeight="281"/>
+	<SubTexture name="uncle fred down0004" x="799" y="564" width="264" height="281" frameX="0" frameY="0" frameWidth="278" frameHeight="281"/>
+	<SubTexture name="uncle fred idle0000" x="1063" y="564" width="266" height="276" frameX="0" frameY="-7" frameWidth="282" frameHeight="283"/>
+	<SubTexture name="uncle fred idle0001" x="1329" y="564" width="282" height="256" frameX="0" frameY="-27" frameWidth="282" frameHeight="283"/>
+	<SubTexture name="uncle fred idle0002" x="1611" y="564" width="273" height="263" frameX="0" frameY="-20" frameWidth="282" frameHeight="283"/>
+	<SubTexture name="uncle fred idle0003" x="1884" y="564" width="267" height="271" frameX="0" frameY="-12" frameWidth="282" frameHeight="283"/>
+	<SubTexture name="uncle fred idle0004" x="1063" y="564" width="266" height="276" frameX="0" frameY="-7" frameWidth="282" frameHeight="283"/>
+	<SubTexture name="uncle fred idle0005" x="2151" y="564" width="265" height="280" frameX="0" frameY="-3" frameWidth="282" frameHeight="283"/>
+	<SubTexture name="uncle fred idle0006" x="2416" y="564" width="264" height="283" frameX="0" frameY="0" frameWidth="282" frameHeight="283"/>
+	<SubTexture name="uncle fred idle0007" x="2680" y="564" width="264" height="283" frameX="0" frameY="0" frameWidth="282" frameHeight="283"/>
+	<SubTexture name="uncle fred idle0008" x="2944" y="564" width="263" height="283" frameX="0" frameY="0" frameWidth="282" frameHeight="283"/>
+	<SubTexture name="uncle fred left0000" x="3207" y="564" width="310" height="283" frameX="0" frameY="0" frameWidth="317" frameHeight="283"/>
+	<SubTexture name="uncle fred left0001" x="3517" y="564" width="289" height="283" frameX="-21" frameY="0" frameWidth="317" frameHeight="283"/>
+	<SubTexture name="uncle fred left0002" x="3806" y="564" width="275" height="283" frameX="-38" frameY="0" frameWidth="317" frameHeight="283"/>
+	<SubTexture name="uncle fred left0003" x="0" y="847" width="270" height="283" frameX="-46" frameY="0" frameWidth="317" frameHeight="283"/>
+	<SubTexture name="uncle fred left0004" x="270" y="847" width="267" height="283" frameX="-50" frameY="0" frameWidth="317" frameHeight="283"/>
+	<SubTexture name="uncle fred right0000" x="537" y="847" width="325" height="283"/>
+	<SubTexture name="uncle fred right0001" x="862" y="847" width="302" height="283" frameX="0" frameY="0" frameWidth="325" frameHeight="283"/>
+	<SubTexture name="uncle fred right0002" x="1164" y="847" width="285" height="283" frameX="0" frameY="0" frameWidth="325" frameHeight="283"/>
+	<SubTexture name="uncle fred right0003" x="1449" y="847" width="276" height="283" frameX="0" frameY="0" frameWidth="325" frameHeight="283"/>
+	<SubTexture name="uncle fred right0004" x="1725" y="847" width="272" height="283" frameX="0" frameY="0" frameWidth="325" frameHeight="283"/>
+	<SubTexture name="uncle fred screams0000" x="1997" y="847" width="305" height="251" frameX="0" frameY="-83" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0001" x="2302" y="847" width="417" height="128" frameX="-14" frameY="-206" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0002" x="2719" y="847" width="174" height="255" frameX="-137" frameY="-52" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0003" x="2893" y="847" width="217" height="351" frameX="-143" frameY="-6" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0004" x="3110" y="847" width="236" height="365" frameX="-105" frameY="0" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0005" x="1997" y="847" width="305" height="251" frameX="0" frameY="-83" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0006" x="2302" y="847" width="417" height="128" frameX="-14" frameY="-206" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0007" x="2719" y="847" width="174" height="255" frameX="-137" frameY="-52" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0008" x="2893" y="847" width="217" height="351" frameX="-143" frameY="-6" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0009" x="3110" y="847" width="236" height="365" frameX="-105" frameY="0" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0010" x="1997" y="847" width="305" height="251" frameX="0" frameY="-83" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0011" x="2302" y="847" width="417" height="128" frameX="-14" frameY="-206" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0012" x="2719" y="847" width="174" height="255" frameX="-137" frameY="-52" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0013" x="2893" y="847" width="217" height="351" frameX="-143" frameY="-6" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0014" x="3110" y="847" width="236" height="365" frameX="-105" frameY="0" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0015" x="1997" y="847" width="305" height="251" frameX="0" frameY="-83" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0016" x="2302" y="847" width="417" height="128" frameX="-14" frameY="-206" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0017" x="2719" y="847" width="174" height="255" frameX="-137" frameY="-52" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0018" x="2893" y="847" width="217" height="351" frameX="-143" frameY="-6" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0019" x="3110" y="847" width="236" height="365" frameX="-105" frameY="0" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0020" x="1997" y="847" width="305" height="251" frameX="0" frameY="-83" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0021" x="2302" y="847" width="417" height="128" frameX="-14" frameY="-206" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0022" x="2719" y="847" width="174" height="255" frameX="-137" frameY="-52" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0023" x="2893" y="847" width="217" height="351" frameX="-143" frameY="-6" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0024" x="3110" y="847" width="236" height="365" frameX="-105" frameY="0" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0025" x="1997" y="847" width="305" height="251" frameX="0" frameY="-83" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0026" x="2302" y="847" width="417" height="128" frameX="-14" frameY="-206" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0027" x="2719" y="847" width="174" height="255" frameX="-137" frameY="-52" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0028" x="2893" y="847" width="217" height="351" frameX="-143" frameY="-6" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred screams0029" x="3110" y="847" width="236" height="365" frameX="-105" frameY="0" frameWidth="431" frameHeight="365"/>
+	<SubTexture name="uncle fred up0000" x="3346" y="847" width="287" height="300" frameX="0" frameY="0" frameWidth="294" frameHeight="300"/>
+	<SubTexture name="uncle fred up0001" x="3633" y="847" width="277" height="296" frameX="-13" frameY="-4" frameWidth="294" frameHeight="300"/>
+	<SubTexture name="uncle fred up0002" x="0" y="1212" width="269" height="288" frameX="-23" frameY="-12" frameWidth="294" frameHeight="300"/>
+	<SubTexture name="uncle fred up0003" x="269" y="1212" width="267" height="286" frameX="-27" frameY="-14" frameWidth="294" frameHeight="300"/>
+	<SubTexture name="uncle fred up0004" x="536" y="1212" width="264" height="284" frameX="-30" frameY="-16" frameWidth="294" frameHeight="300"/>
+</TextureAtlas>

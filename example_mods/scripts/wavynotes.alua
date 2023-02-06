@@ -1,0 +1,11 @@
+local elapsedTotal = 0
+function onUpdatePost(e)
+	elapsedTotal = elapsedTotal + e
+	
+	for i = 0, getProperty('strumLineNotes.length')-1, 1 do
+		--if getPropertyFromGroup('notes',i,'isSustainNote') then
+			local mathNerds = 15
+			setPropertyFromGroup('strumLineNotes',i,'y',getProperty('strumLine.y') + math.cos((elapsedTotal-i) * 5)*mathNerds)
+		--end
+	end
+end

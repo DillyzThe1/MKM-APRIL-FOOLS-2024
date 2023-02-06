@@ -55,6 +55,17 @@
 			],
 			false,
 			"academic-failure-start"
+		],
+		[
+			"Shroomus Toodus",
+			"toad",
+			[
+				255,
+				50,
+				40
+			],
+			false,
+			""
 		]
 	],
 	"weekCharacters": [

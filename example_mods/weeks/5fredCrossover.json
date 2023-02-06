@@ -1,0 +1,44 @@
+{
+	"storyName": "Toad's House (67:84am)",
+	"difficulties": "Hard",
+	"hideFreeplay": false,
+	"weekBackground": "toad-house",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"toad-new",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		[
+			"Wrong House",
+			"impostor",
+			[
+				78,
+				78,
+				78
+			],
+			false,
+			"wrong-house-start"
+		],
+		[
+			"Karrd Kollision",
+			"uncle-fred",
+			[
+				233,
+				109,
+				48
+			],
+			true,
+			"karrd-kollision-start"
+		]
+	],
+	"hideStoryMode": true,
+	"weekName": "Week Fred"
+}
