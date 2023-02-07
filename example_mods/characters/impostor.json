@@ -1,59 +1,84 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 24,
-			"name": "Impostor Idle",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "Impostor Idle"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				70,
 				10
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "Impostor Left",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Impostor Left"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-170,
 				-40
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "Impostor Down",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Impostor Down"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-49,
 				1
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "Impostor Up",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "Impostor Up"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-222,
 				-1
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "Impostor Right",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Impostor Right"
+		},
+		{
+			"offsets": [
+				-10,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "nah",
+			"loop": false,
+			"name": "Impostor Nah"
+		},
+		{
+			"offsets": [
+				-10,
+				0
+			],
+			"indices": [
+				72,
+				73
+			],
+			"fps": 24,
+			"anim": "nah-loop",
+			"loop": true,
+			"name": "Impostor Nah"
 		}
 	],
 	"no_antialiasing": false,
@@ -70,7 +95,7 @@
 		78
 	],
 	"camera_position": [
-		160,
+		145,
 		40
 	],
 	"sing_duration": 6.1,
