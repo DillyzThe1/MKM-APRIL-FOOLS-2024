@@ -59,8 +59,8 @@
 	"no_antialiasing": false,
 	"image": "characters/hs toad",
 	"position": [
-		-200,
-		20
+		-5,
+		-120
 	],
 	"healthicon": "toadcraft",
 	"flip_x": false,
