@@ -18,7 +18,8 @@ local creditsMatch = {
 	{'square', 'Composed by DillyzThe1'},
 	{'shroomus toodus', 'Original versions by Adam McHummus & Ethan The Doodler, Remixed by DillyzThe1'},
 	{'karrd kollision', 'Composed by DillyzThe1'},
-	{'hell shrooms', 'Composed by DillyzThe1'}
+	{'hell shrooms', 'Composed by DillyzThe1'},
+	{'wrong house', 'Composed by Impostor5875'}
 }
 
 function onCreatePost()

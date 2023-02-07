@@ -5,8 +5,11 @@ function onCreate()
 			setPropertyFromGroup('unspawnNotes',i,'noMissAnimation',true)
 			setPropertyFromGroup('unspawnNotes',i,'visible',false)
 			setPropertyFromGroup('unspawnNotes',i,'alpha',0)
-			setPropertyFromGroup('unspawnNotes',i,'ignoreNote',getPropertyFromGroup('unspawnNotes',i,'mustPress'))
-			setPropertyFromGroup('unspawnNotes',i,'wasGoodHit',getPropertyFromGroup('unspawnNotes',i,'mustPress'))
+			
+			setPropertyFromGroup('unspawnNotes',i,'mustPress',false)
+			--setPropertyFromGroup('unspawnNotes',i,'ignoreNote',getPropertyFromGroup('unspawnNotes',i,'mustPress'))
+			--setPropertyFromGroup('unspawnNotes',i,'wasGoodHit',getPropertyFromGroup('unspawnNotes',i,'mustPress'))
+			
 			setPropertyFromGroup('unspawnNotes',i,'noStrumAnim',true)
 		end
 	end
