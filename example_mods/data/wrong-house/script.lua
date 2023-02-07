@@ -1,33 +1,3 @@
-function getSingingOffset_X(animname)
-	if animname == 'idle' then
-		return 80;
-	elseif animname == 'singUP' then
-		return -62;
-	elseif animname == 'singDOWN' then
-		return 102;
-	elseif animname == 'singLEFT' then
-		return 162;
-	elseif animname == 'singRIGHT' then
-		return -74;
-	end
-
-	return 0;
-end
-
-function getSingingOffset_Y(animname)
-	if animname == 'singUP' then
-		return 20;
-	elseif animname == 'singDOWN' then
-		return -36;
-	elseif animname == 'singLEFT' then
-		return -25;
-	elseif animname == 'singRIGHT' then
-		return -3;
-	end
-
-	return 0;
-end
-
 function onCreatePost() 
 	-- x + 130
 	makeAnimatedLuaSprite('toad','characters/VS Goofy Ahh Toad', getProperty('BF_X'), getProperty('BF_Y') + 230)
@@ -90,9 +60,6 @@ function onUpdatePost(e)
 	if string.match(getProperty('toad.animName'),'sing') then 
 		toadHoldTimer = toadHoldTimer + e
 	end
-	
-	--setProperty('toad.offset.x', getSingingOffset_X(getProperty('toad.animName')))
-	--setProperty('toad.offset.y', getSingingOffset_Y(getProperty('toad.animName')))
 end
 
 function toadHoldTimerMax()
