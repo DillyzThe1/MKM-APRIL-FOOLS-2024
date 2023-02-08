@@ -25,6 +25,8 @@ class ToadFreeplayState extends MusicBeatState
 
 	var curIndex:Int = 0;
 
+	var curIndexOffset:Int = 0;
+
 	override function create()
 	{
 		// Paths.clearStoredMemory();
@@ -93,13 +95,13 @@ class ToadFreeplayState extends MusicBeatState
 
 			var fixedsongname:String = songs[i].songName.toLowerCase().replace(" ", "-");
 
-			trace(fixedsongname);
+			//trace(fixedsongname);
 
 			if (fixedsongname == "top-10-great-amazing-super-duper-wonderful-outstanding-saster-level-music-that-ever-has-been-heard")
 				fixedsongname = "t10gasdwoslmtehbh";
 
 			var gwagwa = 'portraits/${songIsUnlockedEmoji ? fixedsongname : 'null'}';
-			trace(gwagwa);
+			//trace(gwagwa);
 			var portrait:FlxSprite = new FlxSprite().loadGraphic(Paths.image(gwagwa, 'shared'));
 			add(portrait);
 			portraits.push(portrait);
@@ -207,7 +209,7 @@ class ToadFreeplayState extends MusicBeatState
 		{
 			if (!songs[i].loadedIn)
 				continue;
-			songs[i].portrait.x = FlxMath.lerp((FlxG.width / 2 + ((posind - curIndex) * 600)) - (songs[i].portrait.width / 2), songs[i].portrait.x, e * 114);
+			songs[i].portrait.x = FlxMath.lerp((FlxG.width / 2 + ((posind - curIndexOffset) * 600)) - (songs[i].portrait.width / 2), songs[i].portrait.x, e * 114);
 			var a:Float = 0;
 			for (o in 0...songs[i].text.lettersArray.length)
 				a += songs[i].text.lettersArray[o].width * -0.5 * songs[i].text.textSize * songs[i].text.lettersArray[o].scale.x;
@@ -217,7 +219,18 @@ class ToadFreeplayState extends MusicBeatState
 			posind++;
 		}
 		bgalt.color = bg.color;
-		bgalt.visible = songs[curIndex].songName.toLowerCase() == "normalized";
+		bgalt.visible = songs[curIndexOffset].songName.toLowerCase() == "normalized";
+	}
+
+	function recalcOffset() {
+		curIndexOffset = 0;
+
+		for (i in 0...songs.length)
+		{
+			if (!songs[i].loadedIn || i >= curIndex)
+				continue;
+			curIndexOffset++;
+		}
 	}
 
 	var intendedScore:Int = 0;
@@ -245,6 +258,8 @@ class ToadFreeplayState extends MusicBeatState
 			return;
 		}
 
+		recalcOffset();
+
 		var newColor:Int = songs[curIndex].color;
 		if (newColor != intendedColor)
 		{
@@ -266,8 +281,8 @@ class ToadFreeplayState extends MusicBeatState
 
 		for (i in 0...iconArray.length)
 		{
-			portraits[i].alpha = iconArray[i].alpha = (curIndex == i ? 1 : 0.6);
-			grpSongs.members[i].alpha = (curIndex == i ? 1 : 0.1);
+			portraits[i].alpha = iconArray[i].alpha = (curIndexOffset == i ? 1 : 0.6);
+			grpSongs.members[i].alpha = (curIndexOffset == i ? 1 : 0.1);
 		}
 
 		Paths.currentModDirectory = songs[curIndex].folder;
@@ -312,6 +327,7 @@ class ToadFreeplayState extends MusicBeatState
 
 		curDifficulty = CoolUtil.difficulties.indexOf('Hard');
 		lastDifficultyName = CoolUtil.difficulties[curDifficulty];
+
 	}
 
 	public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int, hideStory:Bool, unlockKey:String)
