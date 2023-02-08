@@ -1108,6 +1108,11 @@ class PlayState extends MusicBeatState
 			FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
 		}
 
+		FlxG.camera.setFilters(camGameFilters);
+		FlxG.camera.filtersEnabled = true;
+
+		camGame.angle = camHUD.angle = 0;
+
 		Conductor.safeZoneOffset = (ClientPrefs.safeFrames / 60) * 1000;
 		callOnLuas('onCreatePost', []);
 
@@ -1129,11 +1134,6 @@ class PlayState extends MusicBeatState
 			}
 		}
 		CustomFadeTransition.nextCamera = camOther;
-
-		FlxG.camera.setFilters(camGameFilters);
-		FlxG.camera.filtersEnabled = true;
-
-		camGame.angle = camHUD.angle = 0;
 	}
 
 	function set_songSpeed(value:Float):Float
