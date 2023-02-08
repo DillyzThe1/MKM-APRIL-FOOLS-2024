@@ -1,9 +1,10 @@
 {
 	"search.exclude": {
+		"export/*": true,
 		"export/**/*.hx": true
 	},
 	"[haxe]": {
-		"editor.formatOnSave": true,
+		"editor.formatOnSave": false,
 		"editor.formatOnPaste": true,
 		"editor.codeActionsOnSave": {
 			"source.sortImports": true
