@@ -3231,12 +3231,21 @@ class FunkinLua
 					return null;
 				return PlayState.instance.variables.get(name);
 			});
+			var madeShaders:Map<String, FlxRuntimeShader> = new Map<String, FlxRuntimeShader>();
 			haxeInterp.variables.set('makeShader', function(name:String):ShaderFilter
 			{
 				if (!PlayState.instance.runtimeShaders.exists(name) && !initLuaShader(name))
 					return null;
 				var funny:Array<String> = PlayState.instance.runtimeShaders.get(name);
-				return new ShaderFilter(new FlxRuntimeShader(funny[0], funny[1]));
+				var runtime:FlxRuntimeShader = new FlxRuntimeShader(funny[0], funny[1]);
+				madeShaders.set(name, runtime);
+				return new ShaderFilter(runtime);
+			});
+			haxeInterp.variables.set('getMadeShader', function(name:String):FlxRuntimeShader
+			{
+				if (!madeShaders.exists(name))
+					return null;
+				return madeShaders.get(name);
 			});
 		}
 	}
