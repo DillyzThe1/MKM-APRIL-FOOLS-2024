@@ -209,7 +209,15 @@ class ToadFreeplayState extends MusicBeatState
 		{
 			if (!songs[i].loadedIn)
 				continue;
-			songs[i].portrait.x = FlxMath.lerp((FlxG.width / 2 + ((posind - curIndexOffset) * 600)) - (songs[i].portrait.width / 2), songs[i].portrait.x, e * 114);
+
+			var lerpAmount:Float = e * 114 * (ClientPrefs.framerate/120);
+
+			if (lerpAmount > 0.99)
+				lerpAmount = 0.99;
+			if (lerpAmount < 0.01)
+				lerpAmount = 0.01;
+
+			songs[i].portrait.x = FlxMath.lerp((FlxG.width / 2 + ((posind - curIndexOffset) * 600)) - (songs[i].portrait.width / 2), songs[i].portrait.x, lerpAmount);
 			var a:Float = 0;
 			for (o in 0...songs[i].text.lettersArray.length)
 				a += songs[i].text.lettersArray[o].width * -0.5 * songs[i].text.textSize * songs[i].text.lettersArray[o].scale.x;
