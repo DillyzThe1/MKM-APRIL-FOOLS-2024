@@ -3506,6 +3506,9 @@ class PlayState extends MusicBeatState
 
 				// Shubs, this is for the "Just the Two of Us" achievement lol
 				//									- Shadow Mario
+
+				// can you guys just discuss this over something normal and not a series of comment
+				//                                  - DillyzThe1
 				keysPressed[key] = true;
 
 				// more accurate hit time for the ratings? part 2 (Now that the calculations are done, go back to the time it was before for not causing a note stutter)
