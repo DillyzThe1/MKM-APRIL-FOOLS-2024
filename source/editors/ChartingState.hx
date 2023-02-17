@@ -860,17 +860,16 @@ class ChartingState extends MusicBeatState
 
 			var daSec = FlxMath.maxInt(curSec, value);
 
-			var starting:Float = sectionStartTime();
-			// trace("start " + starting);
+			var startThing:Float = sectionStartTime(-value);
+			var starting:Float = sectionStartTime() - startThing;
 
 			for (note in _song.notes[daSec - value].sectionNotes)
 			{
 				var strum = note[0] + starting;
-				// trace("strumtime " + strum);
+				trace("strumtime " + strum);
 				var copiedNote:Array<Dynamic> = [strum, note[1], note[2], note[3]];
 				_song.notes[daSec].sectionNotes.push(copiedNote);
 			}
-			var startThing:Float = sectionStartTime(-value);
 			var endThing:Float = sectionStartTime(-value + 1);
 			for (event in _song.events)
 			{
