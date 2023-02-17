@@ -942,6 +942,19 @@ class ChartingState extends MusicBeatState
 			updateGrid();
 		});
 
+		var trimButton:FlxButton = new FlxButton(mirrorButton.x + 100, duetButton.y, "Trim Notes", function()
+		{
+			// var offset:Float = (5 * 60 / daBPM);
+			var secStart:Float = sectionStartTime(); // - offset;
+			var secEnd:Float = sectionStartTime(1) - 1; // + offset;
+
+			for (note in _song.notes[curSec].sectionNotes)
+				if (note[0] < secStart || note[0] > secEnd)
+					_song.notes[curSec].sectionNotes.remove(note);
+
+			updateGrid();
+		});
+
 		var shiftUpButton:FlxButton = new FlxButton(10, duetButton.y + 25, "Shift Up", function()
 		{
 			for (i in _song.notes[curSec].sectionNotes)
@@ -973,7 +986,8 @@ class ChartingState extends MusicBeatState
 		tab_group_section.add(copyLastButton);
 		tab_group_section.add(duetButton);
 		tab_group_section.add(mirrorButton);
-
+		// mkm 1.5 extras
+		tab_group_section.add(trimButton);
 		tab_group_section.add(shiftUpButton);
 		tab_group_section.add(shiftDownButton);
 
