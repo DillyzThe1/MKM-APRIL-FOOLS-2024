@@ -2684,7 +2684,7 @@ class ChartingState extends MusicBeatState
 	{
 		if (curSelectedNote == null) {
 			updateNoteUI();
-			lazyUpdateGrid(-1, -1);
+			lazyUpdateGrid(-1, -2);
 			return;
 		}
 
@@ -2886,9 +2886,9 @@ class ChartingState extends MusicBeatState
 	// setting beat to anything positive will only update notes in that specific beat
 	// setting the hPlace to anything but negative one only updates notes of that notedata
 	// will not reload next renders, use updateGrid() to fully reset instead
-	function lazyUpdateGrid(?beatt:Int = -1, ?hPlace:Int = -1)
+	function lazyUpdateGrid(?beatt:Int = -1, ?hPlace:Int = -2)
 	{
-		if (beatt == -1 && hPlace == -1)
+		if (beatt == -1 && hPlace == -2)
 		{
 			updateGrid(false);
 			return;
@@ -2925,7 +2925,7 @@ class ChartingState extends MusicBeatState
 			var estimatedData:Int = note.noteData;
 			if (estimatedData > -1 && note.mustPress != _song.notes[curSec].mustHitSection)
 				estimatedData += keysss;
-			if ((hPlace == -1 || estimatedData == hPlace) && (beat == -1 || Conductor.getBeatRounded(note.strumTime) == beat))
+			if ((hPlace == -2 || estimatedData == hPlace) && (beat == -1 || Conductor.getBeatRounded(note.strumTime) == beat))
 				deadNotes.push(note);
 		}
 		for (sus in curRenderedSustains)
@@ -2937,7 +2937,7 @@ class ChartingState extends MusicBeatState
 
 		for (i in _song.notes[curSec].sectionNotes)
 		{
-			if ((beat != -1 && Conductor.getBeatRounded(i[0]) != beat) || (hPlace != -1 && i[1] != hPlace))
+			if ((beat != -1 && Conductor.getBeatRounded(i[0]) != beat) || (hPlace != -2 && i[1] != hPlace))
 				continue;
 
 			//trace("adding note at beat " + Conductor.getBeatRounded(i[0]) + " on pos " + i[1]);
@@ -2966,6 +2966,33 @@ class ChartingState extends MusicBeatState
 			note.mustPress = _song.notes[curSec].mustHitSection;
 			if (i[1] > getKeyCount() - 1)
 				note.mustPress = !note.mustPress;
+		}
+
+		// events
+		if (hPlace < 0) {
+			for (i in _song.events)
+			{
+				if (beat != -1 ? (Conductor.getBeatRounded(i[0]) != beat) : (end < i[0] || i[0] < start))
+					continue;
+
+				var note:Note = setupNoteData(i, false);
+				curRenderedNotes.add(note);
+
+				var text:String = 'Event: ' + note.eventName + ' (' + Math.floor(note.strumTime) + ' ms)' + '\nValue 1: ' + note.eventVal1
+					+ '\nValue 2: ' + note.eventVal2;
+				if (note.eventLength > 1)
+					text = note.eventLength + ' Events:\n' + note.eventName;
+
+				var daText:AttachedFlxText = new AttachedFlxText(0, 0, 400, text, 12);
+				daText.setFormat(Paths.font("vcr.ttf"), 12, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
+				daText.xAdd = -410;
+				daText.borderSize = 1;
+				if (note.eventLength > 1)
+					daText.yAdd += 8;
+				daText.parentNote = note;
+				curRenderedNoteType.add(daText);
+				daText.sprTracker = note;
+			}
 		}
 
 		for (i in deadNotes)
@@ -3276,7 +3303,7 @@ class ChartingState extends MusicBeatState
 		if (note != null)
 			lazyUpdateGrid(Std.int(Conductor.getBeatRounded(note.strumTime)), note.noteData);
 		else
-			lazyUpdateGrid(-1, -1);
+			lazyUpdateGrid(-1, -2);
 
 		updateNoteUI();
 	}
