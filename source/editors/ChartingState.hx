@@ -860,14 +860,14 @@ class ChartingState extends MusicBeatState
 
 			var daSec = FlxMath.maxInt(curSec, value);
 
+			var rocketLauncherJPEG:Float = sectionStartTime();
+
 			for (note in _song.notes[daSec - value].sectionNotes)
 			{
-				var strum = note[0] + Conductor.stepCrochet * (getSectionBeats(daSec) * 4 * value);
-
+				var strum = note[0] + rocketLauncherJPEG;
 				var copiedNote:Array<Dynamic> = [strum, note[1], note[2], note[3]];
 				_song.notes[daSec].sectionNotes.push(copiedNote);
 			}
-
 			var startThing:Float = sectionStartTime(-value);
 			var endThing:Float = sectionStartTime(-value + 1);
 			for (event in _song.events)
@@ -3237,7 +3237,7 @@ class ChartingState extends MusicBeatState
 		var leZoom:Float = zoomList[curZoom];
 		if (!doZoomCalc)
 			leZoom = 1;
-		return FlxMath.remapToRange(yPos, gridBG.y, gridBG.y + gridBG.height * leZoom, 0, 16 * Conductor.stepCrochet);
+		return FlxMath.remapToRange(yPos, gridBG.y, gridBG.y + gridBG.height * leZoom, 0, getSectionBeats(curSec) * 4 * Conductor.stepCrochet);
 	}
 
 	function getYfromStrum(strumTime:Float, doZoomCalc:Bool = true):Float
