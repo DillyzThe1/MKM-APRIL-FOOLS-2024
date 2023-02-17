@@ -860,11 +860,13 @@ class ChartingState extends MusicBeatState
 
 			var daSec = FlxMath.maxInt(curSec, value);
 
-			var rocketLauncherJPEG:Float = sectionStartTime();
+			var starting:Float = sectionStartTime();
+			// trace("start " + starting);
 
 			for (note in _song.notes[daSec - value].sectionNotes)
 			{
-				var strum = note[0] + rocketLauncherJPEG;
+				var strum = note[0] + starting;
+				// trace("strumtime " + strum);
 				var copiedNote:Array<Dynamic> = [strum, note[1], note[2], note[3]];
 				_song.notes[daSec].sectionNotes.push(copiedNote);
 			}
