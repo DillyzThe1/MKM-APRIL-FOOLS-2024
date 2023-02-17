@@ -226,12 +226,16 @@ class ToadFreeplayState extends MusicBeatState
 					colorTween.cancel();
 
 				var goToChart:Bool = FlxG.keys.pressed.SHIFT;
+				var theSongEver:SongMetadata = songs[curIndexOffset];
 
 				FlxG.sound.music.fadeOut(0.175);
 
 				FlxG.sound.play(Paths.sound('mario painting'), 1.35, false);
+
+				if (WeekData.weeksList[theSongEver.week] == CoolUtil.fredCrossoverWeekName)
+					FlxG.sound.play(Paths.sound('fred'), 0.125, false);
+
 				FlxG.camera.fade(FlxColor.WHITE, 0.85, false, null, true);
-				var theSongEver:SongMetadata = songs[curIndexOffset];
 				FlxTween.tween(theSongEver.portrait, {y: FlxG.height / 2 - theSongEver.portrait.height / 2, "scale.x": 1.15, "scale.y": 1.15}, 0.75,
 					{ease: FlxEase.cubeInOut});
 				FlxTween.tween(theSongEver.text, {y: FlxG.height + 100}, 0.75, {ease: FlxEase.cubeInOut});

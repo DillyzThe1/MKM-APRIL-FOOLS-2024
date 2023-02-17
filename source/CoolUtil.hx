@@ -27,6 +27,7 @@ class CoolUtil
 
 	public static var onePointFiveExtrasWeekName:String = "3the1point5extras";
 	public static var babyModeWeekName:String = "4babymode";
+	public static var fredCrossoverWeekName:String = "5fredCrossover";
 
 	inline public static function quantize(f:Float, snap:Float)
 	{
