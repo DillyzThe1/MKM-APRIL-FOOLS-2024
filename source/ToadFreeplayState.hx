@@ -3,10 +3,12 @@ package;
 import Discord.DiscordClient;
 import FreeplayState.SongMetadata;
 import editors.ChartingState;
+import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
+import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 
@@ -26,6 +28,8 @@ class ToadFreeplayState extends MusicBeatState
 	var curIndex:Int = 0;
 
 	var curIndexOffset:Int = 0;
+
+	var hasSelected:Bool = false;
 
 	override function create()
 	{
@@ -95,13 +99,13 @@ class ToadFreeplayState extends MusicBeatState
 
 			var fixedsongname:String = songs[i].songName.toLowerCase().replace(" ", "-");
 
-			//trace(fixedsongname);
+			// trace(fixedsongname);
 
 			if (fixedsongname == "top-10-great-amazing-super-duper-wonderful-outstanding-saster-level-music-that-ever-has-been-heard")
 				fixedsongname = "t10gasdwoslmtehbh";
 
 			var gwagwa = 'portraits/${songIsUnlockedEmoji ? fixedsongname : 'null'}';
-			//trace(gwagwa);
+			// trace(gwagwa);
 			var portrait:FlxSprite = new FlxSprite().loadGraphic(Paths.image(gwagwa, 'shared'));
 			add(portrait);
 			portraits.push(portrait);
@@ -159,6 +163,35 @@ class ToadFreeplayState extends MusicBeatState
 	{
 		super.update(e);
 
+		var posind:Int = 0;
+		for (i in 0...songs.length)
+		{
+			if (!songs[i].loadedIn)
+				continue;
+
+			var lerpAmount:Float = e * 114 * (ClientPrefs.framerate / 120);
+
+			if (lerpAmount > 0.99)
+				lerpAmount = 0.99;
+			if (lerpAmount < 0.01)
+				lerpAmount = 0.01;
+
+			songs[i].portrait.x = FlxMath.lerp((FlxG.width / 2 + ((posind - curIndexOffset) * 600)) - (songs[i].portrait.width / 2), songs[i].portrait.x,
+				lerpAmount);
+			var a:Float = 0;
+			for (o in 0...songs[i].text.lettersArray.length)
+				a += songs[i].text.lettersArray[o].width * -0.5 * songs[i].text.textSize * songs[i].text.lettersArray[o].scale.x;
+			songs[i].text.x = (songs[i].portrait.x + songs[i].portrait.width / 2) + a;
+			songs[i].icon.x = (songs[i].portrait.x + songs[i].portrait.width / 2) - (songs[i].icon.width / 2);
+
+			posind++;
+		}
+		bgalt.color = bg.color;
+		bgalt.visible = songs[curIndexOffset].songName.toLowerCase() == "normalized";
+
+		if (hasSelected)
+			return;
+
 		if (controls.UI_LEFT_P)
 			changeSelection(-1);
 		else if (controls.UI_RIGHT_P)
@@ -178,6 +211,8 @@ class ToadFreeplayState extends MusicBeatState
 			if (ClientPrefs.getKeyUnlocked(songs[curIndex].unlockerKey)
 				&& !FreeplayState.weekIsLocked(WeekData.weeksList[songs[curIndex].week]))
 			{
+				hasSelected = true;
+
 				trace(CoolUtil.difficulties);
 				PlayState.storyDifficulty = CoolUtil.difficulties.indexOf('Hard');
 				persistentUpdate = false;
@@ -190,12 +225,23 @@ class ToadFreeplayState extends MusicBeatState
 				if (colorTween != null)
 					colorTween.cancel();
 
-				if (FlxG.keys.pressed.SHIFT)
-					LoadingState.loadAndSwitchState(new ChartingState());
-				else
-					LoadingState.loadAndSwitchState(new PlayState());
+				var goToChart:Bool = FlxG.keys.pressed.SHIFT;
 
 				FlxG.sound.music.fadeOut(0.175);
+
+				FlxG.sound.play(Paths.sound('mario painting'), 1.35, false);
+				FlxG.camera.fade(FlxColor.WHITE, 0.85, false, null, true);
+				var theSongEver:SongMetadata = songs[curIndexOffset];
+				FlxTween.tween(theSongEver.portrait, {y: FlxG.height / 2 - theSongEver.portrait.height / 2}, 0.75, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(theSongEver.text, {y: FlxG.height + 100}, 0.75, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(theSongEver.icon, {y: FlxG.height + 100}, 0.75, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(FlxG.camera, {zoom: 2.25}, 1, {
+					ease: FlxEase.cubeIn,
+					onComplete: function(t:FlxTween)
+					{
+						LoadingState.loadAndSwitchState(goToChart ? new ChartingState() : new PlayState());
+					}
+				});
 			}
 			else
 			{
@@ -203,34 +249,10 @@ class ToadFreeplayState extends MusicBeatState
 				FlxG.sound.play(Paths.sound('missnote${FlxG.random.int(1, 3)}', 'shared'));
 			}
 		}
-
-		var posind:Int = 0;
-		for (i in 0...songs.length)
-		{
-			if (!songs[i].loadedIn)
-				continue;
-
-			var lerpAmount:Float = e * 114 * (ClientPrefs.framerate/120);
-
-			if (lerpAmount > 0.99)
-				lerpAmount = 0.99;
-			if (lerpAmount < 0.01)
-				lerpAmount = 0.01;
-
-			songs[i].portrait.x = FlxMath.lerp((FlxG.width / 2 + ((posind - curIndexOffset) * 600)) - (songs[i].portrait.width / 2), songs[i].portrait.x, lerpAmount);
-			var a:Float = 0;
-			for (o in 0...songs[i].text.lettersArray.length)
-				a += songs[i].text.lettersArray[o].width * -0.5 * songs[i].text.textSize * songs[i].text.lettersArray[o].scale.x;
-			songs[i].text.x = (songs[i].portrait.x + songs[i].portrait.width / 2) + a;
-			songs[i].icon.x = (songs[i].portrait.x + songs[i].portrait.width / 2) - (songs[i].icon.width / 2);
-
-			posind++;
-		}
-		bgalt.color = bg.color;
-		bgalt.visible = songs[curIndexOffset].songName.toLowerCase() == "normalized";
 	}
 
-	function recalcOffset() {
+	function recalcOffset()
+	{
 		curIndexOffset = 0;
 
 		for (i in 0...songs.length)
@@ -335,7 +357,6 @@ class ToadFreeplayState extends MusicBeatState
 
 		curDifficulty = CoolUtil.difficulties.indexOf('Hard');
 		lastDifficultyName = CoolUtil.difficulties[curDifficulty];
-
 	}
 
 	public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int, hideStory:Bool, unlockKey:String)
