@@ -845,7 +845,10 @@ class ChartingState extends MusicBeatState
 			for (i in 0..._song.notes[curSec].sectionNotes.length)
 			{
 				var note:Array<Dynamic> = _song.notes[curSec].sectionNotes[i];
-				note[1] = (note[1] + getKeyCount()) % getKeyCount() * 2;
+				if (note[1] >= getKeyCount())
+					note[1] -= getKeyCount();
+				else
+					note[1] += getKeyCount();
 				_song.notes[curSec].sectionNotes[i] = note;
 			}
 			updateGrid();
