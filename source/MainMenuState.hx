@@ -367,14 +367,14 @@ class MainMenuState extends MusicBeatState
 										WeekData.reloadWeekFiles(false);
 										trace(WeekData.weeksList);
 
-										if (!WeekData.weeksList.contains('3the1point5extras'))
+										if (!WeekData.weeksList.contains(CoolUtil.onePointFiveExtrasWeekName))
 										{
 											MusicBeatState.switchState(new MainMenuState());
 											FlxG.sound.play(Paths.sound('cancelMenu'));
 											return;
 										}
 
-										PlayState.storyWeek = WeekData.weeksList.indexOf('3the1point5extras');
+										PlayState.storyWeek = WeekData.weeksList.indexOf(CoolUtil.onePointFiveExtrasWeekName);
 										trace(PlayState.storyWeek);
 										var songLowercase:String = Paths.formatToSongPath('Normalized');
 										// CoolUtil.difficulties = ['Hard'];

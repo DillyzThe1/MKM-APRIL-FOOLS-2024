@@ -25,6 +25,9 @@ class CoolUtil
 
 	public static var difficulties:Array<String> = [];
 
+	public static var onePointFiveExtrasWeekName:String = "3the1point5extras";
+	public static var babyModeWeekName:String = "4babymode";
+
 	inline public static function quantize(f:Float, snap:Float)
 	{
 		// changed so this actually works lol
