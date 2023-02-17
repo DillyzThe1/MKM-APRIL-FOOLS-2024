@@ -3,6 +3,7 @@ package;
 import Achievements;
 import Conductor.Rating;
 import DialogueBoxPsych;
+import Discord.DiscordClient;
 import FunkinLua;
 import Note.EventNote;
 import Section.SwagSection;
@@ -65,20 +66,15 @@ import shaders.Grain;
 import shaders.Hq2x;
 import shaders.Scanline;
 import shaders.Tiltshift;
+import sys.FileSystem;
 import sys.io.File;
+import vlc.MP4Handler;
+import vlc.MP4Handler;
 
 using StringTools;
 
-#if desktop
-import Discord.DiscordClient;
-#end
-#if sys
-import sys.FileSystem;
-#end
-#if VIDEOS_ALLOWED
-import vlc.MP4Handler;
-#end
 #if !flash
+import flixel.addons.display.FlxRuntimeShader;
 import flixel.addons.display.FlxRuntimeShader;
 import openfl.filters.ShaderFilter;
 #end
@@ -344,13 +340,11 @@ class PlayState extends MusicBeatState
 	public var opponentCameraOffset:Array<Float> = null;
 	public var girlfriendCameraOffset:Array<Float> = null;
 
-	#if desktop
 	// Discord RPC variables
 	var storyDifficultyText:String = "";
 	var detailsText:String = "";
 	var detailsPausedText:String = "";
 	var detailsCutsceneText:String = "";
-	#end
 
 	// Achievement shit
 	var keysPressed:Array<Bool> = [];
@@ -598,7 +592,6 @@ class PlayState extends MusicBeatState
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
 
-		#if desktop
 		storyDifficultyText = CoolUtil.difficulties[storyDifficulty];
 
 		// String that contains the mode defined here so it isn't necessary to call changePresence for each mode
@@ -614,7 +607,6 @@ class PlayState extends MusicBeatState
 		// String for when the game is paused
 		detailsPausedText = "Paused - " + detailsText;
 		detailsCutsceneText = "In Cutscene - " + detailsText;
-		#end
 
 		GameOverSubstate.resetVariables();
 		var songName:String = Paths.formatToSongPath(SONG.song);
@@ -1095,11 +1087,9 @@ class PlayState extends MusicBeatState
 			precacheList.set(Paths.formatToSongPath(ClientPrefs.pauseMusic), 'music');
 		}
 
-		#if desktop
 		// Updating Discord Rich Presence.
 		DiscordClient.updateLargeImage(false);
 		DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
-		#end
 
 		if (!ClientPrefs.controllerMode)
 		{
@@ -1282,11 +1272,7 @@ class PlayState extends MusicBeatState
 		inCutscene = true;
 
 		var filepath:String = Paths.video(name);
-		#if sys
 		if (!FileSystem.exists(filepath))
-		#else
-		if (!OpenFlAssets.exists(filepath))
-		#end
 		{
 			FlxG.log.warn('Couldnt find video file: ' + name);
 			startAndEnd();
@@ -1690,10 +1676,9 @@ class PlayState extends MusicBeatState
 		FlxTween.tween(timeBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 		FlxTween.tween(timeTxt, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 
-		#if desktop
 		// Updating Discord Rich Presence (with Time Left)
 		DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter(), true, songLength);
-		#end
+
 		setOnLuas('songLength', songLength);
 		callOnLuas('onSongStart', []);
 	}
@@ -2062,7 +2047,6 @@ class PlayState extends MusicBeatState
 			paused = false;
 			callOnLuas('onResume', []);
 
-			#if desktop
 			if (startTimer != null && startTimer.finished)
 			{
 				DiscordClient.changePresence(detailsText, SONG.song
@@ -2074,10 +2058,7 @@ class PlayState extends MusicBeatState
 					- ClientPrefs.noteOffset);
 			}
 			else
-			{
 				DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
-			}
-			#end
 		}
 
 		super.closeSubState();
@@ -2085,7 +2066,6 @@ class PlayState extends MusicBeatState
 
 	override public function onFocus():Void
 	{
-		#if desktop
 		if (health > 0 && !paused)
 		{
 			if (Conductor.songPosition > 0.0)
@@ -2103,19 +2083,14 @@ class PlayState extends MusicBeatState
 				DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 			}
 		}
-		#end
 
 		super.onFocus();
 	}
 
 	override public function onFocusLost():Void
 	{
-		#if desktop
 		if (health > 0 && !paused)
-		{
 			DiscordClient.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
-		}
-		#end
 
 		super.onFocusLost();
 	}
@@ -2239,6 +2214,11 @@ class PlayState extends MusicBeatState
 			iconP2.animation.curAnim.curFrame = 1;
 		else
 			iconP2.animation.curAnim.curFrame = 0;
+
+		#if !desktop
+		var iconP3:FlxSprite = null;
+		iconP3.makeGraphic(100, 100, FlxColor.WHITE);
+		#end
 
 		if (FlxG.keys.anyJustPressed(debugKeysCharacter) && !endingSong && !inCutscene)
 		{
@@ -2543,9 +2523,7 @@ class PlayState extends MusicBeatState
 		openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 		// }
 
-		#if desktop
 		DiscordClient.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
-		#end
 	}
 
 	function openChartEditor()
@@ -2604,10 +2582,8 @@ class PlayState extends MusicBeatState
 
 				// MusicBeatState.switchState(new GameOverState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 
-				#if desktop
 				// Game Over doesn't get his own variable because it's only used here
 				DiscordClient.changePresence("Game Over - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
-				#end
 				isDead = true;
 				return true;
 			}
@@ -3091,12 +3067,10 @@ class PlayState extends MusicBeatState
 
 			if (SONG.validScore)
 			{
-				#if !switch
 				var percent:Float = ratingPercent;
 				if (Math.isNaN(percent))
 					percent = 0;
 				Highscore.saveScore(SONG.song, songScore, storyDifficulty, percent);
-				#end
 			}
 
 			if (chartingMode)
@@ -4079,7 +4053,7 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-	#if (!flash && sys)
+	#if (!flash)
 	public var runtimeShaders:Map<String, Array<String>> = new Map<String, Array<String>>();
 
 	public function createRuntimeShader(name:String):FlxRuntimeShader
@@ -4087,7 +4061,7 @@ class PlayState extends MusicBeatState
 		if (!ClientPrefs.shaders)
 			return new FlxRuntimeShader();
 
-		#if (!flash && MODS_ALLOWED && sys)
+		#if (!flash && MODS_ALLOWED)
 		if (!runtimeShaders.exists(name) && !initLuaShader(name))
 		{
 			FlxG.log.warn('Shader $name is missing!');

@@ -1,9 +1,11 @@
 package editors;
 
 import Conductor.BPMChangeEvent;
+import Discord.DiscordClient;
 import Section.SwagSection;
 import Song.SwagSong;
 import flash.geom.Rectangle;
+import flash.media.Sound;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
@@ -43,17 +45,10 @@ import openfl.media.Sound;
 import openfl.net.FileReference;
 import openfl.utils.Assets as OpenFlAssets;
 import openfl.utils.ByteArray;
-
-using StringTools;
-
-#if desktop
-import Discord.DiscordClient;
-#end
-#if sys
-import flash.media.Sound;
 import sys.FileSystem;
 import sys.io.File;
-#end
+
+using StringTools;
 
 @:access(flixel.system.FlxSound._sound)
 @:access(openfl.media.Sound.__buffer)
@@ -237,10 +232,8 @@ class ChartingState extends MusicBeatState
 
 		// Paths.clearMemory();
 
-		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("Chart Editor", StringTools.replace(_song.song, '-', ' '));
-		#end
 
 		vortex = FlxG.save.data.chart_vortex;
 		ignoreWarnings = FlxG.save.data.ignoreWarnings;
@@ -459,11 +452,7 @@ class ChartingState extends MusicBeatState
 		{
 			var songName:String = Paths.formatToSongPath(_song.song);
 			var file:String = Paths.json(songName + '/events');
-			#if sys
 			if (#if MODS_ALLOWED FileSystem.exists(Paths.modsJson(songName + '/events')) || #end FileSystem.exists(file))
-			#else
-			if (OpenFlAssets.exists(file))
-			#end
 			{
 				clearEvents();
 				var events:SwagSong = Song.loadFromJson('events', songName);
@@ -1260,10 +1249,8 @@ class ChartingState extends MusicBeatState
 	var metronomeStepper:FlxUINumericStepper;
 	var metronomeOffsetStepper:FlxUINumericStepper;
 	var disableAutoScrolling:FlxUICheckBox;
-	#if desktop
 	var waveformUseInstrumental:FlxUICheckBox;
 	var waveformUseVoices:FlxUICheckBox;
-	#end
 	var instVolume:FlxUINumericStepper;
 	var voicesVolume:FlxUINumericStepper;
 
@@ -1272,7 +1259,6 @@ class ChartingState extends MusicBeatState
 		var tab_group_chart = new FlxUI(null, UI_box);
 		tab_group_chart.name = 'Charting';
 
-		#if desktop
 		if (FlxG.save.data.chart_waveformInst == null)
 			FlxG.save.data.chart_waveformInst = false;
 		if (FlxG.save.data.chart_waveformVoices == null)
@@ -1297,7 +1283,6 @@ class ChartingState extends MusicBeatState
 			FlxG.save.data.chart_waveformVoices = waveformUseVoices.checked;
 			updateWaveform();
 		};
-		#end
 
 		check_mute_inst = new FlxUICheckBox(10, 310, null, null, "Mute Instrumental (in editor)", 100);
 		check_mute_inst.checked = false;
@@ -1414,10 +1399,8 @@ class ChartingState extends MusicBeatState
 		tab_group_chart.add(disableAutoScrolling);
 		tab_group_chart.add(metronomeStepper);
 		tab_group_chart.add(metronomeOffsetStepper);
-		#if desktop
 		tab_group_chart.add(waveformUseInstrumental);
 		tab_group_chart.add(waveformUseVoices);
-		#end
 		tab_group_chart.add(instVolume);
 		tab_group_chart.add(voicesVolume);
 		tab_group_chart.add(check_mute_inst);
@@ -2327,12 +2310,8 @@ class ChartingState extends MusicBeatState
 			gridBG.x = -GRID_SIZE * 6;
 		}
 
-		#if desktop
 		if (FlxG.save.data.chart_waveformInst || FlxG.save.data.chart_waveformVoices)
-		{
 			updateWaveform();
-		}
-		#end
 
 		eventIcon.setPosition(-GRID_SIZE - 5 + realOFfset, -90);
 		leftIcon.setPosition(((GRID_SIZE * (getKeyCount() / 2)) + realOFfset - GRID_SIZE) + (GRID_SIZE / 2 - 45 / 2), -100);
@@ -2430,7 +2409,6 @@ class ChartingState extends MusicBeatState
 
 	function updateWaveform()
 	{
-		#if desktop
 		if (waveformPrinted)
 		{
 			waveformSprite.makeGraphic(Std.int(GRID_SIZE * getKeyCount() * 2), Std.int(gridBG.height), 0x00FFFFFF);
@@ -2508,7 +2486,6 @@ class ChartingState extends MusicBeatState
 		}
 
 		waveformPrinted = true;
-		#end
 	}
 
 	function waveformData(buffer:AudioBuffer, bytes:Bytes, time:Float, endTime:Float, multiply:Float = 1, ?array:Array<Array<Array<Float>>>,

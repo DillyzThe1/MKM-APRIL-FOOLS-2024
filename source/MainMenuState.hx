@@ -1,9 +1,7 @@
 package;
 
-#if desktop
-import Discord.DiscordClient;
-#end
 import Achievements;
+import Discord.DiscordClient;
 import editors.MasterEditorMenu;
 import flixel.FlxCamera;
 import flixel.FlxG;
@@ -69,10 +67,8 @@ class MainMenuState extends MusicBeatState
 		#end
 		WeekData.loadTheFirstEnabledMod();
 
-		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.inMenus();
-		#end
 		debugKeys = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 
 		camGame = new FlxCamera();
@@ -422,13 +418,11 @@ class MainMenuState extends MusicBeatState
 					});
 				}
 			}
-			#if desktop
 			else if (FlxG.keys.anyJustPressed(debugKeys))
 			{
 				selectedSomethin = true;
 				MusicBeatState.switchState(new MasterEditorMenu());
 			}
-			#end
 		}
 
 		super.update(elapsed);
@@ -446,7 +440,10 @@ class MainMenuState extends MusicBeatState
 			var newx = ((FlxG.width - spr.width) / 2) + (selOnRight ? -distAmount : distAmount);
 			spr.x = FlxMath.lerp(newx, spr.x, lerpVal);
 		});
-
+		#if !desktop
+		var iconP3:FlxSprite = null;
+		iconP3.makeGraphic(100, 100, FlxColor.WHITE);
+		#end
 		// bgNormalized.alpha = FlxMath.lerp(selOnRight ? 1 : 0, bgNormalized.alpha, elapsed * 144 * 2.5);
 	}
 

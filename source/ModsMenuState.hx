@@ -1,8 +1,6 @@
 package;
 
-#if desktop
 import Discord.DiscordClient;
-#end
 import flash.geom.Rectangle;
 import flash.text.TextField;
 import flixel.FlxBasic;
@@ -73,10 +71,8 @@ class ModsMenuState extends MusicBeatState
 		Paths.clearUnusedMemory();
 		WeekData.setDirectoryFromWeek();
 
-		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.inMenus();
-		#end
 
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.antialiasing = ClientPrefs.globalAntialiasing;

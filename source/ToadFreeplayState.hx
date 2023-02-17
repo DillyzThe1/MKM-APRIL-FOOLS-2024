@@ -153,10 +153,8 @@ class ToadFreeplayState extends MusicBeatState
 
 		changeSelection(0, false);
 
-		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.inMenus();
-		#end
 	}
 
 	override function update(e:Float)
@@ -282,6 +280,10 @@ class ToadFreeplayState extends MusicBeatState
 
 	function changeSelection(change:Int = 0, ?playSound:Bool = true)
 	{
+		#if !desktop
+		var iconP3:FlxSprite = null;
+		iconP3.makeGraphic(100, 100, FlxColor.WHITE);
+		#end
 		if (playSound)
 			FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 
@@ -314,10 +316,8 @@ class ToadFreeplayState extends MusicBeatState
 			});
 		}
 
-		#if !switch
 		intendedScore = Highscore.getScore(songs[curIndex].songName, curDifficulty);
 		intendedRating = Highscore.getRating(songs[curIndex].songName, curDifficulty);
-		#end
 
 		for (i in 0...iconArray.length)
 		{

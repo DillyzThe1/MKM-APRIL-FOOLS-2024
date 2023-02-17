@@ -1,8 +1,6 @@
 package editors;
 
-#if desktop
 import Discord.DiscordClient;
-#end
 import WeekData;
 import flash.net.FileFilter;
 import flixel.FlxG;
@@ -28,13 +26,10 @@ import openfl.events.Event;
 import openfl.events.IOErrorEvent;
 import openfl.net.FileReference;
 import openfl.utils.Assets;
-
-using StringTools;
-
-#if sys
 import sys.FileSystem;
 import sys.io.File;
-#end
+
+using StringTools;
 
 class WeekEditorState extends MusicBeatState
 {
@@ -385,10 +380,8 @@ class WeekEditorState extends MusicBeatState
 		}
 		recalculateStuffPosition();
 
-		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("Week Editor", "Editting: " + weekFileName);
-		#end
 	}
 
 	override function getEvent(id:String, sender:Dynamic, data:Dynamic, ?params:Array<Dynamic>)
@@ -535,7 +528,6 @@ class WeekEditorState extends MusicBeatState
 		_file.removeEventListener(Event.CANCEL, onLoadCancel);
 		_file.removeEventListener(IOErrorEvent.IO_ERROR, onLoadError);
 
-		#if sys
 		var fullPath:String = null;
 		@:privateAccess
 		if (_file.__path != null)
@@ -562,9 +554,6 @@ class WeekEditorState extends MusicBeatState
 		loadError = true;
 		loadedWeek = null;
 		_file = null;
-		#else
-		trace("File couldn't be loaded! You aren't on Desktop, are you?");
-		#end
 	}
 
 	/**

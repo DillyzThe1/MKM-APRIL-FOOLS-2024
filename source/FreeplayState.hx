@@ -1,8 +1,6 @@
 package;
 
-#if desktop
 import Discord.DiscordClient;
-#end
 import WeekData;
 import editors.ChartingState;
 import flash.text.TextField;
@@ -63,10 +61,8 @@ class FreeplayState extends MusicBeatState
 		PlayState.isStoryMode = false;
 		WeekData.reloadWeekFiles(false);
 
-		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.inMenus();
-		#end
 
 		for (i in 0...WeekData.weeksList.length)
 		{
@@ -468,10 +464,8 @@ class FreeplayState extends MusicBeatState
 			lastDifficultyName = diffBefore;
 		}
 
-		#if !switch
 		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
 		intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
-		#end
 
 		PlayState.storyDifficulty = curDifficulty;
 		diffText.text = '< ' + CoolUtil.difficultyString() + ' >';
@@ -508,10 +502,8 @@ class FreeplayState extends MusicBeatState
 
 		// selector.y = (70 * curSelected) + 30;
 
-		#if !switch
 		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
 		intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
-		#end
 
 		var bullShit:Int = 0;
 

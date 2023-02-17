@@ -17,17 +17,14 @@ import openfl.geom.Rectangle;
 import openfl.system.System;
 import openfl.utils.AssetType;
 import openfl.utils.Assets as OpenFlAssets;
+import sys.FileSystem;
+import sys.io.File;
 
 using StringTools;
 
-#if sys
-import sys.FileSystem;
-import sys.io.File;
-#end
-
 class Paths
 {
-	inline public static var SOUND_EXT = #if web "mp3" #else "ogg" #end;
+	inline public static var SOUND_EXT = "ogg";
 	inline public static var VIDEO_EXT = "mp4";
 
 	inline public static function checkStr(str:String)
@@ -246,7 +243,6 @@ class Paths
 
 	static public function getTextFromFile(key:String, ?ignoreMods:Bool = false):String
 	{
-		#if sys
 		#if MODS_ALLOWED
 		if (!ignoreMods && FileSystem.exists(modFolders(key)))
 			return File.getContent(modFolders(key));
@@ -269,7 +265,6 @@ class Paths
 			if (FileSystem.exists(levelPath))
 				return File.getContent(levelPath);
 		}
-		#end
 		return Assets.getText(getPath(key, TEXT));
 	}
 

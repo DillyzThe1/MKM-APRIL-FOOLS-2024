@@ -1,8 +1,6 @@
 package;
 
-#if desktop
 import Discord.DiscordClient;
-#end
 import WeekData;
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -96,10 +94,8 @@ class StoryMenuState extends MusicBeatState
 		grpLocks = new FlxTypedGroup<FlxSprite>();
 		add(grpLocks);
 
-		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.inMenus();
-		#end
 
 		var num:Int = 0;
 		for (i in 0...WeekData.weeksList.length)
@@ -349,9 +345,7 @@ class StoryMenuState extends MusicBeatState
 		}
 		lastDifficultyName = diff;
 
-		#if !switch
 		intendedScore = Highscore.getWeekScore(loadedWeeks[curWeek].fileName, curDifficulty);
-		#end
 	}
 
 	var lerpScore:Int = 0;
@@ -464,6 +458,11 @@ class StoryMenuState extends MusicBeatState
 			dataThing.push(thisCatsName);
 		}
 
+		#if !desktop
+		var iconP3:FlxSprite = null;
+		iconP3.makeGraphic(100, 100, FlxColor.WHITE);
+		#end
+
 		txtTracklist.text = '';
 		for (i in 0...dataThing.length)
 			if (!dataThing[i].hidden)
@@ -474,8 +473,6 @@ class StoryMenuState extends MusicBeatState
 		txtTracklist.screenCenter(X);
 		txtTracklist.x -= FlxG.width * 0.35;
 
-		#if !switch
 		intendedScore = Highscore.getWeekScore(loadedWeeks[curWeek].fileName, curDifficulty);
-		#end
 	}
 }

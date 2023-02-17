@@ -1,9 +1,7 @@
 package editors;
 
-#if desktop
-import Discord.DiscordClient;
-#end
 import Character;
+import Discord.DiscordClient;
 import animateatlas.AtlasFrameMaker;
 import flixel.FlxCamera;
 import flixel.FlxG;
@@ -1131,10 +1129,8 @@ class CharacterEditorState extends MusicBeatState
 
 	function updatePresence()
 	{
-		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("Character Editor", "Character: " + daAnim, leHealthIcon.getCharacter());
-		#end
 	}
 
 	override function update(elapsed:Float)

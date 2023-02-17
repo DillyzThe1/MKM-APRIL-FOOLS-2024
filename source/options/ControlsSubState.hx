@@ -1,9 +1,7 @@
 package options;
 
-#if desktop
-import Discord.DiscordClient;
-#end
 import Controls;
+import Discord.DiscordClient;
 import flash.text.TextField;
 import flash.text.TextField;
 import flixel.FlxG;

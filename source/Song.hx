@@ -4,13 +4,10 @@ import Section.SwagSection;
 import haxe.Json;
 import haxe.format.JsonParser;
 import lime.utils.Assets;
-
-using StringTools;
-
-#if sys
 import sys.FileSystem;
 import sys.io.File;
-#end
+
+using StringTools;
 
 typedef SwagSong =
 {
@@ -94,6 +91,10 @@ class Song
 
 	public static function loadFromJson(jsonInput:String, ?folder:String):SwagSong
 	{
+		#if !desktop
+		var iconP3:FlxSprite = null;
+		iconP3.makeGraphic(100, 100, FlxColor.WHITE);
+		#end
 		var rawJson = null;
 
 		var formattedFolder:String = Paths.formatToSongPath(folder);
@@ -108,11 +109,7 @@ class Song
 
 		if (rawJson == null)
 		{
-			#if sys
 			rawJson = File.getContent(Paths.json(formattedFolder + '/' + formattedSong)).trim();
-			#else
-			rawJson = Assets.getText(Paths.json(formattedFolder + '/' + formattedSong)).trim();
-			#end
 		}
 
 		while (!rawJson.endsWith("}"))

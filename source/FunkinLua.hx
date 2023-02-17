@@ -1,5 +1,6 @@
 import Controls;
 import DialogueBoxPsych;
+import Discord;
 import Type.ValueType;
 import animateatlas.AtlasFrameMaker;
 import flixel.FlxBasic;
@@ -23,32 +24,24 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxSave;
 import flixel.util.FlxTimer;
+import hscript.Interp;
+import hscript.Interp;
+import hscript.Parser;
+import llua.Convert;
+import llua.Lua;
+import llua.LuaL;
+import llua.LuaL;
+import llua.State;
 import openfl.Lib;
 import openfl.display.BlendMode;
 import openfl.filters.BitmapFilter;
 import openfl.filters.BlurFilter;
 import openfl.filters.ShaderFilter;
 import openfl.utils.Assets;
-
-using StringTools;
-
-#if LUA_ALLOWED
-import llua.Convert;
-import llua.Lua;
-import llua.LuaL;
-import llua.State;
-#end
-#if sys
 import sys.FileSystem;
 import sys.io.File;
-#end
-#if hscript
-import hscript.Interp;
-import hscript.Parser;
-#end
-#if desktop
-import Discord;
-#end
+
+using StringTools;
 
 @:keep
 class FunkinLua
@@ -720,7 +713,7 @@ class FunkinLua
 			if (!ClientPrefs.shaders)
 				return false;
 
-			#if (!flash && MODS_ALLOWED && sys)
+			#if (!flash && MODS_ALLOWED)
 			return initLuaShader(name, glslVersion);
 			#else
 			luaTrace("initLuaShader: Platform unsupported for Runtime Shaders!", false, false, FlxColor.RED);
@@ -733,7 +726,7 @@ class FunkinLua
 			if (!ClientPrefs.shaders)
 				return false;
 
-			#if (!flash && MODS_ALLOWED && sys)
+			#if (!flash && MODS_ALLOWED)
 			if (!PlayState.instance.runtimeShaders.exists(shader) && !initLuaShader(shader))
 			{
 				luaTrace('setSpriteShader: Shader $shader is missing!', false, false, FlxColor.RED);
@@ -777,7 +770,7 @@ class FunkinLua
 
 		Lua_helper.add_callback(lua, "getShaderBool", function(obj:String, prop:String)
 		{
-			#if (!flash && MODS_ALLOWED && sys)
+			#if (!flash && MODS_ALLOWED)
 			var shader:FlxRuntimeShader = getShader(obj);
 			if (shader == null)
 			{
@@ -791,7 +784,7 @@ class FunkinLua
 		});
 		Lua_helper.add_callback(lua, "getShaderBoolArray", function(obj:String, prop:String)
 		{
-			#if (!flash && MODS_ALLOWED && sys)
+			#if (!flash && MODS_ALLOWED)
 			var shader:FlxRuntimeShader = getShader(obj);
 			if (shader == null)
 			{
@@ -805,7 +798,7 @@ class FunkinLua
 		});
 		Lua_helper.add_callback(lua, "getShaderInt", function(obj:String, prop:String)
 		{
-			#if (!flash && MODS_ALLOWED && sys)
+			#if (!flash && MODS_ALLOWED)
 			var shader:FlxRuntimeShader = getShader(obj);
 			if (shader == null)
 			{
@@ -819,7 +812,7 @@ class FunkinLua
 		});
 		Lua_helper.add_callback(lua, "getShaderIntArray", function(obj:String, prop:String)
 		{
-			#if (!flash && MODS_ALLOWED && sys)
+			#if (!flash && MODS_ALLOWED)
 			var shader:FlxRuntimeShader = getShader(obj);
 			if (shader == null)
 			{
@@ -833,7 +826,7 @@ class FunkinLua
 		});
 		Lua_helper.add_callback(lua, "getShaderFloat", function(obj:String, prop:String)
 		{
-			#if (!flash && MODS_ALLOWED && sys)
+			#if (!flash && MODS_ALLOWED)
 			var shader:FlxRuntimeShader = getShader(obj);
 			if (shader == null)
 			{
@@ -847,7 +840,7 @@ class FunkinLua
 		});
 		Lua_helper.add_callback(lua, "getShaderFloatArray", function(obj:String, prop:String)
 		{
-			#if (!flash && MODS_ALLOWED && sys)
+			#if (!flash && MODS_ALLOWED)
 			var shader:FlxRuntimeShader = getShader(obj);
 			if (shader == null)
 			{
@@ -862,7 +855,7 @@ class FunkinLua
 
 		Lua_helper.add_callback(lua, "setShaderBool", function(obj:String, prop:String, value:Bool)
 		{
-			#if (!flash && MODS_ALLOWED && sys)
+			#if (!flash && MODS_ALLOWED)
 			var shader:FlxRuntimeShader = getShader(obj);
 			if (shader == null)
 				return;
@@ -874,7 +867,7 @@ class FunkinLua
 		});
 		Lua_helper.add_callback(lua, "setShaderBoolArray", function(obj:String, prop:String, values:Dynamic)
 		{
-			#if (!flash && MODS_ALLOWED && sys)
+			#if (!flash && MODS_ALLOWED)
 			var shader:FlxRuntimeShader = getShader(obj);
 			if (shader == null)
 				return;
@@ -886,7 +879,7 @@ class FunkinLua
 		});
 		Lua_helper.add_callback(lua, "setShaderInt", function(obj:String, prop:String, value:Int)
 		{
-			#if (!flash && MODS_ALLOWED && sys)
+			#if (!flash && MODS_ALLOWED)
 			var shader:FlxRuntimeShader = getShader(obj);
 			if (shader == null)
 				return;
@@ -898,7 +891,7 @@ class FunkinLua
 		});
 		Lua_helper.add_callback(lua, "setShaderIntArray", function(obj:String, prop:String, values:Dynamic)
 		{
-			#if (!flash && MODS_ALLOWED && sys)
+			#if (!flash && MODS_ALLOWED)
 			var shader:FlxRuntimeShader = getShader(obj);
 			if (shader == null)
 				return;
@@ -910,7 +903,7 @@ class FunkinLua
 		});
 		Lua_helper.add_callback(lua, "setShaderFloat", function(obj:String, prop:String, value:Float)
 		{
-			#if (!flash && MODS_ALLOWED && sys)
+			#if (!flash && MODS_ALLOWED)
 			var shader:FlxRuntimeShader = getShader(obj);
 			if (shader == null)
 				return;
@@ -922,7 +915,7 @@ class FunkinLua
 		});
 		Lua_helper.add_callback(lua, "setShaderFloatArray", function(obj:String, prop:String, values:Dynamic)
 		{
-			#if (!flash && MODS_ALLOWED && sys)
+			#if (!flash && MODS_ALLOWED)
 			var shader:FlxRuntimeShader = getShader(obj);
 			if (shader == null)
 				return;
@@ -935,7 +928,7 @@ class FunkinLua
 
 		Lua_helper.add_callback(lua, "setShaderSampler2D", function(obj:String, prop:String, bitmapdataPath:String)
 		{
-			#if (!flash && MODS_ALLOWED && sys)
+			#if (!flash && MODS_ALLOWED)
 			var shader:FlxRuntimeShader = getShader(obj);
 			if (shader == null)
 				return;
@@ -2729,9 +2722,7 @@ class FunkinLua
 		Lua_helper.add_callback(lua, "changePresence",
 			function(details:String, state:Null<String>, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float)
 			{
-				#if desktop
 				DiscordClient.changePresence(details, state, smallImageKey, hasStartTimestamp, endTimestamp);
-				#end
 			});
 
 		// LUA TEXTS
@@ -3413,7 +3404,7 @@ class FunkinLua
 		return sexyProp;
 	}
 
-	#if (!flash && sys)
+	#if (!flash)
 	public function getShader(obj:String):FlxRuntimeShader
 	{
 		var killMe:Array<String> = obj.split('.');
@@ -3438,7 +3429,7 @@ class FunkinLua
 		if (!ClientPrefs.shaders)
 			return false;
 
-		#if (!flash && sys)
+		#if (!flash)
 		if (PlayState.instance.runtimeShaders.exists(name))
 		{
 			luaTrace('Shader $name was already initialized!');

@@ -1,9 +1,6 @@
 package;
 
-#if desktop
 import Discord.DiscordClient;
-import sys.thread.Thread;
-#end
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
@@ -32,6 +29,7 @@ import openfl.Assets;
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
 import options.GraphicsSettingsSubState;
+import sys.thread.Thread;
 
 using StringTools;
 
@@ -194,7 +192,6 @@ class TitleState extends MusicBeatState
 		}
 		else
 		{
-			#if desktop
 			if (!DiscordClient.isInitialized)
 			{
 				DiscordClient.initialize();
@@ -207,7 +204,6 @@ class TitleState extends MusicBeatState
 			}
 
 			DiscordClient.inMenus();
-			#end
 
 			if (initialized)
 				startIntro();
@@ -317,7 +313,7 @@ class TitleState extends MusicBeatState
 		logoBl.shader = swagShader.shader;
 
 		titleText = new FlxSprite(titleJSON.startx, titleJSON.starty);
-		#if (desktop && MODS_ALLOWED)
+		#if MODS_ALLOWED
 		var path = "mods/" + Paths.currentModDirectory + "/images/titleEnter.png";
 		// trace(path, FileSystem.exists(path));
 		if (!FileSystem.exists(path))
@@ -438,27 +434,12 @@ class TitleState extends MusicBeatState
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER || controls.ACCEPT;
 
-		#if mobile
-		for (touch in FlxG.touches.list)
-		{
-			if (touch.justPressed)
-			{
-				pressedEnter = true;
-			}
-		}
-		#end
-
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
 		if (gamepad != null)
 		{
 			if (gamepad.justPressed.START)
 				pressedEnter = true;
-
-			#if switch
-			if (gamepad.justPressed.B)
-				pressedEnter = true;
-			#end
 		}
 
 		if (newTitle)

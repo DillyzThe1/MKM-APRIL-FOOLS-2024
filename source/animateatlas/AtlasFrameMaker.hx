@@ -25,16 +25,10 @@ import openfl.Assets;
 import openfl.display.BitmapData;
 import openfl.geom.Rectangle;
 import openfl.utils.ByteArray;
-
-using StringTools;
-
-#if desktop
 import sys.FileSystem;
 import sys.io.File;
-#else
-import js.html.File;
-import js.html.FileSystem;
-#end
+
+using StringTools;
 
 class AtlasFrameMaker extends FlxFramesCollection
 {

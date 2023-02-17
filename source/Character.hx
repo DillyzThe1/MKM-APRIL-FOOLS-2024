@@ -18,13 +18,10 @@ import haxe.format.JsonParser;
 import openfl.utils.AssetType;
 import openfl.utils.Assets;
 import openfl.utils.Assets;
-
-using StringTools;
-
-#if desktop
 import sys.FileSystem;
 import sys.io.File;
-#end
+
+using StringTools;
 
 typedef CharacterFile =
 {
