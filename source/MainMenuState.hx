@@ -244,11 +244,7 @@ class MainMenuState extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		if (FlxG.sound.music.volume < 0.8)
-		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
-			if (FreeplayState.vocals != null)
-				FreeplayState.vocals.volume += 0.5 * elapsed;
-		}
 
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
 		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
@@ -336,7 +332,7 @@ class MainMenuState extends MusicBeatState
 									case 'story_mode':
 										MusicBeatState.switchState(new StoryMenuState());
 									case 'freeplay':
-										MusicBeatState.switchState(new ToadFreeplayState());
+										MusicBeatState.switchState(new FreeplayState());
 									#if MODS_ALLOWED
 									case 'mods':
 										MusicBeatState.switchState(new ModsMenuState());

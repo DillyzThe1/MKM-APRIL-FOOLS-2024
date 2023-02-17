@@ -3190,7 +3190,7 @@ class PlayState extends MusicBeatState
 				{
 					CustomFadeTransition.nextCamera = null;
 				}
-				MusicBeatState.switchState(new ToadFreeplayState());
+				MusicBeatState.switchState(new FreeplayState());
 				FlxG.sound.playMusic(Paths.music('freakyMenu'));
 				changedDifficulty = false;
 			}

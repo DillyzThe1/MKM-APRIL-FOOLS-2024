@@ -218,12 +218,10 @@ class CoolUtil
 				new FlxTimer().start(delay, function(tmr:FlxTimer)
 				{
 					LoadingState.loadAndSwitchState(new PlayState(), true);
-					FreeplayState.destroyFreeplayVocals();
 				});
 				return true;
 			}
 			LoadingState.loadAndSwitchState(new PlayState(), true);
-			FreeplayState.destroyFreeplayVocals();
 			return true;
 		}
 		return false;
