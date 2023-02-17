@@ -146,7 +146,7 @@ class ChartingState extends MusicBeatState
 
 	var curRenderedSustains:FlxTypedGroup<SusSprite>;
 	var curRenderedNotes:FlxTypedGroup<Note>;
-	var curRenderedNoteType:FlxTypedGroup<FlxText>;
+	var curRenderedNoteType:FlxTypedGroup<AttachedFlxText>;
 
 	var nextRenderedSustains:FlxTypedGroup<SusSprite>;
 	var nextRenderedNotes:FlxTypedGroup<Note>;
@@ -270,7 +270,7 @@ class ChartingState extends MusicBeatState
 
 		curRenderedSustains = new FlxTypedGroup<SusSprite>();
 		curRenderedNotes = new FlxTypedGroup<Note>();
-		curRenderedNoteType = new FlxTypedGroup<FlxText>();
+		curRenderedNoteType = new FlxTypedGroup<AttachedFlxText>();
 
 		nextRenderedSustains = new FlxTypedGroup<SusSprite>();
 		nextRenderedNotes = new FlxTypedGroup<Note>();
@@ -1560,7 +1560,7 @@ class ChartingState extends MusicBeatState
 				if (curSelectedNote != null && curSelectedNote[1] > -1)
 				{
 					curSelectedNote[2] = nums.value;
-					updateGrid(false);
+					lazyUpdateGrid(curBeat, curSelectedNote[1]);
 				}
 				else
 				{
@@ -1592,12 +1592,12 @@ class ChartingState extends MusicBeatState
 				if (sender == value1InputText && value1InputText.text != null)
 				{
 					curSelectedNote[1][curEventSelected][1] = value1InputText.text;
-					updateGrid(false);
+					lazyUpdateGrid(-1, curSelectedNote[1]);
 				}
 				else if (sender == value2InputText && value2InputText.text != null)
 				{
 					curSelectedNote[1][curEventSelected][2] = value2InputText.text;
-					updateGrid(false);
+					lazyUpdateGrid(-1, curSelectedNote[1]);
 				}
 				else if (sender == strumTimeInputText)
 				{
@@ -1605,7 +1605,7 @@ class ChartingState extends MusicBeatState
 					if (Math.isNaN(value))
 						value = 0;
 					curSelectedNote[0] = value;
-					updateGrid(false);
+					lazyUpdateGrid(-1, curSelectedNote[1]);
 				}
 			}
 		}
@@ -1731,7 +1731,7 @@ class ChartingState extends MusicBeatState
 						{
 							selectNote(note);
 							curSelectedNote[3] = noteTypeIntMap.get(currentType);
-							updateGrid(false);
+							lazyUpdateGrid(curBeat, curSelectedNote[1]);
 						}
 						else
 						{
@@ -2089,7 +2089,7 @@ class ChartingState extends MusicBeatState
 									if (curSelectedNote[1] == i)
 										curSelectedNote[2] += datime - curSelectedNote[2] - Conductor.stepCrochet;
 							}
-							updateGrid(false);
+							lazyUpdateGrid(curBeat, curSelectedNote[1]);
 							updateNoteUI();
 						}
 					}
@@ -2682,17 +2682,19 @@ class ChartingState extends MusicBeatState
 
 	function changeNoteSustain(value:Float):Void
 	{
-		if (curSelectedNote != null)
-		{
-			if (curSelectedNote[2] != null)
-			{
-				curSelectedNote[2] += value;
-				curSelectedNote[2] = Math.max(curSelectedNote[2], 0);
-			}
+		if (curSelectedNote == null) {
+			updateNoteUI();
+			lazyUpdateGrid(curBeat, -1);
+			return;
 		}
 
+		if (curSelectedNote[2] != null)
+		{
+			curSelectedNote[2] += value;
+			curSelectedNote[2] = Math.max(curSelectedNote[2], 0);
+		}
 		updateNoteUI();
-		updateGrid(false);
+		lazyUpdateGrid(curBeat, curSelectedNote[1]);
 	}
 
 	function recalculateSteps(add:Float = 0):Int
@@ -2894,9 +2896,10 @@ class ChartingState extends MusicBeatState
 		var beatLength:Float = 1000 * 60 / getSectionBPM();
 		var start:Float = sectionStartTime() - 1;
 		var end:Float = sectionStartTime();
+		var secBeats:Int = Std.int(getSectionBeats());
 
 		// bounding it just incase
-		if (beat > getSectionBeats())
+		if (beat > secBeats)
 			beat = -1;
 
 		// get the time range
@@ -2906,17 +2909,56 @@ class ChartingState extends MusicBeatState
 			end += beatLength * (beat + 1);
 		}
 		else
-			end += getSectionBeats() * beatLength;
+			end += secBeats * beatLength;
 
 		var deadNotes:Array<Note> = [];
+		var deadSus:Array<SusSprite> = [];
+		var deadTexts:Array<AttachedFlxText> = [];
 
 		for (note in curRenderedNotes)
 			if ((hPlace == -1 || note.noteData == hPlace) && (beat == -1 || (note.strumTime >= start && note.strumTime < end)))
-			{
 				deadNotes.push(note);
+		for (sus in curRenderedSustains)
+			if (deadNotes.contains(sus.parentNote))
+				deadSus.push(sus);
+		for (txt in curRenderedNoteType)
+			if (txt.parentNote != null && deadNotes.contains(txt.parentNote))
+				deadTexts.push(txt);
+
+		for (i in _song.notes[curSec].sectionNotes)
+		{
+			if ((beat != -1 && (i[0] < start || i[0] >= end)) || (hPlace != -1 && i[1] % getKeyCount() != beat))
+				continue;
+
+			var note:Note = setupNoteData(i, false);
+			curRenderedNotes.add(note);
+			if (note.sustainLength > 0)
+				curRenderedSustains.add(setupSusNote(note, secBeats));
+
+			if (i[3] != null && note.noteType != null && note.noteType.length > 0)
+			{
+				var typeInt:Null<Int> = noteTypeMap.get(i[3]);
+				var theType:String = '' + typeInt;
+				if (typeInt == null)
+					theType = '?';
+
+				var daText:AttachedFlxText = new AttachedFlxText(0, 0, 100, theType, 24);
+				daText.setFormat(Paths.font("vcr.ttf"), 24, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				daText.xAdd = -32;
+				daText.yAdd = 6;
+				daText.borderSize = 1;
+				daText.parentNote = note;
+				curRenderedNoteType.add(daText);
+				daText.sprTracker = note;
 			}
+			note.mustPress = _song.notes[curSec].mustHitSection;
+			if (i[1] > getKeyCount() - 1)
+				note.mustPress = !note.mustPress;
+		}
 
 		destroyArray(deadNotes);
+		destroyArray(deadSus);
+		destroyArray(deadTexts); 
 	}
 
 	function destroyGroup(group:FlxTypedGroup<Dynamic>)
@@ -3015,6 +3057,7 @@ class ChartingState extends MusicBeatState
 				daText.borderSize = 1;
 				if (note.eventLength > 1)
 					daText.yAdd += 8;
+				daText.parentNote = note;
 				curRenderedNoteType.add(daText);
 				daText.sprTracker = note;
 				// trace('test: ' + i[0], 'startThing: ' + startThing, 'endThing: ' + endThing);
@@ -3193,7 +3236,7 @@ class ChartingState extends MusicBeatState
 			}
 		}
 
-		updateGrid(false);
+		lazyUpdateGrid(curBeat,	curSelectedNote != null ? curSelectedNote[1] : -1);
 		updateNoteUI();
 	}
 
@@ -3235,7 +3278,7 @@ class ChartingState extends MusicBeatState
 			}
 		}
 
-		updateGrid(false);
+		lazyUpdateGrid(curBeat, noteDataToCheck);
 	}
 
 	public function doANoteThing(cs, d, style)
@@ -3316,7 +3359,7 @@ class ChartingState extends MusicBeatState
 		// trace(noteData + ', ' + noteStrum + ', ' + curSec);
 		strumTimeInputText.text = '' + curSelectedNote[0];
 
-		updateGrid(false);
+		lazyUpdateGrid(curBeat, noteData);
 		updateNoteUI();
 	}
 
@@ -3497,6 +3540,7 @@ class ChartingState extends MusicBeatState
 
 class AttachedFlxText extends FlxText
 {
+	public var parentNote:Note;
 	public var sprTracker:FlxSprite;
 	public var xAdd:Float = 0;
 	public var yAdd:Float = 0;
