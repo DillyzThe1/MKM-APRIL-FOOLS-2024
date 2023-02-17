@@ -1,7 +1,7 @@
 local creditedPeople = ''
 
 local creditsMatch = {
-	{'tutorial', 'Composed By KawaiSprite'},
+	{'tutorial', 'Composed By KawaiSprite, Edited by DillyzThe1'},
 	{'house', 'Composed By DillyzThe1'},
 	{'house skill issue', 'Composed By DillyzThe1'},
 	{'no shrooms', 'Composed By DillyzThe1'},
