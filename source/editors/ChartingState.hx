@@ -4,6 +4,7 @@ import Conductor.BPMChangeEvent;
 import Discord.DiscordClient;
 import Section.SwagSection;
 import Song.SwagSong;
+import cpp.Int32;
 import flash.geom.Rectangle;
 import flash.media.Sound;
 import flixel.FlxG;
@@ -682,6 +683,13 @@ class ChartingState extends MusicBeatState
 		FlxG.camera.follow(camPos);
 	}
 
+	function flippedData(ogData:Int)
+	{
+		if (ogData >= getKeyCount())
+			ogData - getKeyCount();
+		return ogData + getKeyCount();
+	}
+
 	var stepperBeats:FlxUINumericStepper;
 	var check_mustHitSection:FlxUICheckBox;
 	var check_gfSection:FlxUICheckBox;
@@ -845,10 +853,7 @@ class ChartingState extends MusicBeatState
 			for (i in 0..._song.notes[curSec].sectionNotes.length)
 			{
 				var note:Array<Dynamic> = _song.notes[curSec].sectionNotes[i];
-				if (note[1] >= getKeyCount())
-					note[1] -= getKeyCount();
-				else
-					note[1] += getKeyCount();
+				note[1] = flippedData(note[1]);
 				_song.notes[curSec].sectionNotes[i] = note;
 			}
 			updateGrid();
@@ -925,22 +930,13 @@ class ChartingState extends MusicBeatState
 		});
 		var mirrorButton:FlxButton = new FlxButton(duetButton.x + 100, duetButton.y, "Mirror Notes", function()
 		{
-			var duetNotes:Array<Array<Dynamic>> = [];
 			for (note in _song.notes[curSec].sectionNotes)
 			{
-				var boob = note[1] % getKeyCount();
-				boob = (getKeyCount() * 2) - 1 - boob;
-				if (note[1] > getKeyCount() - 1)
-					boob += getKeyCount();
-
-				note[1] = boob;
-				var copiedNote:Array<Dynamic> = [note[0], boob, note[2], note[3]];
-				// duetNotes.push(copiedNote);
-			}
-
-			for (i in duetNotes)
-			{
-				// _song.notes[curSec].sectionNotes.push(i);
+				var keyssss:Int = getKeyCount();
+				if (note[1] >= keyssss)
+					note[1] = ((keyssss * 2) - 1) - (note[1] - keyssss);
+				else
+					note[1] = (keyssss - 1) - note[1];
 			}
 
 			updateGrid();
