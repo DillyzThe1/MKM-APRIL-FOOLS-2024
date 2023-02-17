@@ -2550,6 +2550,7 @@ class PlayState extends MusicBeatState
 
 	function openChartEditor()
 	{
+		#if debug
 		var ret:Dynamic;
 
 		if (!FlxG.keys.pressed.SHIFT)
@@ -2564,11 +2565,11 @@ class PlayState extends MusicBeatState
 			cancelMusicFadeTween();
 			MusicBeatState.switchState(new ChartingState());
 			chartingMode = true;
-
-			#if desktop
 			DiscordClient.changePresence("Chart Editor", null, null, true);
-			#end
 		}
+		#else
+		callOnLuas('onChartAccessed', [], false);
+		#end
 	}
 
 	public var isDead:Bool = false; // Don't mess with this on Lua!!!
