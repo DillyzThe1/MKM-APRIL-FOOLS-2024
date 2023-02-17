@@ -113,8 +113,8 @@ class PlayState extends MusicBeatState
 		"Blur" => {
 			filter: new BlurFilter(),
 		},
-		"GlitchMoment" => {
-			filter: new ShaderFilter(new shaders.GlitchMoment())
+		"ZoomBlur" => {
+			filter: new ShaderFilter(new shaders.ZoomBlurShader())
 		}
 		/*,
 			"Grayscale" => {

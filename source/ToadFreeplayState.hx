@@ -11,6 +11,8 @@ import flixel.math.FlxMath;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
+import openfl.filters.ShaderFilter;
+import shaders.ZoomBlurShader;
 
 using StringTools;
 
@@ -30,6 +32,10 @@ class ToadFreeplayState extends MusicBeatState
 	var curIndexOffset:Int = 0;
 
 	var hasSelected:Bool = false;
+
+	#if FREEPLAY_SHADER_THING
+	var zoomShader:ZoomBlurShader;
+	#end
 
 	override function create()
 	{
@@ -101,6 +107,7 @@ class ToadFreeplayState extends MusicBeatState
 
 			// trace(fixedsongname);
 
+			// note to self: if a name is over 25 chars, just simplify it like this
 			if (fixedsongname == "top-10-great-amazing-super-duper-wonderful-outstanding-saster-level-music-that-ever-has-been-heard")
 				fixedsongname = "t10gasdwoslmtehbh";
 
@@ -155,6 +162,13 @@ class ToadFreeplayState extends MusicBeatState
 
 		// Updating Discord Rich Presence
 		DiscordClient.inMenus();
+
+		#if FREEPLAY_SHADER_THING
+		zoomShader = new ZoomBlurShader();
+		zoomShader.zoomRadius.value = [0];
+		FlxG.camera.setFilters([new ShaderFilter(zoomShader)]);
+		trace("booted up zoom shader");
+		#end
 	}
 
 	override function update(e:Float)
@@ -241,8 +255,16 @@ class ToadFreeplayState extends MusicBeatState
 				FlxTween.tween(theSongEver.portrait.scale, {x: 2.25, y: 2.25}, 1, {ease: FlxEase.cubeIn});
 				FlxTween.tween(FlxG.camera, {zoom: 2.25}, 1, {
 					ease: FlxEase.cubeIn,
+					#if FREEPLAY_SHADER_THING
+					onUpdate: function(t:FlxTween)
+					{
+						if (zoomShader != null && zoomShader.zoomRadius != null && zoomShader.zoomRadius.value != null)
+							zoomShader.zoomRadius.value[0] = t.percent;
+					},
+					#end
 					onComplete: function(t:FlxTween)
 					{
+						FlxG.camera.setFilters([]);
 						add(new FlxSprite(FlxG.width * -0.5, FlxG.height * -0.5).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.WHITE));
 						FlxG.camera.fade(FlxColor.BLACK, 0.15, false, function()
 						{

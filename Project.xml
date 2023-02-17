@@ -55,7 +55,6 @@
 	<assets path="assets/preload" rename="assets" exclude="*.ogg" if="web"/>
 	<assets path="assets/preload" rename="assets" exclude="*.mp3"  unless="web"/>
 
-	<!-- DONT ENABLE THIS -->
 	<define name="CHECK_FOR_UPDATES" if="desktop"/>
 
 	<!-- <define name="PRELOAD_ALL" /> -->
@@ -114,6 +113,9 @@
 
 	<!-- spr map 1 https://github.com/Dot-Stuff/flxanimate (git) -->
 	<haxelib name="flxAnimate" />
+
+	
+	<!--define name="FREEPLAY_SHADER_THING" if="desktop"/-->
 
 	<!-- <haxelib name="markdown" /> -->
 	<!-- <haxelib name="HtmlParser" /> -->
