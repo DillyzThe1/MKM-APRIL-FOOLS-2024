@@ -1,7 +1,9 @@
 package;
 
+import StoryMenuState.StorySongData;
 import flixel.FlxG;
 import flixel.system.FlxSound;
+import flixel.util.FlxTimer;
 import lime.utils.AssetLibrary;
 import lime.utils.AssetManifest;
 import lime.utils.Assets as LimeAssets;
@@ -173,5 +175,63 @@ class CoolUtil
 		if (FlxG.save.data.babymode == null)
 			return false;
 		return FlxG.save.data.babymode;
+	}
+
+	public static function weekIsLocked(name:String):Bool
+	{
+		var leWeek:WeekData = WeekData.weeksLoaded.get(name);
+		return (!leWeek.startUnlocked
+			&& leWeek.weekBefore.length > 0
+			&& (!StoryMenuState.weekCompleted.exists(leWeek.weekBefore) || !StoryMenuState.weekCompleted.get(leWeek.weekBefore)));
+	}
+
+	public static function loadWeek(curWeek:WeekData, ?diff:Int = -1, ?delay:Float = 0, ?force:Bool = false):Bool
+	{
+		if (force || !weekIsLocked(curWeek.fileName))
+		{
+			// We can't use Dynamic Array .copy() because that crashes HTML5, here's a workaround.
+			var songArrayStrs:Array<String> = [];
+			var leWeek:Array<Dynamic> = curWeek.songs;
+			for (i in 0...leWeek.length)
+			{
+				var thisCatsName:StorySongData = {
+					name: leWeek[i][0],
+					hidden: leWeek[i].length > 3 ? leWeek[i][3] : false
+				};
+				songArrayStrs.push(thisCatsName.name);
+			}
+
+			// Nevermind that's stupid lmao
+			PlayState.storyPlaylist = songArrayStrs;
+			PlayState.isStoryMode = true;
+
+			var curDifficulty:Int = diff;
+			if (curDifficulty < 0)
+				curDifficulty = difficulties.length - 1;
+
+			var diffic = CoolUtil.getDifficultyFilePath(curDifficulty);
+			if (diffic == null)
+				diffic = '';
+
+			PlayState.storyDifficulty = curDifficulty;
+
+			PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
+			PlayState.campaignScore = 0;
+			PlayState.campaignMisses = 0;
+
+			if (delay > 0)
+			{
+				new FlxTimer().start(delay, function(tmr:FlxTimer)
+				{
+					LoadingState.loadAndSwitchState(new PlayState(), true);
+					FreeplayState.destroyFreeplayVocals();
+				});
+				return true;
+			}
+			LoadingState.loadAndSwitchState(new PlayState(), true);
+			FreeplayState.destroyFreeplayVocals();
+			return true;
+		}
+		return false;
 	}
 }

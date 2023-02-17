@@ -105,7 +105,7 @@ class StoryMenuState extends MusicBeatState
 		for (i in 0...WeekData.weeksList.length)
 		{
 			var weekFile:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[i]);
-			var isLocked:Bool = weekIsLocked(WeekData.weeksList[i]);
+			var isLocked:Bool = CoolUtil.weekIsLocked(WeekData.weeksList[i]);
 			if (!isLocked || !weekFile.hiddenUntilUnlocked)
 			{
 				loadedWeeks.push(weekFile);
@@ -295,57 +295,21 @@ class StoryMenuState extends MusicBeatState
 
 	function selectWeek()
 	{
-		if (!weekIsLocked(loadedWeeks[curWeek].fileName))
-		{
-			if (stopspamming == false)
-			{
-				FlxG.sound.play(Paths.sound('confirmMenu'));
-
-				grpWeekText.members[curWeek].startFlashing();
-
-				var bf:MenuCharacter = grpWeekCharacters.members[1];
-				if (bf.character != '' && bf.hasConfirmAnimation)
-					grpWeekCharacters.members[1].animation.play('confirm');
-				stopspamming = true;
-			}
-
-			// We can't use Dynamic Array .copy() because that crashes HTML5, here's a workaround.
-			var songArrayStrs:Array<String> = [];
-			songArray = [];
-			var leWeek:Array<Dynamic> = loadedWeeks[curWeek].songs;
-			for (i in 0...leWeek.length)
-			{
-				var thisCatsName:StorySongData = {
-					name: leWeek[i][0],
-					hidden: leWeek[i].length > 3 ? leWeek[i][3] : false
-				};
-				songArrayStrs.push(thisCatsName.name);
-				songArray.push(thisCatsName);
-			}
-
-			// Nevermind that's stupid lmao
-			PlayState.storyPlaylist = songArrayStrs;
-			PlayState.isStoryMode = true;
-			selectedWeek = true;
-
-			var diffic = CoolUtil.getDifficultyFilePath(curDifficulty);
-			if (diffic == null)
-				diffic = '';
-
-			PlayState.storyDifficulty = curDifficulty;
-
-			PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
-			PlayState.campaignScore = 0;
-			PlayState.campaignMisses = 0;
-			new FlxTimer().start(1, function(tmr:FlxTimer)
-			{
-				LoadingState.loadAndSwitchState(new PlayState(), true);
-				FreeplayState.destroyFreeplayVocals();
-			});
-		}
-		else
+		if (!CoolUtil.loadWeek(loadedWeeks[curWeek], curDifficulty, 1))
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'));
+			return;
+		}
+		if (!stopspamming)
+		{
+			FlxG.sound.play(Paths.sound('confirmMenu'));
+
+			grpWeekText.members[curWeek].startFlashing();
+
+			var bf:MenuCharacter = grpWeekCharacters.members[1];
+			if (bf.character != '' && bf.hasConfirmAnimation)
+				grpWeekCharacters.members[1].animation.play('confirm');
+			stopspamming = true;
 		}
 	}
 
@@ -411,7 +375,7 @@ class StoryMenuState extends MusicBeatState
 
 		var bullShit:Int = 0;
 
-		var unlocked:Bool = !weekIsLocked(leWeek.fileName);
+		var unlocked:Bool = !CoolUtil.weekIsLocked(leWeek.fileName);
 		for (item in grpWeekText.members)
 		{
 			item.targetY = bullShit - curWeek;
@@ -477,14 +441,6 @@ class StoryMenuState extends MusicBeatState
 			curDifficulty = newPos;
 		}
 		updateText();
-	}
-
-	function weekIsLocked(name:String):Bool
-	{
-		var leWeek:WeekData = WeekData.weeksLoaded.get(name);
-		return (!leWeek.startUnlocked
-			&& leWeek.weekBefore.length > 0
-			&& (!weekCompleted.exists(leWeek.weekBefore) || !weekCompleted.get(leWeek.weekBefore)));
 	}
 
 	function updateText()

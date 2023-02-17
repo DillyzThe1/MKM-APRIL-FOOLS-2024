@@ -3507,7 +3507,7 @@ class PlayState extends MusicBeatState
 				// Shubs, this is for the "Just the Two of Us" achievement lol
 				//									- Shadow Mario
 
-				// can you guys just discuss this over something normal and not a series of comment
+				// can you guys just discuss this over something normal and not a series of comments
 				//                                  - DillyzThe1
 				keysPressed[key] = true;
 
