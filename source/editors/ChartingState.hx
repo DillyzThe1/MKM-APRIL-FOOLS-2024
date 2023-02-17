@@ -927,7 +927,7 @@ class ChartingState extends MusicBeatState
 			for (note in _song.notes[curSec].sectionNotes)
 			{
 				var boob = note[1] % getKeyCount();
-				boob = getKeyCount() - 1 - boob;
+				boob = (getKeyCount() * 2) - 1 - boob;
 				if (note[1] > getKeyCount() - 1)
 					boob += getKeyCount();
 
@@ -941,6 +941,20 @@ class ChartingState extends MusicBeatState
 				// _song.notes[curSec].sectionNotes.push(i);
 			}
 
+			updateGrid();
+		});
+
+		var shiftUpButton:FlxButton = new FlxButton(10, duetButton.y + 30, "Shift Up", function()
+		{
+			for (i in _song.notes[curSec].sectionNotes)
+				i[0] -= 1000 * 60 / getSectionBPM();
+			updateGrid();
+		});
+
+		var shiftDownButton:FlxButton = new FlxButton(shiftUpButton.x + 100, shiftUpButton.y, "Shift Down", function()
+		{
+			for (i in _song.notes[curSec].sectionNotes)
+				i[0] += 1000 * 60 / getSectionBPM();
 			updateGrid();
 		});
 
@@ -961,6 +975,9 @@ class ChartingState extends MusicBeatState
 		tab_group_section.add(copyLastButton);
 		tab_group_section.add(duetButton);
 		tab_group_section.add(mirrorButton);
+
+		tab_group_section.add(shiftUpButton);
+		tab_group_section.add(shiftDownButton);
 
 		UI_box.addGroup(tab_group_section);
 	}
@@ -1601,6 +1618,15 @@ class ChartingState extends MusicBeatState
 			}
 		}
 		return daPos;
+	}
+
+	function getSectionBPM(?add:Int = 0)
+	{
+		var daBPM:Float = _song.bpm;
+		for (i in 0...curSec + add)
+			if (_song.notes[i] != null && _song.notes[i].changeBPM)
+				daBPM = _song.notes[i].bpm;
+		return daBPM;
 	}
 
 	var lastConductorPos:Float;
