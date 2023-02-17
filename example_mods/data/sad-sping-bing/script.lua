@@ -22,10 +22,7 @@ function onStartCountdown()
 		allowCountdown = true;
 		return Function_Stop;
 	end
+	setPropertyFromClass('flixel.FlxG','fullscreen',false)
 	endSong()
 	return Function_Stop;
-end
-
-function onDestroy()
-	setPropertyFromClass('flixel.FlxG','fullscreen',false)
 end
