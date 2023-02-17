@@ -943,7 +943,7 @@ class ChartingState extends MusicBeatState
 			updateGrid();
 		});
 
-		var shiftUpButton:FlxButton = new FlxButton(10, duetButton.y + 30, "Shift Up", function()
+		var shiftUpButton:FlxButton = new FlxButton(10, duetButton.y + 25, "Shift Up", function()
 		{
 			for (i in _song.notes[curSec].sectionNotes)
 				i[0] -= 1000 * 60 / getSectionBPM();
