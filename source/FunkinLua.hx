@@ -220,12 +220,12 @@ class FunkinLua
 
 		Lua_helper.add_callback(lua, "setUnlockerKey", function(unlockerKey:String, newValue:Bool)
 		{
-			ClientPrefs.setKeyUnlocked(unlockerKey.toLowerCase().replace(' ', '-'), newValue);
+			ClientPrefs.setKeyUnlocked(unlockerKey, newValue);
 		});
 
 		Lua_helper.add_callback(lua, "getUnlockerKey", function(unlockerKey:String)
 		{
-			return ClientPrefs.getKeyUnlocked(unlockerKey.toLowerCase().replace(' ', '-'));
+			return ClientPrefs.getKeyUnlocked(unlockerKey);
 		});
 
 		Lua_helper.add_callback(lua, "getRunningScripts", function()
@@ -952,7 +952,6 @@ class FunkinLua
 			#end
 		});
 		///////////////////////////////////////
-
 
 		Lua_helper.add_callback(lua, "addHaxeLibrary", function(libName:String, ?libFolder:String = '')
 		{

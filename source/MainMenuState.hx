@@ -459,7 +459,7 @@ class MainMenuState extends MusicBeatState
 
 	function setOnRight(isNowRight:Bool)
 	{
-		selOnRight = (isNowRight && ClientPrefs.getKeyUnlocked("house-start"));
+		selOnRight = (isNowRight && ClientPrefs.getKeyUnlocked("house-end"));
 		changeItem();
 
 		if (oldTweenGarbage != null)

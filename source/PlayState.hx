@@ -78,7 +78,6 @@ import sys.FileSystem;
 #if VIDEOS_ALLOWED
 import vlc.MP4Handler;
 #end
-
 #if !flash
 import flixel.addons.display.FlxRuntimeShader;
 import openfl.filters.ShaderFilter;
@@ -1525,7 +1524,7 @@ class PlayState extends MusicBeatState
 						FlxG.sound.play(Paths.sound('introGo' + introSoundsSuffix), 0.6);
 						DiscordClient.changePresence("Go! - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 					case 4:
-						ClientPrefs.setKeyUnlocked('${SONG.song.toLowerCase().replace(' ', '-')}-start', true);
+						ClientPrefs.setKeyUnlocked('${SONG.song}-start', true);
 				}
 
 				notes.forEachAlive(function(note:Note)
@@ -1809,8 +1808,8 @@ class PlayState extends MusicBeatState
 						oldNote = unspawnNotes[Std.int(unspawnNotes.length - 1)];
 						var sustainNote:Note = new Note(daStrumTime
 							+ (Conductor.stepCrochet * susNote)
-							+ (Conductor.stepCrochet / FlxMath.roundDecimal(songSpeed, 2)), daNoteData, oldNote,
-							true);
+							+ (Conductor.stepCrochet / FlxMath.roundDecimal(songSpeed, 2)), daNoteData,
+							oldNote, true);
 
 						sustainNote.mustPress = gottaHitNote;
 						sustainNote.gfNote = (section.gfSection && (songNotes[1] < keyCount));
@@ -2139,6 +2138,7 @@ class PlayState extends MusicBeatState
 
 	public var paused:Bool = false;
 	public var canReset:Bool = true;
+
 	var startedCountdown:Bool = false;
 	var canPause:Bool = true;
 	var limoSpeed:Float = 0;
@@ -2146,9 +2146,9 @@ class PlayState extends MusicBeatState
 	override public function update(elapsed:Float)
 	{
 		/*if (FlxG.keys.justPressed.NINE)
-		{
-			iconP1.swapOldIcon();
-	}*/
+			{
+				iconP1.swapOldIcon();
+		}*/
 		callOnLuas('onUpdate', [elapsed]);
 
 		for (i in filterMap)
@@ -2529,12 +2529,12 @@ class PlayState extends MusicBeatState
 
 		// 1 / 1000 chance for Gitaroo Man easter egg
 		/*if (FlxG.random.bool(0.1))
-		{
-			// gitaroo man easter egg
-			cancelMusicFadeTween();
-			MusicBeatState.switchState(new GitarooPause());
-		}
-		else { */
+			{
+				// gitaroo man easter egg
+				cancelMusicFadeTween();
+				MusicBeatState.switchState(new GitarooPause());
+			}
+			else { */
 		if (FlxG.sound.music != null)
 		{
 			FlxG.sound.music.pause();
@@ -3086,7 +3086,7 @@ class PlayState extends MusicBeatState
 		var ret:Dynamic = callOnLuas('onEndSong', [], false);
 		if (ret != FunkinLua.Function_Stop && !transitioning)
 		{
-			ClientPrefs.setKeyUnlocked('${SONG.song.toLowerCase().replace(' ', '-')}-end', true);
+			ClientPrefs.setKeyUnlocked('${SONG.song}-end', true);
 
 			if (SONG.validScore)
 			{
@@ -3402,9 +3402,9 @@ class PlayState extends MusicBeatState
 		}
 		comboSpr.x = xThing + 50;
 		/*
-		trace(combo);
-		trace(seperatedScore);
-	 */
+			trace(combo);
+			trace(seperatedScore);
+		 */
 
 		coolText.text = Std.string(seperatedScore);
 		// add(coolText);
@@ -3576,9 +3576,9 @@ class PlayState extends MusicBeatState
 	{
 		// HOLDING
 		/*var up = controls.NOTE_UP;
-		var right = controls.NOTE_RIGHT;
-		var down = controls.NOTE_DOWN;
-		var left = controls.NOTE_LEFT; */
+			var right = controls.NOTE_RIGHT;
+			var down = controls.NOTE_DOWN;
+			var left = controls.NOTE_LEFT; */
 		var allArrays:Array<Array<Bool>> = [
 			// this programming is sponsored by raid shadow legends
 			[],
@@ -4000,11 +4000,11 @@ class PlayState extends MusicBeatState
 
 			/*boyfriend.stunned = true;
 
-			// get stunned for 1/60 of a second, makes you able to
-			new FlxTimer().start(1 / 60, function(tmr:FlxTimer)
-			{
-				boyfriend.stunned = false;
-		});*/
+				// get stunned for 1/60 of a second, makes you able to
+				new FlxTimer().start(1 / 60, function(tmr:FlxTimer)
+				{
+					boyfriend.stunned = false;
+			});*/
 
 			if (boyfriend.hasMissAnimations)
 			{
@@ -4653,7 +4653,8 @@ class PlayState extends MusicBeatState
 							}
 						}
 					case 'toastie':
-						if (/*ClientPrefs.framerate <= 60 &&*/ ClientPrefs.lowQuality && !ClientPrefs.globalAntialiasing && !ClientPrefs.imagesPersist && !ClientPrefs.shaders)
+						if (/*ClientPrefs.framerate <= 60 &&*/ ClientPrefs.lowQuality && !ClientPrefs.globalAntialiasing && !ClientPrefs.imagesPersist
+							&& !ClientPrefs.shaders)
 						{
 							unlock = true;
 						}

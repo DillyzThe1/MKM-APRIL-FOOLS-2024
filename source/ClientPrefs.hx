@@ -343,12 +343,13 @@ class ClientPrefs
 
 	inline public static function getKeyUnlocked(name:String):Bool
 	{
-		return (keyUnlockerStuffs.exists(name) ? keyUnlockerStuffs.get(name) : false);
+		var newName:String = name.toLowerCase().replace(' ', '-');
+		return (keyUnlockerStuffs.exists(newName) ? keyUnlockerStuffs.get(newName) : false);
 	}
 
 	inline public static function setKeyUnlocked(name:String, value:Bool)
 	{
-		keyUnlockerStuffs.set(name, value);
+		keyUnlockerStuffs.set(name.toLowerCase().replace(' ', '-'), value);
 		saveSettings();
 	}
 
