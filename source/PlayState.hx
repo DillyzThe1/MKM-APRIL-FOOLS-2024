@@ -2526,12 +2526,12 @@ class PlayState extends MusicBeatState
 		DiscordClient.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 	}
 
-	function openChartEditor()
+	function openChartEditor(?force:Bool = false)
 	{
 		#if debug
 		var ret:Dynamic;
 
-		if (!FlxG.keys.pressed.SHIFT)
+		if (!FlxG.keys.pressed.SHIFT && !force)
 			ret = callOnLuas('onChartAccessed', [], false);
 		else
 			ret = FunkinLua.Function_Continue;
@@ -3075,7 +3075,7 @@ class PlayState extends MusicBeatState
 
 			if (chartingMode)
 			{
-				openChartEditor();
+				openChartEditor(true);
 				return;
 			}
 
