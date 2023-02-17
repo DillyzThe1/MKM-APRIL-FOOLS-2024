@@ -366,7 +366,15 @@ class MainMenuState extends MusicBeatState
 										PlayState.isStoryMode = false;
 										WeekData.reloadWeekFiles(false);
 										trace(WeekData.weeksList);
-										PlayState.storyWeek = WeekData.weeksList.indexOf('2the1point5extras');
+
+										if (!WeekData.weeksList.contains('3the1point5extras'))
+										{
+											MusicBeatState.switchState(new MainMenuState());
+											FlxG.sound.play(Paths.sound('cancelMenu'));
+											return;
+										}
+
+										PlayState.storyWeek = WeekData.weeksList.indexOf('3the1point5extras');
 										trace(PlayState.storyWeek);
 										var songLowercase:String = Paths.formatToSongPath('Normalized');
 										// CoolUtil.difficulties = ['Hard'];
