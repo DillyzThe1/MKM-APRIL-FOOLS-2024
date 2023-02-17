@@ -232,14 +232,20 @@ class ToadFreeplayState extends MusicBeatState
 				FlxG.sound.play(Paths.sound('mario painting'), 1.35, false);
 				FlxG.camera.fade(FlxColor.WHITE, 0.85, false, null, true);
 				var theSongEver:SongMetadata = songs[curIndexOffset];
-				FlxTween.tween(theSongEver.portrait, {y: FlxG.height / 2 - theSongEver.portrait.height / 2}, 0.75, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(theSongEver.portrait, {y: FlxG.height / 2 - theSongEver.portrait.height / 2, "scale.x": 1.15, "scale.y": 1.15}, 0.75,
+					{ease: FlxEase.cubeInOut});
 				FlxTween.tween(theSongEver.text, {y: FlxG.height + 100}, 0.75, {ease: FlxEase.cubeInOut});
 				FlxTween.tween(theSongEver.icon, {y: FlxG.height + 100}, 0.75, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(theSongEver.portrait.scale, {x: 2.25, y: 2.25}, 1, {ease: FlxEase.cubeIn});
 				FlxTween.tween(FlxG.camera, {zoom: 2.25}, 1, {
 					ease: FlxEase.cubeIn,
 					onComplete: function(t:FlxTween)
 					{
-						LoadingState.loadAndSwitchState(goToChart ? new ChartingState() : new PlayState());
+						add(new FlxSprite(FlxG.width * -0.5, FlxG.height * -0.5).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.WHITE));
+						FlxG.camera.fade(FlxColor.BLACK, 0.15, false, function()
+						{
+							LoadingState.loadAndSwitchState(goToChart ? new ChartingState() : new PlayState());
+						});
 					}
 				});
 			}
