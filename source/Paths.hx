@@ -24,7 +24,6 @@ using StringTools;
 
 class Paths
 {
-	inline public static var SOUND_EXT = "ogg";
 	inline public static var VIDEO_EXT = "mp4";
 
 	inline public static function checkStr(str:String)
@@ -46,9 +45,9 @@ class Paths
 	}
 
 	public static var dumpExclusions:Array<String> = [
-		'assets/music/freakyMenu.$SOUND_EXT',
-		'assets/shared/music/breakfast.$SOUND_EXT',
-		'assets/shared/music/tea-time.$SOUND_EXT',
+		'assets/music/freakyMenu.ogg',
+		'assets/shared/music/breakfast.ogg',
+		'assets/shared/music/tea-time.ogg',
 	];
 
 	/// haya I love you for the base cache dump I took to the max
@@ -389,22 +388,32 @@ class Paths
 			return currentTrackedSounds.get(file);
 		}
 		#end
-		// I hate this so god damn much
-		var gottenPath:String = getPath('$path/$key.$SOUND_EXT', SOUND, library);
-		gottenPath = gottenPath.substring(gottenPath.indexOf(':') + 1, gottenPath.length);
-		// trace(gottenPath);
-		if (!currentTrackedSounds.exists(gottenPath))
-			#if MODS_ALLOWED
-			currentTrackedSounds.set(gottenPath, Sound.fromFile('./' + gottenPath));
-			#else
-			{
-				var folder:String = '';
-				if (path == 'songs')
-					folder = 'songs:';
 
-				currentTrackedSounds.set(gottenPath, OpenFlAssets.getSound(folder + getPath('$path/$key.$SOUND_EXT', SOUND, library)));
+		var gottenPath_unfixed:String = getPath('$path/$key.ogg', SOUND, library);
+		var gottenPath:String = gottenPath_unfixed.substring(gottenPath_unfixed.indexOf(':') + 1, gottenPath_unfixed.length);
+
+		if (!currentTrackedSounds.exists(gottenPath))
+		{
+			#if MODS_ALLOWED
+			var theSound:Sound = Sound.fromFile('./' + gottenPath);
+
+			if (theSound == null && path == "songs")
+				theSound = Sound.fromFile('./' + getPath('$path/placeholder.ogg', SOUND, library));
+
+			currentTrackedSounds.set(gottenPath, theSound);
+			#else
+			var folder:String = '';
+			if (path == 'songs')
+				folder = 'songs:';
+
+			if (!OpenFlAssets.exists(folder + getPath('$path/$key.ogg', SOUND, library)))
+			{
+				trace("folder" + gottenPath + " doesn't exist lmao");
+				return OpenFlAssets.getSound("songs:assets/songs/placeholder.ogg");
 			}
+			currentTrackedSounds.set(gottenPath, OpenFlAssets.getSound(folder + getPath('$path/$key.ogg', SOUND, library)));
 			#end
+		}
 		localTrackedAssets.push(gottenPath);
 		return currentTrackedSounds.get(gottenPath);
 	}
@@ -432,7 +441,7 @@ class Paths
 
 	inline static public function modsSounds(path:String, key:String)
 	{
-		return modFolders(path + '/' + key + '.' + SOUND_EXT);
+		return modFolders(path + '/' + key + '.ogg');
 	}
 
 	inline static public function modsImages(key:String)

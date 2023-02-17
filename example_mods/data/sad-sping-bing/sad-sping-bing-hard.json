@@ -1,18 +1,18 @@
 {
 	"song": {
-		"player1": "bf-welcom-toad",
-		"gfVersion": "gf",
+		"player1": "bf",
+		"gfVersion": "bf",
 		"notes": [],
 		"events": [],
-		"player2": "gmod toad",
+		"player2": "bf",
 		"mania": 0,
 		"splashSkin": "noteSplashes",
-		"song": "sad sping bing",
-		"needsVoices": true,
+		"song": "Sad Sping Bing",
+		"needsVoices": false,
 		"arrowSkin": "",
-		"stage": "gmod",
+		"stage": "void",
 		"validScore": true,
-		"bpm": 160,
+		"bpm": 100,
 		"speed": 2
 	}
 }

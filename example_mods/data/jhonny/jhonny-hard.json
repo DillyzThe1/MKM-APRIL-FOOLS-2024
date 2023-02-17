@@ -1,18 +1,18 @@
 {
 	"song": {
 		"player1": "bf",
-		"gfVersion": "gf",
+		"gfVersion": "bf",
 		"notes": [],
 		"events": [],
-		"player2": "toad",
+		"player2": "bf",
 		"mania": 0,
 		"splashSkin": "noteSplashes",
 		"song": "Jhonny",
-		"needsVoices": true,
+		"needsVoices": false,
 		"arrowSkin": "",
-		"stage": "house",
+		"stage": "void",
 		"validScore": true,
-		"bpm": 160,
+		"bpm": 100,
 		"speed": 2
 	}
 }
