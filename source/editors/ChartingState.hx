@@ -394,6 +394,11 @@ class ChartingState extends MusicBeatState
 		zoomTxt.scrollFactor.set();
 		add(zoomTxt);
 
+		if (_song.notes.length == 0)
+			addSection(4);
+		if (curSec >= _song.notes.length)
+			curSec = 0;
+
 		updateGrid();
 		super.create();
 
