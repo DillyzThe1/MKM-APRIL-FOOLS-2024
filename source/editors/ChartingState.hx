@@ -2902,6 +2902,7 @@ class ChartingState extends MusicBeatState
 		var start:Float = sectionStartTime() - 1;
 		var end:Float = sectionStartTime();
 		var secBeats:Int = Std.int(getSectionBeats());
+		var keysss:Int =  getKeyCount();
 
 		// bounding it just incase
 		if (beat > secBeats)
@@ -2920,9 +2921,13 @@ class ChartingState extends MusicBeatState
 		var deadSus:Array<SusSprite> = [];
 		var deadTexts:Array<AttachedFlxText> = [];
 
-		for (note in curRenderedNotes)
-			if ((hPlace == -1 || note.noteData == hPlace) && (beat == -1 || Conductor.getBeatRounded(note.strumTime) == beat))
+		for (note in curRenderedNotes) {
+			var estimatedData:Int = note.noteData;
+			if (estimatedData > -1 && note.mustPress != _song.notes[curSec].mustHitSection)
+				estimatedData += keysss;
+			if ((hPlace == -1 || estimatedData == hPlace) && (beat == -1 || Conductor.getBeatRounded(note.strumTime) == beat))
 				deadNotes.push(note);
+		}
 		for (sus in curRenderedSustains)
 			if (deadNotes.contains(sus.parentNote))
 				deadSus.push(sus);
@@ -3315,6 +3320,7 @@ class ChartingState extends MusicBeatState
 			}
 		}
 
+		//trace(noteDataToCheck);
 		lazyUpdateGrid(Std.int(Conductor.getBeatRounded(noteStrum)), noteDataToCheck);
 	}
 
