@@ -686,7 +686,7 @@ class ChartingState extends MusicBeatState
 	function flippedData(ogData:Int)
 	{
 		if (ogData >= getKeyCount())
-			ogData - getKeyCount();
+			return ogData - getKeyCount();
 		return ogData + getKeyCount();
 	}
 
