@@ -18,6 +18,7 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import lime.app.Application;
+import openfl.events.KeyboardEvent;
 
 using StringTools;
 
@@ -225,6 +226,8 @@ class MainMenuState extends MusicBeatState
 		super.create();
 
 		beatenToadWeekONE = StoryMenuState.weekCompleted.get('0weekToad');
+		// allow typing secrets
+		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, checkKeyDown);
 	}
 
 	var beatenToadWeekONE:Bool = false;
@@ -493,4 +496,63 @@ class MainMenuState extends MusicBeatState
 			spr.updateHitbox();
 		});
 	}
+
+	// mario teaches typing
+	var typingGoals:Array<String> = ['fred', 'uncle fred', 'impostor', 'wrong house', 'crossover', 'fnf vs uncle fred full week mod', 'top 10'];
+	var typingBuffer:String = '';
+
+	private function checkKeyDown(evt:KeyboardEvent)
+	{
+		if (!beatenToadWeekONE)
+		{
+			typingBuffer = '';
+			return;
+		}
+		var keyName:String = FlxKey.toStringMap.get(evt.keyCode).toLowerCase();
+		if (keyName == 'space')
+			keyName = ' ';
+		typingBuffer += keyName;
+		//trace(typingBuffer);
+
+		var found:Bool = false;
+
+		for (goal in typingGoals)
+		{
+			if (goal.toLowerCase() == typingBuffer)
+			{
+				trace("redeeming " + goal);
+
+				switch (goal.toLowerCase()) {
+					case 'fred' | 'uncle fred' | 'impostor' | 'wrong house' | 'crossover' | 'fnf vs uncle fred full week mod' | 'top 10':
+						trace("federal agents in your mailbox");
+						WeekData.reloadWeekFiles(false);
+						if (!WeekData.weeksList.contains(CoolUtil.fredCrossoverWeekName)) {
+							trace("WARNING! Fred week has NOT been found! (Have you named the file something other than " + CoolUtil.fredCrossoverWeekName + "?)");
+							FlxG.resetState();
+							break;
+						}
+						CoolUtil.loadWeek(WeekData.weeksLoaded.get(CoolUtil.fredCrossoverWeekName), -1, 0, true);
+					default:
+						trace("WARNING! Key " + goal + " is missing a reward!");
+				}
+
+				typingBuffer = '';
+				return;
+			}
+			if (goal.toLowerCase().startsWith(typingBuffer))
+				found = true;
+		}
+
+		if (found)
+			return;
+
+		typingBuffer = '';
+	}
+
+	override public function destroy()
+	{
+		FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, checkKeyDown);
+		super.destroy();
+	}
+	//
 }

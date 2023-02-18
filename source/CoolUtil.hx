@@ -195,6 +195,8 @@ class CoolUtil
 				songArrayStrs.push(thisCatsName.name);
 			}
 
+			difficulties = curWeek.difficulties.replace(", ", ",").split(",");
+
 			// Nevermind that's stupid lmao
 			PlayState.storyPlaylist = songArrayStrs;
 			PlayState.isStoryMode = true;
