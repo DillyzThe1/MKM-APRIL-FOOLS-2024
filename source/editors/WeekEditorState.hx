@@ -686,7 +686,7 @@ class WeekEditorFreeplayState extends MusicBeatState
 	{
 		var tabs = [{name: 'Freeplay', label: 'Freeplay'},];
 		UI_box = new FlxUITabMenu(null, tabs, true);
-		UI_box.resize(250, 278);
+		UI_box.resize(250, 332);
 		UI_box.x = FlxG.width - UI_box.width - 100;
 		UI_box.y = FlxG.height - UI_box.height - 60;
 		UI_box.scrollFactor.set();
@@ -729,6 +729,7 @@ class WeekEditorFreeplayState extends MusicBeatState
 		{
 			weekFile.songs[curSelected][1] = iconInputText.text;
 			weekFile.songs[curSelected][4] = unlockerKey.text;
+			weekFile.songs[curSelected][5] = unlockHint.text;
 			iconArray[curSelected].changeIcon(iconInputText.text);
 		}
 		else if (id == FlxUINumericStepper.CHANGE_EVENT && (sender is FlxUINumericStepper))
@@ -747,6 +748,7 @@ class WeekEditorFreeplayState extends MusicBeatState
 
 	var hideSongFromStoryMode:FlxUICheckBox;
 	var unlockerKey:FlxUIInputText;
+	var unlockHint:FlxUIInputText;
 
 	function addFreeplayUI()
 	{
@@ -810,9 +812,14 @@ class WeekEditorFreeplayState extends MusicBeatState
 			weekFile.songs[curSelected].length >= 5 ? weekFile.songs[curSelected][4] : '${weekFile.songs[curSelected][0].toLowerCase().replace(' ', '-')}-start',
 			8);
 
+		unlockHint = new FlxUIInputText(10, unlockerKey.y + 38, 200,
+			weekFile.songs[curSelected].length >= 6 ? weekFile.songs[curSelected][5] : '',
+			8);
+
 		tab_group.add(new FlxText(10, bgColorStepperR.y - 18, 0, 'Selected background Color R/G/B:'));
 		tab_group.add(new FlxText(10, iconInputText.y - 18, 0, 'Selected icon:'));
 		tab_group.add(new FlxText(10, unlockerKey.y - 18, 0, 'Unlocker Key:'));
+		tab_group.add(new FlxText(10, unlockHint.y - 18, 0, 'Unlock Hint:'));
 		tab_group.add(bgColorStepperR);
 		tab_group.add(bgColorStepperG);
 		tab_group.add(bgColorStepperB);
@@ -822,6 +829,7 @@ class WeekEditorFreeplayState extends MusicBeatState
 		tab_group.add(hideFreeplayCheckbox);
 		tab_group.add(hideSongFromStoryMode);
 		tab_group.add(unlockerKey);
+		tab_group.add(unlockHint);
 		UI_box.addGroup(tab_group);
 	}
 
@@ -873,6 +881,7 @@ class WeekEditorFreeplayState extends MusicBeatState
 		bgColorStepperB.value = Math.round(weekFile.songs[curSelected][2][2]);
 		hideSongFromStoryMode.checked = weekFile.songs[curSelected].length >= 4 ? weekFile.songs[curSelected][3] : false;
 		unlockerKey.text = weekFile.songs[curSelected].length >= 5 ? weekFile.songs[curSelected][4] : '${weekFile.songs[curSelected][0].toLowerCase().replace(' ', '-')}-start';
+		unlockHint.text = weekFile.songs[curSelected].length >= 6 ? weekFile.songs[curSelected][5] : '';
 		updateBG();
 	}
 
@@ -888,7 +897,7 @@ class WeekEditorFreeplayState extends MusicBeatState
 			return;
 		}
 
-		if (iconInputText.hasFocus || unlockerKey.hasFocus)
+		if (iconInputText.hasFocus || unlockerKey.hasFocus || unlockHint.hasFocus)
 		{
 			FlxG.sound.muteKeys = [];
 			FlxG.sound.volumeDownKeys = [];
@@ -897,6 +906,7 @@ class WeekEditorFreeplayState extends MusicBeatState
 			{
 				iconInputText.hasFocus = false;
 				unlockerKey.hasFocus = false;
+				unlockHint.hasFocus = false;
 			}
 		}
 		else
