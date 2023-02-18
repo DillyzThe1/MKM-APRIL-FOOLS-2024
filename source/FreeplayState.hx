@@ -232,6 +232,16 @@ class FreeplayState extends MusicBeatState
 		if (hasSelected)
 			return;
 
+		#if debug
+		// lock func
+		if (FlxG.keys.justPressed.R && FlxG.keys.pressed.CONTROL)
+		{
+			ClientPrefs.setKeyUnlocked(songs[curIndex].unlockerKey, !ClientPrefs.getKeyUnlocked(songs[curIndex].unlockerKey));
+			FlxG.resetState();
+			return;
+		}
+		#end
+
 		if (controls.UI_LEFT_P)
 			changeSelection(-1);
 		else if (controls.UI_RIGHT_P)
@@ -373,55 +383,61 @@ class FreeplayState extends MusicBeatState
 				}
 			});
 		}
+		
+		if (!ClientPrefs.getKeyUnlocked(songs[curIndex].unlockerKey)
+			|| FreeplayState.weekIsLocked(WeekData.weeksList[songs[curIndex].week])) {
+			var boundsX:Float = 25;
+			var boundsY:Float = 7.5;
 
-		var boundsX:Float = 25;
-		var boundsY:Float = 7.5;
+			hintText.text = songs[curIndex].hint;
+			hintText.screenCenter(X);
 
-		hintText.text = songs[curIndex].hint;
-		hintText.screenCenter(X);
+			hintText.y = (FlxG.height * 0.875) + 16;
+			hintText.y -= hintText.height/2;
 
-		hintText.y = (FlxG.height * 0.875) + 16;
-		hintText.y -= hintText.height/2;
+			if (hintText.y + hintText.height > FlxG.height)
+				hintText.y = FlxG.height - hintText.height;
 
-		if (hintText.y + hintText.height > FlxG.height)
-			hintText.y = FlxG.height - hintText.height;
+			// hintBG.setGraphicSize(Std.int(hintText.width + boundsX * 2), Std.int(hintText.height + boundsY * 2));
+			hintBG.makeGraphic(Std.int(hintText.width + boundsX * 2), Std.int(hintText.height + boundsY * 2), FlxColor.BLACK);
+			hintBG.setPosition(hintText.x - boundsX, hintText.y - boundsY);
+			hintBG.alpha = 0.375;
 
-		// hintBG.setGraphicSize(Std.int(hintText.width + boundsX * 2), Std.int(hintText.height + boundsY * 2));
-		hintBG.makeGraphic(Std.int(hintText.width + boundsX * 2), Std.int(hintText.height + boundsY * 2), FlxColor.BLACK);
-		hintBG.setPosition(hintText.x - boundsX, hintText.y - boundsY);
-		hintBG.alpha = 0.375;
+			// round the texture's rectangle a bit for smoother looks
+			if (hintBG.width >= 10 && hintBG.height >= 10 && hintBG.graphic != null && hintBG.graphic.bitmap != null)
+			{
+				var bmp:BitmapData = hintBG.graphic.bitmap;
+				var bmpWidth:Int = bmp.width - 1;
+				var bmpHeight:Int = bmp.height - 1;
 
-		// round the texture's rectangle a bit for smoother looks
-		if (hintBG.width >= 10 && hintBG.height >= 10 && hintBG.graphic != null && hintBG.graphic.bitmap != null)
-		{
-			var bmp:BitmapData = hintBG.graphic.bitmap;
-			var bmpWidth:Int = bmp.width - 1;
-			var bmpHeight:Int = bmp.height - 1;
+				// top left corner
+				bmp.setPixel32(0, 0, FlxColor.TRANSPARENT);
+				bmp.setPixel32(0, 1, FlxColor.TRANSPARENT);
+				bmp.setPixel32(1, 0, FlxColor.TRANSPARENT);
+				//
 
-			// top left corner
-			bmp.setPixel32(0, 0, FlxColor.TRANSPARENT);
-			bmp.setPixel32(0, 1, FlxColor.TRANSPARENT);
-			bmp.setPixel32(1, 0, FlxColor.TRANSPARENT);
-			//
+				// top right corner
+				bmp.setPixel32(bmpWidth, 0, FlxColor.TRANSPARENT);
+				bmp.setPixel32(bmpWidth, 1, FlxColor.TRANSPARENT);
+				bmp.setPixel32(bmpWidth - 1, 0, FlxColor.TRANSPARENT);
+				//
 
-			// top right corner
-			bmp.setPixel32(bmpWidth, 0, FlxColor.TRANSPARENT);
-			bmp.setPixel32(bmpWidth, 1, FlxColor.TRANSPARENT);
-			bmp.setPixel32(bmpWidth - 1, 0, FlxColor.TRANSPARENT);
-			//
+				// bottom left corner
+				bmp.setPixel32(0, bmpHeight, FlxColor.TRANSPARENT);
+				bmp.setPixel32(0, bmpHeight - 1, FlxColor.TRANSPARENT);
+				bmp.setPixel32(1, bmpHeight, FlxColor.TRANSPARENT);
+				//
 
-			// bottom left corner
-			bmp.setPixel32(0, bmpHeight, FlxColor.TRANSPARENT);
-			bmp.setPixel32(0, bmpHeight - 1, FlxColor.TRANSPARENT);
-			bmp.setPixel32(1, bmpHeight, FlxColor.TRANSPARENT);
-			//
-
-			// bottom right corner
-			bmp.setPixel32(bmpWidth, bmpHeight, FlxColor.TRANSPARENT);
-			bmp.setPixel32(bmpWidth, bmpHeight - 1, FlxColor.TRANSPARENT);
-			bmp.setPixel32(bmpWidth - 1, bmpHeight, FlxColor.TRANSPARENT);
-			//
-		}
+				// bottom right corner
+				bmp.setPixel32(bmpWidth, bmpHeight, FlxColor.TRANSPARENT);
+				bmp.setPixel32(bmpWidth, bmpHeight - 1, FlxColor.TRANSPARENT);
+				bmp.setPixel32(bmpWidth - 1, bmpHeight, FlxColor.TRANSPARENT);
+				//
+			}
+			hintBG.visible = hintText.visible = true;
+		} 
+		else
+			hintBG.visible = hintText.visible = false;
 
 		intendedScore = Highscore.getScore(songs[curIndex].songName, curDifficulty);
 		intendedRating = Highscore.getRating(songs[curIndex].songName, curDifficulty);
