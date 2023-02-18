@@ -26,16 +26,16 @@ end
 
 function onBeatHit()
 	if curBeat >= 32 and curBeat < 232 then
-		lowest = -0.175
+		lowest = 0.125
 		if curBeat % 4 == 0 then
-			target = 0.6
+			target = 0.675
 		end
 	elseif curBeat >= 232 then
 		lowest = 0
 	else
-		lowest = -0.35
-		if curBeat % 4 == 0 then
-			target = -0.3
-		end
+		lowest = -0.75
+		--if curBeat % 4 == 0 then
+		--	target = -0.3
+		--end
 	end
 end
