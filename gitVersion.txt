@@ -1,3 +1,4 @@
 1.1.0
 3
 https://drive.google.com/file/d/135Z1PUmwjr6h_DewJ3yNs2eLEM6A3tr4/view
+A small update adding a few QOL features.
