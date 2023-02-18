@@ -35,9 +35,9 @@ function onBeatHit()
 	if curBeat >= 164 and curBeat < 228 then 
 		--hardBeatHit(25,1.1)
 		setProperty('camZooming',true)
-		setProperty('camGame.zoom',1.26)
-		setProperty('camHUD.zoom',1.15)
-		local newAngle = 7.5
+		setProperty('camGame.zoom',1.1)
+		setProperty('camHUD.zoom',1.05)
+		local newAngle = 3.5
 		if curBeat % 2 == 0 then
 			newAngle = -newAngle
 		end
