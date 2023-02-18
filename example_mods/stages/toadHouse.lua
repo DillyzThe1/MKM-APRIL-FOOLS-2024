@@ -22,7 +22,7 @@ function onCreatePost()
 end
 
 --local realElapsed = 0
-function onUpdatePost(elapsed)
+function onUpdatePostageNote(elapsed)
 	if mustHitSection then
 		cameraSetTarget('bf')
 	else 
