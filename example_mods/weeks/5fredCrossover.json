@@ -25,7 +25,8 @@
 				78
 			],
 			false,
-			"wrong-house-start"
+			"wrong-house-start",
+			"whatever you do, do NOT type 'fred' on the main menu."
 		],
 		[
 			"Karrd Kollision",
@@ -36,7 +37,8 @@
 				48
 			],
 			true,
-			"karrd-kollision-start"
+			"karrd-kollision-start",
+			"fred fr fred - fre fre fr fred - fred fr fred - fre fre fa FEEEEED"
 		]
 	],
 	"hideStoryMode": true,

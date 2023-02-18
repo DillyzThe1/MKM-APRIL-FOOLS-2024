@@ -25,7 +25,8 @@
 				40
 			],
 			false,
-			"house-start"
+			"house-start",
+			"Play the first week of the mod."
 		],
 		[
 			"No Shrooms",
@@ -36,7 +37,8 @@
 				40
 			],
 			false,
-			"no-shrooms-start"
+			"no-shrooms-start",
+			"Play the first week of the mod."
 		],
 		[
 			"Chaotically Stupid",
@@ -47,7 +49,8 @@
 				40
 			],
 			false,
-			"chaotically-stupid-start"
+			"chaotically-stupid-start",
+			"Play the first week of the mod."
 		],
 		[
 			"Bup",
@@ -58,7 +61,8 @@
 				173
 			],
 			true,
-			"bup-start"
+			"bup-start",
+			"Play the first week of the mod."
 		]
 	],
 	"hideStoryMode": false,

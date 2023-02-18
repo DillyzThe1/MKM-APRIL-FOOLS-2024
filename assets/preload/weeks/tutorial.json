@@ -18,8 +18,9 @@
 				0,
 				77
 			],
-			null,
-			"tutorial-start"
+			false,
+			"tutorial-start",
+			"bottom text"
 		]
 	],
 	"hideStoryMode": false,
