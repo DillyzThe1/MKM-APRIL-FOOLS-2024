@@ -5,7 +5,7 @@ uniform float showing;
 void main() {
 	vec4 color = flixel_texture2D(bitmap, openfl_TextureCoordv);
 	
-	float diff = (showing/12);
+	float diff = (showing/8);
 	color.x *= 1 + diff;
 	color.y *= 1 + diff;
 	color.z *= 1 + diff;

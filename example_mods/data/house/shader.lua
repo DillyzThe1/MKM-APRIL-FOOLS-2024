@@ -21,7 +21,7 @@ function onUpdatePost(e)
 			showthing = lowest
 		end
 	end
-	runHaxeCode('getMadeShader("shinybeat").setFloat("showing", ' .. tostring(showthing) .. ');')
+	runHaxeCode('getMadeShader("shinybeat").setFloat("showing", ' .. tostring(showthing*1.15) .. ');')
 end
 
 function onBeatHit()
