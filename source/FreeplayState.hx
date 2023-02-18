@@ -227,7 +227,6 @@ class FreeplayState extends MusicBeatState
 			posind++;
 		}
 		bgalt.color = bg.color;
-		bgalt.visible = songs[curIndexOffset].songName.toLowerCase() == "normalized";
 
 		if (hasSelected)
 			return;
@@ -276,7 +275,7 @@ class FreeplayState extends MusicBeatState
 					colorTween.cancel();
 
 				var goToChart:Bool = FlxG.keys.pressed.SHIFT;
-				var theSongEver:SongMetadata = songs[curIndexOffset];
+				var theSongEver:SongMetadata = songs[curIndex];
 
 				FlxG.sound.music.fadeOut(0.175);
 
@@ -490,6 +489,7 @@ class FreeplayState extends MusicBeatState
 
 		curDifficulty = CoolUtil.difficulties.indexOf('Hard');
 		lastDifficultyName = CoolUtil.difficulties[curDifficulty];
+		bgalt.visible = songs[curIndex].songName.toLowerCase() == "normalized";
 	}
 
 	public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int, hideStory:Bool, unlockKey:String, hint:String)
@@ -500,7 +500,8 @@ class FreeplayState extends MusicBeatState
 	}
 
 	public override function destroy() {
-		FlxG.cameras.remove(overCam);
+		if (overCam != null && FlxG.cameras.list.contains(overCam))
+			FlxG.cameras.remove(overCam);
 		super.destroy();
 	}
 }
