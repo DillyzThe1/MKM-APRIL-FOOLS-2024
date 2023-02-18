@@ -525,9 +525,10 @@ class MainMenuState extends MusicBeatState
 				switch (goal.toLowerCase()) {
 					case 'fred' | 'uncle fred' | 'impostor' | 'wrong house' | 'crossover' | 'fnf vs uncle fred full week mod' | 'top 10':
 						trace("federal agents in your mailbox");
-						WeekData.reloadWeekFiles(false);
+						WeekData.reloadWeekFiles(null, true);
 						if (!WeekData.weeksList.contains(CoolUtil.fredCrossoverWeekName)) {
 							trace("WARNING! Fred week has NOT been found! (Have you named the file something other than " + CoolUtil.fredCrossoverWeekName + "?)");
+							trace(WeekData.weeksList);
 							FlxG.resetState();
 							break;
 						}

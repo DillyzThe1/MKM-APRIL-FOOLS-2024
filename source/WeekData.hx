@@ -93,7 +93,7 @@ class WeekData
 		this.fileName = fileName;
 	}
 
-	public static function reloadWeekFiles(isStoryMode:Null<Bool> = false)
+	public static function reloadWeekFiles(isStoryMode:Null<Bool> = false, ?forceAll:Bool = false)
 	{
 		weeksList = [];
 		weeksLoaded.clear();
@@ -166,7 +166,8 @@ class WeekData
 						if (weekFile != null
 							&& (isStoryMode == null
 								|| (isStoryMode && !weekFile.hideStoryMode)
-								|| (!isStoryMode && !weekFile.hideFreeplay)))
+								|| (!isStoryMode && !weekFile.hideFreeplay)
+								|| forceAll))
 						{
 							weeksLoaded.set(sexList[i], weekFile);
 							weeksList.push(sexList[i]);
@@ -188,7 +189,7 @@ class WeekData
 					var path:String = directory + daWeek + '.json';
 					if (sys.FileSystem.exists(path))
 					{
-						addWeek(daWeek, path, directories[i], i, originalLength);
+						addWeek(daWeek, path, directories[i], i, originalLength, forceAll);
 					}
 				}
 
@@ -197,7 +198,7 @@ class WeekData
 					var path = haxe.io.Path.join([directory, file]);
 					if (!sys.FileSystem.isDirectory(path) && file.endsWith('.json'))
 					{
-						addWeek(file.substr(0, file.length - 5), path, directories[i], i, originalLength);
+						addWeek(file.substr(0, file.length - 5), path, directories[i], i, originalLength, forceAll);
 					}
 				}
 			}
@@ -205,7 +206,7 @@ class WeekData
 		#end
 	}
 
-	private static function addWeek(weekToCheck:String, path:String, directory:String, i:Int, originalLength:Int)
+	private static function addWeek(weekToCheck:String, path:String, directory:String, i:Int, originalLength:Int, ?forceAll:Bool = false)
 	{
 		if (!weeksLoaded.exists(weekToCheck))
 		{
@@ -219,7 +220,7 @@ class WeekData
 					weekFile.folder = directory.substring(Paths.mods().length, directory.length - 1);
 					#end
 				}
-				if ((PlayState.isStoryMode && !weekFile.hideStoryMode) || (!PlayState.isStoryMode && !weekFile.hideFreeplay))
+				if (forceAll || (PlayState.isStoryMode && !weekFile.hideStoryMode) || (!PlayState.isStoryMode && !weekFile.hideFreeplay))
 				{
 					weeksLoaded.set(weekToCheck, weekFile);
 					weeksList.push(weekToCheck);
