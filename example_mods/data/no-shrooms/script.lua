@@ -72,3 +72,8 @@ function onBeatHit()
 		doTweenAngle('camGameAngle', 'camGame', 0, stepCrochet*0.002, 'circOut')
 	end
 end
+
+function onChartAccessed() 
+	loadSong('Hell Shrooms')
+	return Function_Stop
+end
