@@ -2446,6 +2446,14 @@ class PlayState extends MusicBeatState
 					}
 				}
 
+				if (daNote != null
+					&& daNote.animation != null
+					&& daNote.animation.curAnim != null
+					&& daNote.animation.curAnim.name.endsWith('end')
+					&& daNote.prevNote != null)
+					daNote.y = daNote.prevNote.y + (daNote.height * daNote.scale.y);
+				
+
 				// Kill extremely late notes and cause misses
 				if (Conductor.songPosition > noteKillOffset + daNote.strumTime)
 				{
