@@ -2452,7 +2452,8 @@ class PlayState extends MusicBeatState
 					&& daNote.animation.curAnim != null
 					&& daNote.animation.curAnim.name.endsWith('end')
 					&& daNote.prevNote != null
-					&& daNote.prevNote.scale != null)
+					&& daNote.prevNote.scale != null
+					&& daNote.prevNote.isSustainNote)
 					daNote.y = daNote.prevNote.y + daNote.prevNote.height;
 
 				if (daNote.isSustainNote)  {
