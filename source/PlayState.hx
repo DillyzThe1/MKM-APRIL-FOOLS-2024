@@ -2455,9 +2455,12 @@ class PlayState extends MusicBeatState
 					&& daNote.prevNote.scale != null)
 					daNote.y = daNote.prevNote.y + daNote.prevNote.height;
 
-				var limitttt:Float = strumY + strumHeight/2;
-				if (daNote.isSustainNote && daNote.y <= limitttt)
-					daNote.visible = false;
+				if (daNote.isSustainNote)  {
+					daNote.y += 15;
+					var limitttt:Float = strumY + strumHeight/2;
+					if (daNote.y <= limitttt)
+						daNote.visible = false;
+				}
 				
 
 				// Kill extremely late notes and cause misses
