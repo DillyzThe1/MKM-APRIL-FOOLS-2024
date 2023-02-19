@@ -35,21 +35,23 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 			star.screenCenter(X);
 			var thingpleasework:Float = CoolUtil.difficulties.length - 1;
 			thingpleasework /= 2.0;
-			var thing:Float = thingpleasework - i;
+			var thing:Float = i - thingpleasework;
 			trace(thingpleasework + " " + thing);
 			star.x += 125 * thing;
 			star.y = FlxG.height * 0.2;
+			star.antialiasing = ClientPrefs.globalAntialiasing;
 			stars.add(star);
 		}
 		add(stars);
 
         var playerSymbol:FlxSprite = new FlxSprite(0,FlxG.height/2).loadGraphic(Paths.image("difficon","preload"));
         playerSymbol.screenCenter(X);
+		playerSymbol.antialiasing = ClientPrefs.globalAntialiasing;
 		add(playerSymbol);
 
 		stars.cameras = playerSymbol.cameras = [diffCam];
 
-        FlxG.sound.play(Paths.sound("difficulty screen", "preload"));
+        FlxG.sound.play(Paths.sound("difficulty screen", "preload"), 0.75);
 		changeSel();
     }
 
@@ -80,6 +82,8 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 			var intendedScale:Float = (star == curStar) ? 1.15 : 0.95;
 			stars.members[star].scale.set(intendedScale, intendedScale);
         }
+
+		trace(stars.members[curStar].diffName);
     }
 
     public override function update(e:Float) {
@@ -98,7 +102,7 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 }
 
 class MaroStar extends FlxSprite {
-    var diffName:String;
+    public var diffName:String;
 
 	public function new(diffName:String) {
         super();
