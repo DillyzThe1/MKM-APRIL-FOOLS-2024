@@ -31,13 +31,9 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 		stars = new FlxTypedGroup<MaroStar>();
 
         for (i in 0...CoolUtil.difficulties.length) {
-			var star:MaroStar = new MaroStar(CoolUtil.difficulties[i]);
+			var star:MaroStar = new MaroStar(CoolUtil.difficulties[i], songName);
 			star.screenCenter(X);
-			var thingpleasework:Float = CoolUtil.difficulties.length - 1;
-			thingpleasework /= 2.0;
-			var thing:Float = i - thingpleasework;
-			trace(thingpleasework + " " + thing);
-			star.x += 125 * thing;
+			star.x += 125 * (i - (CoolUtil.difficulties.length - 1.0) / 2.0);
 			star.y = FlxG.height * 0.2;
 			star.antialiasing = ClientPrefs.globalAntialiasing;
 			stars.add(star);
@@ -104,7 +100,7 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 class MaroStar extends FlxSprite {
     public var diffName:String;
 
-	public function new(diffName:String) {
+	public function new(diffName:String, song:String) {
         super();
         this.frames = Paths.getSparrowAtlas("diffstar", "preload");
 		this.animation.addByPrefix("empty", "star0", 24, true, false, false);
@@ -112,6 +108,8 @@ class MaroStar extends FlxSprite {
 		this.animation.play("empty", true);
 
 		this.diffName = diffName;
+
+		setEmpty(Highscore.getScore(song, getDiffIndex()) < 10);
     }
 
     var lastEmpty:Bool = true;
