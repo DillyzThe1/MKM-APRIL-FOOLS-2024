@@ -1,6 +1,7 @@
 package;
 
 import Discord.DiscordClient;
+import FreeplayDifficultySubstate.MaroStar;
 import editors.ChartingState;
 import flixel.FlxCamera;
 import flixel.FlxG;
@@ -264,17 +265,16 @@ class FreeplayState extends MusicBeatState
 
 				trace(CoolUtil.difficulties);
 				PlayState.storyDifficulty = CoolUtil.difficulties.indexOf('Hard');
+				if (PlayState.storyDifficulty < 0)
+					PlayState.storyDifficulty = 0;
 				persistentUpdate = false;
-				var songLowercase:String = Paths.formatToSongPath(songs[curIndex].songName);
-				var peopleOrderOurPatties:String = Highscore.formatSong(songLowercase, PlayState.storyDifficulty);
-				PlayState.SONG = Song.loadFromJson(peopleOrderOurPatties, songLowercase);
 				PlayState.isStoryMode = false;
 
 				trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
 				if (colorTween != null)
 					colorTween.cancel();
 
-				var goToChart:Bool = FlxG.keys.pressed.SHIFT;
+				//var goToChart:Bool = FlxG.keys.pressed.SHIFT;
 				var theSongEver:SongMetadata = songs[curIndex];
 
 				FlxG.sound.music.fadeOut(0.175);
@@ -303,10 +303,11 @@ class FreeplayState extends MusicBeatState
 					{
 						FlxG.camera.setFilters([]);
 						add(new FlxSprite(FlxG.width * -0.5, FlxG.height * -0.5).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.WHITE));
-						FlxG.camera.fade(FlxColor.BLACK, 0.15, false, function()
+						/*FlxG.camera.fade(FlxColor.BLACK, 0.15, false, function()
 						{
 							LoadingState.loadAndSwitchState(goToChart ? new ChartingState() : new PlayState());
-						});
+						});*/
+						openSubState(new FreeplayDifficultySubstate(songs[curIndex].songName));
 					}
 				});
 			}
