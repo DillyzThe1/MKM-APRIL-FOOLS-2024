@@ -7,6 +7,9 @@ import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
+import openfl.utils.AssetType;
+
+using StringTools;
 
 class FreeplayDifficultySubstate extends MusicBeatSubstate {
 	var stars:FlxTypedGroup<MaroStar>;
@@ -27,6 +30,17 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
     
     public override function create() {
         super.create();
+
+		var txtName:String = "data/" + songName + "/freeplayDifficulties.txt";
+		if (Paths.fileExists(txtName, AssetType.TEXT, false, "preload")) {
+			var bruh:Array<String> = Paths.getTextFromFile(txtName, false).trim().split("\n");
+			CoolUtil.difficulties = [];
+			trace(bruh);
+			for (i in bruh)
+				CoolUtil.difficulties.push(i.trim());
+        }
+
+		trace(CoolUtil.difficulties);
 
 		var offset:Float = FlxG.height * -0.1;
 
@@ -110,7 +124,7 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
         if (controls.UI_LEFT_P)
 			changeSel(-1);
 		else if (controls.UI_RIGHT_P)
-			changeSel(-1);
+			changeSel(1);
         else if (controls.ACCEPT)
 			select();
     }
