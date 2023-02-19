@@ -2345,6 +2345,7 @@ class PlayState extends MusicBeatState
 				if (!daNote.mustPress)
 					strumGroup = opponentStrums;
 
+				var strumHeight:Float = strumGroup.members[daNote.noteData].height;
 				var strumX:Float = strumGroup.members[daNote.noteData].x;
 				var strumY:Float = strumGroup.members[daNote.noteData].y;
 				var strumAngle:Float = strumGroup.members[daNote.noteData].angle;
@@ -2450,8 +2451,13 @@ class PlayState extends MusicBeatState
 					&& daNote.animation != null
 					&& daNote.animation.curAnim != null
 					&& daNote.animation.curAnim.name.endsWith('end')
-					&& daNote.prevNote != null)
-					daNote.y = daNote.prevNote.y + (daNote.height * daNote.scale.y);
+					&& daNote.prevNote != null
+					&& daNote.prevNote.scale != null)
+					daNote.y = daNote.prevNote.y + daNote.prevNote.height;
+
+				var limitttt:Float = strumY + strumHeight/2;
+				if (daNote.isSustainNote && daNote.y <= limitttt)
+					daNote.visible = false;
 				
 
 				// Kill extremely late notes and cause misses
