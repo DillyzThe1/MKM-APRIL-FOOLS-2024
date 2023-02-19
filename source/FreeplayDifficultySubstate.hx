@@ -5,6 +5,7 @@ import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.text.FlxText;
 import flixel.util.FlxColor;
 
 class FreeplayDifficultySubstate extends MusicBeatSubstate {
@@ -16,6 +17,9 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 
     var diffCam:FlxCamera;
 
+    var diffText:FlxText;
+    var songText:FlxText;
+
     public function new (song:String) {
         super();
         this.songName = song;
@@ -23,6 +27,8 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
     
     public override function create() {
         super.create();
+
+		var offset:Float = FlxG.height * -0.1;
 
 		diffCam = new FlxCamera();
 		diffCam.bgColor.alpha = 0;
@@ -34,18 +40,29 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 			var star:MaroStar = new MaroStar(CoolUtil.difficulties[i], songName);
 			star.screenCenter(X);
 			star.x += 125 * (i - (CoolUtil.difficulties.length - 1.0) / 2.0);
-			star.y = FlxG.height * 0.2;
+			star.y = FlxG.height * 0.2 + offset;
 			star.antialiasing = ClientPrefs.globalAntialiasing;
 			stars.add(star);
 		}
 		add(stars);
 
-        var playerSymbol:FlxSprite = new FlxSprite(0,FlxG.height/2).loadGraphic(Paths.image("difficon","preload"));
+		var playerSymbol:FlxSprite = new FlxSprite(0, FlxG.height / 2 + offset).loadGraphic(Paths.image("difficon","preload"));
         playerSymbol.screenCenter(X);
 		playerSymbol.antialiasing = ClientPrefs.globalAntialiasing;
 		add(playerSymbol);
 
-		stars.cameras = playerSymbol.cameras = [diffCam];
+		songText = new FlxText(0, playerSymbol.y + playerSymbol.height + 10, 0, songName, 32, true);
+		songText.color = FlxColor.BLACK;
+		songText.alignment = CENTER;
+		add(songText);
+		songText.screenCenter(X);
+
+		diffText = new FlxText(0, FlxG.height * 0.275, 0, "", 16, true);
+		diffText.color = FlxColor.BLACK;
+		diffText.alignment = CENTER;
+		add(diffText);
+
+		stars.cameras = playerSymbol.cameras = songText.cameras = diffText.cameras = [diffCam];
 
         FlxG.sound.play(Paths.sound("difficulty screen", "preload"), 0.75);
 		changeSel();
@@ -79,7 +96,9 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 			stars.members[star].scale.set(intendedScale, intendedScale);
         }
 
-		trace(stars.members[curStar].diffName);
+		//trace(stars.members[curStar].diffName);
+		diffText.text = stars.members[curStar].diffName;
+		diffText.screenCenter(X);
     }
 
     public override function update(e:Float) {
