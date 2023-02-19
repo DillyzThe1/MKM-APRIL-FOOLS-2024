@@ -952,12 +952,13 @@
 		"player2": "toad",
 		"player3": null,
 		"mania": 0,
-		"song": "House Skill Issue",
+		"song": "House",
 		"stage": "toadHouse",
 		"needsVoices": true,
 		"validScore": true,
 		"sections": 0,
 		"bpm": 127,
-		"speed": 0.025
+		"speed": 0.025,
+		"audioPostfix": "-skillIssue"
 	}
 }

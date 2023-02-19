@@ -226,7 +226,8 @@ class ChartingState extends MusicBeatState
 				speed: 1,
 				stage: 'stage',
 				validScore: false,
-				mania: 0
+				mania: 0,
+				audioPostfix: ""
 			};
 			addSection();
 			PlayState.SONG = _song;

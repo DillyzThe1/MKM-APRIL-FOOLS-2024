@@ -1,4 +1,0 @@
-function onCreatePost()
-	setUnlockerKey('tutorial-start',false)
-	debugPrint(getUnlockerKey('no-shrooms-start'))
-end

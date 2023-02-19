@@ -1,5 +1,5 @@
 function onEndSong()
-	if isStoryMode then 
+	if isStoryMode and string.lower(difficultyName) == "skill issue" then 
 		setPropertyFromClass('PlayState','storyPlaylist',{'skill'})
 		setPropertyFromClass('PlayState','isStoryMode',false)
 		loadSong('skill')

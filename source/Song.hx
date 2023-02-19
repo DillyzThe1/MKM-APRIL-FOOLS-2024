@@ -26,6 +26,8 @@ typedef SwagSong =
 	var splashSkin:String;
 	var validScore:Bool;
 	var mania:Int;
+
+	var audioPostfix:String;
 }
 
 class Song
@@ -43,6 +45,7 @@ class Song
 	public var player2:String = 'dad';
 	public var gfVersion:String = 'gf';
 	public var keyCount:Int;
+	public var audioPostfix:String;
 
 	private static function onLoadJson(songJson:Dynamic) // Convert old charts to newest format
 	{
@@ -80,6 +83,9 @@ class Song
 				}
 			}
 		}
+
+		if (songJson.audioPostfix == null)
+			songJson.audioPostfix = "";
 	}
 
 	public function new(song, notes, bpm)
