@@ -346,7 +346,7 @@ class ClientPrefs
 	inline public static function getKeyUnlocked(name:String):Bool
 	{
 		var newName:String = name.toLowerCase().replace(' ', '-');
-		return (keyUnlockerStuffs.exists(newName) ? keyUnlockerStuffs.get(newName) : false);
+		return (newName == "") || (newName == null) || (keyUnlockerStuffs.exists(newName) ? keyUnlockerStuffs.get(newName) : false);
 	}
 
 	inline public static function setKeyUnlocked(name:String, value:Bool)

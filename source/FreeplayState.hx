@@ -236,6 +236,7 @@ class FreeplayState extends MusicBeatState
 		// lock func
 		if (FlxG.keys.justPressed.R && FlxG.keys.pressed.CONTROL)
 		{
+			trace(songs[curIndex].songName + " " + songs[curIndex].unlockerKey);
 			ClientPrefs.setKeyUnlocked(songs[curIndex].unlockerKey, !ClientPrefs.getKeyUnlocked(songs[curIndex].unlockerKey));
 			FlxG.resetState();
 			return;
