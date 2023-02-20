@@ -58,7 +58,7 @@ function onUpdatePost()
 				elseif misses < 10 then 
 					ratingName = "(SDCB)"
 				else
-					ratingName = "(CLEAR)"
+					ratingName = "(Clear)"
 				end
 			end
 		end
