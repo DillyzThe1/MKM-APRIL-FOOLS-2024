@@ -1,6 +1,16 @@
 local modeAlpha = false
 local textY = 0
 
+local oldThing = false
+local thingtoprint = "a"
+
+function onCreate()
+	if string.lower(difficultyName) == "alpha" then 
+		oldThing = getPropertyFromClass("ClientPrefs", "middleScroll")
+		setPropertyFromClass("ClientPrefs", "middleScroll", false)
+	end
+end
+
 function onCreatePost()
 	if string.lower(difficultyName) == "alpha" then 
 		modeAlpha = true
@@ -33,6 +43,7 @@ function onCreatePost()
 		
 		setProperty("timeBarBG.scale.x", 1.5)
 		setProperty("timeBar.scale.x", 1.5)
+		setPropertyFromClass("ClientPrefs", "middleScroll", oldThing)
 	end
 end
 
