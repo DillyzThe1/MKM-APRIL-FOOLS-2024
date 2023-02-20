@@ -7,6 +7,7 @@ import flixel.util.FlxTimer;
 import lime.utils.AssetLibrary;
 import lime.utils.AssetManifest;
 import lime.utils.Assets as LimeAssets;
+import openfl.utils.AssetType;
 import openfl.utils.Assets;
 import sys.FileSystem;
 import sys.io.File;
@@ -32,6 +33,64 @@ class CoolUtil
 		return (m / snap);
 	}
 
+	public static function loadSongDiffs(song:String, ?difficultyToGet:String = "Hard", ?backupDifficulty:String = "Hard") {
+		trace(song + "'s diffs should be loaded into " + difficultyToGet + " mode (or fall back on " + backupDifficulty + " mode instead)");
+		var formattedSong:String = song.toLowerCase().replace(" ", "-");
+		for (week in WeekData.weeksLoaded)
+			for (songDATA in week.songs)
+			{
+				//trace(songDATA);
+				//trace(songDATA.length);
+				var top10Amazing:String = songDATA[0];
+				//trace(top10Amazing);
+				//trace(top10Amazing.toLowerCase());
+				//trace(top10Amazing.toLowerCase().replace(" ", "-"));
+				if (top10Amazing.toLowerCase().replace(" ", "-") == formattedSong)
+				{
+					difficulties = defaultDifficulties.copy();
+
+					var txtName:String = "data/" + song.toLowerCase().replace(" ", "-") + "/freeplayDifficulties.txt";
+					if (Paths.fileExists(txtName, AssetType.TEXT, false, "preload"))
+						difficulties = Paths.getTextFromFile(txtName, false).trim().split("\n");
+					else {
+						var diffStr:String = week.difficulties;
+
+						if (diffStr != null) {
+							diffStr = diffStr.trim();
+
+							if (diffStr != "")
+								difficulties = diffStr.replace(", ", ",").split(",");
+						}
+					}
+
+					for (i in 0...difficulties.length)
+						difficulties[i] = difficulties[i].trim();
+
+					trace(difficulties);
+
+					var diffIndex:Int = 0;
+
+					if (difficulties.contains(difficultyToGet))
+						diffIndex = difficulties.indexOf(difficultyToGet);
+					else if (difficulties.contains(backupDifficulty))
+						diffIndex = difficulties.indexOf(backupDifficulty);
+
+					return diffIndex;
+				}
+			}
+		return 0;
+	}
+
+	public static function tryGettingDifficulty(diff:String, ?fallbackDiff:String = "") {
+		var endResult:Int = 0;
+		for (i in 0...difficulties.length)
+			if (difficulties[i].toLowerCase() == diff.toLowerCase())
+				return i;
+			else if (fallbackDiff != "" && difficulties[i].toLowerCase() == fallbackDiff.toLowerCase())
+				endResult = i;
+		return endResult;
+	}
+	
 	public static function getDifficultyFilePath(num:Null<Int> = null)
 	{
 		if (num == null)
@@ -39,13 +98,9 @@ class CoolUtil
 
 		var fileSuffix:String = difficulties[num];
 		if (fileSuffix != defaultDifficulty)
-		{
 			fileSuffix = '-' + fileSuffix;
-		}
 		else
-		{
 			fileSuffix = '';
-		}
 		return Paths.formatToSongPath(fileSuffix);
 	}
 
@@ -201,7 +256,7 @@ class CoolUtil
 			PlayState.storyPlaylist = songArrayStrs;
 			PlayState.isStoryMode = true;
 
-			var curDifficulty:Int = diff;
+			var curDifficulty:Int = CoolUtil.loadSongDiffs(PlayState.storyPlaylist[0], CoolUtil.difficulties[diff]);
 			if (curDifficulty < 0)
 				curDifficulty = difficulties.length - 1;
 
@@ -210,7 +265,7 @@ class CoolUtil
 				diffic = '';
 
 			PlayState.storyDifficulty = curDifficulty;
-
+			PlayState.originallyWantedDiffName = difficulties[curDifficulty];
 			PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
 			PlayState.campaignScore = 0;
 			PlayState.campaignMisses = 0;

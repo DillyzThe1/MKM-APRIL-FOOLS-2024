@@ -966,16 +966,15 @@ class FunkinLua
 			#end
 		});
 
-		Lua_helper.add_callback(lua, "loadSong", function(?name:String = null, ?difficultyNum:Int = -1)
+		Lua_helper.add_callback(lua, "loadSong", function(?name:String = null, ?difficultyName:String = "", ?fallbackDifficulty:String = "Hard")
 		{
 			if (name == null || name.length < 1)
 				name = PlayState.SONG.song;
-			if (difficultyNum == -1)
-				difficultyNum = PlayState.storyDifficulty;
-
-			var poop = Highscore.formatSong(name, difficultyNum);
+			if (difficultyName == "")
+				difficultyName = CoolUtil.difficulties[PlayState.storyDifficulty];
+			PlayState.storyDifficulty = CoolUtil.loadSongDiffs(name, difficultyName, fallbackDifficulty);
+			var poop = Highscore.formatSong(name, PlayState.storyDifficulty);
 			PlayState.SONG = Song.loadFromJson(poop, name);
-			PlayState.storyDifficulty = difficultyNum;
 			PlayState.instance.persistentUpdate = false;
 			LoadingState.loadAndSwitchState(new PlayState());
 

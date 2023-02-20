@@ -262,9 +262,7 @@ class StoryMenuState extends MusicBeatState
 				// FlxG.sound.play(Paths.sound('scrollMenu'));
 			}
 			else if (controls.ACCEPT)
-			{
 				selectWeek();
-			}
 		}
 
 		if (controls.BACK && !movedBack && !selectedWeek)

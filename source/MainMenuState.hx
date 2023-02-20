@@ -374,38 +374,7 @@ class MainMenuState extends MusicBeatState
 										var songLowercase:String = Paths.formatToSongPath('Normalized');
 										// CoolUtil.difficulties = ['Hard'];
 
-										CoolUtil.difficulties = CoolUtil.defaultDifficulties.copy();
-										var diffStr:String = WeekData.getCurrentWeek().difficulties;
-										if (diffStr != null)
-											diffStr = diffStr.trim();
-
-										if (diffStr != null && diffStr.length > 0)
-										{
-											var diffs:Array<String> = diffStr.split(',');
-											var i:Int = diffs.length - 1;
-											while (i > 0)
-											{
-												if (diffs[i] != null)
-												{
-													diffs[i] = diffs[i].trim();
-													if (diffs[i].length < 1)
-														diffs.remove(diffs[i]);
-												}
-												--i;
-											}
-
-											if (diffs.length > 0 && diffs[0].length > 0)
-												CoolUtil.difficulties = diffs;
-										}
-
-										if (CoolUtil.difficulties.contains('Hard'))
-											PlayState.storyDifficulty = CoolUtil.difficulties.indexOf('Hard');
-										else
-											PlayState.storyDifficulty = 0;
-
-										trace(CoolUtil.difficulties);
-										trace(PlayState.storyDifficulty);
-
+										PlayState.storyDifficulty = CoolUtil.loadSongDiffs(songLowercase);
 										var songDataStuff:String = Highscore.formatSong(songLowercase, PlayState.storyDifficulty);
 										PlayState.SONG = Song.loadFromJson(songDataStuff, songLowercase);
 										PlayState.isStoryMode = false;

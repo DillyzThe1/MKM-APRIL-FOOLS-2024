@@ -17,24 +17,15 @@ class PlayStateManiaOptionSubState extends MusicBeatSubstate
 
 	public var camText:FlxText;
 
-	public var nextSong:SwagSong;
-	public var nextSongSkillIssue:SwagSong;
-
-	override public function new(bruh:SwagSong)
+	override public function new(aaaaaaaaaaaaaa:(SwagSong) -> Void)
 	{
 		super();
-		nextSong = bruh;
+		this.ipAddress = aaaaaaaaaaaaaa;
 	}
 
 	override public function create()
 	{
 		super.create();
-
-		var difficulty:String = CoolUtil.getDifficultyFilePath();
-		for (i in 0...CoolUtil.difficulties.length)
-			if (CoolUtil.difficulties[i].toLowerCase().replace('-', ' ') == 'skill issue')
-				difficulty = CoolUtil.getDifficultyFilePath(i);
-		nextSongSkillIssue = Song.loadFromJson(PlayState.storyPlaylist[0] + difficulty, PlayState.storyPlaylist[0]);
 
 		newCam = new FlxCamera();
 		newCam.bgColor.alpha = 125;
@@ -77,11 +68,11 @@ class PlayStateManiaOptionSubState extends MusicBeatSubstate
 				onComplete: function(t:FlxTween)
 				{
 					FlxG.cameras.remove(newCam);
-					for (i in 0...CoolUtil.difficulties.length)
-						if (CoolUtil.difficulties[i].toLowerCase().replace('-', ' ') == 'skill issue')
-							PlayState.storyDifficulty = i;
-					if (ipAddress != null)
-						ipAddress(bruhhhhhhhh ? nextSong : nextSongSkillIssue);
+					if (ipAddress != null) {
+						PlayState.storyDifficulty = CoolUtil.tryGettingDifficulty(bruhhhhhhhh ? "Hard" : "Skill Issue", "Hard");
+						trace("GAHHHHHHHHHHHHHH " + CoolUtil.getDifficultyFilePath(PlayState.storyDifficulty));
+						ipAddress(Song.loadFromJson(PlayState.storyPlaylist[0] + CoolUtil.getDifficultyFilePath(PlayState.storyDifficulty), PlayState.storyPlaylist[0]));
+					}
 				}
 			});
 		}

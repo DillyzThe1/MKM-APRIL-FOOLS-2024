@@ -1459,7 +1459,7 @@ class ChartingState extends MusicBeatState
 			// vocals.stop();
 		}
 
-		var file:Dynamic = Paths.voices(currentSongName);
+		var file:Dynamic = Paths.voices(currentSongName, _song.audioPostfix);
 		vocals = new FlxSound();
 		if (Std.isOfType(file, Sound) || OpenFlAssets.exists(file))
 		{
@@ -1474,7 +1474,7 @@ class ChartingState extends MusicBeatState
 
 	function generateSong()
 	{
-		FlxG.sound.playMusic(Paths.inst(currentSongName), 0.6 /*, false*/);
+		FlxG.sound.playMusic(Paths.inst(currentSongName, _song.audioPostfix), 0.6 /*, false*/);
 		if (instVolume != null)
 			FlxG.sound.music.volume = instVolume.value;
 		if (check_mute_inst != null && check_mute_inst.checked)
@@ -3490,23 +3490,8 @@ class ChartingState extends MusicBeatState
 
 	function loadJson(song:String):Void
 	{
-		// shitty null fix, i fucking hate it when this happens
-		// make it look sexier if possible
-		if (CoolUtil.difficulties[PlayState.storyDifficulty] != CoolUtil.defaultDifficulty)
-		{
-			if (CoolUtil.difficulties[PlayState.storyDifficulty] == null)
-			{
-				PlayState.SONG = Song.loadFromJson(song.toLowerCase(), song.toLowerCase());
-			}
-			else
-			{
-				PlayState.SONG = Song.loadFromJson(song.toLowerCase() + "-" + CoolUtil.difficulties[PlayState.storyDifficulty], song.toLowerCase());
-			}
-		}
-		else
-		{
-			PlayState.SONG = Song.loadFromJson(song.toLowerCase(), song.toLowerCase());
-		}
+		PlayState.storyDifficulty = CoolUtil.loadSongDiffs(song.toLowerCase());
+		PlayState.SONG = Song.loadFromJson(song.toLowerCase() + "-" + CoolUtil.difficulties[PlayState.storyDifficulty], song.toLowerCase());
 		MusicBeatState.resetState();
 	}
 

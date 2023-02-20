@@ -226,6 +226,7 @@ class PlayState extends MusicBeatState
 	public static var storyWeek:Int = 0;
 	public static var storyPlaylist:Array<String> = [];
 	public static var storyDifficulty:Int = 1;
+	public static var originallyWantedDiffName:String = "Hard";
 
 	public var spawnTime:Float = 2000;
 
@@ -586,8 +587,10 @@ class PlayState extends MusicBeatState
 		persistentUpdate = true;
 		persistentDraw = true;
 
-		if (SONG == null)
+		if (SONG == null) {
+			PlayState.storyDifficulty = CoolUtil.loadSongDiffs('tutorial');
 			SONG = Song.loadFromJson('tutorial');
+		}
 
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
@@ -3147,23 +3150,12 @@ class PlayState extends MusicBeatState
 				}
 				else
 				{
+					PlayState.storyDifficulty = CoolUtil.loadSongDiffs(PlayState.storyPlaylist[0], originallyWantedDiffName);
 					var difficulty:String = CoolUtil.getDifficultyFilePath();
 					var nextSong = Song.loadFromJson(PlayState.storyPlaylist[0] + difficulty, PlayState.storyPlaylist[0]);
 
 					// trace('LOADING NEXT SONG');
 					// trace(Paths.formatToSongPath(PlayState.storyPlaylist[0]) + difficulty);
-
-					var winterHorrorlandNext = (Paths.formatToSongPath(SONG.song) == "eggnog");
-					if (winterHorrorlandNext)
-					{
-						var blackShit:FlxSprite = new FlxSprite(-FlxG.width * FlxG.camera.zoom,
-							-FlxG.height * FlxG.camera.zoom).makeGraphic(FlxG.width * 3, FlxG.height * 3, FlxColor.BLACK);
-						blackShit.scrollFactor.set();
-						add(blackShit);
-						camHUD.visible = false;
-
-						FlxG.sound.play(Paths.sound('Lights_Shut_off'));
-					}
 
 					FlxTransitionableState.skipNextTransIn = true;
 					FlxTransitionableState.skipNextTransOut = true;
@@ -3176,27 +3168,11 @@ class PlayState extends MusicBeatState
 					{
 						PlayState.SONG = theSong;
 						FlxG.sound.music.stop();
-
-						if (winterHorrorlandNext)
-						{
-							new FlxTimer().start(1.5, function(tmr:FlxTimer)
-							{
-								cancelMusicFadeTween();
-								LoadingState.loadAndSwitchState(new PlayState());
-							});
-						}
-						else
-						{
-							cancelMusicFadeTween();
-							LoadingState.loadAndSwitchState(new PlayState());
-						}
+						cancelMusicFadeTween();
+						LoadingState.loadAndSwitchState(new PlayState());
 					};
 					if (nextSongGonnaSuck)
-					{
-						var aids:PlayStateManiaOptionSubState = new PlayStateManiaOptionSubState(nextSong);
-						aids.ipAddress = bruhFunction;
-						openSubState(aids);
-					}
+						openSubState(new PlayStateManiaOptionSubState(bruhFunction));
 					else
 						bruhFunction(nextSong);
 				}
