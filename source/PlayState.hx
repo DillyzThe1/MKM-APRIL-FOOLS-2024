@@ -3069,7 +3069,8 @@ class PlayState extends MusicBeatState
 		else
 		{
 			var achieve:String = checkForAchievement([
-				'week1_nomiss', 'week2_nomiss', 'week3_nomiss', 'week4_nomiss', 'week5_nomiss', 'week6_nomiss', 'week7_nomiss', 'ur_bad', 'ur_good', 'hype',
+				'weekmushroom', 'weekmushroom_nomiss',
+				'ur_bad', 'ur_good', 'hype',
 				'two_keys', 'toastie', 'debugger'
 			]);
 
@@ -4556,10 +4557,9 @@ class PlayState extends MusicBeatState
 				var unlock:Bool = false;
 				switch (achievementName)
 				{
-					case 'week1_nomiss' | 'week2_nomiss' | 'week3_nomiss' | 'week4_nomiss' | 'week5_nomiss' | 'week6_nomiss' | 'week7_nomiss':
+					case 'weekmushroom':
 						if (isStoryMode
-							&& campaignMisses + songMisses < 1
-							&& CoolUtil.difficultyString() == 'HARD'
+							&& originallyWantedDiffName.toUpperCase() == 'HARD'
 							&& storyPlaylist.length <= 1
 							&& !changedDifficulty
 							&& !usedPractice)
@@ -4567,20 +4567,25 @@ class PlayState extends MusicBeatState
 							var weekName:String = WeekData.getWeekFileName();
 							switch (weekName) // I know this is a lot of duplicated code, but it's easier readable and you can add weeks with different names than the achievement tag
 							{
-								case 'week1':
-									if (achievementName == 'week1_nomiss') unlock = true;
-								case 'week2':
-									if (achievementName == 'week2_nomiss') unlock = true;
-								case 'week3':
-									if (achievementName == 'week3_nomiss') unlock = true;
-								case 'week4':
-									if (achievementName == 'week4_nomiss') unlock = true;
-								case 'week5':
-									if (achievementName == 'week5_nomiss') unlock = true;
-								case 'week6':
-									if (achievementName == 'week6_nomiss') unlock = true;
-								case 'week7':
-									if (achievementName == 'week7_nomiss') unlock = true;
+								case '0weekToad':
+									if (achievementName == 'weekmushroom') 
+										unlock = true;
+							}
+						}
+					case 'weekmushroom_nomiss':
+						if (isStoryMode
+							&& campaignMisses + songMisses < 1
+							&& originallyWantedDiffName.toUpperCase() == 'HARD'
+							&& storyPlaylist.length <= 1
+							&& !changedDifficulty
+							&& !usedPractice)
+						{
+							var weekName:String = WeekData.getWeekFileName();
+							switch (weekName) // I know this is a lot of duplicated code, but it's easier readable and you can add weeks with different names than the achievement tag
+							{
+								case '0weekToad':
+									if (achievementName == 'weekmushroom_nomiss') 
+										unlock = true;
 							}
 						}
 					case 'ur_bad':
