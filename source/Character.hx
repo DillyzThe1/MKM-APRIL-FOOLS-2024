@@ -377,22 +377,24 @@ class Character extends FlxSprite
 
 	public function playAnim(AnimName:String, Force:Bool = false, Reversed:Bool = false, Frame:Int = 0):Void
 	{
+		if (AnimName.contains("-") && !animOffsets.exists(AnimName)) {
+			playAnim(AnimName.substr(0, AnimName.indexOf("-")), Force, Reversed, Frame);
+			return;
+		}
+
 		if (AnimName == 'singSPACE')
 		{
 			var singHey:Bool = animOffsets.exists('singHEY');
 			var singMiddle:Bool = animOffsets.exists('singMIDDLE');
 			var singMid:Bool = animOffsets.exists('singMID');
-			if (!singHey && !singMiddle && !singMid)
-				AnimName = 'singUP';
+			if (singHey)
+				AnimName = 'singHEY';
+			else if (singMiddle)
+				AnimName = 'singMIDDLE';
+			else if (singMid)
+				AnimName = 'singMID';
 			else
-			{
-				if (singHey)
-					AnimName = 'singHEY';
-				else if (singMiddle)
-					AnimName = 'singMIDDLE';
-				else if (singMid)
-					AnimName = 'singMID';
-			}
+				AnimName = 'singUP';
 		}
 		specialAnim = false;
 		animation.play(AnimName, Force, Reversed, Frame);

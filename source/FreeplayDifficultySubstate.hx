@@ -62,6 +62,10 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 		add(songText);
 		songText.screenCenter(X);
 
+		// top 10 amazing
+		if (songText.width > FlxG.width * 0.95)
+			songText.scale.x = (FlxG.width * 0.95)/songText.width;
+
 		diffText = new FlxText(0, FlxG.height * 0.275, 0, "", 16, true);
 		diffText.color = FlxColor.BLACK;
 		diffText.alignment = CENTER;
