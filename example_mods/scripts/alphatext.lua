@@ -20,12 +20,24 @@ function onCreatePost()
 		
 		runHaxeCode("PlayState.instance.healthBar.createColoredFilledBar(0xFF66FF33);")
 		runHaxeCode("PlayState.instance.healthBar.updateBar();")
+		
+		runHaxeCode("PlayState.instance.healthBar.createColoredFilledBar(0xFF66FF33);")
+		runHaxeCode("PlayState.instance.healthBar.updateBar();")
+		
+		setTextSize("timeTxt", 16)
+		setTextBorder('timeTxt',1.25,'0xFF000000')
+		
+		runHaxeCode("PlayState.instance.timeBar.createColoredEmptyBar(0xFF808080);")
+		runHaxeCode("PlayState.instance.timeBar.createColoredFilledBar(0xFF00FF00);")
+		runHaxeCode("PlayState.instance.timeBar.updateBar();")
+		
+		setProperty("timeBarBG.scale.x", 1.5)
+		setProperty("timeBar.scale.x", 1.5)
 	end
 end
 
 function onUpdatePost()
-	if string.lower(difficultyName) == "alpha" then 
-	
+	if modeAlpha then 
 		ratingName = "N/A"
 		
 		local ratingPercent = math.ceil(rating * 10000)/100
@@ -51,5 +63,7 @@ function onUpdatePost()
 			end
 		end
 		setProperty("scoreTxt.text", "Score: " .. score .. " | Combo Breaks: " .. misses .. " | Accuracy:" .. ratingPercent .. " % | " .. ratingName)
+		setProperty("timeTxt.text", songName)
+		setProperty("timeTxt.y", getProperty("timeBar.y") - 4)
 	end
 end
