@@ -2434,7 +2434,7 @@
 		"player3": null,
 		"mania": 0,
 		"song": "House",
-		"stage": "toadHouse",
+		"stage": "toadHouse-alpha",
 		"needsVoices": true,
 		"validScore": true,
 		"sections": 0,
