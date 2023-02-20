@@ -9,7 +9,7 @@
 			"fps": 24,
 			"anim": "idle",
 			"loop": false,
-			"name": "toad waits lol"
+			"name": "toad idle"
 		},
 		{
 			"offsets": [
@@ -20,7 +20,7 @@
 			"fps": 24,
 			"anim": "singLEFT",
 			"loop": false,
-			"name": "toad backs away left"
+			"name": "toad left"
 		},
 		{
 			"offsets": [
@@ -31,7 +31,7 @@
 			"fps": 24,
 			"anim": "singDOWN",
 			"loop": false,
-			"name": "toad looks at grass"
+			"name": "toad down"
 		},
 		{
 			"offsets": [
@@ -42,7 +42,7 @@
 			"fps": 24,
 			"anim": "singRIGHT",
 			"loop": false,
-			"name": "toad ratios you right"
+			"name": "toad right"
 		},
 		{
 			"offsets": [
@@ -53,14 +53,14 @@
 			"fps": 24,
 			"anim": "singUP",
 			"loop": false,
-			"name": "toad looks up"
+			"name": "toad up"
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/alpha/toad",
 	"position": [
-		-60,
-		240
+		-138,
+		140
 	],
 	"healthicon": "toad-alpha",
 	"flip_x": false,
@@ -70,9 +70,9 @@
 		50
 	],
 	"camera_position": [
-		-50,
-		-30
+		100,
+		50
 	],
 	"sing_duration": 6.1,
-	"scale": 0.7
+	"scale": 0.57
 }

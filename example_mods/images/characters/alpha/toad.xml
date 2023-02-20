@@ -1,72 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="toad_fnf_assets_dillyztheone_upscale.png">
-	<!-- hey i generated this using something i made in java -->
-	<!-- i can't afford all that expensive software so i used freeware alongside my own knowledge -->
-	<!-- idk if i open sourced it yet but if i have it's here -->
-	<!-- http://www.github.com/DillyzThe1 -->
-	<SubTexture name="toad waits lol0000" x="0" y="0" width="587" height="587"/>
-	<SubTexture name="toad waits lol0001" x="587" y="0" width="587" height="587"/>
-	<SubTexture name="toad waits lol0002" x="1174" y="0" width="587" height="587"/>
-	<SubTexture name="toad waits lol0003" x="1761" y="0" width="587" height="587"/>
-	<SubTexture name="toad waits lol0004" x="2348" y="0" width="587" height="587"/>
-	<SubTexture name="toad waits lol0005" x="0" y="587" width="587" height="587"/>
-	<SubTexture name="toad waits lol0006" x="587" y="587" width="587" height="587"/>
-	<SubTexture name="toad waits lol0007" x="1174" y="587" width="587" height="587"/>
-	<SubTexture name="toad waits lol0008" x="587" y="587" width="587" height="587"/>
-	<SubTexture name="toad waits lol0009" x="587" y="587" width="587" height="587"/>
-	<SubTexture name="toad waits lol0010" x="587" y="587" width="587" height="587"/>
-	<SubTexture name="toad waits lol0011" x="587" y="587" width="587" height="587"/>
-	<SubTexture name="toad waits lol0012" x="587" y="587" width="587" height="587"/>
-	<SubTexture name="toad waits lol0013" x="587" y="587" width="587" height="587"/>
-	<SubTexture name="toad waits lol0014" x="587" y="587" width="587" height="587"/>
-	
-	<!-- each singing animation has 11 frames (usually 4 or 5 unique ones) --> 
-	
-	<SubTexture name="toad looks up0000" x="1761" y="587" width="587" height="587"/>
-	<SubTexture name="toad looks up0001" x="2348" y="587" width="587" height="587"/>
-	<SubTexture name="toad looks up0002" x="0" y="1174" width="587" height="587"/>
-	<SubTexture name="toad looks up0003" x="587" y="1174" width="587" height="587"/>
-	<SubTexture name="toad looks up0004" x="0" y="1174" width="587" height="587"/>
-	<SubTexture name="toad looks up0005" x="0" y="1174" width="587" height="587"/>
-	<SubTexture name="toad looks up0006" x="0" y="1174" width="587" height="587"/>
-	<SubTexture name="toad looks up0007" x="0" y="1174" width="587" height="587"/>
-	<SubTexture name="toad looks up0008" x="0" y="1174" width="587" height="587"/>
-	<SubTexture name="toad looks up0009" x="0" y="1174" width="587" height="587"/>
-	<SubTexture name="toad looks up0010" x="0" y="1174" width="587" height="587"/>
-	
-	<SubTexture name="toad looks at grass0000" x="1174" y="1174" width="587" height="587"/>
-	<SubTexture name="toad looks at grass0001" x="1761" y="1174" width="587" height="587"/>
-	<SubTexture name="toad looks at grass0002" x="2348" y="1174" width="587" height="587"/>
-	<SubTexture name="toad looks at grass0003" x="0" y="1761" width="587" height="587"/>
-	<SubTexture name="toad looks at grass0004" x="587" y="1761" width="587" height="587"/>
-	<SubTexture name="toad looks at grass0005" x="587" y="1761" width="587" height="587"/>
-	<SubTexture name="toad looks at grass0006" x="587" y="1761" width="587" height="587"/>
-	<SubTexture name="toad looks at grass0007" x="587" y="1761" width="587" height="587"/>
-	<SubTexture name="toad looks at grass0008" x="587" y="1761" width="587" height="587"/>
-	<SubTexture name="toad looks at grass0009" x="587" y="1761" width="587" height="587"/>
-	<SubTexture name="toad looks at grass0010" x="587" y="1761" width="587" height="587"/>
-	
-	<SubTexture name="toad backs away left0000" x="1174" y="1761" width="587" height="587"/>
-	<SubTexture name="toad backs away left0001" x="1761" y="1761" width="587" height="587"/>
-	<SubTexture name="toad backs away left0002" x="2348" y="1761" width="587" height="587"/>
-	<SubTexture name="toad backs away left0003" x="0" y="2348" width="587" height="587"/>
-	<SubTexture name="toad backs away left0004" x="2348" y="1761" width="587" height="587"/>
-	<SubTexture name="toad backs away left0005" x="2348" y="1761" width="587" height="587"/>
-	<SubTexture name="toad backs away left0006" x="2348" y="1761" width="587" height="587"/>
-	<SubTexture name="toad backs away left0007" x="2348" y="1761" width="587" height="587"/>
-	<SubTexture name="toad backs away left0008" x="2348" y="1761" width="587" height="587"/>
-	<SubTexture name="toad backs away left0009" x="2348" y="1761" width="587" height="587"/>
-	<SubTexture name="toad backs away left0010" x="2348" y="1761" width="587" height="587"/>
-	
-	<SubTexture name="toad ratios you right0000" x="587" y="2348" width="587" height="587"/>
-	<SubTexture name="toad ratios you right0001" x="1174" y="2348" width="587" height="587"/>
-	<SubTexture name="toad ratios you right0002" x="1761" y="2348" width="587" height="587"/>
-	<SubTexture name="toad ratios you right0003" x="2348" y="2348" width="587" height="587"/>
-	<SubTexture name="toad ratios you right0004" x="1761" y="2348" width="587" height="587"/>
-	<SubTexture name="toad ratios you right0005" x="1761" y="2348" width="587" height="587"/>
-	<SubTexture name="toad ratios you right0006" x="1761" y="2348" width="587" height="587"/>
-	<SubTexture name="toad ratios you right0007" x="1761" y="2348" width="587" height="587"/>
-	<SubTexture name="toad ratios you right0008" x="1761" y="2348" width="587" height="587"/>
-	<SubTexture name="toad ratios you right0009" x="1761" y="2348" width="587" height="587"/>
-	<SubTexture name="toad ratios you right0010" x="1761" y="2348" width="587" height="587"/>
+<TextureAtlas imagePath="toad fnf dillyzthe1 new idle.png">
+	<!-- Auto-Generated through a java program made by DillyzThe1 -->
+	<!-- https://www.github.com/DillyzThe1 -->
+	<SubTexture name="toad up0000" x="0" y="0" width="820" height="819"/>
+	<SubTexture name="toad up0001" x="820" y="0" width="820" height="819"/>
+	<SubTexture name="toad up0002" x="1640" y="0" width="820" height="819"/>
+	<SubTexture name="toad up0003" x="2460" y="0" width="820" height="819"/>
+	<SubTexture name="toad up0004" x="3280" y="0" width="820" height="819"/>
+	<SubTexture name="toad up0005" x="3280" y="0" width="820" height="819"/>
+	<SubTexture name="toad up0006" x="3280" y="0" width="820" height="819"/>
+	<SubTexture name="toad up0007" x="3280" y="0" width="820" height="819"/>
+	<SubTexture name="toad up0008" x="3280" y="0" width="820" height="819"/>
+	<SubTexture name="toad up0009" x="3280" y="0" width="820" height="819"/>
+	<SubTexture name="toad down0000" x="4100" y="0" width="820" height="819"/>
+	<SubTexture name="toad down0001" x="4920" y="0" width="820" height="819"/>
+	<SubTexture name="toad down0002" x="5740" y="0" width="820" height="819"/>
+	<SubTexture name="toad down0003" x="6560" y="0" width="820" height="819"/>
+	<SubTexture name="toad down0004" x="0" y="819" width="820" height="819"/>
+	<SubTexture name="toad down0005" x="0" y="819" width="820" height="819"/>
+	<SubTexture name="toad down0006" x="0" y="819" width="820" height="819"/>
+	<SubTexture name="toad down0007" x="0" y="819" width="820" height="819"/>
+	<SubTexture name="toad down0008" x="0" y="819" width="820" height="819"/>
+	<SubTexture name="toad down0009" x="0" y="819" width="820" height="819"/>
+	<SubTexture name="toad left0000" x="820" y="819" width="820" height="819"/>
+	<SubTexture name="toad left0001" x="1640" y="819" width="820" height="819"/>
+	<SubTexture name="toad left0002" x="2460" y="819" width="820" height="819"/>
+	<SubTexture name="toad left0003" x="3280" y="819" width="820" height="819"/>
+	<SubTexture name="toad left0004" x="4100" y="819" width="820" height="819"/>
+	<SubTexture name="toad left0005" x="4100" y="819" width="820" height="819"/>
+	<SubTexture name="toad left0006" x="4100" y="819" width="820" height="819"/>
+	<SubTexture name="toad left0007" x="4100" y="819" width="820" height="819"/>
+	<SubTexture name="toad left0008" x="4100" y="819" width="820" height="819"/>
+	<SubTexture name="toad left0009" x="4100" y="819" width="820" height="819"/>
+	<SubTexture name="toad right0000" x="4920" y="819" width="820" height="819"/>
+	<SubTexture name="toad right0001" x="5740" y="819" width="820" height="819"/>
+	<SubTexture name="toad right0002" x="6560" y="819" width="820" height="819"/>
+	<SubTexture name="toad right0003" x="0" y="1638" width="820" height="819"/>
+	<SubTexture name="toad right0004" x="820" y="1638" width="820" height="819"/>
+	<SubTexture name="toad right0005" x="820" y="1638" width="820" height="819"/>
+	<SubTexture name="toad right0006" x="820" y="1638" width="820" height="819"/>
+	<SubTexture name="toad right0007" x="820" y="1638" width="820" height="819"/>
+	<SubTexture name="toad right0008" x="820" y="1638" width="820" height="819"/>
+	<SubTexture name="toad idle0000" x="1640" y="1638" width="820" height="819"/>
+	<SubTexture name="toad idle0001" x="2460" y="1638" width="820" height="819"/>
+	<SubTexture name="toad idle0002" x="3280" y="1638" width="820" height="819"/>
+	<SubTexture name="toad idle0003" x="4100" y="1638" width="820" height="819"/>
+	<SubTexture name="toad idle0004" x="4920" y="1638" width="820" height="819"/>
+	<SubTexture name="toad idle0005" x="5740" y="1638" width="820" height="819"/>
+	<SubTexture name="toad idle0006" x="6560" y="1638" width="820" height="819"/>
+	<SubTexture name="toad idle0007" x="0" y="2457" width="820" height="819"/>
+	<SubTexture name="toad idle0008" x="820" y="2457" width="820" height="819"/>
+	<SubTexture name="toad idle0009" x="820" y="2457" width="820" height="819"/>
+	<SubTexture name="toad idle0010" x="820" y="2457" width="820" height="819"/>
+	<SubTexture name="toad idle0011" x="820" y="2457" width="820" height="819"/>
+	<SubTexture name="toad idle0012" x="820" y="2457" width="820" height="819"/>
+	<SubTexture name="toad idle0013" x="820" y="2457" width="820" height="819"/>
 </TextureAtlas>

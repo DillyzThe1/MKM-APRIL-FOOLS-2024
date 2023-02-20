@@ -93,21 +93,6 @@ function onUpdatePost(elapsed)
 	if getProperty('clouds.x') < 298 then 
 		setProperty('clouds.x',827)
 	end
-	
-	--realElapsed = realElapsed + elapsed
-	--setProperty('boyfriend.x',getProperty('boyfriend.x') + (math.sin(realElapsed) * 5))
-	
-	--if getProperty('boyfriend.visible') then
-	--	setProperty('boyfriend.visible',false)
-	--else 
-	--	setProperty('boyfriend.visible',true)
-	--end
-	
-	if mustHitSection then
-		triggerEvent('Camera Follow Pos',getProperty('boyfriend.x'),getProperty('boyfriend.y'))
-	else 
-		cameraSetTarget('dad');
-	end
 end
 
 
