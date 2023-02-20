@@ -36,48 +36,52 @@ class CoolUtil
 	public static function loadSongDiffs(song:String, ?difficultyToGet:String = "Hard", ?backupDifficulty:String = "Hard") {
 		trace(song + "'s diffs should be loaded into " + difficultyToGet + " mode (or fall back on " + backupDifficulty + " mode instead)");
 		var formattedSong:String = song.toLowerCase().replace(" ", "-");
+
+		var txtName:String = "data/" + formattedSong + "/difficulties.txt";
+		if (Paths.fileExists(txtName, AssetType.TEXT, false, "preload")) {
+			difficulties = Paths.getTextFromFile(txtName, false).trim().split("\n");
+			for (i in 0...difficulties.length)
+				difficulties[i] = difficulties[i].trim();
+			trace(difficulties);
+			if (difficulties.contains(difficultyToGet))
+				return difficulties.indexOf(difficultyToGet);
+			else if (difficulties.contains(backupDifficulty))
+				return difficulties.indexOf(backupDifficulty);
+			return 0;
+		}
+
 		for (week in WeekData.weeksLoaded)
 			for (songDATA in week.songs)
 			{
-				//trace(songDATA);
-				//trace(songDATA.length);
 				var top10Amazing:String = songDATA[0];
-				//trace(top10Amazing);
-				//trace(top10Amazing.toLowerCase());
-				//trace(top10Amazing.toLowerCase().replace(" ", "-"));
 				if (top10Amazing.toLowerCase().replace(" ", "-") == formattedSong)
 				{
-					difficulties = defaultDifficulties.copy();
+					var diffStr:String = week.difficulties;
+					if (diffStr != null) {
+						diffStr = diffStr.trim();
 
-					var txtName:String = "data/" + song.toLowerCase().replace(" ", "-") + "/freeplayDifficulties.txt";
-					if (Paths.fileExists(txtName, AssetType.TEXT, false, "preload"))
-						difficulties = Paths.getTextFromFile(txtName, false).trim().split("\n");
-					else {
-						var diffStr:String = week.difficulties;
-
-						if (diffStr != null) {
-							diffStr = diffStr.trim();
-
-							if (diffStr != "")
-								difficulties = diffStr.replace(", ", ",").split(",");
-						}
+						if (diffStr != "")
+							difficulties = diffStr.replace(", ", ",").split(",");
+						else
+							break;
 					}
+					else 
+						break;
 
+					
 					for (i in 0...difficulties.length)
 						difficulties[i] = difficulties[i].trim();
 
 					trace(difficulties);
 
-					var diffIndex:Int = 0;
-
 					if (difficulties.contains(difficultyToGet))
-						diffIndex = difficulties.indexOf(difficultyToGet);
+						return difficulties.indexOf(difficultyToGet);
 					else if (difficulties.contains(backupDifficulty))
-						diffIndex = difficulties.indexOf(backupDifficulty);
-
-					return diffIndex;
+						return difficulties.indexOf(backupDifficulty);
+					return 0;
 				}
 			}
+		difficulties = defaultDifficulties.copy();
 		return 0;
 	}
 
