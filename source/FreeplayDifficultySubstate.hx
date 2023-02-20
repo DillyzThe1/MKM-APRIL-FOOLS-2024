@@ -31,7 +31,7 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
     public override function create() {
         super.create();
 
-		var txtName:String = "data/" + songName + "/freeplayDifficulties.txt";
+		var txtName:String = "data/" + songName.toLowerCase().replace(" ", "-") + "/freeplayDifficulties.txt";
 		if (Paths.fileExists(txtName, AssetType.TEXT, false, "preload")) {
 			var bruh:Array<String> = Paths.getTextFromFile(txtName, false).trim().split("\n");
 			CoolUtil.difficulties = [];

@@ -2471,6 +2471,7 @@
 		"stage": "minecraft",
 		"noteStyle": null,
 		"bpm": 154,
-		"speed": 2.4
+		"speed": 2.4,
+		"audioPostfix": "-old"
 	}
 }
