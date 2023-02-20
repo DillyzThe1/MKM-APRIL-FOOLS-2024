@@ -2,7 +2,6 @@ local modeAlpha = false
 local textY = 0
 
 local oldThing = false
-local thingtoprint = "a"
 
 function onCreate()
 	if string.lower(difficultyName) == "alpha" then 
