@@ -2119,7 +2119,6 @@ class PlayState extends MusicBeatState
 
 	var startedCountdown:Bool = false;
 	var canPause:Bool = true;
-	var limoSpeed:Float = 0;
 
 	override public function update(elapsed:Float)
 	{
