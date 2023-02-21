@@ -2661,24 +2661,29 @@ class PlayState extends MusicBeatState
 
 				if (value != 0)
 				{
-					if (dad.curCharacter.startsWith('gf'))
-					{ // Tutorial GF is actually Dad! The GF is an imposter!! ding ding ding ding ding ding ding, dindinding, end my suffering
-						dad.playAnim('cheer', true);
-						dad.specialAnim = true;
-						dad.heyTimer = time;
-					}
-					else if (gf != null)
-					{
+					if (gf.animOffsets.exists('cheer')) {
 						gf.playAnim('cheer', true);
+						gf.specialAnim = true;
+						gf.heyTimer = time;
+					} 
+					else if (gf.animOffsets.exists('hey')) {
+						gf.playAnim('hey', true);
 						gf.specialAnim = true;
 						gf.heyTimer = time;
 					}
 				}
 				if (value != 1)
 				{
-					boyfriend.playAnim('hey', true);
-					boyfriend.specialAnim = true;
-					boyfriend.heyTimer = time;
+					if (boyfriend.animOffsets.exists('hey')) {
+						boyfriend.playAnim('hey', true);
+						boyfriend.specialAnim = true;
+						boyfriend.heyTimer = time;
+					} 
+					else if (boyfriend.animOffsets.exists('hey')) {
+						boyfriend.playAnim('hey', true);
+						boyfriend.specialAnim = true;
+						boyfriend.heyTimer = time;
+					}
 				}
 
 			case 'Set GF Speed':
