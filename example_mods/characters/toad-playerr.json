@@ -3,7 +3,7 @@
 		{
 			"loop": false,
 			"offsets": [
-				80,
+				0,
 				0
 			],
 			"anim": "idle",
@@ -14,8 +14,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				-15,
-				20
+				-100,
+				15
 			],
 			"anim": "singUP",
 			"fps": 24,
@@ -25,7 +25,18 @@
 		{
 			"loop": false,
 			"offsets": [
-				148,
+				-104,
+				-2
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Toad Note Left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				69,
 				-36
 			],
 			"anim": "singDOWN",
@@ -34,9 +45,20 @@
 			"indices": []
 		},
 		{
+			"loop": false,
+			"offsets": [
+				127,
+				-26
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Toad Note Right",
+			"indices": []
+		},
+		{
 			"loop": true,
 			"offsets": [
-				119,
+				38,
 				-22
 			],
 			"anim": "idle-shock",
@@ -46,7 +68,7 @@
 		},
 		{
 			"offsets": [
-				117,
+				36,
 				0
 			],
 			"loop": false,
@@ -56,26 +78,48 @@
 			"name": "Toad Becomes Normal"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				202,
-				-25
+				-91,
+				18
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Note Right",
-			"indices": []
+			"anim": "singUPmiss",
+			"indices": [],
+			"name": "Toad Miss Up"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				-24,
-				-3
+				-102,
+				13
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Note Left",
-			"indices": []
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "Toad Miss Left"
+		},
+		{
+			"offsets": [
+				70,
+				3
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWNmiss",
+			"indices": [],
+			"name": "Toad Miss Down"
+		},
+		{
+			"offsets": [
+				131,
+				8
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFTmiss",
+			"loop": false,
+			"name": "Toad Miss Right"
 		}
 	],
 	"no_antialiasing": false,
