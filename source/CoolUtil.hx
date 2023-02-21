@@ -17,6 +17,7 @@ using StringTools;
 class CoolUtil
 {
 	public static var defaultDifficulties:Array<String> = ['Easy', 'Normal', 'Hard'];
+	public static var hiddenDifficulties:Array<String> = [];
 	public static var defaultDifficulty:String = 'Normal'; // The chart that has no suffix and starting difficulty on Freeplay/Story Mode
 
 	public static var difficulties:Array<String> = [];
@@ -37,7 +38,18 @@ class CoolUtil
 		trace(song + "'s diffs should be loaded into " + difficultyToGet + " mode (or fall back on " + backupDifficulty + " mode instead)");
 		var formattedSong:String = song.toLowerCase().replace(" ", "-");
 
-		var txtName:String = "data/" + formattedSong + "/difficulties.txt";
+		for (i in 0...hiddenDifficulties.length)
+			hiddenDifficulties.pop();
+
+		var txtName:String = "data/" + formattedSong + "/hidden.txt";
+		if (Paths.fileExists(txtName, AssetType.TEXT, false, "preload")) {
+			hiddenDifficulties = Paths.getTextFromFile(txtName, false).trim().split("\n");
+			for (i in 0...hiddenDifficulties.length)
+				hiddenDifficulties[i] = hiddenDifficulties[i].trim();
+			trace("HIDDEN - " + hiddenDifficulties);
+		}
+
+		txtName = "data/" + formattedSong + "/difficulties.txt";
 		if (Paths.fileExists(txtName, AssetType.TEXT, false, "preload")) {
 			difficulties = Paths.getTextFromFile(txtName, false).trim().split("\n");
 			for (i in 0...difficulties.length)
@@ -107,6 +119,9 @@ class CoolUtil
 			fileSuffix = '';
 		return Paths.formatToSongPath(fileSuffix);
 	}
+
+	public static function songCompletedOnDiff(song:String, diff:String)
+		return Highscore.getScore(song, CoolUtil.difficulties.indexOf(diff)) >= 10;
 
 	public static function difficultyString():String
 	{

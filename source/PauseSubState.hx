@@ -67,7 +67,9 @@ class PauseSubState extends MusicBeatSubstate
 		for (i in 0...CoolUtil.difficulties.length)
 		{
 			var diff:String = '' + CoolUtil.difficulties[i];
-			difficultyChoices.push(diff);
+
+			if (!CoolUtil.hiddenDifficulties.contains(diff) || CoolUtil.songCompletedOnDiff(PlayState.SONG.song, diff))
+				difficultyChoices.push(diff);
 		}
 		difficultyChoices.push('BACK');
 

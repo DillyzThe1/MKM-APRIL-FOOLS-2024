@@ -42,14 +42,19 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 		stars = new FlxTypedGroup<MaroStar>();
 
         for (i in 0...CoolUtil.difficulties.length) {
-			var star:MaroStar = new MaroStar(CoolUtil.difficulties[i], songName);
+			var diff:String = CoolUtil.difficulties[i];
+			if (CoolUtil.hiddenDifficulties.contains(diff) &&!CoolUtil.songCompletedOnDiff(songName, diff))
+				continue;
+			var star:MaroStar = new MaroStar(diff, songName);
 			star.screenCenter(X);
-			star.x += 125 * (i - (CoolUtil.difficulties.length - 1.0) / 2.0);
 			star.y = FlxG.height * 0.2 + offset;
 			star.antialiasing = ClientPrefs.globalAntialiasing;
 			stars.add(star);
 		}
 		add(stars);
+
+		for (i in 0...stars.members.length)
+			stars.members[i].x += 125 * (i - (stars.length - 1.0) / 2.0);
 
 		var playerSymbol:FlxSprite = new FlxSprite(0, FlxG.height / 2 + offset).loadGraphic(Paths.image("difficon","preload"));
         playerSymbol.screenCenter(X);
@@ -80,7 +85,7 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
     public function select() {
 		hasSel = true;
         
-		PlayState.storyDifficulty = stars.members[curStar].getDiffIndex();
+		PlayState.storyDifficulty = CoolUtil.difficulties.indexOf(stars.members[curStar].diffName);
 		var songLowercase:String = Paths.formatToSongPath(songName);
 		var peopleOrderOurPatties:String = Highscore.formatSong(songLowercase, PlayState.storyDifficulty);
 		PlayState.SONG = Song.loadFromJson(peopleOrderOurPatties, songLowercase);
@@ -137,7 +142,7 @@ class MaroStar extends FlxSprite {
 
 		this.diffName = diffName;
 
-		setEmpty(Highscore.getScore(song, getDiffIndex()) < 10);
+		setEmpty(!CoolUtil.songCompletedOnDiff(song, diffName));
     }
 
     var lastEmpty:Bool = true;
@@ -146,8 +151,5 @@ class MaroStar extends FlxSprite {
             return;
         this.animation.play(empty ? "empty" : "full", true);
 		this.lastEmpty = empty;
-    }
-
-    public function getDiffIndex()
-		return CoolUtil.difficulties.indexOf(diffName);
+	}
 }
