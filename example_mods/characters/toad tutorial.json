@@ -1,0 +1,164 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				-9
+			],
+			"fps": 24,
+			"anim": "danceLeft",
+			"indices": [
+				30,
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			],
+			"name": "GF Dancing Beat"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				-9
+			],
+			"fps": 24,
+			"anim": "danceRight",
+			"indices": [
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29
+			],
+			"name": "GF Dancing Beat"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				130
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Toad Note Right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				131
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Toad Note Left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				569,
+				513
+			],
+			"anim": "transition",
+			"fps": 24,
+			"name": "GF turns into Toad",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				128
+			],
+			"anim": "danceLeft-alt",
+			"fps": 24,
+			"name": "Toad Dancing Beat",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13
+			]
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				128
+			],
+			"anim": "danceRight-alt",
+			"fps": 24,
+			"name": "Toad Dancing Beat",
+			"indices": [
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29
+			]
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/toad tutorial",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "gf",
+	"flip_x": false,
+	"healthbar_colors": [
+		165,
+		0,
+		77
+	],
+	"camera_position": [
+		0,
+		-225
+	],
+	"sing_duration": 4,
+	"scale": 1
+}
