@@ -243,6 +243,13 @@ class FreeplayState extends MusicBeatState
 		}
 		#end
 
+		if(FlxG.keys.justPressed.CONTROL)
+		{
+			persistentUpdate = false;
+			openSubState(new GameplayChangersSubstate());
+			return;
+		}
+
 		if (controls.UI_LEFT_P)
 			changeSelection(-1);
 		else if (controls.UI_RIGHT_P)
