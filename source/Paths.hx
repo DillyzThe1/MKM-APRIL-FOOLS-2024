@@ -339,7 +339,7 @@ class Paths
 
 	public static function returnGraphic(key:String, ?library:String)
 	{
-		return graphicFromLoosePath("images/" + key + ".png");
+		return graphicFromLoosePath("images/" + key + ".png", library);
 	}
 
 	public static function graphicFromLoosePath(pathhhhh:String, ?library:String) {
