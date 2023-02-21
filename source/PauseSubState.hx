@@ -61,7 +61,7 @@ class PauseSubState extends MusicBeatSubstate
 		}
 		menuItems = menuItemsOG;
 
-		if (PlayState.SONG.song.toLowerCase().replace(" ", "-") == "house")
+		//if (PlayState.SONG.song.toLowerCase().replace(" ", "-") == "house")
 			menuItemsOG.insert(2, 'Parental Controls');
 
 		for (i in 0...CoolUtil.difficulties.length)
