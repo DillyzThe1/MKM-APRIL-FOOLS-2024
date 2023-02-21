@@ -339,8 +339,12 @@ class Paths
 
 	public static function returnGraphic(key:String, ?library:String)
 	{
+		return graphicFromLoosePath("images/" + key + ".png");
+	}
+
+	public static function graphicFromLoosePath(pathhhhh:String, ?library:String) {
 		#if MODS_ALLOWED
-		var modKey:String = modsImages(key);
+		var modKey:String = mods(pathhhhh);
 		if (FileSystem.exists(modKey))
 		{
 			if (!currentTrackedAssets.exists(modKey))
@@ -355,7 +359,7 @@ class Paths
 		}
 		#end
 
-		var path = getPath('images/$key.png', IMAGE, library);
+		var path = getPath(pathhhhh, IMAGE, library);
 		// trace(path);
 		if (OpenFlAssets.exists(path, IMAGE))
 		{

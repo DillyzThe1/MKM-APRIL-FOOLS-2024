@@ -4,6 +4,7 @@ import editors.ChartingState;
 import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.graphics.FlxGraphic;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
@@ -56,7 +57,14 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 		for (i in 0...stars.members.length)
 			stars.members[i].x += 125 * (i - (stars.length - 1.0) / 2.0);
 
-		var playerSymbol:FlxSprite = new FlxSprite(0, FlxG.height / 2 + offset).loadGraphic(Paths.image("difficon","preload"));
+		var thePngEver:FlxGraphic = null;
+		var pngName:String = "data/" + songName.toLowerCase().replace(" ", "-") + "/difficon.png";
+		if (Paths.fileExists(pngName, AssetType.IMAGE, false, "preload"))
+			thePngEver = Paths.graphicFromLoosePath(pngName);
+		else
+			thePngEver = Paths.image("difficon", "preload");
+
+		var playerSymbol:FlxSprite = new FlxSprite(0, FlxG.height / 2 + offset).loadGraphic(thePngEver);
         playerSymbol.screenCenter(X);
 		playerSymbol.antialiasing = ClientPrefs.globalAntialiasing;
 		add(playerSymbol);
@@ -137,7 +145,7 @@ class MaroStar extends FlxSprite {
         super();
         this.frames = Paths.getSparrowAtlas("diffstar", "preload");
 		this.animation.addByPrefix("empty", "star0", 24, true, false, false);
-		this.animation.addByPrefix("full", "star full0", 24, true, false, false);
+		this.animation.addByPrefix("full", "star filled0", 24, true, false, false);
 		this.animation.play("empty", true);
 
 		this.diffName = diffName;

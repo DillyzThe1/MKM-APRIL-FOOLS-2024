@@ -2,20 +2,24 @@
 <TextureAtlas imagePath="diffstar.png">
 	<!-- Created with Adobe Animate version 23.0.1.70 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="star0000" x="0" y="0" width="123" height="117"/>
-	<SubTexture name="star0001" x="0" y="0" width="123" height="117"/>
-	<SubTexture name="star0002" x="254" y="0" width="113" height="117" frameX="-5" frameY="0" frameWidth="123" frameHeight="117"/>
-	<SubTexture name="star0003" x="254" y="0" width="113" height="117" frameX="-5" frameY="0" frameWidth="123" frameHeight="117"/>
-	<SubTexture name="star0004" x="130" y="121" width="51" height="116" frameX="-37" frameY="-1" frameWidth="123" frameHeight="117"/>
-	<SubTexture name="star0005" x="130" y="121" width="51" height="116" frameX="-37" frameY="-1" frameWidth="123" frameHeight="117"/>
-	<SubTexture name="star0006" x="0" y="121" width="61" height="116" frameX="-32" frameY="-1" frameWidth="123" frameHeight="117"/>
-	<SubTexture name="star0007" x="0" y="121" width="61" height="116" frameX="-32" frameY="-1" frameWidth="123" frameHeight="117"/>
-	<SubTexture name="star full0000" x="127" y="0" width="123" height="117"/>
-	<SubTexture name="star full0001" x="127" y="0" width="123" height="117"/>
-	<SubTexture name="star full0002" x="371" y="0" width="113" height="117" frameX="-5" frameY="0" frameWidth="123" frameHeight="117"/>
-	<SubTexture name="star full0003" x="371" y="0" width="113" height="117" frameX="-5" frameY="0" frameWidth="123" frameHeight="117"/>
-	<SubTexture name="star full0004" x="185" y="121" width="51" height="116" frameX="-37" frameY="-1" frameWidth="123" frameHeight="117"/>
-	<SubTexture name="star full0005" x="185" y="121" width="51" height="116" frameX="-37" frameY="-1" frameWidth="123" frameHeight="117"/>
-	<SubTexture name="star full0006" x="65" y="121" width="61" height="116" frameX="-32" frameY="-1" frameWidth="123" frameHeight="117"/>
-	<SubTexture name="star full0007" x="65" y="121" width="61" height="116" frameX="-32" frameY="-1" frameWidth="123" frameHeight="117"/>
+	<SubTexture name="star0000" x="0" y="0" width="126" height="120"/>
+	<SubTexture name="star0001" x="0" y="0" width="126" height="120"/>
+	<SubTexture name="star0002" x="130" y="0" width="114" height="120" frameX="-4" frameY="0" frameWidth="126" frameHeight="120"/>
+	<SubTexture name="star0003" x="130" y="0" width="114" height="120" frameX="-4" frameY="0" frameWidth="126" frameHeight="120"/>
+	<SubTexture name="star0004" x="68" y="248" width="61" height="119" frameX="-33" frameY="0" frameWidth="126" frameHeight="120"/>
+	<SubTexture name="star0005" x="68" y="248" width="61" height="119" frameX="-33" frameY="0" frameWidth="126" frameHeight="120"/>
+	<SubTexture name="star0006" x="248" y="0" width="64" height="119" frameX="-32" frameY="0" frameWidth="126" frameHeight="120"/>
+	<SubTexture name="star0007" x="248" y="0" width="64" height="119" frameX="-32" frameY="0" frameWidth="126" frameHeight="120"/>
+	<SubTexture name="star0008" x="248" y="123" width="64" height="119" frameX="-30" frameY="0" frameWidth="126" frameHeight="120"/>
+	<SubTexture name="star0009" x="248" y="123" width="64" height="119" frameX="-30" frameY="0" frameWidth="126" frameHeight="120"/>
+	<SubTexture name="star filled0000" x="0" y="124" width="126" height="120"/>
+	<SubTexture name="star filled0001" x="0" y="124" width="126" height="120"/>
+	<SubTexture name="star filled0002" x="130" y="124" width="114" height="120" frameX="-4" frameY="0" frameWidth="126" frameHeight="120"/>
+	<SubTexture name="star filled0003" x="130" y="124" width="114" height="120" frameX="-4" frameY="0" frameWidth="126" frameHeight="120"/>
+	<SubTexture name="star filled0004" x="133" y="248" width="61" height="119" frameX="-33" frameY="0" frameWidth="126" frameHeight="120"/>
+	<SubTexture name="star filled0005" x="133" y="248" width="61" height="119" frameX="-33" frameY="0" frameWidth="126" frameHeight="120"/>
+	<SubTexture name="star filled0006" x="248" y="246" width="64" height="119" frameX="-32" frameY="0" frameWidth="126" frameHeight="120"/>
+	<SubTexture name="star filled0007" x="248" y="246" width="64" height="119" frameX="-32" frameY="0" frameWidth="126" frameHeight="120"/>
+	<SubTexture name="star filled0008" x="0" y="248" width="64" height="119" frameX="-30" frameY="0" frameWidth="126" frameHeight="120"/>
+	<SubTexture name="star filled0009" x="0" y="248" width="64" height="119" frameX="-30" frameY="0" frameWidth="126" frameHeight="120"/>
 </TextureAtlas>
