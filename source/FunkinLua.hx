@@ -195,7 +195,9 @@ class FunkinLua
 		set('noResetButton', ClientPrefs.noReset);
 		set('lowQuality', ClientPrefs.lowQuality);
 		set('shadersEnabled', ClientPrefs.shaders);
-		set('scriptName', scriptName);
+		set('scriptPath', scriptName);
+		var arrattt:Array<String> = scriptName.split("/");
+		set('scriptName', StringTools.replace(arrattt[arrattt.length - 1], ".lua", ""));
 
 		#if windows
 		set('buildTarget', 'windows');
