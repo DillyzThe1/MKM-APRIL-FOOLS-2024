@@ -108,6 +108,8 @@ class Highscore
 
 	public static function getScore(song:String, diff:Int):Int
 	{
+		if (diff < 0)
+			return -1;
 		var daSong:String = formatSong(song, diff);
 		if (!songScores.exists(daSong))
 			setScore(daSong, 0);

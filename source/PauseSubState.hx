@@ -42,8 +42,6 @@ class PauseSubState extends MusicBeatSubstate
 	public function new(x:Float, y:Float)
 	{
 		super();
-		if (CoolUtil.difficulties.length < 2)
-			menuItemsOG.remove('Change Difficulty'); // No need to change difficulty if there is only one!
 
 		if (PlayState.chartingMode)
 		{
@@ -72,6 +70,9 @@ class PauseSubState extends MusicBeatSubstate
 				difficultyChoices.push(diff);
 		}
 		difficultyChoices.push('BACK');
+
+		if (difficultyChoices.length < 2)
+			menuItemsOG.remove('Change Difficulty'); // No need to change difficulty if there is only one!
 
 		pauseMusic = new FlxSound();
 		if (songName != null)

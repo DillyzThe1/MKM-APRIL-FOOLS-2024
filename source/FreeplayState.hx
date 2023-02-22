@@ -234,10 +234,14 @@ class FreeplayState extends MusicBeatState
 
 		#if debug
 		// lock func
-		if (FlxG.keys.justPressed.R && FlxG.keys.pressed.CONTROL)
+		if (FlxG.keys.justPressed.R && FlxG.keys.pressed.SHIFT)
 		{
 			trace(songs[curIndex].songName + " " + songs[curIndex].unlockerKey);
 			ClientPrefs.setKeyUnlocked(songs[curIndex].unlockerKey, !ClientPrefs.getKeyUnlocked(songs[curIndex].unlockerKey));
+			CoolUtil.loadSongDiffs(songs[curIndex].songName);
+			@:privateAccess
+			for (i in 0...CoolUtil.difficulties.length)
+				Highscore.setScore(Highscore.formatSong(songs[curIndex].songName, i), 0);
 			FlxG.resetState();
 			return;
 		}

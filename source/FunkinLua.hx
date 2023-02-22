@@ -3186,6 +3186,12 @@ class FunkinLua
 			return str.endsWith(end);
 		});
 
+
+		Lua_helper.add_callback(lua, "songCompletedOnDiff", function(songName:String, diff:String)
+		{
+			return CoolUtil.songCompletedOnDiff(songName, diff);
+		});
+
 		call('onCreate', []);
 		#end
 	}

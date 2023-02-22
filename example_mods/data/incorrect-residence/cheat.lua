@@ -1,4 +1,7 @@
 function onChartAccessed() 
-	loadSong('Hell Shrooms', 'Impostor Top 10')
-	return Function_Stop
+	if songCompletedOnDiff('Hell Shrooms', 'Hard') then
+		loadSong('Hell Shrooms', 'Impostor Top 10')
+		return Function_Stop
+	end
+	return Function_Continue
 end
