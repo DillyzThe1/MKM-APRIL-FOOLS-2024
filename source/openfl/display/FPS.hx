@@ -67,6 +67,32 @@ class FPS extends TextField
 		#end
 	}
 
+	public function updateText() {
+		if (showFps) {
+			text = "FPS: " + currentFPS;
+			if (showMemory)
+				text += "\n";
+		}
+		else
+			text = "";
+		
+		if (showMemory)
+			text += "Memory: " + memoryMegas + " MB";
+
+		textColor = 0xFFFFFFFF;
+		if (memoryMegas > 3000 || currentFPS <= ClientPrefs.framerate / 2)
+			textColor = 0xFFFF0000;
+
+		#if (gl_stats && !disable_cffi)
+		text += "\ntotalDC: " + Context3DStats.totalDrawCalls();
+		text += "\nstageDC: " + Context3DStats.contextDrawCalls(DrawCallContext.STAGE);
+		text += "\nstage3DDC: " + Context3DStats.contextDrawCalls(DrawCallContext.STAGE3D);
+		#end
+
+		text += "\n";
+	}
+
+	var memoryMegas:Float = 0;
 	// Event Handlers
 	@:noCompletion
 	private #if !flash override #end function __enterFrame(deltaTime:Float):Void
@@ -85,34 +111,11 @@ class FPS extends TextField
 
 		if (currentCount != cacheCount /*&& visible*/)
 		{
-			if (showFps) {
-				text = "FPS: " + currentFPS;
-				if (showMemory)
-					text += "\n";
-		    }
-			else
-				text = "";
-			var memoryMegas:Float = 0;
-			
 			#if openfl
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
-			if (showMemory)
-				text += "Memory: " + memoryMegas + " MB";
 			#end
 
-			textColor = 0xFFFFFFFF;
-			if (memoryMegas > 3000 || currentFPS <= ClientPrefs.framerate / 2)
-			{
-				textColor = 0xFFFF0000;
-			}
-
-			#if (gl_stats && !disable_cffi && (!html5 || !canvas))
-			text += "\ntotalDC: " + Context3DStats.totalDrawCalls();
-			text += "\nstageDC: " + Context3DStats.contextDrawCalls(DrawCallContext.STAGE);
-			text += "\nstage3DDC: " + Context3DStats.contextDrawCalls(DrawCallContext.STAGE3D);
-			#end
-
-			text += "\n";
+			updateText();
 		}
 
 		cacheCount = currentCount;
