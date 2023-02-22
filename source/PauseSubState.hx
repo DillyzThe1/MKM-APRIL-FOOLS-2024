@@ -24,9 +24,9 @@ class PauseSubState extends MusicBeatSubstate
 	var menuItems:Array<String> = [];
 	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Exit to menu'];
 
-	public static var parentalControls_vals:Array<Bool> = [true, false, false, true];
+	public static var parentalControls_vals:Array<Bool> = [true, false, false, true, false];
 
-	var parentalControls:Array<String> = ['Input', 'Health Regen', 'Baby Mode', 'UI', 'Back'];
+	var parentalControls:Array<String> = ['Input', 'Health Regen', 'Baby Mode', 'UI', 'Cinematic Mode', 'Back'];
 	var difficultyChoices:Array<String> = [];
 	var curSelected:Int = 0;
 
@@ -246,6 +246,8 @@ class PauseSubState extends MusicBeatSubstate
 					return;
 				}
 
+				ClientPrefs.gameplaySettings['botplay'] = PlayState.instance.cpuControlled = parentalControls_vals[4];
+
 				menuItems = menuItemsOG;
 				regenMenu();
 			}
@@ -260,6 +262,7 @@ class PauseSubState extends MusicBeatSubstate
 					regenMenu();
 				case 'Parental Controls':
 					menuItems = parentalControls;
+					parentalControls_vals[4] = ClientPrefs.getGameplaySetting('botplay', false);
 					deleteSkipTimeText();
 					regenMenu();
 

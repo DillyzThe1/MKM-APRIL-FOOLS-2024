@@ -999,7 +999,7 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
-		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "BOTPLAY", 32);
+		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "CINEMATIC MODE", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
 		botplayTxt.borderSize = 1.25;
@@ -1457,7 +1457,7 @@ class PlayState extends MusicBeatState
 						DiscordClient.changePresence("3 - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 					case 1:
 						countdownReady = new FlxSprite().loadGraphic(Paths.image(introAlts[0]));
-						countdownReady.cameras = [camHUD];
+						countdownReady.cameras = [camOther];
 						countdownReady.scrollFactor.set();
 						countdownReady.updateHitbox();
 
@@ -1476,7 +1476,7 @@ class PlayState extends MusicBeatState
 						DiscordClient.changePresence("2 - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 					case 2:
 						countdownSet = new FlxSprite().loadGraphic(Paths.image(introAlts[1]));
-						countdownSet.cameras = [camHUD];
+						countdownSet.cameras = [camOther];
 						countdownSet.scrollFactor.set();
 
 						countdownSet.screenCenter();
@@ -1494,7 +1494,7 @@ class PlayState extends MusicBeatState
 						DiscordClient.changePresence("1 - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 					case 3:
 						countdownGo = new FlxSprite().loadGraphic(Paths.image(introAlts[2]));
-						countdownGo.cameras = [camHUD];
+						countdownGo.cameras = [camOther];
 						countdownGo.scrollFactor.set();
 
 						countdownGo.updateHitbox();
@@ -2510,7 +2510,8 @@ class PlayState extends MusicBeatState
 		}
 		#end
 
-		camHUD.visible = PauseSubState.parentalControls_vals[3];
+		camHUD.visible = PauseSubState.parentalControls_vals[3] && !cpuControlled;
+		botplayTxt.visible = false;
 
 		if (inCutscene && DiscordClient.lastDetails != detailsCutsceneText)
 			DiscordClient.changePresence(detailsCutsceneText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
