@@ -62,7 +62,7 @@ class BabyModeTitleState extends MusicBeatState {
 
             if (curData.disabled) {
                 newButton.scale.x = newButton.scale.y = 0.95;
-                newButton.alpha = 0.85;
+                newButton.alpha = 0.65;
 
                 var newDanger:DangerIcon = new DangerIcon(newButton);
                 dangerIcons.push(newDanger);
