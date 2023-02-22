@@ -3907,33 +3907,30 @@ class PlayState extends MusicBeatState
 			}
 		});
 		
-		if (!daNote.missPenalty)
-			return;
+		if (daNote.missPenalty) {
+			combo = 0;
+			health -= daNote.missHealth * healthLoss;
 
-		combo = 0;
-		health -= daNote.missHealth * healthLoss;
+			if (instakillOnMiss)
+			{
+				vocals.volume = 0;
+				doDeathCheck(true);
+			}
 
-		if (instakillOnMiss)
-		{
+			// For testing purposes
+			// trace(daNote.missHealth);
+			songMisses++;
 			vocals.volume = 0;
-			doDeathCheck(true);
+			if (!practiceMode)
+				songScore -= 10;
+
+			totalPlayed++;
+			RecalculateRating(true);
 		}
-
-		// For testing purposes
-		// trace(daNote.missHealth);
-		songMisses++;
-		vocals.volume = 0;
-		if (!practiceMode)
-			songScore -= 10;
-
-		totalPlayed++;
-		RecalculateRating(true);
 
 		var char:Character = boyfriend;
 		if (daNote.gfNote)
-		{
 			char = gf;
-		}
 
 		if (char != null && !daNote.noMissAnimation && char.hasMissAnimations)
 		{
@@ -3941,12 +3938,14 @@ class PlayState extends MusicBeatState
 			char.playAnim(animToPlay, true);
 		}
 
-		callOnLuas('noteMiss', [
-			notes.members.indexOf(daNote),
-			daNote.noteData,
-			daNote.noteType,
-			daNote.isSustainNote
-		]);
+		if (daNote.missPenalty) {
+			callOnLuas('noteMiss', [
+				notes.members.indexOf(daNote),
+				daNote.noteData,
+				daNote.noteType,
+				daNote.isSustainNote
+			]);
+		}
 	}
 
 	function noteMissPress(direction:Int = 1):Void // You pressed a key when there was no notes to press for this key
