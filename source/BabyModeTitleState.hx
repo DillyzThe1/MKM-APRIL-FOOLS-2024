@@ -43,19 +43,22 @@ class BabyModeTitleState extends MusicBeatState {
         bg = new FlxSprite().loadGraphic(Paths.image("babymode/bg", "preload"));
         bg.screenCenter();
         add(bg);
+        bg.antialiasing = ClientPrefs.globalAntialiasing;
 
-        logo = new FlxSprite(0, FlxG.height * 0.14).loadGraphic(Paths.image("babymode/logo", "preload"));
+        logo = new FlxSprite(0, FlxG.height * -0.125).loadGraphic(Paths.image("babymode/logo", "preload"));
         logo.screenCenter(X);
+        logo.scale.x = logo.scale.y = 0.65;
         add(logo);
-
-        var buttonFrames:FlxAtlasFrames = Paths.getSparrowAtlas("babymode/menubutton", "preload");
+        logo.antialiasing = ClientPrefs.globalAntialiasing;
 
         for (i in 0...buttonDatas.length) {
             var curData:ButtonData = buttonDatas[i];
-            var newButton:FlxSprite = new FlxSprite(0, FlxG.height * 0.285 + (FlxG.height * 0.16 * i));
-            newButton.frames = buttonFrames;
+            var newButton:FlxSprite = new FlxSprite(0, FlxG.height * 0.325 + (FlxG.height * 0.2 * i));
+            newButton.frames = Paths.getSparrowAtlas("babymode/menubuttons", "preload");
             newButton.animation.addByIndices("button", "baby menubuttons0", [curData.frameIndex], "", 24, false);
             newButton.animation.play("button", true);
+            newButton.screenCenter(X);
+            newButton.antialiasing = ClientPrefs.globalAntialiasing;
 
             if (curData.disabled) {
                 newButton.scale.x = newButton.scale.y = 0.95;
@@ -116,6 +119,9 @@ class DangerIcon extends FlxSprite {
     var mbToFollow:FlxSprite;
     public function new(mbToFollow:FlxSprite) {
         super();
+        loadGraphic(Paths.image("babymode/Danger - Friday Night Funkin' Vs Impostor", "preload"));
+        scale.x = scale.y = 0.5;
+        antialiasing = ClientPrefs.globalAntialiasing;
 
         this.mbToFollow = mbToFollow;
     }
@@ -124,6 +130,6 @@ class DangerIcon extends FlxSprite {
         super.update(e);
 
         if (mbToFollow != null)
-            this.setPosition(mbToFollow.x + mbToFollow.width + 50, mbToFollow.y + mbToFollow.height/2 - this.height/2);
+            this.setPosition(mbToFollow.x + mbToFollow.width - 150, mbToFollow.y + mbToFollow.height/2 - this.height/2);
     }
 }
