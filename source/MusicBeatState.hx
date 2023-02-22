@@ -40,6 +40,10 @@ class MusicBeatState extends FlxUIState
 			openSubState(new CustomFadeTransition(0.7, true));
 		}
 		FlxTransitionableState.skipNextTransOut = false;
+
+		
+		if (FlxG.camera != null)
+			FlxG.camera.bgColor = FlxColor.BLACK;
 	}
 
 	override function update(elapsed:Float)
@@ -68,6 +72,9 @@ class MusicBeatState extends FlxUIState
 			FlxG.save.data.fullscreen = FlxG.fullscreen;
 
 		super.update(elapsed);
+
+		if (Main.fpsVar != null)
+			Main.fpsVar.showFps = Main.fpsVar.showMemory = true;
 	}
 
 	private function updateSection():Void

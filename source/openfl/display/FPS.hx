@@ -1,10 +1,10 @@
 package openfl.display;
 
+import flixel.math.FlxMath;
 import haxe.Timer;
 import openfl.events.Event;
 import openfl.text.TextField;
 import openfl.text.TextFormat;
-import flixel.math.FlxMath;
 #if gl_stats
 import openfl.display._internal.stats.Context3DStats;
 import openfl.display._internal.stats.DrawCallContext;
@@ -35,6 +35,9 @@ class FPS extends TextField
 	@:noCompletion private var cacheCount:Int;
 	@:noCompletion private var currentTime:Float;
 	@:noCompletion private var times:Array<Float>;
+
+	public var showFps:Bool = true;
+	public var showMemory:Bool = true;
 
 	public function new(x:Float = 10, y:Float = 10, color:Int = 0x000000)
 	{
@@ -82,12 +85,19 @@ class FPS extends TextField
 
 		if (currentCount != cacheCount /*&& visible*/)
 		{
-			text = "FPS: " + currentFPS;
+			if (showFps) {
+				text = "FPS: " + currentFPS;
+				if (showMemory)
+					text += "\n";
+		    }
+			else
+				text = "";
 			var memoryMegas:Float = 0;
 			
 			#if openfl
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
-			text += "\nMemory: " + memoryMegas + " MB";
+			if (showMemory)
+				text += "Memory: " + memoryMegas + " MB";
 			#end
 
 			textColor = 0xFFFFFFFF;

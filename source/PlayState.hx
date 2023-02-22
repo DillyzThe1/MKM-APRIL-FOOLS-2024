@@ -2513,6 +2513,11 @@ class PlayState extends MusicBeatState
 		camHUD.visible = PauseSubState.parentalControls_vals[3] && !cpuControlled;
 		botplayTxt.visible = false;
 
+		if (Main.fpsVar != null) {
+			Main.fpsVar.showFps = !cpuControlled;
+			Main.fpsVar.showMemory = Main.fpsVar.showFps && (CoolUtil.difficultyString().toLowerCase() != "alpha");
+		}
+
 		if (inCutscene && DiscordClient.lastDetails != detailsCutsceneText)
 			DiscordClient.changePresence(detailsCutsceneText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 

@@ -247,6 +247,8 @@ class PauseSubState extends MusicBeatSubstate
 				}
 
 				ClientPrefs.gameplaySettings['botplay'] = PlayState.instance.cpuControlled = parentalControls_vals[4];
+				if (Main.fpsVar != null)
+					Main.fpsVar.showFps = Main.fpsVar.showMemory = !parentalControls_vals[4];
 
 				menuItems = menuItemsOG;
 				regenMenu();
