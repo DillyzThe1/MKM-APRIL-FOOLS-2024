@@ -2,7 +2,7 @@ local part = 0
 local oldDad = ''
 
 function goingToDoCutscene()
-	if part < 3 and isStoryMode and string.lower(difficultyName) == "hard" and not seenCutscene then --and not seenCutscene then
+	if part < 3 and isStoryMode and (string.lower(difficultyName) == "hard" or string.lower(difficultyName) == "old") and not seenCutscene then --and not seenCutscene then
 		return true 
 	end
 	

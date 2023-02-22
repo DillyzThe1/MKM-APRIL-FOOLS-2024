@@ -69,7 +69,7 @@ class PlayStateManiaOptionSubState extends MusicBeatSubstate
 				{
 					FlxG.cameras.remove(newCam);
 					if (ipAddress != null) {
-						PlayState.storyDifficulty = CoolUtil.tryGettingDifficulty(bruhhhhhhhh ? "Hard" : "Skill Issue", "Hard");
+						PlayState.storyDifficulty = CoolUtil.tryGettingDifficulty(bruhhhhhhhh ? PlayState.originallyWantedDiffName : "Skill Issue", "Hard");
 						trace("GAHHHHHHHHHHHHHH " + CoolUtil.getDifficultyFilePath(PlayState.storyDifficulty));
 						ipAddress(Song.loadFromJson(PlayState.storyPlaylist[0] + CoolUtil.getDifficultyFilePath(PlayState.storyDifficulty), PlayState.storyPlaylist[0]));
 					}
