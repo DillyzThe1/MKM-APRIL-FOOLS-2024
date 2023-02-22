@@ -358,28 +358,10 @@ class MainMenuState extends MusicBeatState
 										DiscordClient.changePresence("In the Menus", "top 10 albums ever1!!");
 									#end
 									case 'normalized':
-										PlayState.isStoryMode = false;
-										WeekData.reloadWeekFiles(false);
-										trace(WeekData.weeksList);
-
-										if (!WeekData.weeksList.contains(CoolUtil.onePointFiveExtrasWeekName))
-										{
+										if (!CoolUtil.loadFreeplaySong(CoolUtil.onePointFiveExtrasWeekName, "Normalized")) {
 											MusicBeatState.switchState(new MainMenuState());
 											FlxG.sound.play(Paths.sound('cancelMenu'));
-											return;
 										}
-
-										PlayState.storyWeek = WeekData.weeksList.indexOf(CoolUtil.onePointFiveExtrasWeekName);
-										trace(PlayState.storyWeek);
-										var songLowercase:String = Paths.formatToSongPath('Normalized');
-										// CoolUtil.difficulties = ['Hard'];
-
-										PlayState.storyDifficulty = CoolUtil.loadSongDiffs(songLowercase);
-										var songDataStuff:String = Highscore.formatSong(songLowercase, PlayState.storyDifficulty);
-										PlayState.SONG = Song.loadFromJson(songDataStuff, songLowercase);
-										PlayState.isStoryMode = false;
-										LoadingState.loadAndSwitchState(new PlayState());
-										FlxG.sound.music.volume = 0;
 								}
 							});
 						}

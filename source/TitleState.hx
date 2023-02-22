@@ -486,7 +486,7 @@ class TitleState extends MusicBeatState
 					if (mustUpdate && !ignoreThing)
 						MusicBeatState.switchState(new OutdatedState());
 					else
-						MusicBeatState.switchState(new MainMenuState());
+						MusicBeatState.switchState(CoolUtil.babyMode() ? new BabyModeTitleState() : new MainMenuState());
 					closedState = true;
 				});
 				// FlxG.sound.play(Paths.music('titleShoot'), 0.7);

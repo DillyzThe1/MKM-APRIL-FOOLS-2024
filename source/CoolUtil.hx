@@ -302,4 +302,26 @@ class CoolUtil
 		}
 		return false;
 	}
+
+	public static function loadFreeplaySong(weekName:String, songName:String) {
+		PlayState.isStoryMode = false;
+		WeekData.reloadWeekFiles(false);
+		trace(WeekData.weeksList);
+
+		if (!WeekData.weeksList.contains(weekName))
+			return false;
+
+		PlayState.storyWeek = WeekData.weeksList.indexOf(weekName);
+		trace(PlayState.storyWeek);
+		var songLowercase:String = Paths.formatToSongPath(songName);
+		// CoolUtil.difficulties = ['Hard'];
+
+		PlayState.storyDifficulty = CoolUtil.loadSongDiffs(songLowercase);
+		var songDataStuff:String = Highscore.formatSong(songLowercase, PlayState.storyDifficulty);
+		PlayState.SONG = Song.loadFromJson(songDataStuff, songLowercase);
+		PlayState.isStoryMode = false;
+		LoadingState.loadAndSwitchState(new PlayState());
+		FlxG.sound.music.volume = 0;
+		return true;
+	}
 }
