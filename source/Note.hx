@@ -66,6 +66,7 @@ class Note extends FlxSprite
 	public static var RED_NOTE:Int = 3;
 
 	public var noStrumAnim:Bool = false;
+	public var missPenalty:Bool = true;
 
 	public static var maniaKeyCounts:Array<Int> = [4, 6, 9, 5, 7, 8, 1, 2, 3];
 

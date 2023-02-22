@@ -3890,7 +3890,8 @@ class PlayState extends MusicBeatState
 	}
 
 	function noteMiss(daNote:Note):Void
-	{ // You didn't hit the key and let it go offscreen, also used by Hurt Notes
+	{ 
+		// You didn't hit the key and let it go offscreen, also used by Hurt Notes
 		// Dupe note remove
 		notes.forEachAlive(function(note:Note)
 		{
@@ -3905,6 +3906,10 @@ class PlayState extends MusicBeatState
 				note.destroy();
 			}
 		});
+		
+		if (!daNote.missPenalty)
+			return;
+
 		combo = 0;
 		health -= daNote.missHealth * healthLoss;
 
