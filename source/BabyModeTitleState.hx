@@ -1,5 +1,6 @@
 package;
 
+import Discord.DiscordClient;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.effects.FlxFlicker;
@@ -39,6 +40,9 @@ class BabyModeTitleState extends MusicBeatState {
 
     public override function create() {
         super.create();
+
+        DiscordClient.updateLargeImage(true);
+		DiscordClient.changePresence("In the Age Appropriate Menus", null);
 
         bg = new FlxSprite().loadGraphic(Paths.image("babymode/bg", "preload"));
         bg.screenCenter();

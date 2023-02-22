@@ -203,7 +203,8 @@ class TitleState extends MusicBeatState
 				});
 			}
 
-			DiscordClient.inMenus();
+			DiscordClient.updateLargeImage(true);
+			DiscordClient.changePresence("Title Screen", null);
 
 			if (initialized)
 				startIntro();
