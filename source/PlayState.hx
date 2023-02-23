@@ -3894,8 +3894,12 @@ class PlayState extends MusicBeatState
 		// prevent missing notes you can't hit
 		if (daNote != null && Note.noteManiaSettings[PlayState.keyCount].length > 10) {
 			var intsofalltime:Array<Int> = Note.noteManiaSettings[PlayState.keyCount][10];
-			if (intsofalltime != null && intsofalltime[daNote.noteData % intsofalltime.length] == -1)
+			if (intsofalltime != null && intsofalltime[daNote.noteData % intsofalltime.length] == -1) {
+				daNote.kill();
+				notes.remove(daNote, true);
+				daNote.destroy();
 				return;
+			}
 		}
 
 		// You didn't hit the key and let it go offscreen, also used by Hurt Notes
