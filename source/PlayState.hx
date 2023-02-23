@@ -3891,6 +3891,13 @@ class PlayState extends MusicBeatState
 
 	function noteMiss(daNote:Note):Void
 	{ 
+		// prevent missing notes you can't hit
+		if (daNote != null && Note.noteManiaSettings[PlayState.keyCount].length > 10) {
+			var intsofalltime:Array<Int> = Note.noteManiaSettings[PlayState.keyCount][10];
+			if (intsofalltime != null && intsofalltime[daNote.noteData % intsofalltime.length] == -1)
+				return;
+		}
+
 		// You didn't hit the key and let it go offscreen, also used by Hurt Notes
 		// Dupe note remove
 		notes.forEachAlive(function(note:Note)

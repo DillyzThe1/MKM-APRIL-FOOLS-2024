@@ -369,6 +369,8 @@ class ClientPrefs
 
 	public static function copyKey(arrayToCopy:Array<FlxKey>):Array<FlxKey>
 	{
+		if (arrayToCopy == null)
+			return null;
 		var copiedArray:Array<FlxKey> = arrayToCopy.copy();
 		var i:Int = 0;
 		var len:Int = copiedArray.length;
