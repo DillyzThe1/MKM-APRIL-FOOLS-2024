@@ -248,6 +248,7 @@ class MainMenuState extends MusicBeatState
 	#end
 
 	var selectedSomethin:Bool = false;
+	var skipNext:Bool = false;
 
 	override function update(elapsed:Float)
 	{
@@ -257,7 +258,16 @@ class MainMenuState extends MusicBeatState
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
 		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
 
-		var strictInput:Bool = typingDisplay.text != "";
+		if (skipNext) {
+			skipNext = false;
+			return;
+		}
+
+		var strictInput:Bool = typingBuffer.length > 0;
+
+		if (FlxG.keys.justPressed.ANY) {
+			trace("we " + (strictInput ? "strict" : "not strict") + " bc " + typingBuffer + " is " + typingBuffer.length + " chars long");
+		}
 
 		if (!selectedSomethin)
 		{
@@ -482,6 +492,7 @@ class MainMenuState extends MusicBeatState
 
 		if (keyName == 'backspace' && typingBuffer.length > 0)
 		{
+			skipNext = true;
 			var newLength:Int = typingBuffer.length - 1;
 			if (newLength == 0) {
 				typingDisplay.text = "";
@@ -494,8 +505,10 @@ class MainMenuState extends MusicBeatState
 			typingBuffer = typingBuffer.substr(0, newLength);
 			typingDisplay.text = typingBuffer;
 		}
-		else
+		else {
+			skipNext = true;
 			typingBuffer += keyName;
+		}
 		
 		FlxG.sound.muteKeys = [];
 		FlxG.sound.volumeDownKeys = [];
@@ -557,6 +570,7 @@ class MainMenuState extends MusicBeatState
 		if (!found) {
 			typingBuffer = '';
 			typingDisplay.text = '';
+			skipNext = false;
 			FlxG.sound.muteKeys = TitleState.muteKeys;
 			FlxG.sound.volumeDownKeys = TitleState.volumeDownKeys;
 			FlxG.sound.volumeUpKeys = TitleState.volumeUpKeys;
