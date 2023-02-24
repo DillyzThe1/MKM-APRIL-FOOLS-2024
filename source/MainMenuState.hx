@@ -61,6 +61,8 @@ class MainMenuState extends MusicBeatState
 	var camFollowPos:FlxObject;
 	var debugKeys:Array<FlxKey>;
 
+	var typingDisplay:CaptionObject;
+
 	override function create()
 	{
 		#if MODS_ALLOWED
@@ -228,6 +230,9 @@ class MainMenuState extends MusicBeatState
 		beatenToadWeekONE = StoryMenuState.weekCompleted.get('0weekToad');
 		// allow typing secrets
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, checkKeyDown);
+
+		typingDisplay = new CaptionObject();
+		add(typingDisplay);
 	}
 
 	var beatenToadWeekONE:Bool = false;
@@ -252,15 +257,17 @@ class MainMenuState extends MusicBeatState
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
 		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
 
+		var strictInput:Bool = typingDisplay.text != "";
+
 		if (!selectedSomethin)
 		{
-			if (controls.UI_UP_P)
+			if (controls.UI_UP_P && (FlxG.keys.justPressed.UP || !strictInput))
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(-1);
 			}
 
-			if (controls.UI_DOWN_P)
+			if (controls.UI_DOWN_P && (FlxG.keys.justPressed.DOWN || !strictInput))
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(1);
@@ -268,26 +275,26 @@ class MainMenuState extends MusicBeatState
 
 			if (beatenToadWeekONE)
 			{
-				if (controls.UI_RIGHT_P)
+				if (controls.UI_RIGHT_P && (FlxG.keys.justPressed.RIGHT || !strictInput))
 				{
 					FlxG.sound.play(Paths.sound('scrollMenu'));
 					setOnRight(true);
 				}
-				if (controls.UI_LEFT_P)
+				if (controls.UI_LEFT_P && (FlxG.keys.justPressed.LEFT || !strictInput))
 				{
 					FlxG.sound.play(Paths.sound('scrollMenu'));
 					setOnRight(false);
 				}
 			}
 
-			if (controls.BACK)
+			if (controls.BACK && (FlxG.keys.justPressed.ESCAPE || !strictInput))
 			{
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				MusicBeatState.switchState(new TitleState());
 			}
 
-			if (controls.ACCEPT)
+			if (controls.ACCEPT && (FlxG.keys.justPressed.ENTER || !strictInput))
 			{
 				if ((selOnRight ? optionShitRight : optionShit)[curSelected] == 'donate')
 				{
@@ -368,7 +375,7 @@ class MainMenuState extends MusicBeatState
 					});
 				}
 			}
-			else if (FlxG.keys.anyJustPressed(debugKeys))
+			else if (FlxG.keys.anyJustPressed(debugKeys) && !strictInput)
 			{
 				selectedSomethin = true;
 				MusicBeatState.switchState(new MasterEditorMenu());
@@ -451,6 +458,8 @@ class MainMenuState extends MusicBeatState
 	// mario teaches typing
 	var typingGoals:Array<String> = ['fred', 'uncle fred', 'impostor', 'wrong house', 'crossover', 'fnf vs uncle fred full week mod', 'top 10'];
 	var typingBuffer:String = '';
+	var keyBlacklist:Array<String> = ['left', 'down', 'up', 'right'];
+	var numberNames:Array<String> = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
 
 	private function checkKeyDown(evt:KeyboardEvent)
 	{
@@ -460,9 +469,30 @@ class MainMenuState extends MusicBeatState
 			return;
 		}
 		var keyName:String = FlxKey.toStringMap.get(evt.keyCode).toLowerCase();
+		if (keyBlacklist.contains(keyName))
+			return;
+		if (keyName == 'backspace' && typingDisplay.text.length > 0)
+		{
+			var newLength:Int = typingDisplay.text.length - 1;
+			if (newLength == 0) {
+				typingDisplay.text = "";
+				FlxG.sound.muteKeys = TitleState.muteKeys;
+				FlxG.sound.volumeDownKeys = TitleState.volumeDownKeys;
+				FlxG.sound.volumeUpKeys = TitleState.volumeUpKeys;
+				return;
+			}
+			typingDisplay.text = typingDisplay.text.substr(0, newLength);
+			return;
+		}
 		if (keyName == 'space')
 			keyName = ' ';
+		var numbIndex:Int = numberNames.indexOf(keyName);
+		if (numbIndex != -1)
+			keyName = Std.string(numbIndex);
 		typingBuffer += keyName;
+		FlxG.sound.muteKeys = [];
+		FlxG.sound.volumeDownKeys = [];
+		FlxG.sound.volumeUpKeys = [];
 		//trace(typingBuffer);
 
 		var found:Bool = false;
@@ -472,6 +502,8 @@ class MainMenuState extends MusicBeatState
 			if (goal.toLowerCase() == typingBuffer)
 			{
 				trace("redeeming " + goal);
+				typingDisplay.text = typingBuffer;
+				typingDisplay.color = FlxColor.LIME;
 
 				switch (goal.toLowerCase()) {
 					case 'fred' | 'uncle fred' | 'impostor' | 'wrong house' | 'crossover' | 'fnf vs uncle fred full week mod' | 'top 10':
@@ -487,18 +519,21 @@ class MainMenuState extends MusicBeatState
 					default:
 						trace("WARNING! Key " + goal + " is missing a reward!");
 				}
-
-				typingBuffer = '';
 				return;
 			}
 			if (goal.toLowerCase().startsWith(typingBuffer))
 				found = true;
 		}
 
-		if (found)
-			return;
+		if (!found) {
+			typingBuffer = '';
+			FlxG.sound.muteKeys = TitleState.muteKeys;
+			FlxG.sound.volumeDownKeys = TitleState.volumeDownKeys;
+			FlxG.sound.volumeUpKeys = TitleState.volumeUpKeys;
+		}
 
-		typingBuffer = '';
+		typingDisplay.text = typingBuffer;
+		typingDisplay.color = FlxColor.WHITE;
 	}
 
 	override public function destroy()

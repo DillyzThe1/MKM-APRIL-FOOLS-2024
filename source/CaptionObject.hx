@@ -14,25 +14,34 @@ class CaptionObject extends FlxSpriteGroup {
 
     public var text(get, set):String;
 
-    public function new(?textDefault:String = "bottom text", ?cams:Array<FlxCamera> = null) {
+    public function new(?textDefault:String = "", ?cams:Array<FlxCamera> = null) {
         super();
         if (cams == null)
             cams = [FlxG.camera];
 
         captionBG = new FlxSprite(0, 0).makeGraphic(1, 1, FlxColor.BLACK);
+        captionBG.scrollFactor.set(0, 0);
 		add(captionBG);
 
         captionText = new FlxText(FlxG.width/2, FlxG.height * 0.875, 0, "", 32, true);
 		captionText.setBorderStyle(OUTLINE, FlxColor.BLACK, 4, 1.15);
 		captionText.alignment = CENTER;
+        captionText.scrollFactor.set(0, 0);
 		add(captionText);
 
         this.cameras = cams;
         this.text = textDefault;
+        this.scrollFactor.set(0, 0);
     }
 
     @:noCompletion
     public function set_text(?newText:String = "") {
+        if (newText == "") {
+            captionText.visible = captionBG.visible = false;
+            return "";
+        }
+        captionText.visible = captionBG.visible = true;
+
         var boundsX:Float = 25;
         var boundsY:Float = 7.5;
 
