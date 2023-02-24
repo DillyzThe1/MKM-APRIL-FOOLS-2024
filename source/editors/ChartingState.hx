@@ -2938,14 +2938,16 @@ class ChartingState extends MusicBeatState
 			var estimatedData:Int = note.noteData;
 			if (estimatedData > -1 && note.mustPress != _song.notes[curSec].mustHitSection)
 				estimatedData += keysss;
-			if ((hPlace == -2 || estimatedData == hPlace) && (beat == -1 || Conductor.getBeatRounded(note.strumTime) == beat))
+			if (note.eventName != "" || ((hPlace == -2 || estimatedData == hPlace) && (beat == -1 || Conductor.getBeatRounded(note.strumTime) == beat))) {
+				deadTexts.push(note.topTenEditorText);
 				deadNotes.push(note);
+			}
 		}
 		for (sus in curRenderedSustains)
 			if (deadNotes.contains(sus.parentNote))
 				deadSus.push(sus);
 		for (txt in curRenderedNoteType)
-			if (txt.parentNote != null && deadNotes.contains(txt.parentNote))
+			if (txt.parentNote == null)
 				deadTexts.push(txt);
 
 		for (i in _song.notes[curSec].sectionNotes)
@@ -2973,6 +2975,7 @@ class ChartingState extends MusicBeatState
 				daText.yAdd = 6;
 				daText.borderSize = 1;
 				daText.parentNote = note;
+				note.topTenEditorText = daText;
 				curRenderedNoteType.add(daText);
 				daText.sprTracker = note;
 			}
@@ -2985,7 +2988,10 @@ class ChartingState extends MusicBeatState
 		if (hPlace < 0) {
 			for (i in _song.events)
 			{
-				if (beat != -1 ? (Conductor.getBeatRounded(i[0]) != beat) : (end < i[0] || i[0] < start))
+				//if (beat != -1 ? (Conductor.getBeatRounded(i[0]) != beat) : (end < i[0] || i[0] < start))
+				//	continue;
+
+				if (end < i[0] || i[0] < start)
 					continue;
 
 				var note:Note = setupNoteData(i, false);
@@ -3003,6 +3009,7 @@ class ChartingState extends MusicBeatState
 				if (note.eventLength > 1)
 					daText.yAdd += 8;
 				daText.parentNote = note;
+				note.topTenEditorText = daText;
 				curRenderedNoteType.add(daText);
 				daText.sprTracker = note;
 			}
@@ -3135,6 +3142,7 @@ class ChartingState extends MusicBeatState
 				if (note.eventLength > 1)
 					daText.yAdd += 8;
 				daText.parentNote = note;
+				note.topTenEditorText = daText;
 				curRenderedNoteType.add(daText);
 				daText.sprTracker = note;
 				// trace('test: ' + i[0], 'startThing: ' + startThing, 'endThing: ' + endThing);

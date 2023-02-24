@@ -6,6 +6,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.math.FlxMath;
+import flixel.text.FlxText;
 import flixel.util.FlxColor;
 
 using StringTools;
@@ -67,6 +68,8 @@ class Note extends FlxSprite
 
 	public var noStrumAnim:Bool = false;
 	public var missPenalty:Bool = true;
+
+	public var topTenEditorText:AttachedFlxText;
 
 	public static var maniaKeyCounts:Array<Int> = [4, 6, 9, 5, 7, 8, 1, 2, 3];
 
