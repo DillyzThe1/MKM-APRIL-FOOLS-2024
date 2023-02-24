@@ -457,7 +457,7 @@ class MainMenuState extends MusicBeatState
 
 	// mario teaches typing
 	var typingGoals:Array<String> = ['fred', 'uncle fred', 'impostor top 10', 'wrong house', 'crossover', 'fnf vs uncle fred full week mod', 'top 10', 'karrd kollision',
-									'leak', 'vs uncle fred', 'secret', 'hello chat', 'source code'];
+									'leak', 'vs uncle fred', 'secret', 'hello chat', 'source code', 'github'];
 	var typingBuffer:String = '';
 	var keyBlacklist:Array<String> = ['left', 'down', 'up', 'right'];
 	var numberNames:Array<String> = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
@@ -536,7 +536,7 @@ class MainMenuState extends MusicBeatState
 					case 'leak':
 						typingDisplay.text = typingBuffer = '';
 						FlxG.openURL("https://www.youtube.com/watch?v=uj3QOMSKqOc");
-					case 'source code':
+					case 'source code' | 'github':
 						typingDisplay.text = typingBuffer = '';
 						FlxG.openURL("https://github.com/DillyzThe1/FNF-MKM-PUBLIC");
 					default:
