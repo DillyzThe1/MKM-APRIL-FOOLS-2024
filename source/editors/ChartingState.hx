@@ -1605,12 +1605,10 @@ class ChartingState extends MusicBeatState
 				if (sender == value1InputText && value1InputText.text != null)
 				{
 					curSelectedNote[1][curEventSelected][1] = value1InputText.text;
-					lazyUpdateGrid(Std.int(Conductor.getBeatRounded(curSelectedNote[0])), curSelectedNote[1]);
 				}
 				else if (sender == value2InputText && value2InputText.text != null)
 				{
 					curSelectedNote[1][curEventSelected][2] = value2InputText.text;
-					lazyUpdateGrid(Std.int(Conductor.getBeatRounded(curSelectedNote[0])), curSelectedNote[1]);
 				}
 				else if (sender == strumTimeInputText)
 				{
@@ -1618,8 +1616,8 @@ class ChartingState extends MusicBeatState
 					if (Math.isNaN(value))
 						value = 0;
 					curSelectedNote[0] = value;
-					lazyUpdateGrid(Std.int(Conductor.getBeatRounded(curSelectedNote[0])), curSelectedNote[1]);
 				}
+				lazyUpdateGrid(-1, -1);
 			}
 		}
 
