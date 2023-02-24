@@ -303,20 +303,19 @@ class CoolUtil
 		return false;
 	}
 
-	public static function loadFreeplaySong(weekName:String, songName:String) {
+	public static function loadFreeplaySong(weekName:String, songName:String, ?diff:String = "Hard", ?fallbackDiff:String = "Hard") {
 		PlayState.isStoryMode = false;
 		WeekData.reloadWeekFiles(false);
 		trace(WeekData.weeksList);
 
-		if (!WeekData.weeksList.contains(weekName))
-			return false;
-
-		PlayState.storyWeek = WeekData.weeksList.indexOf(weekName);
+		if (WeekData.weeksList.contains(weekName))
+			PlayState.storyWeek = WeekData.weeksList.indexOf(weekName);
+		
 		trace(PlayState.storyWeek);
 		var songLowercase:String = Paths.formatToSongPath(songName);
 		// CoolUtil.difficulties = ['Hard'];
 
-		PlayState.storyDifficulty = CoolUtil.loadSongDiffs(songLowercase);
+		PlayState.storyDifficulty = CoolUtil.loadSongDiffs(songName, diff, fallbackDiff);
 		var songDataStuff:String = Highscore.formatSong(songLowercase, PlayState.storyDifficulty);
 		PlayState.SONG = Song.loadFromJson(songDataStuff, songLowercase);
 		PlayState.isStoryMode = false;

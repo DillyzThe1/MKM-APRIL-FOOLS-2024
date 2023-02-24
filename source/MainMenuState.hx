@@ -456,7 +456,8 @@ class MainMenuState extends MusicBeatState
 	}
 
 	// mario teaches typing
-	var typingGoals:Array<String> = ['fred', 'uncle fred', 'impostor', 'wrong house', 'crossover', 'fnf vs uncle fred full week mod', 'top 10'];
+	var typingGoals:Array<String> = ['fred', 'uncle fred', 'impostor top 10', 'wrong house', 'crossover', 'fnf vs uncle fred full week mod', 'top 10', 'karrd kollision',
+									'leak', 'vs uncle fred', 'secret', 'hello chat', 'source code'];
 	var typingBuffer:String = '';
 	var keyBlacklist:Array<String> = ['left', 'down', 'up', 'right'];
 	var numberNames:Array<String> = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
@@ -471,25 +472,31 @@ class MainMenuState extends MusicBeatState
 		var keyName:String = FlxKey.toStringMap.get(evt.keyCode).toLowerCase();
 		if (keyBlacklist.contains(keyName))
 			return;
-		if (keyName == 'backspace' && typingDisplay.text.length > 0)
+		
+		if (keyName == 'space')
+			keyName = ' ';
+
+		var numbIndex:Int = numberNames.indexOf(keyName);
+		if (numbIndex != -1)
+			keyName = Std.string(numbIndex);
+
+		if (keyName == 'backspace' && typingBuffer.length > 0)
 		{
-			var newLength:Int = typingDisplay.text.length - 1;
+			var newLength:Int = typingBuffer.length - 1;
 			if (newLength == 0) {
 				typingDisplay.text = "";
+				typingBuffer = "";
 				FlxG.sound.muteKeys = TitleState.muteKeys;
 				FlxG.sound.volumeDownKeys = TitleState.volumeDownKeys;
 				FlxG.sound.volumeUpKeys = TitleState.volumeUpKeys;
 				return;
 			}
-			typingDisplay.text = typingDisplay.text.substr(0, newLength);
-			return;
+			typingBuffer = typingBuffer.substr(0, newLength);
+			typingDisplay.text = typingBuffer;
 		}
-		if (keyName == 'space')
-			keyName = ' ';
-		var numbIndex:Int = numberNames.indexOf(keyName);
-		if (numbIndex != -1)
-			keyName = Std.string(numbIndex);
-		typingBuffer += keyName;
+		else
+			typingBuffer += keyName;
+		
 		FlxG.sound.muteKeys = [];
 		FlxG.sound.volumeDownKeys = [];
 		FlxG.sound.volumeUpKeys = [];
@@ -502,11 +509,14 @@ class MainMenuState extends MusicBeatState
 			if (goal.toLowerCase() == typingBuffer)
 			{
 				trace("redeeming " + goal);
-				typingDisplay.text = typingBuffer;
+				typingDisplay.text = goal;
 				typingDisplay.color = FlxColor.LIME;
+				FlxG.sound.muteKeys = TitleState.muteKeys;
+				FlxG.sound.volumeDownKeys = TitleState.volumeDownKeys;
+				FlxG.sound.volumeUpKeys = TitleState.volumeUpKeys;
 
 				switch (goal.toLowerCase()) {
-					case 'fred' | 'uncle fred' | 'impostor' | 'wrong house' | 'crossover' | 'fnf vs uncle fred full week mod' | 'top 10':
+					case 'fred' | 'uncle fred' | 'impostor' | 'wrong house' | 'crossover' | 'fnf vs uncle fred full week mod' | 'vs uncle fred' | 'secret' | 'hello chat':
 						trace("federal agents in your mailbox");
 						WeekData.reloadWeekFiles(null, true);
 						if (!WeekData.weeksList.contains(CoolUtil.fredCrossoverWeekName)) {
@@ -516,23 +526,41 @@ class MainMenuState extends MusicBeatState
 							break;
 						}
 						CoolUtil.loadWeek(WeekData.weeksLoaded.get(CoolUtil.fredCrossoverWeekName), -1, 0, true);
+					case 'impostor top 10' | 'top 10':
+						trace("federal agents in your mailbox");
+						if (!CoolUtil.loadFreeplaySong("", "Incorrect Residence")) {
+							trace("WARNING! Cannot load Incorrect Residence!");
+							FlxG.resetState();
+							break;
+						}
+					case 'leak':
+						typingDisplay.text = typingBuffer = '';
+						FlxG.openURL("https://www.youtube.com/watch?v=uj3QOMSKqOc");
+					case 'source code':
+						typingDisplay.text = typingBuffer = '';
+						FlxG.openURL("https://github.com/DillyzThe1/FNF-MKM-PUBLIC");
 					default:
 						trace("WARNING! Key " + goal + " is missing a reward!");
+						typingDisplay.text = typingBuffer = '';
 				}
 				return;
 			}
-			if (goal.toLowerCase().startsWith(typingBuffer))
+			if (goal.toLowerCase().startsWith(typingBuffer)) {
+				typingDisplay.text = typingBuffer;
+				for (i in 0...goal.length - typingDisplay.text.length)
+					typingDisplay.text += "?";
 				found = true;
+				break;
+			}
 		}
 
 		if (!found) {
 			typingBuffer = '';
+			typingDisplay.text = '';
 			FlxG.sound.muteKeys = TitleState.muteKeys;
 			FlxG.sound.volumeDownKeys = TitleState.volumeDownKeys;
 			FlxG.sound.volumeUpKeys = TitleState.volumeUpKeys;
 		}
-
-		typingDisplay.text = typingBuffer;
 		typingDisplay.color = FlxColor.WHITE;
 	}
 
