@@ -405,6 +405,8 @@ class PlayState extends MusicBeatState
 
 	var bruhhhh:Array<String> = [];
 
+	var closedCaptions:CaptionObject;
+
 	function reloadNoteAnimsHeHeHeHa()
 	{
 		for (i in bruhhhh)
@@ -1126,6 +1128,10 @@ class PlayState extends MusicBeatState
 			}
 		}
 		CustomFadeTransition.nextCamera = camOther;
+
+		closedCaptions = new CaptionObject("", [camOther]);
+		closedCaptions.animate = true;
+		add(closedCaptions);
 	}
 
 	function set_songSpeed(value:Float):Float
@@ -2923,6 +2929,8 @@ class PlayState extends MusicBeatState
 
 			case 'Key Count Swap':
 				changeKeyCount(Std.parseInt(value1));
+			case 'Closed Captions':
+				closedCaptions.text = value1;
 		}
 		callOnLuas('onEvent', [eventName, value1, value2]);
 	}

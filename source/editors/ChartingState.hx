@@ -104,11 +104,18 @@ class ChartingState extends MusicBeatState
 			'Change Scroll Speed',
 			"Value 1: Scroll Speed Multiplier (1 is default)\nValue 2: Time it takes to change fully in seconds."
 		],
-		['Set Property', "Value 1: Variable name\nValue 2: New value"],
+		[
+			'Set Property', 
+			"Value 1: Variable name\nValue 2: New value"
+		],
 		[
 			'Key Count Swap',
 			"Enter a keycount, and\nit'll change the input.\n\nNote: Requires 9K"
-		] // "🤓"]
+		], // "🤓"]
+		[
+			'Closed Captions',
+			"Set the current captions in the first box.\nThe lower text box does nothing.\n\nBox auto-hides when blank."
+		]
 	];
 
 	var _file:FileReference;

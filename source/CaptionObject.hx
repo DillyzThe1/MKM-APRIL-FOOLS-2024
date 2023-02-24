@@ -5,6 +5,8 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxSpriteGroup;
 import flixel.text.FlxText;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import openfl.display.BitmapData;
 
@@ -13,6 +15,10 @@ class CaptionObject extends FlxSpriteGroup {
     var captionText:FlxText;
 
     public var text(get, set):String;
+
+    public var animate:Bool = false;
+
+    var capTween:FlxTween;
 
     public function new(?textDefault:String = "", ?cams:Array<FlxCamera> = null) {
         super();
@@ -36,6 +42,12 @@ class CaptionObject extends FlxSpriteGroup {
 
     @:noCompletion
     public function set_text(?newText:String = "") {
+        if (capTween != null)
+        {
+            capTween.cancel();
+            capTween.destroy();
+        }
+
         if (newText == "") {
             captionText.visible = captionBG.visible = false;
             return "";
@@ -88,6 +100,12 @@ class CaptionObject extends FlxSpriteGroup {
             bmp.setPixel32(bmpWidth, bmpHeight - 1, FlxColor.TRANSPARENT);
             bmp.setPixel32(bmpWidth - 1, bmpHeight, FlxColor.TRANSPARENT);
             //
+        }
+
+        if (animate) {
+            var capY:Float = captionText.y;
+            captionText.y = capY - 20;
+            capTween = FlxTween.tween(captionText, {y: capY}, 0.5, {ease: FlxEase.cubeOut});
         }
 
         return captionText.text;
