@@ -23,7 +23,6 @@ function onUpdatePost(e)
 		setProperty("arrow_up.alpha",    getPropertyFromGroup("opponentStrums", 2, "alpha"))
 		setProperty("arrow_right.alpha", getPropertyFromGroup("opponentStrums", 3, "alpha"))
 	end
-	setProperty("songLength", 200000)
 end
 
 function makeArrowSpr(dir, pos)
@@ -34,4 +33,8 @@ function makeArrowSpr(dir, pos)
 	setProperty(arrowname .. ".scale.y", 0.7)
 	setProperty(arrowname .. ".visible", false)
 	addLuaSprite(arrowname, true)
+end
+
+function onSongStart()
+	setDisplayLength(3, 17)
 end

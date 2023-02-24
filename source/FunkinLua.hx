@@ -1268,6 +1268,59 @@ class FunkinLua
 			}
 		});
 
+		// funny display length
+		Lua_helper.add_callback(lua, "setDisplayLength", function(minutes:Float, seconds:Float) {
+			var time:Float;
+			if (minutes == -1 && seconds == -1)
+				time = PlayState.instance.songLength;
+			else
+				time = (minutes*60 + seconds)*1000;
+			if (PlayState.instance.displayLengthTween != null) {
+				PlayState.instance.displayLengthTween.cancel();
+				PlayState.instance.displayLengthTween.destroy();
+			}
+			PlayState.instance.songDisplayLength = time;
+		});
+
+		Lua_helper.add_callback(lua, "tweenDisplayLength", function(minutes:Float, seconds:Float, duration:Float, ease:String) {
+			var time:Float;
+			if (minutes == -1 && seconds == -1)
+				time = PlayState.instance.songLength;
+			else
+				time = (minutes*60 + seconds)*1000;
+			if (PlayState.instance.displayLengthTween != null) {
+				PlayState.instance.displayLengthTween.cancel();
+				PlayState.instance.displayLengthTween.destroy();
+			}
+			PlayState.instance.displayLengthTween = FlxTween.tween(PlayState.instance, {songDisplayLength: time}, duration, {ease: getFlxEaseByString(ease)});
+		});
+
+		Lua_helper.add_callback(lua, "getDisplayLength", function() {
+			return PlayState.instance.songDisplayLength;
+		});
+
+		Lua_helper.add_callback(lua, "getDisplayLengthMinutes", function() {
+			return Math.floor(PlayState.instance.songDisplayLength/1000/60);
+		});
+
+		Lua_helper.add_callback(lua, "getDisplayLengthSeconds", function() {
+			var minutes:Int = Math.floor(PlayState.instance.songDisplayLength/1000/60);
+			return PlayState.instance.songDisplayLength - minutes*60*1000;
+		});
+
+		Lua_helper.add_callback(lua, "getSongLength", function() {
+			return PlayState.instance.songLength;
+		});
+
+		Lua_helper.add_callback(lua, "getSongLengthMinutes", function() {
+			return Math.floor(PlayState.instance.songLength/1000/60);
+		});
+
+		Lua_helper.add_callback(lua, "getSongLengthSeconds", function() {
+			var minutes:Int = Math.floor(PlayState.instance.songLength/1000/60);
+			return PlayState.instance.songLength - minutes*60*1000;
+		});
+
 		// Tween shit, but for strums
 		Lua_helper.add_callback(lua, "noteTweenX", function(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
 		{

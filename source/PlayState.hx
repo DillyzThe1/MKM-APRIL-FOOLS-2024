@@ -335,7 +335,10 @@ class PlayState extends MusicBeatState
 	public var inCutscene:Bool = false;
 	public var skipCountdown:Bool = false;
 
-	var songLength:Float = 0;
+	public var songLength:Float = 0;
+	public var songDisplayLength:Float = 0;
+
+	public var displayLengthTween:FlxTween;
 
 	public var boyfriendCameraOffset:Array<Float> = null;
 	public var opponentCameraOffset:Array<Float> = null;
@@ -1681,7 +1684,7 @@ class PlayState extends MusicBeatState
 		}
 
 		// Song duration in a float, useful for the time left feature
-		songLength = FlxG.sound.music.length;
+		songDisplayLength = songLength = FlxG.sound.music.length;
 		FlxTween.tween(timeBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 		FlxTween.tween(timeTxt, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 
@@ -2268,9 +2271,9 @@ class PlayState extends MusicBeatState
 					var curTime:Float = Conductor.songPosition - ClientPrefs.noteOffset;
 					if (curTime < 0)
 						curTime = 0;
-					songPercent = (curTime / songLength);
+					songPercent = (curTime / songDisplayLength);
 
-					var songCalc:Float = (songLength - curTime);
+					var songCalc:Float = (songDisplayLength - curTime);
 					if (ClientPrefs.timeBarType == 'Time Elapsed')
 						songCalc = curTime;
 

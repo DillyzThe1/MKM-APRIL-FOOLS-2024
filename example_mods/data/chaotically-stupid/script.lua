@@ -30,3 +30,17 @@ function onUpdatePost(e)
 	end
 	setProperty('botplayTxt.text', 'GOOFY CRY BABY')
 end
+
+function onSongStart()
+	-- set it to the original time, as shown at https://www.youtube.com/watch?v=lUypgXETSd8
+	setDisplayLength(2, 26)
+end
+
+local goneBack = false
+function onBeatHit()
+	-- now show the fans that the real remix was the friends we made along the way
+	if curBeat >= 338 and not goneBack then
+		goneBack = true
+		tweenDisplayLength(-1, -1, 0.75, 'cubeInOut')
+	end
+end
