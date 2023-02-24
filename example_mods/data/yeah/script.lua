@@ -1,5 +1,6 @@
 local animspam = {'singLEFT', 'singDOWN', 'singUP', 'singRIGHT'}
 local donething = false
+local lastnum = 0
 
 function onCreatePost()
 	makeArrowSpr("left", 0)
@@ -10,7 +11,9 @@ end
 
 function onUpdatePost(e)
 	if curBeat >= 16 then
-		playAnim('dad', animspam[getRandomInt(1, table.maxn(animspam))], true)
+		local newnum = getRandomInt(1, table.maxn(animspam), tostring(lastnum))
+		playAnim('dad', animspam[newnum], true)
+		lastnum = newnum
 		
 		
 		setProperty("arrow_left.visible",  true)
