@@ -467,7 +467,7 @@ class MainMenuState extends MusicBeatState
 
 	// mario teaches typing
 	var typingGoals:Array<String> = ['fred', 'uncle fred', 'impostor top 10', 'wrong house', 'crossover', 'fnf vs uncle fred full week mod', 'top 10', 'karrd kollision',
-									'leak', 'vs uncle fred', 'secret', 'hello chat', 'source code', 'github'];
+									'leak', 'vs uncle fred', 'secret', 'hello chat', 'source code', 'github', 'yeah'];
 	var typingBuffer:String = '';
 	var keyBlacklist:Array<String> = ['left', 'down', 'up', 'right'];
 	var numberNames:Array<String> = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
@@ -540,7 +540,6 @@ class MainMenuState extends MusicBeatState
 						}
 						CoolUtil.loadWeek(WeekData.weeksLoaded.get(CoolUtil.fredCrossoverWeekName), -1, 0, true);
 					case 'impostor top 10' | 'top 10':
-						trace("federal agents in your mailbox");
 						if (!CoolUtil.loadFreeplaySong("", "Incorrect Residence")) {
 							trace("WARNING! Cannot load Incorrect Residence!");
 							FlxG.resetState();
@@ -552,6 +551,12 @@ class MainMenuState extends MusicBeatState
 					case 'source code' | 'github':
 						typingDisplay.text = typingBuffer = '';
 						FlxG.openURL("https://github.com/DillyzThe1/FNF-MKM-PUBLIC");
+					case 'yeah':
+						if (!CoolUtil.loadFreeplaySong("", "yeah")) {
+							trace("WARNING! Cannot load yeah!");
+							FlxG.resetState();
+							break;
+						}
 					default:
 						trace("WARNING! Key " + goal + " is missing a reward!");
 						typingDisplay.text = typingBuffer = '';
