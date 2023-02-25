@@ -358,6 +358,7 @@ class Character extends FlxSprite
 		}
 	}
 
+	public var onPlayAnim:(String, Bool, Bool, Int) -> Void;
 	public function playAnim(AnimName:String, Force:Bool = false, Reversed:Bool = false, Frame:Int = 0):Void
 	{
 		if (AnimName.contains("-") && !animOffsets.exists(AnimName)) {
@@ -393,6 +394,11 @@ class Character extends FlxSprite
 			playAnim(splitThing[0], Force, Reversed, Frame);
 			return;
 		}
+		else if (AnimName.endsWith("miss"))
+		{
+			playAnim(AnimName.replace("miss", ""), Force, Reversed, Frame);
+			return;
+		}
 		else
 			offset.set(0, 0);
 
@@ -412,6 +418,9 @@ class Character extends FlxSprite
 				danced = !danced;
 			}
 		}
+
+		if (onPlayAnim != null)
+			onPlayAnim(AnimName, Force, Reversed, Frame);
 	}
 
 	function sortAnims(Obj1:Array<Dynamic>, Obj2:Array<Dynamic>):Int

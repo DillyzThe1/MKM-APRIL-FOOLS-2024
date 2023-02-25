@@ -789,6 +789,19 @@ class PlayState extends MusicBeatState
 		boyfriendGroup.add(boyfriend);
 		startCharacterLua(boyfriend.curCharacter);
 
+		dad.onPlayAnim = function(name:String, force:Bool, reversed:Bool, frame:Int) {
+			callOnLuas("onPlayAnim", ["dad", name, force, reversed, frame]);
+		};
+
+		if (gf != null)
+			gf.onPlayAnim = function(name:String, force:Bool, reversed:Bool, frame:Int) {
+				callOnLuas("onPlayAnim", ["gf", name, force, reversed, frame]);
+			};
+
+		boyfriend.onPlayAnim = function(name:String, force:Bool, reversed:Bool, frame:Int) {
+			callOnLuas("onPlayAnim", ["boyfriend", name, force, reversed, frame]);
+		};
+
 		var camPos:FlxPoint = new FlxPoint(girlfriendCameraOffset[0], girlfriendCameraOffset[1]);
 		if (gf != null)
 		{
