@@ -137,5 +137,4 @@
 	<SubTexture name="Lazer Up0012" x="2425" y="1512" width="427" height="533" frameX="-9" frameY="-23" frameWidth="436" frameHeight="556"/>
 	<SubTexture name="Lazer Up0013" x="2425" y="1512" width="427" height="533" frameX="-9" frameY="-23" frameWidth="436" frameHeight="556"/>
 	<SubTexture name="Lazer Up0014" x="2425" y="1512" width="427" height="533" frameX="-9" frameY="-23" frameWidth="436" frameHeight="556"/>
-	<SubTexture name="lazer reload hand0000" x="3233" y="451" width="160" height="71"/>
 </TextureAtlas>
