@@ -40,6 +40,11 @@ function makeArrowSpr(dir, pos)
 	setProperty(arrowname .. ".scale.y", 0.7)
 	setProperty(arrowname .. ".visible", false)
 	addLuaSprite(arrowname, true)
+	
+	if downscroll then
+		setProperty(arrowname .. ".flipY", true)
+		setProperty(arrowname .. ".y", getProperty("strumLine.y") - getProperty(arrowname .. ".height") + 300 + getPropertyFromGroup("opponentStrums", pos, "height"))
+	end
 end
 
 function onSongStart()

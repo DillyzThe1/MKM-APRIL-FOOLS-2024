@@ -2483,6 +2483,7 @@ class PlayState extends MusicBeatState
 					}
 				}
 
+				var epicMult:Float = ClientPrefs.downScroll ? -1 : 1;
 				if (daNote != null
 					&& daNote.animation != null
 					&& daNote.animation.curAnim != null
@@ -2490,12 +2491,13 @@ class PlayState extends MusicBeatState
 					&& daNote.prevNote != null
 					&& daNote.prevNote.scale != null
 					&& daNote.prevNote.isSustainNote)
-					daNote.y = daNote.prevNote.y + daNote.prevNote.height;
+					daNote.y = daNote.prevNote.y + (daNote.prevNote.height * epicMult);
+				
 
 				if (daNote.isSustainNote)  {
-					daNote.y += 15;
+					daNote.y += 15 * epicMult;
 					var limitttt:Float = strumY + strumHeight/2;
-					if (daNote.y <= limitttt)
+					if ((!ClientPrefs.downScroll && daNote.y <= limitttt) || (ClientPrefs.downScroll && daNote.y >= limitttt))
 						daNote.visible = false;
 				}
 				
