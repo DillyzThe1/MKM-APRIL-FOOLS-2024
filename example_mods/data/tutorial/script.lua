@@ -12,15 +12,17 @@ function noteMissPress()
 end
 
 function onCreatePost()
-	setProperty("dad.visible",false)
-	setProperty("dad.active",false)
-	addLuaScript("custom_events/Change IconP2")
-	triggerEvent("Change IconP2", "gf", "A5004D")
+	if string.lower(difficultyName) == "hard" then
+		setProperty("dad.visible",false)
+		setProperty("dad.active",false)
+		addLuaScript("custom_events/Change IconP2")
+		triggerEvent("Change IconP2", "gf", "A5004D")
+	end
 end
 
 local northerntexas = false
 function onBeatHit()
-	if curBeat >= 6 and not northerntexas then 
+	if string.lower(difficultyName) == "hard" and curBeat >= 6 and not northerntexas then 
 		northerntexas = true
 		startCutscene()
 	end
