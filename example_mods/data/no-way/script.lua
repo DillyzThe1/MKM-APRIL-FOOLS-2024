@@ -15,7 +15,7 @@ function onCreatePost()
 	setProperty("camZooming", true)
 	
 	triggerEvent("Camera Follow Pos", 215, 450)
-	setProperty("defaultCamZoom", 1.05)
+	setProperty("defaultCamZoom", 2)
 	
 	doTheBup(false)
 end
