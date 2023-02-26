@@ -7,11 +7,13 @@ function onCreatePost()
 end
 
 function onBeatHit()
-	if mustHitSection then
-		triggerEvent("Camera Follow Pos", 275, 435)
-		setProperty("defaultCamZoom", 0.95)
-	else
-		triggerEvent("Camera Follow Pos", 275, 450)
-		setProperty("defaultCamZoom", 1.05)
+	if curBeat < 233 or curBeat >= 280 then
+		if mustHitSection then
+			triggerEvent("Camera Follow Pos", 275, 435)
+			setProperty("defaultCamZoom", 0.95)
+		else
+			triggerEvent("Camera Follow Pos", 275, 450)
+			setProperty("defaultCamZoom", 1.05)
+		end
 	end
 end
