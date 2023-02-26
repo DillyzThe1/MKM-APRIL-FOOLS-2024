@@ -21,23 +21,26 @@ function onCreatePost()
 end
 
 function doTheBup(enabled)
-	setProperty('boyfriend.visible', enabled)
-	setProperty('boyfriend.active', enabled)
-	
-	setProperty('gf.visible', enabled)
-	setProperty('gf.active', enabled)
 	
 	local disabled = true
+	local alpha = 0.01
 	if enabled then
 		disabled = false
+		alpha = 1
 	end
+	
+	setProperty('boyfriend.alpha', alpha)
+	setProperty('boyfriend.alpha', alpha)
+	
+	setProperty('gf.alpha', alpha)
+	setProperty('gf.alpha', alpha)
 	
 	setProperty('dad.visible', disabled)
 	setProperty('dad.active', disabled)
 	
-	setProperty('sky.visible', enabled)
-	setProperty('grass.visible', enabled)
-	setProperty('clouds.visible', enabled)
+	setProperty('sky.alpha', alpha)
+	setProperty('grass.alpha', alpha)
+	setProperty('clouds.alpha', alpha)
 end
 
 local bupscareeee = false
