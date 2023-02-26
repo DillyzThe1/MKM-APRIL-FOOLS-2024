@@ -1,6 +1,6 @@
 local normalFemaleY = 0
 function onCreatePost()
-	if not string.lower(difficultyName) == "alpha" then
+	if string.lower(difficultyName) == "hard" then
 		--addHaxeLibrary('Scanlie','shaders')
 		shaderByString("Scanline")
 		shaderByString("Hq2x")
@@ -19,7 +19,7 @@ function onCreatePost()
 end
 
 function onCreate()
-	if not string.lower(difficultyName) == "alpha" then
+	if string.lower(difficultyName) == "hard" then
 		setProperty('camGame.alpha',0.01)
 		setProperty('iconP2.alpha',0)
 		setProperty('healthBar.alpha',0)
@@ -30,7 +30,7 @@ local shownThing = false
 local shownThing26 = false
 
 function onBeatHit()
-	if not string.lower(difficultyName) == "alpha" then
+	if string.lower(difficultyName) == "hard" then
 		if curBeat >= 16 and not shownThing then 
 			doTweenAlpha('camGameAlpha','camGame',1,0.75,'cubeInOut')
 			doTweenAlpha('iconP2Alpha','iconP2',1,0.75,'cubeInOut')
@@ -50,7 +50,7 @@ function bruhhh(str)
 end
 
 function onTweenCompleted(tag)
-	if not string.lower(difficultyName) == "alpha" then
+	if string.lower(difficultyName) == "hard" then
 		if tag == 'gfY' then 
 			setProperty('gf.alpha',1)
 		end

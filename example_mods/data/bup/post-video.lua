@@ -1,7 +1,7 @@
 local allowCountdown = false
 	
 function goingToDoCutscene()
-	if not string.lower(difficultyName) == "alpha" then
+	if string.lower(difficultyName) == "hard" then
 		if not allowCountdown and isStoryMode then --and not seenCutscene then
 			return true 
 		end
@@ -10,7 +10,7 @@ function goingToDoCutscene()
 	end
 end
 function onEndSong()
-	if not string.lower(difficultyName) == "alpha" then
+	if string.lower(difficultyName) == "hard" then
 		if goingToDoCutscene() then --Block the first countdown
 			setProperty('camGame.alpha',0)
 			setProperty('camHUD.alpha',0)

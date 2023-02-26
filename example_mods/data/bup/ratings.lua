@@ -2,14 +2,14 @@ local abortionLaws = 'Your mother should\'ve gotten the abortion.'
 local rating60hxFile = nil
 
 function onCreatePost()
-	if not string.lower(difficultyName) == "alpha" then
+	if string.lower(difficultyName) == "hard" then
 		addHaxeLibrary('Date')
 		rating60hxFile = getTextFromFile('data/bup/Rating60.hx',false)
 	end
 end
 
 function onUpdatePost(e)
-	if not string.lower(difficultyName) == "alpha" then
+	if string.lower(difficultyName) == "hard" then
 		local ratingpercent = rating * 100
 		if ratingpercent >= 100 then 
 			abortionLaws = 'ok blue hair liberal'
