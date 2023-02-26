@@ -230,6 +230,9 @@ class FreeplayState extends MusicBeatState
 		{
 			trace(songs[curIndex].songName + " " + songs[curIndex].unlockerKey);
 			ClientPrefs.setKeyUnlocked(songs[curIndex].unlockerKey, !ClientPrefs.getKeyUnlocked(songs[curIndex].unlockerKey));
+			var saieahiwahiwfaih:String = songs[curIndex].songName.toLowerCase().replace(" ", "-");
+			ClientPrefs.setKeyUnlocked(saieahiwahiwfaih + "-start", false);
+			ClientPrefs.setKeyUnlocked(saieahiwahiwfaih + "-end", false);
 			CoolUtil.loadSongDiffs(songs[curIndex].songName);
 			@:privateAccess
 			for (i in 0...CoolUtil.difficulties.length)

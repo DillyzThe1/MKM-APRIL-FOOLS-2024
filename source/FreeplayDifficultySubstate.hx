@@ -92,13 +92,22 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 
     public function select() {
 		hasSel = true;
-        
-		PlayState.storyDifficulty = CoolUtil.difficulties.indexOf(stars.members[curStar].diffName);
+
+		var goToChart:Bool = FlxG.keys.pressed.SHIFT;
+		
 		var songLowercase:String = Paths.formatToSongPath(songName);
+
+		if (songLowercase == "bup" && stars.members[curStar].diffName.toLowerCase() == "alpha" && !ClientPrefs.getKeyUnlocked("no-way-end")) {
+			PlayState.storyDifficulty = CoolUtil.loadSongDiffs("No Way");
+			songLowercase = Paths.formatToSongPath("No Way");
+			goToChart = false;
+		} 
+		else
+			PlayState.storyDifficulty = CoolUtil.difficulties.indexOf(stars.members[curStar].diffName);
+        
 		var peopleOrderOurPatties:String = Highscore.formatSong(songLowercase, PlayState.storyDifficulty);
 		PlayState.SONG = Song.loadFromJson(peopleOrderOurPatties, songLowercase);
 
-		var goToChart:Bool = FlxG.keys.pressed.SHIFT;
 		diffCam.fade(FlxColor.BLACK, 0.15, false, function()
         {
             LoadingState.loadAndSwitchState(goToChart ? new ChartingState() : new PlayState());
