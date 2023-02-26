@@ -4,6 +4,12 @@ function onGenerateStaticArrows(player, maxPlayer)
 	end
 end
 
+function onCreatePost()
+	if not isInANormalMode() then
+		triggerEvent("Change Credits", "Composed by That1LazerBoi", "")
+	end
+end
+
 function onChartAccessed() 
 	loadSong('Extra Screwed')
 	return Function_Stop
