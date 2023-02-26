@@ -3245,6 +3245,12 @@ class FunkinLua
 			return CoolUtil.songCompletedOnDiff(songName, diff);
 		});
 
+
+		Lua_helper.add_callback(lua, "showCountdownPiece", function(piece:Int, ?sound:Bool = false)
+		{
+			PlayState.instance.showCountdownPiece(piece, sound, false);
+		});
+
 		call('onCreate', []);
 		#end
 	}

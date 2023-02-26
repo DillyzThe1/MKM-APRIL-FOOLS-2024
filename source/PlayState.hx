@@ -363,6 +363,8 @@ class PlayState extends MusicBeatState
 	private var luaDebugGroup:FlxTypedGroup<DebugLuaText>;
 
 	public var introSoundsSuffix:String = '';
+	public var introSoundsVolume:Float = 0.6;
+	public var countdownImgSuffix:String = '';
 
 	// Debug buttons
 	private var debugKeysChart:Array<FlxKey>;
@@ -1382,12 +1384,83 @@ class PlayState extends MusicBeatState
 	var startTimer:FlxTimer;
 	var finishTimer:FlxTimer = null;
 
-	// For being able to mess with the sprites on Lua
-	public var countdownReady:FlxSprite;
-	public var countdownSet:FlxSprite;
-	public var countdownGo:FlxSprite;
-
 	public static var startOnTime:Float = 0;
+
+	public function showCountdownPiece(piece:Int, ?sound:Bool = false, ?discord:Bool = false) {
+		var antialias:Bool = ClientPrefs.globalAntialiasing;
+		switch (piece)
+		{
+			case 0:
+				if (sound)
+					FlxG.sound.play(Paths.sound('intro3' + introSoundsSuffix), introSoundsVolume);
+				if (discord)
+					DiscordClient.changePresence("3 - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
+			case 1:
+				var countdownReady:FlxSprite = new FlxSprite().loadGraphic(Paths.image('countdown/ready' + countdownImgSuffix));
+				countdownReady.cameras = [camOther];
+				countdownReady.scrollFactor.set();
+				countdownReady.updateHitbox();
+
+				countdownReady.screenCenter();
+				countdownReady.antialiasing = antialias;
+				insert(members.indexOf(notes), countdownReady);
+				FlxTween.tween(countdownReady, {/*y: countdownReady.y + 100,*/ alpha: 0}, Conductor.crochet / 1000, {
+					ease: FlxEase.cubeInOut,
+					onComplete: function(twn:FlxTween)
+					{
+						remove(countdownReady);
+						countdownReady.destroy();
+					}
+				});
+				if (sound)
+					FlxG.sound.play(Paths.sound('intro2' + introSoundsSuffix), introSoundsVolume);
+				if (discord)
+					DiscordClient.changePresence("2 - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
+			case 2:
+				var countdownSet:FlxSprite = new FlxSprite().loadGraphic(Paths.image('countdown/set' + countdownImgSuffix));
+				countdownSet.cameras = [camOther];
+				countdownSet.scrollFactor.set();
+
+				countdownSet.screenCenter();
+				countdownSet.antialiasing = antialias;
+				insert(members.indexOf(notes), countdownSet);
+				FlxTween.tween(countdownSet, {/*y: countdownSet.y + 100,*/ alpha: 0}, Conductor.crochet / 1000, {
+					ease: FlxEase.cubeInOut,
+					onComplete: function(twn:FlxTween)
+					{
+						remove(countdownSet);
+						countdownSet.destroy();
+					}
+				});
+				if (sound)
+					FlxG.sound.play(Paths.sound('intro1' + introSoundsSuffix), introSoundsVolume);
+				if (discord)
+					DiscordClient.changePresence("1 - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
+			case 3:
+				var countdownGo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('countdown/go' + countdownImgSuffix));
+				countdownGo.cameras = [camOther];
+				countdownGo.scrollFactor.set();
+
+				countdownGo.updateHitbox();
+
+				countdownGo.screenCenter();
+				countdownGo.antialiasing = antialias;
+				insert(members.indexOf(notes), countdownGo);
+				FlxTween.tween(countdownGo, {/*y: countdownGo.y + 100,*/ alpha: 0}, Conductor.crochet / 1000, {
+					ease: FlxEase.cubeInOut,
+					onComplete: function(twn:FlxTween)
+					{
+						remove(countdownGo);
+						countdownGo.destroy();
+					}
+				});
+				if (sound)
+					FlxG.sound.play(Paths.sound('introGo' + introSoundsSuffix), introSoundsVolume);
+				if (discord)
+					DiscordClient.changePresence("Go! - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
+		}
+		callOnLuas('onCountdownTick', [piece]);
+	}
 
 	public function startCountdown():Void
 	{
@@ -1441,6 +1514,7 @@ class PlayState extends MusicBeatState
 				return;
 			}
 
+			ClientPrefs.setKeyUnlocked('${SONG.song}-start', true);
 			startTimer = new FlxTimer().start(Conductor.crochet / 1000, function(tmr:FlxTimer)
 			{
 				if (gf != null
@@ -1466,77 +1540,7 @@ class PlayState extends MusicBeatState
 					dad.dance();
 				}
 
-				var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
-				introAssets.set('default', ['ready', 'set', 'go']);
-
-				var introAlts:Array<String> = introAssets.get('default');
-				var antialias:Bool = ClientPrefs.globalAntialiasing;
-
-				switch (swagCounter)
-				{
-					case 0:
-						FlxG.sound.play(Paths.sound('intro3' + introSoundsSuffix), 0.6);
-						DiscordClient.changePresence("3 - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
-					case 1:
-						countdownReady = new FlxSprite().loadGraphic(Paths.image(introAlts[0]));
-						countdownReady.cameras = [camOther];
-						countdownReady.scrollFactor.set();
-						countdownReady.updateHitbox();
-
-						countdownReady.screenCenter();
-						countdownReady.antialiasing = antialias;
-						insert(members.indexOf(notes), countdownReady);
-						FlxTween.tween(countdownReady, {/*y: countdownReady.y + 100,*/ alpha: 0}, Conductor.crochet / 1000, {
-							ease: FlxEase.cubeInOut,
-							onComplete: function(twn:FlxTween)
-							{
-								remove(countdownReady);
-								countdownReady.destroy();
-							}
-						});
-						FlxG.sound.play(Paths.sound('intro2' + introSoundsSuffix), 0.6);
-						DiscordClient.changePresence("2 - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
-					case 2:
-						countdownSet = new FlxSprite().loadGraphic(Paths.image(introAlts[1]));
-						countdownSet.cameras = [camOther];
-						countdownSet.scrollFactor.set();
-
-						countdownSet.screenCenter();
-						countdownSet.antialiasing = antialias;
-						insert(members.indexOf(notes), countdownSet);
-						FlxTween.tween(countdownSet, {/*y: countdownSet.y + 100,*/ alpha: 0}, Conductor.crochet / 1000, {
-							ease: FlxEase.cubeInOut,
-							onComplete: function(twn:FlxTween)
-							{
-								remove(countdownSet);
-								countdownSet.destroy();
-							}
-						});
-						FlxG.sound.play(Paths.sound('intro1' + introSoundsSuffix), 0.6);
-						DiscordClient.changePresence("1 - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
-					case 3:
-						countdownGo = new FlxSprite().loadGraphic(Paths.image(introAlts[2]));
-						countdownGo.cameras = [camOther];
-						countdownGo.scrollFactor.set();
-
-						countdownGo.updateHitbox();
-
-						countdownGo.screenCenter();
-						countdownGo.antialiasing = antialias;
-						insert(members.indexOf(notes), countdownGo);
-						FlxTween.tween(countdownGo, {/*y: countdownGo.y + 100,*/ alpha: 0}, Conductor.crochet / 1000, {
-							ease: FlxEase.cubeInOut,
-							onComplete: function(twn:FlxTween)
-							{
-								remove(countdownGo);
-								countdownGo.destroy();
-							}
-						});
-						FlxG.sound.play(Paths.sound('introGo' + introSoundsSuffix), 0.6);
-						DiscordClient.changePresence("Go! - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
-					case 4:
-						ClientPrefs.setKeyUnlocked('${SONG.song}-start', true);
-				}
+				showCountdownPiece(swagCounter, true, true);
 
 				notes.forEachAlive(function(note:Note)
 				{
@@ -2947,6 +2951,8 @@ class PlayState extends MusicBeatState
 				changeKeyCount(Std.parseInt(value1));
 			case 'Closed Captions':
 				closedCaptions.text = value1;
+			case 'Show Countdown Index':
+				showCountdownPiece(Std.parseInt(value1), (value2 == "true" || value2 == "t" || value2 == "1" || value2 == "yes" || value2 == "y"));
 		}
 		callOnLuas('onEvent', [eventName, value1, value2]);
 	}

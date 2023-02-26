@@ -115,6 +115,10 @@ class ChartingState extends MusicBeatState
 		[
 			'Closed Captions',
 			"Set the current captions in the first box.\nThe lower text box does nothing.\n\nBox auto-hides when blank."
+		],
+		[
+			'Show Countdown Index',
+			"Shows one of the sprites of the countdown.\nThe first box is the number between 1-4 to do.\nThe second box is a true/false for sounds."
 		]
 	];
 
