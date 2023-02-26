@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="challentoad lazer.png">
+	<!-- Auto-Generated through a java program made by DillyzThe1 -->
+	<!-- https://www.github.com/DillyzThe1 -->
+	<SubTexture name="LEFT0000" x="0" y="0" width="631" height="807"/>
+	<SubTexture name="LEFT0001" x="0" y="0" width="631" height="807"/>
+	<SubTexture name="LEFT0002" x="631" y="0" width="631" height="807"/>
+	<SubTexture name="LEFT0003" x="631" y="0" width="631" height="807"/>
+	<SubTexture name="LEFT LOOP0000" x="1262" y="0" width="631" height="807"/>
+	<SubTexture name="LEFT LOOP0001" x="1262" y="0" width="631" height="807"/>
+	<SubTexture name="LEFT LOOP0002" x="1262" y="0" width="631" height="807"/>
+	<SubTexture name="LEFT LOOP0003" x="1262" y="0" width="631" height="807"/>
+	<SubTexture name="LEFT LOOP0004" x="1893" y="0" width="631" height="807"/>
+	<SubTexture name="LEFT LOOP0005" x="1893" y="0" width="631" height="807"/>
+	<SubTexture name="LEFT LOOP0006" x="1893" y="0" width="631" height="807"/>
+	<SubTexture name="LEFT LOOP0007" x="1893" y="0" width="631" height="807"/>
+	<SubTexture name="RIGHT0000" x="2524" y="0" width="631" height="807"/>
+	<SubTexture name="RIGHT0001" x="2524" y="0" width="631" height="807"/>
+	<SubTexture name="RIGHT0002" x="3155" y="0" width="631" height="807"/>
+	<SubTexture name="RIGHT0003" x="3155" y="0" width="631" height="807"/>
+	<SubTexture name="RIGHT LOOP0000" x="3786" y="0" width="631" height="807"/>
+	<SubTexture name="RIGHT LOOP0001" x="3786" y="0" width="631" height="807"/>
+	<SubTexture name="RIGHT LOOP0002" x="3786" y="0" width="631" height="807"/>
+	<SubTexture name="RIGHT LOOP0003" x="3786" y="0" width="631" height="807"/>
+	<SubTexture name="RIGHT LOOP0004" x="4417" y="0" width="631" height="807"/>
+	<SubTexture name="RIGHT LOOP0005" x="4417" y="0" width="631" height="807"/>
+	<SubTexture name="RIGHT LOOP0006" x="4417" y="0" width="631" height="807"/>
+	<SubTexture name="RIGHT LOOP0007" x="4417" y="0" width="631" height="807"/>
+	<SubTexture name="UP0000" x="5048" y="0" width="631" height="807"/>
+	<SubTexture name="UP0001" x="5048" y="0" width="631" height="807"/>
+	<SubTexture name="UP0002" x="5679" y="0" width="631" height="807"/>
+	<SubTexture name="UP0003" x="5679" y="0" width="631" height="807"/>
+	<SubTexture name="UP LOOP0000" x="6310" y="0" width="631" height="807"/>
+	<SubTexture name="UP LOOP0001" x="6310" y="0" width="631" height="807"/>
+	<SubTexture name="UP LOOP0002" x="6310" y="0" width="631" height="807"/>
+	<SubTexture name="UP LOOP0003" x="6310" y="0" width="631" height="807"/>
+	<SubTexture name="UP LOOP0004" x="6941" y="0" width="631" height="807"/>
+	<SubTexture name="UP LOOP0005" x="6941" y="0" width="631" height="807"/>
+	<SubTexture name="UP LOOP0006" x="6941" y="0" width="631" height="807"/>
+	<SubTexture name="UP LOOP0007" x="6941" y="0" width="631" height="807"/>
+	<SubTexture name="DOWN0000" x="0" y="807" width="631" height="807"/>
+	<SubTexture name="DOWN0001" x="0" y="807" width="631" height="807"/>
+	<SubTexture name="DOWN0002" x="631" y="807" width="631" height="807"/>
+	<SubTexture name="DOWN0003" x="631" y="807" width="631" height="807"/>
+	<SubTexture name="DOWN LOOP0000" x="1262" y="807" width="631" height="807"/>
+	<SubTexture name="DOWN LOOP0001" x="1262" y="807" width="631" height="807"/>
+	<SubTexture name="DOWN LOOP0002" x="1262" y="807" width="631" height="807"/>
+	<SubTexture name="DOWN LOOP0003" x="1262" y="807" width="631" height="807"/>
+	<SubTexture name="DOWN LOOP0004" x="1893" y="807" width="631" height="807"/>
+	<SubTexture name="DOWN LOOP0005" x="1893" y="807" width="631" height="807"/>
+	<SubTexture name="DOWN LOOP0006" x="1893" y="807" width="631" height="807"/>
+	<SubTexture name="DOWN LOOP0007" x="1893" y="807" width="631" height="807"/>
+	<SubTexture name="IDLE0000" x="2524" y="807" width="631" height="807"/>
+	<SubTexture name="IDLE0001" x="3155" y="807" width="631" height="807"/>
+	<SubTexture name="IDLE0002" x="3786" y="807" width="631" height="807"/>
+	<SubTexture name="IDLE0003" x="4417" y="807" width="631" height="807"/>
+	<SubTexture name="IDLE LOOP0000" x="5048" y="807" width="631" height="807"/>
+	<SubTexture name="IDLE LOOP0001" x="5048" y="807" width="631" height="807"/>
+	<SubTexture name="IDLE LOOP0002" x="5048" y="807" width="631" height="807"/>
+	<SubTexture name="IDLE LOOP0003" x="5048" y="807" width="631" height="807"/>
+	<SubTexture name="IDLE LOOP0004" x="5679" y="807" width="631" height="807"/>
+	<SubTexture name="IDLE LOOP0005" x="5679" y="807" width="631" height="807"/>
+	<SubTexture name="IDLE LOOP0006" x="5679" y="807" width="631" height="807"/>
+	<SubTexture name="IDLE LOOP0007" x="5679" y="807" width="631" height="807"/>
+	<SubTexture name="WELL0000" x="6310" y="807" width="631" height="807"/>
+	<SubTexture name="WELL0001" x="6941" y="807" width="631" height="807"/>
+	<SubTexture name="WELL0002" x="0" y="1614" width="631" height="807"/>
+	<SubTexture name="WELL0003" x="631" y="1614" width="631" height="807"/>
+	<SubTexture name="WELL0004" x="1262" y="1614" width="631" height="807"/>
+	<SubTexture name="WELL0005" x="1893" y="1614" width="631" height="807"/>
+	<SubTexture name="WELL0006" x="2524" y="1614" width="631" height="807"/>
+	<SubTexture name="WELL0007" x="2524" y="1614" width="631" height="807"/>
+</TextureAtlas>

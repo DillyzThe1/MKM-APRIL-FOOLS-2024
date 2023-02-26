@@ -77,5 +77,11 @@ function onBeatHit()
 				cameraFlash("camGame", "0xFF000000", 2.5, true)
 			end
 		end
+	else
+		if curBeat == 112 then
+			triggerEvent("nwb-bg-swap", "house", "")
+		elseif curBeat == 280 then
+			triggerEvent("nwb-bg-swap", "room", "")
+		end
 	end
 end
