@@ -1,7 +1,7 @@
 local allowCountdown = false
 	
 function goingToDoCutscene()
-	if not allowCountdown and isStoryMode then --and not seenCutscene then
+	if isInANormalMode() and not allowCountdown and isStoryMode then --and not seenCutscene then
 		return true 
 	end
 		
@@ -16,4 +16,12 @@ function onEndSong()
 		return Function_Stop;
 	end
 	return Function_Continue;
+end
+
+function isInANormalMode()
+	local diffff = string.lower(difficultyName)
+	if diffff == "hard" or diffff == "old" or diffff == "skill issue" then
+		return true
+	end
+	return false
 end

@@ -2,7 +2,7 @@ local part = 0
 local oldDad = ''
 
 function goingToDoCutscene()
-	if part < 3 and isStoryMode and (string.lower(difficultyName) == "hard" or string.lower(difficultyName) == "old") and not seenCutscene then --and not seenCutscene then
+	if part < 3 and isStoryMode and (string.lower(difficultyName) == "hard" or string.lower(difficultyName) == "old" or string.lower(difficultyName) == "alpha") and not seenCutscene then --and not seenCutscene then
 		return true 
 	end
 	
@@ -16,23 +16,28 @@ function onCreatePost()
 	--luaDebugMode = true
 	if goingToDoCutscene() then
 		cutsceneDone = true
-		precacheImage('cutscenes/pre-house/toad door')
-		triggerEvent('Change Character','dad','toad-cutscene-1')
-		makeAnimatedLuaSprite('smokeCloud','cutscenes/pre-house/smoke',0,0)
-		addAnimationByPrefix('smokeCloud','vanish','smoke cloud small',24,false)
-		addAnimationByPrefix('smokeCloud','static','smoke cloud small',{0},24)
-		addOffset('smokeCloud','vanish',0,0)
-		setProperty('smokeCloud.visible',true)
-		setProperty('smokeCloud.active',true)
-		setProperty('smokeCloud.scale.x',2)
-		setProperty('smokeCloud.scale.y',2)
-		playAnim('dad','idle-shock',true)
-		playAnim('smokeCloud','static',true)
-		addLuaSprite('smokeCloud',true)
 		
-		triggerEvent('Alt Idle Animation','dad','-shock')
-		
-		setProperty('camGame.visible',false)
+		if string.lower(difficultyName) == "alpha" then
+			--startVideo('pre-pre-house-alpha')
+		else
+			precacheImage('cutscenes/pre-house/toad door')
+			triggerEvent('Change Character','dad','toad-cutscene-1')
+			makeAnimatedLuaSprite('smokeCloud','cutscenes/pre-house/smoke',0,0)
+			addAnimationByPrefix('smokeCloud','vanish','smoke cloud small',24,false)
+			addAnimationByPrefix('smokeCloud','static','smoke cloud small',{0},24)
+			addOffset('smokeCloud','vanish',0,0)
+			setProperty('smokeCloud.visible',true)
+			setProperty('smokeCloud.active',true)
+			setProperty('smokeCloud.scale.x',2)
+			setProperty('smokeCloud.scale.y',2)
+			playAnim('dad','idle-shock',true)
+			playAnim('smokeCloud','static',true)
+			addLuaSprite('smokeCloud',true)
+			
+			triggerEvent('Alt Idle Animation','dad','-shock')
+			
+			setProperty('camGame.visible',false)
+		end
 	end
 end
 
@@ -67,8 +72,13 @@ function onStartCountdown()
 			runTimer('startSmoke', fts(25,24))
 			part = 2
 		else
-			startVideo('pre-pre-house')
-			part = 1
+			if string.lower(difficultyName) == "alpha" then
+				startVideo('pre-pre-house-alpha')
+				part = 1000000
+			else
+				startVideo('pre-pre-house')
+				part = 1
+			end
 		end
 		return Function_Stop
 	end

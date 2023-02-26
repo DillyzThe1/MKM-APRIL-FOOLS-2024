@@ -3,7 +3,9 @@ function onCreatePost()
 	setProperty('gf.active',false)
 	
 	setTextFont('timeTxt','minecraft.ttf')
-	setTextSize('timeTxt',24)
+	if isInANormalMode() then
+		setTextSize('timeTxt',24)
+	end
 	
 	setTextFont('scoreTxt','minecraft.ttf')
 	setTextSize('scoreTxt',16)
@@ -84,8 +86,14 @@ function onBeatHit()
 end
 
 function onChartAccessed() 
-	if string.lower(difficultyName) == "hard" then
-		loadSong('Hell Shrooms')
-		return Function_Stop
+	loadSong('Hell Shrooms')
+	return Function_Stop
+end
+
+function isInANormalMode()
+	local diffff = string.lower(difficultyName)
+	if diffff == "hard" or diffff == "old" or diffff == "skill issue" then
+		return true
 	end
+	return false
 end

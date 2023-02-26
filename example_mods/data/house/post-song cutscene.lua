@@ -5,7 +5,7 @@ local oldDad = ''
 local gayPos = {0,0}
 
 function goingToDoCutscene()
-	if part < 2 and isStoryMode and (string.lower(difficultyName) == "hard" or string.lower(difficultyName) == "old") then --and not seenCutscene then
+	if part < 2 and isStoryMode and (string.lower(difficultyName) == "hard" or string.lower(difficultyName) == "old" or string.lower(difficultyName) == "alpha") then --and not seenCutscene then
 		return true 
 	end
 	
@@ -71,15 +71,21 @@ end
 
 function onEndSong()
 	if goingToDoCutscene() then
-		deadCutsceneReal = true
-		noooMoooreHud()
-		setProperty('isCameraOnForcedPos',true)
-		camPosRealNoFake(getProperty('camFollow.x'),getProperty('camFollow.y'))
-		triggerEvent('Change Character','dad','toad-cutscene-2')
-		--setProperty('camGame.visible',false)
-		setProperty('inCutscene', true)
-		runTimer('getAidsNOW', fts(25,24))
-		part = 1
+		if string.lower(difficultyName) == "alpha" then
+			startVideo('housetoshroomsalpha')
+			deadCutsceneReal = true
+			part = 1000000
+		else
+			deadCutsceneReal = true
+			noooMoooreHud()
+			setProperty('isCameraOnForcedPos',true)
+			camPosRealNoFake(getProperty('camFollow.x'),getProperty('camFollow.y'))
+			triggerEvent('Change Character','dad','toad-cutscene-2')
+			--setProperty('camGame.visible',false)
+			setProperty('inCutscene', true)
+			runTimer('getAidsNOW', fts(25,24))
+			part = 1
+		end
 		return Function_Stop
 	end
 	return Function_Continue
