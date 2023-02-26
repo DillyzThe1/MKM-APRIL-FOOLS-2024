@@ -1,0 +1,122 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": false,
+			"name": "Lazer Idle Normal0"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle-alt",
+			"loop": false,
+			"name": "Lazer Idle0"
+		},
+		{
+			"offsets": [
+				57,
+				-10
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "Lazer Left0"
+		},
+		{
+			"offsets": [
+				10,
+				-44
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "Lazer Down0"
+		},
+		{
+			"offsets": [
+				5,
+				33
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "Lazer Up0"
+		},
+		{
+			"offsets": [
+				23,
+				4
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "Lazer Right0"
+		},
+		{
+			"offsets": [
+				20,
+				-51
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singPRANK",
+			"loop": false,
+			"name": "Lazer Button0"
+		},
+		{
+			"offsets": [
+				-15,
+				-13
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "gunReload",
+			"loop": false,
+			"name": "Lazer Gun Reload0"
+		},
+		{
+			"offsets": [
+				7,
+				4
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "gunShoot",
+			"loop": false,
+			"name": "Lazer Gun Shoot10"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/lazer no way",
+	"position": [
+		-10,
+		240
+	],
+	"healthicon": "lazer",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		255,
+		51
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

@@ -71,6 +71,18 @@
 			false,
 			"",
 			"Among-Us-Crewmate-Red-FULLRESDEFAULT.jpg"
+		],
+		[
+			"No Way",
+			"lazer",
+			[
+				255,
+				255,
+				51
+			],
+			false,
+			"no-way-start",
+			"Someone regrets their previous work..."
 		]
 	],
 	"weekCharacters": [
