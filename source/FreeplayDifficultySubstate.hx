@@ -94,6 +94,7 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 		hasSel = true;
 
 		var goToChart:Bool = FlxG.keys.pressed.SHIFT;
+		var epicfail:Bool = false;
 		
 		var songLowercase:String = Paths.formatToSongPath(songName);
 
@@ -101,6 +102,7 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 			PlayState.storyDifficulty = CoolUtil.loadSongDiffs("No Way");
 			songLowercase = Paths.formatToSongPath("No Way");
 			goToChart = false;
+			epicfail = true;
 		} 
 		else
 			PlayState.storyDifficulty = CoolUtil.difficulties.indexOf(stars.members[curStar].diffName);
@@ -111,6 +113,7 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 		diffCam.fade(FlxColor.BLACK, 0.15, false, function()
         {
             LoadingState.loadAndSwitchState(goToChart ? new ChartingState() : new PlayState());
+			PlayState.havingAnEpicFail = epicfail;
 		});
     }
 

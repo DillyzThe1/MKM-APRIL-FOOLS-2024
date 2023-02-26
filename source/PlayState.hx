@@ -402,6 +402,8 @@ class PlayState extends MusicBeatState
 	public var doMiddleScroll:Bool = false;
 	public var hideOpponentArrows:Bool = false;
 
+	public static var havingAnEpicFail:Bool = false;
+
 	var keysGonnaSwap:Bool = false;
 
 	public static var ogCount:Int = 4;
@@ -3158,6 +3160,16 @@ class PlayState extends MusicBeatState
 				changedDifficulty = false;
 				transitioning = true;
 				CoolUtil.toggleBabyMode(false);
+				return;
+			}
+
+			trace(SONG.song.toLowerCase() + " " + havingAnEpicFail);
+			if (SONG.song.toLowerCase() == "no way" && havingAnEpicFail)
+			{
+				PlayState.storyDifficulty = CoolUtil.loadSongDiffs("Bup", "Alpha");
+				var songLowercase:String = Paths.formatToSongPath("Bup");
+				PlayState.SONG = Song.loadFromJson(Highscore.formatSong(songLowercase, PlayState.storyDifficulty), songLowercase);
+				LoadingState.loadAndSwitchState(new PlayState());
 				return;
 			}
 
