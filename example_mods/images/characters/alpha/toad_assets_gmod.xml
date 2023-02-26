@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="toad_assets_gmod.png">
+	<!-- written using my hands -->
+	<!-- http://www.github.com/DillyzThe1 -->
+	<SubTexture name="idle0000" x="0" y="0" width="896" height="580"/>
+	<SubTexture name="left0000" x="898" y="0" width="803" height="426"/>
+	<SubTexture name="down0000" x="1711" y="0" width="426" height="506"/>
+	<SubTexture name="up0000" x="0" y="588" width="806" height="577"/>
+	<SubTexture name="right0000" x="858" y="607" width="1209" height="538"/>
+</TextureAtlas>

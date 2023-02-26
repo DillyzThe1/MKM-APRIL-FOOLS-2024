@@ -41,6 +41,13 @@ function onCreatePost()
 		setProperty("timeBarBG.scale.x", 1.5)
 		setProperty("timeBar.scale.x", 1.5)
 	end
+	
+	if (string.lower(difficultyName) == "alpha" or string.lower(difficultyName) == "beta") and getRandomBool(20) then
+		makeLuaSprite("sadsquid", "sadsquid", 0, 0)
+		setObjectCamera("sadsquid", "camHUD")
+		addLuaSprite("sadsquid", false)
+		setProperty("sadsquid.alpha", 0.65)
+	end
 end
 
 function onUpdatePost()

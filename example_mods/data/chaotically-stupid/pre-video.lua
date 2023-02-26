@@ -1,7 +1,7 @@
 local allowCountdown = false
 	
 function goingToDoCutscene()
-	if not allowCountdown and isStoryMode and not seenCutscene then --and not seenCutscene then
+	if isInANormalMode() and not allowCountdown and isStoryMode and not seenCutscene then --and not seenCutscene then
 		return true 
 	end
 		
@@ -22,4 +22,12 @@ function onStartCountdown()
 	end
 	setProperty('camGame.alpha',1)
 	return Function_Continue;
+end
+
+function isInANormalMode()
+	local diffff = string.lower(difficultyName)
+	if diffff == "hard" or diffff == "old" or diffff == "skill issue" then
+		return true
+	end
+	return false
 end
