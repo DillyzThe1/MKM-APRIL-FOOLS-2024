@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="toadmcanims-MANUAL_EDIT.png">
+	<!-- made sprites in blender, stitched them together, used my own java program for the xml, and fixed some of this by hand. -->
+	<!-- http://www.github.com/DillyzThe1 -->
+	<SubTexture name="toadcraft idle0000" x="0" y="0" width="756" height="756"/>
+	<SubTexture name="toadcraft idle0001" x="756" y="0" width="756" height="756"/>
+	<SubTexture name="toadcraft idle0002" x="1512" y="0" width="756" height="756"/>
+	<SubTexture name="toadcraft idle0003" x="2268" y="0" width="756" height="756"/>
+	<SubTexture name="toadcraft idle0004" x="3024" y="0" width="756" height="756"/>
+	<SubTexture name="toadcraft idle0005" x="3780" y="0" width="756" height="756"/>
+	<SubTexture name="toadcraft idle0006" x="4536" y="0" width="756" height="756"/>
+	<SubTexture name="toadcraft idle0007" x="5292" y="0" width="756" height="756"/>
+	<SubTexture name="toadcraft idle0008" x="0" y="756" width="756" height="756"/>
+	<SubTexture name="toadcraft idle0009" x="756" y="756" width="756" height="756"/>
+	
+	<SubTexture name="toadcraft right0000" x="2268" y="756" width="756" height="756"/>
+	<SubTexture name="toadcraft right0001" x="3024" y="756" width="756" height="756"/>
+	<SubTexture name="toadcraft right0002" x="3780" y="756" width="756" height="756"/>
+	<SubTexture name="toadcraft right0003" x="4536" y="756" width="756" height="756"/>
+	
+	<SubTexture name="toadcraft left0000" x="1512" y="756" width="756" height="756"/>
+	<SubTexture name="toadcraft left0001" x="5292" y="756" width="756" height="756"/>
+	<SubTexture name="toadcraft left0002" x="0" y="1512" width="756" height="756"/>
+	<SubTexture name="toadcraft left0003" x="756" y="1512" width="756" height="756"/>
+	
+	<SubTexture name="toadcraft up0000" x="1512" y="1512" width="756" height="756"/>
+	<SubTexture name="toadcraft up0001" x="2268" y="1512" width="756" height="756"/>
+	<SubTexture name="toadcraft up0002" x="3024" y="1512" width="756" height="756"/>
+	<SubTexture name="toadcraft up0003" x="3780" y="1512" width="756" height="756"/>
+	
+	<SubTexture name="toadcraft down0000" x="4536" y="1512" width="756" height="756"/>
+	<SubTexture name="toadcraft down0001" x="5292" y="1512" width="756" height="756"/>
+	<SubTexture name="toadcraft down0002" x="0" y="2268" width="756" height="756"/>
+	<SubTexture name="toadcraft down0003" x="756" y="2268" width="756" height="756"/>
+</TextureAtlas>
