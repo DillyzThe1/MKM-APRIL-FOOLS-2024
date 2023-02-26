@@ -1,7 +1,7 @@
 {
 	"search.exclude": {
 		"export/**/*.hx": true,
-		"example_mods/*": true,
+		//"example_mods/*": true,
 		"art/*": true
 	},
 	"[haxe]": {

@@ -1,3 +1,8 @@
+function onCreate()
+	setProperty("doMiddleScroll", true)
+	setProperty("hideOpponentArrows", true)
+end
+
 function onCreatePost()
 	debugPrint("bruh")
 	setProperty('boyfriend.visible', false)

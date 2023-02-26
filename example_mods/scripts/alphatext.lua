@@ -1,12 +1,10 @@
 local modeAlpha = false
 local textY = 0
 
-local oldThing = false
-
 function onCreate()
-	if string.lower(difficultyName) == "alpha" then 
-		oldThing = getPropertyFromClass("ClientPrefs", "middleScroll")
-		setPropertyFromClass("ClientPrefs", "middleScroll", false)
+	if string.lower(difficultyName) == "alpha" then
+		setProperty("doMiddleScroll", false)
+		setProperty("hideOpponentArrows", false)
 	end
 end
 
@@ -42,7 +40,6 @@ function onCreatePost()
 		
 		setProperty("timeBarBG.scale.x", 1.5)
 		setProperty("timeBar.scale.x", 1.5)
-		setPropertyFromClass("ClientPrefs", "middleScroll", oldThing)
 	end
 end
 

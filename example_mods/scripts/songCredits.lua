@@ -17,7 +17,8 @@ local creditsMatch = {
 	{'tutorial', 'Composed By KawaiSprite, Edited by DillyzThe1'},
 	{'welcom toad', 'Original Song By Novatos Team, Cover by DillyzThe1'},
 	{'wrong house', 'Composed by Impostor5875'},
-	{'yeah', 'Composed by DillyzThe1'}
+	{'yeah', 'Composed by DillyzThe1'},
+	{'no way', 'Composed by That1LazerBoi'}
 }
 
 function onCreatePost()
@@ -44,6 +45,14 @@ end
 function onEvent(ev, v1, v2)
 	if ev == 'Change Credits' then 
 		setProperty('creditsTxt.text',v1)
+		setProperty('creditsTxt.x',getPropertyFromClass('flixel.FlxG','width')/2 - getTextWidth('creditsTxt')/2)
+	end
+end
+
+function onUpdatePost()
+	if string.lower(difficultyName) == "alpha" then 
+		setProperty('creditsTxt.x',getPropertyFromClass('flixel.FlxG','width') - getTextWidth('creditsTxt') - 10)
+	else
 		setProperty('creditsTxt.x',getPropertyFromClass('flixel.FlxG','width')/2 - getTextWidth('creditsTxt')/2)
 	end
 end

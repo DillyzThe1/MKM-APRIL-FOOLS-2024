@@ -2,6 +2,10 @@ local animspam = {'singLEFT', 'singDOWN', 'singUP', 'singRIGHT'}
 local donething = false
 local lastnum = 0
 
+function onCreate()
+	setProperty("hideOpponentArrows", false)
+end
+
 function onCreatePost()
 	makeArrowSpr("left", 0)
 	makeArrowSpr("down", 1)
