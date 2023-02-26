@@ -52,7 +52,19 @@ end
 
 function onBeatHit()
 	if string.lower(difficultyName) == "hard" then
-		if curBeat >= 304 then
+		if curBeat >= 444 then
+			if curBeat == 444 then
+				target = -2.475
+				lowest = -2.5
+				showthing = -2.5
+			else
+				lowest = -2.5
+				speed = 0.5
+			end
+		elseif curBeat >= 440 then
+			lowest = -275
+			speed = 7.5
+		elseif curBeat >= 304 then
 			lowest = -1
 			if curBeat % 4 == 0 then
 				target = -0.5
@@ -74,9 +86,6 @@ function onBeatHit()
 				target = -2.475
 				lowest = -2.5
 				showthing = -2.5
-				cameraFlash("camGame", "0xFF000000", 2.5, true)
-				triggerEvent("Camera Follow Pos", 950, 550)
-				setProperty("defaultCamZoom", 1.35)
 			else
 				lowest = -2.5
 				speed = 0.5

@@ -67,16 +67,14 @@ function onBeatHit()
 			doTweenAlpha("bupscaretween", "bupscare", 1, 1.15, 'cubeInOut')
 		end
 		
-		if curBeat < 304 then
-			if curBeat >= 280 then
-				doTheBup(false)
-			elseif curBeat >= 233 then
-				doTheBup(true)
-				triggerEvent("Camera Follow Pos", 1800, 750)
-				setProperty("defaultCamZoom", 1.35)
-				if curBeat == 233 then
-					cameraFlash("camGame", "0xFF000000", 2.5, true)
-				end
+		if curBeat >= 280 and curBeat < 444 then
+			doTheBup(false)
+		elseif curBeat >= 233 or curBeat >= 444 then
+			doTheBup(true)
+			triggerEvent("Camera Follow Pos", 1800, 750)
+			setProperty("defaultCamZoom", 1.35)
+			if curBeat == 233 or curBeat == 444 then
+				cameraFlash("camGame", "0xFF000000", 2.5, true)
 			end
 		end
 	end
