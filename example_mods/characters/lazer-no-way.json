@@ -73,7 +73,7 @@
 			],
 			"indices": [],
 			"fps": 24,
-			"anim": "singPRANK",
+			"anim": "singDOWN-alt",
 			"loop": false,
 			"name": "Lazer Button0"
 		},
@@ -84,7 +84,7 @@
 			],
 			"indices": [],
 			"fps": 24,
-			"anim": "gunReload",
+			"anim": "singLEFT-alt",
 			"loop": false,
 			"name": "Lazer Gun Reload0"
 		},
@@ -95,7 +95,7 @@
 			],
 			"indices": [],
 			"fps": 24,
-			"anim": "gunShoot",
+			"anim": "singUP-alt",
 			"loop": false,
 			"name": "Lazer Gun Shoot10"
 		}
