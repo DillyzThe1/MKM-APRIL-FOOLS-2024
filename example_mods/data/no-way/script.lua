@@ -1,6 +1,12 @@
 function onCreate()
 	setProperty("doMiddleScroll", true)
 	setProperty("hideOpponentArrows", true)
+	
+	makeLuaSprite("bupscare", "bupalphajumpscare", 0, 0)
+	setObjectCamera("bupscare", "camOTHER")
+	addLuaSprite("bupscare", true)
+	
+	setProperty("bupscare.alpha", 0)
 end
 
 function onCreatePost()
@@ -11,6 +17,8 @@ function onCreatePost()
 	setProperty("camZooming", true)
 end
 
+local bupscareeee = false
+
 function onBeatHit()
 	if curBeat < 233 or curBeat >= 280 then
 		if mustHitSection then
@@ -20,5 +28,10 @@ function onBeatHit()
 			triggerEvent("Camera Follow Pos", 275, 450)
 			setProperty("defaultCamZoom", 1.05)
 		end
+	end
+	
+	if curBeat >= 500 and not bupscareeee then
+		bupscareeee = true
+		doTweenAlpha("bupscaretween", "bupscare", 1, 1.15, 'cubeInOut')
 	end
 end
