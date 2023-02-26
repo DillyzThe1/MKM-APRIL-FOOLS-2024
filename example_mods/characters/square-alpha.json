@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": false,
+			"name": "square is a joke0"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "square up0"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "square down0"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "square left0"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "square right0"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/alpha/vs square sprites",
+	"position": [
+		-180,
+		70
+	],
+	"healthicon": "square-alpha",
+	"flip_x": false,
+	"healthbar_colors": [
+		46,
+		37,
+		71
+	],
+	"camera_position": [
+		100,
+		225
+	],
+	"sing_duration": 6.1,
+	"scale": 0.7
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="vs square sprites.png">
+	<!-- made the sprites in opentoonz and used a custom java program i made for the xml -->
+	<!-- http://www.github.com/DillyzThe1 -->
+	
+	<SubTexture name="square is a joke0000" x="0" y="0" width="892" height="775"/>
+	<SubTexture name="square is a joke0001" x="892" y="0" width="892" height="775"/>
+	<SubTexture name="square is a joke0002" x="1784" y="0" width="892" height="775"/>
+	<SubTexture name="square is a joke0003" x="2676" y="0" width="892" height="775"/>
+	<SubTexture name="square is a joke0004" x="3568" y="0" width="892" height="775"/>
+	<SubTexture name="square is a joke0005" x="4460" y="0" width="892" height="775"/>
+	<SubTexture name="square is a joke0006" x="0" y="775" width="892" height="775"/>
+	<SubTexture name="square is a joke0007" x="892" y="775" width="892" height="775"/>
+	<SubTexture name="square is a joke0008" x="1784" y="775" width="892" height="775"/>
+	<SubTexture name="square is a joke0009" x="2676" y="775" width="892" height="775"/>
+	<SubTexture name="square is a joke0010" x="3568" y="775" width="892" height="775"/>
+	<SubTexture name="square is a joke0011" x="4460" y="775" width="892" height="775"/>
+	<SubTexture name="square is a joke0012" x="0" y="1550" width="892" height="775"/>
+	
+	<SubTexture name="square up0000" x="892" y="1550" width="892" height="775"/>
+	<SubTexture name="square up0001" x="1784" y="1550" width="892" height="775"/>
+	<SubTexture name="square up0002" x="2676" y="1550" width="892" height="775"/>
+	<SubTexture name="square up0003" x="3568" y="1550" width="892" height="775"/>
+	
+	<SubTexture name="square down0000" x="4460" y="1550" width="892" height="775"/>
+	<SubTexture name="square down0001" x="0" y="2325" width="892" height="775"/>
+	<SubTexture name="square down0002" x="892" y="2325" width="892" height="775"/>
+	<SubTexture name="square down0003" x="1784" y="2325" width="892" height="775"/>
+	<SubTexture name="square down0004" x="2676" y="2325" width="892" height="775"/>
+	
+	<SubTexture name="square left0000" x="3568" y="2325" width="892" height="775"/>
+	<SubTexture name="square left0001" x="4460" y="2325" width="892" height="775"/>
+	<SubTexture name="square left0002" x="0" y="3100" width="892" height="775"/>
+	<SubTexture name="square left0003" x="892" y="3100" width="892" height="775"/>
+	<SubTexture name="square left0004" x="1784" y="3100" width="892" height="775"/>
+	
+	<SubTexture name="square right0000" x="2676" y="3100" width="892" height="775"/>
+	<SubTexture name="square right0001" x="3568" y="3100" width="892" height="775"/>
+	<SubTexture name="square right0002" x="4460" y="3100" width="892" height="775"/>
+	<SubTexture name="square right0003" x="0" y="3875" width="892" height="775"/>
+	<SubTexture name="square right0004" x="892" y="3875" width="892" height="775"/>
+</TextureAtlas>
