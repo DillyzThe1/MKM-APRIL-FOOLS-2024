@@ -56,10 +56,6 @@ function onBeatHit()
 		target = -0.25
 		speed = 0.35
 	elseif curBeat >= 280 then
-		setProperty('boyfriend.visible', false)
-		setProperty('boyfriend.active', false)
-		setProperty('dad.visible', true)
-		setProperty('dad.active', true)
 		lowest = -1
 		speed = 0.35
 	elseif curBeat >= 278 then
@@ -67,10 +63,6 @@ function onBeatHit()
 		speed = 5
 		lowest_next = -1000
 	elseif curBeat >= 233 then
-		setProperty('boyfriend.visible', true)
-		setProperty('boyfriend.active', true)
-		setProperty('dad.visible', false)
-		setProperty('dad.active', false)
 		if curBeat == 233 then
 			target = -2.475
 			lowest = -2.5
