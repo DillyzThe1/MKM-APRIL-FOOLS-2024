@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bup hand.png">
+	<!-- auto-generated using my own xml generator programmed in java -->
+	<!-- i probably animated this with opentoonz and ran the txt through -->
+	<!-- http://www.github.com/DillyzThe1 -->
+	<SubTexture name="gaming chair activate0000" x="0" y="0" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0001" x="813" y="0" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0002" x="1626" y="0" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0003" x="2439" y="0" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0004" x="3252" y="0" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0005" x="4065" y="0" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0006" x="4878" y="0" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0007" x="5691" y="0" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0008" x="0" y="689" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0009" x="813" y="689" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0010" x="1626" y="689" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0011" x="2439" y="689" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0012" x="3252" y="689" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0013" x="4065" y="689" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0014" x="4878" y="689" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0015" x="5691" y="689" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0016" x="0" y="1378" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0017" x="813" y="1378" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0018" x="1626" y="1378" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0019" x="2439" y="1378" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0020" x="3252" y="1378" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0021" x="4065" y="1378" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0022" x="4878" y="1378" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0023" x="5691" y="1378" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0024" x="0" y="2067" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0025" x="813" y="2067" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0026" x="1626" y="2067" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0027" x="2439" y="2067" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0028" x="3252" y="2067" width="813" height="689"/>
+	<SubTexture name="gaming chair activate0029" x="4065" y="2067" width="813" height="689"/>
+	
+	<SubTexture name="gaming chair deactivate0000" x="2439" y="2756" width="813" height="689"/>
+	<SubTexture name="gaming chair deactivate0001" x="3252" y="2756" width="813" height="689"/>
+	<SubTexture name="gaming chair deactivate0002" x="4065" y="2756" width="813" height="689"/>
+	<SubTexture name="gaming chair deactivate0003" x="4878" y="2756" width="813" height="689"/>
+	<SubTexture name="gaming chair deactivate0004" x="5691" y="2756" width="813" height="689"/>
+	<SubTexture name="gaming chair deactivate0005" x="0" y="3445" width="813" height="689"/>
+	<SubTexture name="gaming chair deactivate0006" x="813" y="3445" width="813" height="689"/>
+	<SubTexture name="gaming chair deactivate0007" x="1626" y="3445" width="813" height="689"/>
+	<SubTexture name="gaming chair deactivate0008" x="2439" y="3445" width="813" height="689"/>
+	<SubTexture name="gaming chair deactivate0009" x="3252" y="3445" width="813" height="689"/>
+	<SubTexture name="gaming chair deactivate0010" x="4065" y="3445" width="813" height="689"/>
+	<SubTexture name="gaming chair deactivate0011" x="4878" y="3445" width="813" height="689"/>
+	<SubTexture name="gaming chair deactivate0012" x="5691" y="3445" width="813" height="689"/>
+	<SubTexture name="gaming chair deactivate0013" x="0" y="4134" width="813" height="689"/>
+	<SubTexture name="gaming chair deactivate0014" x="813" y="4134" width="813" height="689"/>
+	<SubTexture name="gaming chair deactivate0015" x="1626" y="4134" width="813" height="689"/>
+	<SubTexture name="gaming chair deactivate0016" x="2439" y="4134" width="813" height="689"/>
+	<SubTexture name="gaming chair deactivate0017" x="3252" y="4134" width="813" height="689"/>
+	<SubTexture name="gaming chair deactivate0018" x="4065" y="4134" width="813" height="689"/>
+	<SubTexture name="gaming chair deactivate0019" x="4878" y="4134" width="813" height="689"/>
+	<SubTexture name="gaming chair deactivate0020" x="5691" y="4134" width="813" height="689"/>
+	<SubTexture name="gaming chair deactivate0021" x="0" y="4823" width="813" height="689"/>
+	<SubTexture name="gaming chair deactivate0022" x="813" y="4823" width="813" height="689"/>
+</TextureAtlas>

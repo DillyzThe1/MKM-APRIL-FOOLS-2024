@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bup dum dum.png">
+	<!-- auto-generated using my own xml generator programmed in java -->
+	<!-- i probably animated this with opentoonz and ran the txt through -->
+	<!-- http://www.github.com/DillyzThe1 -->
+	<SubTexture name="bup idle0000" x="0" y="0" width="1261" height="1091"/>
+	<SubTexture name="bup idle0001" x="1261" y="0" width="1261" height="1091"/>
+	<SubTexture name="bup idle0002" x="2522" y="0" width="1261" height="1091"/>
+	<SubTexture name="bup idle0003" x="3783" y="0" width="1261" height="1091"/>
+	<SubTexture name="bup idle0004" x="5044" y="0" width="1261" height="1091"/>
+	<SubTexture name="bup idle0005" x="6305" y="0" width="1261" height="1091"/>
+	<SubTexture name="bup up0000" x="0" y="1091" width="1261" height="1091"/>
+	<SubTexture name="bup up0001" x="1261" y="1091" width="1261" height="1091"/>
+	<SubTexture name="bup up0002" x="2522" y="1091" width="1261" height="1091"/>
+	<SubTexture name="bup up0003" x="3783" y="1091" width="1261" height="1091"/>
+	<SubTexture name="bup up0004" x="5044" y="1091" width="1261" height="1091"/>
+	<SubTexture name="bup down0000" x="6305" y="1091" width="1261" height="1091"/>
+	<SubTexture name="bup down0001" x="0" y="2182" width="1261" height="1091"/>
+	<SubTexture name="bup down0002" x="1261" y="2182" width="1261" height="1091"/>
+	<SubTexture name="bup down0003" x="2522" y="2182" width="1261" height="1091"/>
+	<SubTexture name="bup down0004" x="3783" y="2182" width="1261" height="1091"/>
+	<SubTexture name="bup left0000" x="5044" y="2182" width="1261" height="1091"/>
+	<SubTexture name="bup left0001" x="6305" y="2182" width="1261" height="1091"/>
+	<SubTexture name="bup left0002" x="0" y="3273" width="1261" height="1091"/>
+	<SubTexture name="bup left0003" x="1261" y="3273" width="1261" height="1091"/>
+	<SubTexture name="bup left0004" x="2522" y="3273" width="1261" height="1091"/>
+	<SubTexture name="bup right0000" x="3783" y="3273" width="1261" height="1091"/>
+	<SubTexture name="bup right0001" x="5044" y="3273" width="1261" height="1091"/>
+	<SubTexture name="bup right0002" x="6305" y="3273" width="1261" height="1091"/>
+	<SubTexture name="bup right0003" x="0" y="4364" width="1261" height="1091"/>
+	<SubTexture name="bup right0004" x="1261" y="4364" width="1261" height="1091"/>
+</TextureAtlas>

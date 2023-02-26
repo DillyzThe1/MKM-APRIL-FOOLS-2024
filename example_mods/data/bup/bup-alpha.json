@@ -2,7 +2,7 @@
 	"song": {
 		"sectionLengths": [],
 		"player1": "bf",
-		"player2": "bup",
+		"player2": "bup-alpha",
 		"notes": [
 			{
 				"sectionNotes": [],
@@ -3435,6 +3435,8 @@
 		"sections": 0,
 		"speed": 3.7,
 		"bpm": 140,
-		"audioPostfix": "-alpha"
+		"player3": "gf-alpha-speakerless",
+		"audioPostfix": "-alpha",
+		"stage": "bupground-alpha"
 	}
 }
