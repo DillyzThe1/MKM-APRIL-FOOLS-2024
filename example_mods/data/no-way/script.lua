@@ -90,4 +90,5 @@ function onGameOver()
 	if string.lower(difficultyName) == "beta" then
 		playSound('deathquote', 1)
 	end
+	return Function_Continue
 end
