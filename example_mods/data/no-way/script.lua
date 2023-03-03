@@ -85,3 +85,9 @@ function onBeatHit()
 		end
 	end
 end
+
+function onGameOver()
+	if string.lower(difficultyName) == "beta" then
+		playSound('deathquote', 1)
+	end
+end
