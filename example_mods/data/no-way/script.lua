@@ -8,12 +8,30 @@ function onCreate()
 		addLuaSprite("bupscare", true)
 		
 		setProperty("bupscare.alpha", 0)
+		
+		makeAnimatedLuaSprite("mindblown", "mindblown", 0, 0)
+		addAnimationByPrefix("mindblown", "a", "mind blowing", 24, false)
+		addOffset("mindblown", "a", 0, 0)
+		playAnim("mindblown", "a", true)
+		addLuaSprite("mindblown", true)
+		setProperty("mindblown.alpha", 0.00005)
+	end
+end
+
+function onUpdatePost()
+	if string.lower(difficultyName) == "hard" and getProperty("mindblown.alpha") > 0.05 then
+		setProperty("mindblown.x", getProperty("camFollow.x") - getProperty("mindblown.width")/2)
+		setProperty("mindblown.y", getProperty("camFollow.y") - getProperty("mindblown.height")/2)
+		
+		local scaleee = 1 - getProperty("camGame.zoom")
+		setProperty("mindblown.scale.x", 1.05 + scaleee)
+		setProperty("mindblown.scale.y", 1.05 + scaleee)
 	end
 end
 
 function onCreatePost()
 	if string.lower(difficultyName) == "hard" then
-		debugPrint("bruh")
+		--debugPrint("bruh")
 		
 		setProperty("camZooming", true)
 		
@@ -49,6 +67,10 @@ function doTheBup(enabled)
 end
 
 local bupscareeee = false
+local nuclearbomb = false
+local nuclearbomb2 = false
+
+local waitdeath = false
 
 function onBeatHit()
 	if string.lower(difficultyName) == "hard" then
@@ -77,6 +99,24 @@ function onBeatHit()
 				cameraFlash("camGame", "0xFF000000", 2.5, true)
 			end
 		end
+		
+		if curBeat >= 204 and not nuclearbomb then
+			nuclearbomb = true
+			addHealth(-1)
+			setProperty("mindblown.alpha", 1)
+		playAnim("mindblown", "a", true)
+			
+			if getProperty("health") <= 0.1 then
+				---debugPrint("you're dead")
+				waitdeath = true
+				setProperty("camHUD.alpha", 0)
+			end
+		end
+		
+		if curBeat >= 208 and not nuclearbomb2 then
+			nuclearbomb2 = true
+			doTweenAlpha("mba", "mindblown", 0, 0.65, 'cubeInOut')
+		end
 	else
 		if curBeat == 112 then
 			triggerEvent("nwb-bg-swap", "house", "")
@@ -89,6 +129,9 @@ end
 function onGameOver()
 	if string.lower(difficultyName) == "beta" then
 		playSound('deathquote', 1)
+	end
+	if string.lower(difficultyName) == "hard" and curBeat >= 204 and curBeat < 208 and waitdeath then
+		return Function_Stop
 	end
 	return Function_Continue
 end

@@ -10,6 +10,15 @@ function onPlayAnim(spr, name, force, reversed, frame)
 			else
 				lastFlip = true
 			end
+		elseif name == "singUP-alt" then
+			setProperty("dad.angle", 0)
+			setProperty("dad.flipX", false)
+			
+			addHealth(-0.075)
+			
+			if getProperty("health") < 0.15 then
+				setHealth(0.15)
+			end
 		else
 			setProperty("dad.angle", 0)
 			setProperty("dad.flipX", false)
