@@ -4,7 +4,7 @@ function onChartAccessed()
 		return Function_Stop
 	else
 		loadSong('why')
-		sreturn Function_Stop
+		return Function_Stop
 	end
 	return Function_Continue
 end
