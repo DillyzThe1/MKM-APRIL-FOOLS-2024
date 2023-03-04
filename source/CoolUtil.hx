@@ -34,9 +34,21 @@ class CoolUtil
 		return (m / snap);
 	}
 
-	public static function loadSongDiffs(song:String, ?difficultyToGet:String = "Hard", ?backupDifficulty:String = "Hard") {
+	public static function loadSongDiffs(song:String, ?difficultyToGet:String = "Hard", ?backupDifficulty:String = "Hard"):Int {
 		trace(song + "'s diffs should be loaded into " + difficultyToGet + " mode (or fall back on " + backupDifficulty + " mode instead)");
+		difficulties = getSongDiffs(song);
+
+		if (difficulties.contains(difficultyToGet))
+			return difficulties.indexOf(difficultyToGet);
+		else if (difficulties.contains(backupDifficulty))
+			return difficulties.indexOf(backupDifficulty);
+		return 0;
+	}
+
+	public static function getSongDiffs(song:String):Array<String> {
 		var formattedSong:String = song.toLowerCase().replace(" ", "-");
+
+		var newDifficulties:Array<String> = [];
 
 		for (i in 0...hiddenDifficulties.length)
 			hiddenDifficulties.pop();
@@ -51,15 +63,11 @@ class CoolUtil
 
 		txtName = "data/" + formattedSong + "/difficulties.txt";
 		if (Paths.fileExists(txtName, AssetType.TEXT, false, "preload")) {
-			difficulties = Paths.getTextFromFile(txtName, false).trim().split("\n");
-			for (i in 0...difficulties.length)
-				difficulties[i] = difficulties[i].trim();
-			trace(difficulties);
-			if (difficulties.contains(difficultyToGet))
-				return difficulties.indexOf(difficultyToGet);
-			else if (difficulties.contains(backupDifficulty))
-				return difficulties.indexOf(backupDifficulty);
-			return 0;
+			newDifficulties = Paths.getTextFromFile(txtName, false).trim().split("\n");
+			for (i in 0...newDifficulties.length)
+				newDifficulties[i] = newDifficulties[i].trim();
+			trace(newDifficulties);
+			return newDifficulties;
 		}
 
 		for (week in WeekData.weeksLoaded)
@@ -73,28 +81,20 @@ class CoolUtil
 						diffStr = diffStr.trim();
 
 						if (diffStr != "")
-							difficulties = diffStr.replace(", ", ",").split(",");
+							newDifficulties = diffStr.replace(", ", ",").split(",");
 						else
 							break;
 					}
 					else 
 						break;
 
-					
-					for (i in 0...difficulties.length)
-						difficulties[i] = difficulties[i].trim();
-
-					trace(difficulties);
-
-					if (difficulties.contains(difficultyToGet))
-						return difficulties.indexOf(difficultyToGet);
-					else if (difficulties.contains(backupDifficulty))
-						return difficulties.indexOf(backupDifficulty);
-					return 0;
+					for (i in 0...newDifficulties.length)
+						newDifficulties[i] = newDifficulties[i].trim();
+					trace(newDifficulties);
+					return newDifficulties;
 				}
 			}
-		difficulties = defaultDifficulties.copy();
-		return 0;
+		return defaultDifficulties.copy();
 	}
 
 	public static function tryGettingDifficulty(diff:String, ?fallbackDiff:String = "") {
@@ -119,9 +119,25 @@ class CoolUtil
 			fileSuffix = '';
 		return Paths.formatToSongPath(fileSuffix);
 	}
+	
+	public static function getDifficultyFilePathByName(nameeE:String)
+	{
+		var fileSuffix:String = nameeE;
+		if (fileSuffix != defaultDifficulty)
+			fileSuffix = '-' + fileSuffix;
+		else
+			fileSuffix = '';
+		return Paths.formatToSongPath(fileSuffix);
+	}
 
-	public static function songCompletedOnDiff(song:String, diff:String)
-		return Highscore.getScore(song, CoolUtil.difficulties.indexOf(diff)) >= 10;
+	@:privateAccess
+	public static function songCompletedOnDiff(song:String, diff:String) {
+		var daSong:String = Paths.formatToSongPath(song) + getDifficultyFilePathByName(diff);
+		@:privateAccess
+		if (!Highscore.songScores.exists(daSong))
+			Highscore.setScore(daSong, 0);
+		return Highscore.songScores.get(daSong) >= 10;
+	}
 
 	public static function difficultyString():String
 	{

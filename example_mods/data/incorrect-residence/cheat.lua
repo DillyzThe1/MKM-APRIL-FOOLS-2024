@@ -1,10 +1,9 @@
-function onChartAccessed() 
-	if songCompletedOnDiff('Hell Shrooms', 'Hard') then
+function onChartAccessed()
+	if songCompletedOnDiff('Hell Shrooms', 'Hard') and not songCompletedOnDiff('Hell Shrooms', 'Impostor Top 10') then
 		loadSong('Hell Shrooms', 'Impostor Top 10')
-		return Function_Stop
-	else
-		loadSong('why')
+		debugPrint("hell shrooms")
 		return Function_Stop
 	end
-	return Function_Continue
+	loadSong('why', 'Hard')
+	return Function_Stop
 end
