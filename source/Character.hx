@@ -104,7 +104,6 @@ class Character extends FlxSprite
 			default:
 				var characterPath:String = 'characters/' + curCharacter + '.json';
 
-				#if MODS_ALLOWED
 				var path:String = Paths.modFolders(characterPath);
 				if (!FileSystem.exists(path))
 				{
@@ -112,27 +111,18 @@ class Character extends FlxSprite
 				}
 
 				if (!FileSystem.exists(path))
-				#else
-				var path:String = Paths.getPreloadPath(characterPath);
-				if (!Assets.exists(path))
-				#end
 				{
 					path = Paths.getPreloadPath('characters/' + DEFAULT_CHARACTER +
 						'.json'); // If a character couldn't be found, change him to BF just to prevent a crash
 				}
 
-				#if MODS_ALLOWED
 				var rawJson = File.getContent(path);
-				#else
-				var rawJson = Assets.getText(path);
-				#end
 
 				var json:CharacterFile = cast Json.parse(rawJson);
 				var spriteType = "sparrow";
 				// sparrow
 				// packer
 				// texture
-				#if MODS_ALLOWED
 				var modTxtToFind:String = Paths.modsTxt(json.image);
 				var txtToFind:String = Paths.getPath('images/' + json.image + '.txt', TEXT);
 
@@ -140,14 +130,10 @@ class Character extends FlxSprite
 				// var textureToFind:String = Paths.getPath('images/' + json.image, new AssetType();
 
 				if (FileSystem.exists(modTxtToFind) || FileSystem.exists(txtToFind) || Assets.exists(txtToFind))
-				#else
-				if (Assets.exists(Paths.getPath('images/' + json.image + '.txt', TEXT)))
-				#end
 				{
 					spriteType = "packer";
 				}
 
-				#if MODS_ALLOWED
 				var modAnimToFind:String = Paths.modFolders('images/' + json.image + '/Animation.json');
 				var animToFind:String = Paths.getPath('images/' + json.image + '/Animation.json', TEXT);
 
@@ -155,18 +141,11 @@ class Character extends FlxSprite
 				// var textureToFind:String = Paths.getPath('images/' + json.image, new AssetType();
 
 				if (FileSystem.exists(modAnimToFind) || FileSystem.exists(animToFind) || Assets.exists(animToFind))
-				#else
-				if (Assets.exists(Paths.getPath('images/' + json.image + '/Animation.json', TEXT)))
-				#end
 				{
-					#if MODS_ALLOWED
 					var modDeathReal:String = Paths.modFolders('images/' + json.image + '/spritemap1.json');
 					var deathReal:String = Paths.getPath('images/' + json.image + '/spritemap1.json', TEXT);
 
 					if (FileSystem.exists(modDeathReal) || FileSystem.exists(deathReal) || Assets.exists(deathReal))
-					#else
-					if (Assets.exists(Paths.getPath('images/' + json.image + '/spritemap1.json', TEXT)))
-					#end
 					spriteType = "texture1";
 				else
 					spriteType = "texture";
@@ -263,29 +242,7 @@ class Character extends FlxSprite
 		dance();
 
 		if (isPlayer)
-		{
 			flipX = !flipX;
-
-			/*// Doesn't flip for BF, since his are already in the right place???
-				if (!curCharacter.startsWith('bf'))
-				{
-					// var animArray
-					if(animation.getByName('singLEFT') != null && animation.getByName('singRIGHT') != null)
-					{
-						var oldRight = animation.getByName('singRIGHT').frames;
-						animation.getByName('singRIGHT').frames = animation.getByName('singLEFT').frames;
-						animation.getByName('singLEFT').frames = oldRight;
-					}
-
-					// IF THEY HAVE MISS ANIMATIONS??
-					if (animation.getByName('singLEFTmiss') != null && animation.getByName('singRIGHTmiss') != null)
-					{
-						var oldMiss = animation.getByName('singRIGHTmiss').frames;
-						animation.getByName('singRIGHTmiss').frames = animation.getByName('singLEFTmiss').frames;
-						animation.getByName('singLEFTmiss').frames = oldMiss;
-					}
-			}*/
-		}
 	}
 
 	override function update(elapsed:Float)

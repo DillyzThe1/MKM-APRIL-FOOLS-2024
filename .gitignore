@@ -6,7 +6,7 @@ art/build_x64-officialrelease.bat
 art/test_x64-debug-officialrelease.bat
 
 ### VS Code
-example_mods/videos/brhuh.mp4
+mkm_content/videos/brhuh.mp4
 export/*
 .vscode/*
 *.code-workspace
@@ -26,10 +26,10 @@ art/fruityFiles FNF MKM/Top 10 Great Amazing Super Duper Wonderful Outstanding S
 RECOVER_*.fla
 *.swf
 art/flashFiles FNF MKM/hell shrooms.fla
-example_mods/scripts - Copy/
-example_mods/images/bgs/istockphoto-1276398647-170667a.jpg
-example_mods/shaders/fun.frag
-example_mods/scripts/eating sunlight.notlua
+mkm_content/scripts - Copy/
+mkm_content/images/bgs/istockphoto-1276398647-170667a.jpg
+mkm_content/shaders/fun.frag
+mkm_content/scripts/eating sunlight.notlua
 RECOVER_*.fla
 art/flashFiles FNF MKM/cutscenes/pre-pre-house cutscene.fla
 *.ini

@@ -31,12 +31,9 @@ import lime.system.Clipboard;
 import openfl.events.Event;
 import openfl.events.IOErrorEvent;
 import openfl.net.FileReference;
+import sys.FileSystem;
 
 using StringTools;
-
-#if MODS_ALLOWED
-import sys.FileSystem;
-#end
 
 /**
 	*DEBUG MODE
@@ -85,9 +82,8 @@ class CharacterEditorState extends MusicBeatState
 		camMenu.bgColor.alpha = 0;
 
 		FlxG.cameras.reset(camEditor);
-		FlxG.cameras.add(camHUD);
-		FlxG.cameras.add(camMenu);
-		FlxCamera.defaultCameras = [camEditor];
+		FlxG.cameras.add(camHUD, false);
+		FlxG.cameras.add(camMenu, false);
 
 		bgLayer = new FlxTypedGroup<FlxSprite>();
 		add(bgLayer);
@@ -1082,7 +1078,6 @@ class CharacterEditorState extends MusicBeatState
 	{
 		var charsLoaded:Map<String, Bool> = new Map();
 
-		#if MODS_ALLOWED
 		characterList = [];
 		var directories:Array<String> = [
 			Paths.mods('characters/'),
@@ -1111,9 +1106,6 @@ class CharacterEditorState extends MusicBeatState
 				}
 			}
 		}
-		#else
-		characterList = CoolUtil.coolTextFile(Paths.txt('characterList'));
-		#end
 
 		charDropDown.setData(FlxUIDropDownMenuCustom.makeStrIdLabelArray(characterList, true));
 		charDropDown.selectedLabel = daAnim;

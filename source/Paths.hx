@@ -31,12 +31,10 @@ class Paths
 		return str.replace('top-10-great-amazing-super-duper-wonderful-outstanding-saster-level-music-that-ever-has-been-heard', 't10gasdwoslmtehbh');
 	}
 
-	#if MODS_ALLOWED
 	public static var ignoreModFolders:Array<String> = [
 		'characters', 'custom_events', 'custom_notetypes', 'data', 'songs', 'music', 'sounds', 'shaders', 'videos', 'images', 'stages', 'weeks', 'fonts',
 		'scripts', 'achievements'
 	];
-	#end
 
 	public static function excludeAsset(key:String)
 	{
@@ -192,13 +190,11 @@ class Paths
 
 	static public function video(key:String)
 	{
-		#if MODS_ALLOWED
 		var file:String = modsVideo(key);
 		if (FileSystem.exists(file))
 		{
 			return file;
 		}
-		#end
 		return 'assets/videos/$key.$VIDEO_EXT';
 	}
 
@@ -242,10 +238,8 @@ class Paths
 
 	static public function getTextFromFile(key:String, ?ignoreMods:Bool = false):String
 	{
-		#if MODS_ALLOWED
 		if (!ignoreMods && FileSystem.exists(modFolders(key)))
 			return File.getContent(modFolders(key));
-		#end
 
 		if (FileSystem.exists(getPreloadPath(key)))
 			return File.getContent(getPreloadPath(key));
@@ -269,24 +263,20 @@ class Paths
 
 	inline static public function font(key:String)
 	{
-		#if MODS_ALLOWED
 		var file:String = modsFont(key);
 		if (FileSystem.exists(file))
 		{
 			return file;
 		}
-		#end
 		return 'assets/fonts/$key';
 	}
 
 	inline static public function fileExists(key:String, type:AssetType, ?ignoreMods:Bool = false, ?library:String)
 	{
-		#if MODS_ALLOWED
 		if (FileSystem.exists(mods(currentModDirectory + '/' + key)) || FileSystem.exists(mods(key)))
 		{
 			return true;
 		}
-		#end
 
 		if (OpenFlAssets.exists(getPath(key, type)))
 		{
@@ -297,7 +287,6 @@ class Paths
 
 	inline static public function getSparrowAtlas(key:String, ?library:String):FlxAtlasFrames
 	{
-		#if MODS_ALLOWED
 		var imageLoaded:FlxGraphic = returnGraphic(key);
 		var xmlExists:Bool = false;
 		if (FileSystem.exists(modsXml(key)))
@@ -307,14 +296,10 @@ class Paths
 
 		return FlxAtlasFrames.fromSparrow((imageLoaded != null ? imageLoaded : image(key, library)),
 			(xmlExists ? File.getContent(modsXml(key)) : file('images/$key.xml', library)));
-		#else
-		return FlxAtlasFrames.fromSparrow(image(key, library), file('images/$key.xml', library));
-		#end
 	}
 
 	inline static public function getPackerAtlas(key:String, ?library:String)
 	{
-		#if MODS_ALLOWED
 		var imageLoaded:FlxGraphic = returnGraphic(key);
 		var txtExists:Bool = false;
 		if (FileSystem.exists(modsTxt(key)))
@@ -324,9 +309,6 @@ class Paths
 
 		return FlxAtlasFrames.fromSpriteSheetPacker((imageLoaded != null ? imageLoaded : image(key, library)),
 			(txtExists ? File.getContent(modsTxt(key)) : file('images/$key.txt', library)));
-		#else
-		return FlxAtlasFrames.fromSpriteSheetPacker(image(key, library), file('images/$key.txt', library));
-		#end
 	}
 
 	inline static public function formatToSongPath(path:String)
@@ -343,7 +325,6 @@ class Paths
 	}
 
 	public static function graphicFromLoosePath(pathhhhh:String, ?library:String) {
-		#if MODS_ALLOWED
 		var modKey:String = mods(pathhhhh);
 		if (FileSystem.exists(modKey))
 		{
@@ -357,7 +338,6 @@ class Paths
 			localTrackedAssets.push(modKey);
 			return currentTrackedAssets.get(modKey);
 		}
-		#end
 
 		var path = getPath(pathhhhh, IMAGE, library);
 		// trace(path);
@@ -380,7 +360,6 @@ class Paths
 
 	public static function returnSound(path:String, key:String, ?library:String)
 	{
-		#if MODS_ALLOWED
 		var file:String = modsSounds(path, key);
 		if (FileSystem.exists(file))
 		{
@@ -391,41 +370,26 @@ class Paths
 			localTrackedAssets.push(key);
 			return currentTrackedSounds.get(file);
 		}
-		#end
 
 		var gottenPath_unfixed:String = getPath('$path/$key.ogg', SOUND, library);
 		var gottenPath:String = gottenPath_unfixed.substring(gottenPath_unfixed.indexOf(':') + 1, gottenPath_unfixed.length);
 
 		if (!currentTrackedSounds.exists(gottenPath))
 		{
-			#if MODS_ALLOWED
 			var theSound:Sound = Sound.fromFile('./' + gottenPath);
 
 			if (theSound == null && path == "songs")
 				theSound = Sound.fromFile('./' + getPath('$path/placeholder.ogg', SOUND, library));
 
 			currentTrackedSounds.set(gottenPath, theSound);
-			#else
-			var folder:String = '';
-			if (path == 'songs')
-				folder = 'songs:';
-
-			if (!OpenFlAssets.exists(folder + getPath('$path/$key.ogg', SOUND, library)))
-			{
-				trace("folder" + gottenPath + " doesn't exist lmao");
-				return OpenFlAssets.getSound("songs:assets/songs/placeholder.ogg");
-			}
-			currentTrackedSounds.set(gottenPath, OpenFlAssets.getSound(folder + getPath('$path/$key.ogg', SOUND, library)));
-			#end
 		}
 		localTrackedAssets.push(gottenPath);
 		return currentTrackedSounds.get(gottenPath);
 	}
 
-	#if MODS_ALLOWED
 	inline static public function mods(key:String = '')
 	{
-		return 'mods/' + key;
+		return 'mkm_content/' + key;
 	}
 
 	inline static public function modsFont(key:String)
@@ -463,19 +427,6 @@ class Paths
 		return modFolders('images/' + key + '.txt');
 	}
 
-	/* Goes unused for now
-
-		inline static public function modsShaderFragment(key:String, ?library:String)
-		{
-			return modFolders('shaders/'+key+'.frag');
-		}
-		inline static public function modsShaderVertex(key:String, ?library:String)
-		{
-			return modFolders('shaders/'+key+'.vert');
-		}
-		inline static public function modsAchievements(key:String) {
-			return modFolders('achievements/' + key + '.json');
-	}*/
 	static public function modFolders(key:String)
 	{
 		if (currentModDirectory != null && currentModDirectory.length > 0)
@@ -493,7 +444,7 @@ class Paths
 			if (FileSystem.exists(fileToCheck))
 				return fileToCheck;
 		}
-		return 'mods/' + key;
+		return 'mkm_content/' + key;
 	}
 
 	public static var globalMods:Array<String> = [];
@@ -541,20 +492,6 @@ class Paths
 
 	static public function getModDirectories():Array<String>
 	{
-		var list:Array<String> = [];
-		var modsFolder:String = mods();
-		if (FileSystem.exists(modsFolder))
-		{
-			for (folder in FileSystem.readDirectory(modsFolder))
-			{
-				var path = haxe.io.Path.join([modsFolder, folder]);
-				if (sys.FileSystem.isDirectory(path) && !ignoreModFolders.contains(folder) && !list.contains(folder))
-				{
-					list.push(folder);
-				}
-			}
-		}
-		return list;
+		return [];
 	}
-	#end
 }

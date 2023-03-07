@@ -65,9 +65,7 @@ class MainMenuState extends MusicBeatState
 
 	override function create()
 	{
-		#if MODS_ALLOWED
 		Paths.pushGlobalMods();
-		#end
 		WeekData.loadTheFirstEnabledMod();
 
 		// Updating Discord Rich Presence
@@ -353,10 +351,8 @@ class MainMenuState extends MusicBeatState
 										MusicBeatState.switchState(new StoryMenuState());
 									case 'freeplay':
 										MusicBeatState.switchState(new FreeplayState());
-									#if MODS_ALLOWED
 									case 'mods':
 										MusicBeatState.switchState(new ModsMenuState());
-									#end
 									case 'awards':
 										MusicBeatState.switchState(new AchievementsMenuState());
 									case 'credits':

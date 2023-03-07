@@ -12,13 +12,10 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import lime.utils.Assets;
-
-using StringTools;
-
-#if MODS_ALLOWED
 import sys.FileSystem;
 import sys.io.File;
-#end
+
+using StringTools;
 
 class CreditsState extends MusicBeatState
 {
@@ -49,7 +46,6 @@ class CreditsState extends MusicBeatState
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
 
-		#if MODS_ALLOWED
 		var path:String = 'modsList.txt';
 		if (FileSystem.exists(path))
 		{
@@ -69,14 +65,6 @@ class CreditsState extends MusicBeatState
 				}
 			}
 		}
-
-		var arrayOfFolders:Array<String> = Paths.getModDirectories();
-		arrayOfFolders.push('');
-		for (folder in arrayOfFolders)
-		{
-			pushModCreditsToList(folder);
-		}
-		#end
 
 		var pisspoop:Array<Array<String>> = [
 			// Name - Icon name - Description - Link - BG Color
@@ -105,7 +93,7 @@ class CreditsState extends MusicBeatState
 			[
 				'Impostor',
 				'impostor',
-				'Musician, Feedback, & Play Tester.',
+				'Musician, Some Crossover Art/Animation, Feedback, & Play Tester.',
 				'https://gamebanana.com/members/1895937/',
 				'505050'
 			],
@@ -429,7 +417,6 @@ class CreditsState extends MusicBeatState
 		descBox.updateHitbox();
 	}
 
-	#if MODS_ALLOWED
 	private var modsAdded:Array<String> = [];
 
 	function pushModCreditsToList(folder:String)
@@ -457,7 +444,6 @@ class CreditsState extends MusicBeatState
 		}
 		modsAdded.push(folder);
 	}
-	#end
 
 	function getCurrentBGColor()
 	{

@@ -108,17 +108,6 @@ class ModsMenuState extends MusicBeatState
 		}
 
 		// FIND MOD FOLDERS
-		var boolshit = true;
-		if (FileSystem.exists("modsList.txt"))
-		{
-			for (folder in Paths.getModDirectories())
-			{
-				if (!Paths.ignoreModFolders.contains(folder))
-				{
-					addToModsList([folder, true]); // i like it false by default. -bb //Well, i like it True! -Shadow
-				}
-			}
-		}
 		saveTxt();
 
 		selector = new AttachedSprite();

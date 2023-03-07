@@ -44,7 +44,7 @@
 	<classpath name="source" />
 	
 	<!-- PSYCH ENGINE CUSTOMIZATION -->
-	<define name="MODS_ALLOWED" if="desktop" />
+	<define name="MODS_ALLOWED"/>
 	<define name="LUA_ALLOWED" if="desktop" />
 	<define name="ACHIEVEMENTS_ALLOWED" />
 	<define name="TITLE_SCREEN_EASTER_EGG" />
@@ -78,11 +78,8 @@
 	<assets path="assets/shared"        library="shared"        exclude="*.ogg" if="web"/>
 	<assets path="assets/shared"        library="shared"        exclude="*.mp3" unless="web"/>
 	
-	<section if="MODS_ALLOWED">
-		<assets path='example_mods' rename='mods' embed='false'/>
-	</section>
+	<assets path='mkm_content' embed='false'/>
 	<assets path='art/readme.txt' rename='do NOT readme.txt' />
-	<!-- <template path='mods' /> -->
 	
 	<!-- assets path="CHANGELOG.md" rename='changelog.txt' -->
 

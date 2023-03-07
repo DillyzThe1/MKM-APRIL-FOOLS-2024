@@ -727,14 +727,12 @@ class PlayState extends MusicBeatState
 		var filesPushed:Array<String> = [];
 		var foldersToCheck:Array<String> = [Paths.getPreloadPath('scripts/')];
 
-		#if MODS_ALLOWED
 		foldersToCheck.insert(0, Paths.mods('scripts/'));
 		if (Paths.currentModDirectory != null && Paths.currentModDirectory.length > 0)
 			foldersToCheck.insert(0, Paths.mods(Paths.currentModDirectory + '/scripts/'));
 
 		for (mod in Paths.getGlobalMods())
 			foldersToCheck.insert(0, Paths.mods(mod + '/scripts/'));
-		#end
 
 		for (folder in foldersToCheck)
 		{
@@ -753,7 +751,7 @@ class PlayState extends MusicBeatState
 		#end
 
 		// STAGE SCRIPTS
-		#if (MODS_ALLOWED && LUA_ALLOWED)
+		#if (LUA_ALLOWED)
 		var doPush:Bool = false;
 		var luaFile:String = 'stages/' + curStage + '.lua';
 		if (FileSystem.exists(Paths.modFolders(luaFile)))
@@ -906,7 +904,6 @@ class PlayState extends MusicBeatState
 		#if LUA_ALLOWED
 		for (notetype in noteTypeMap.keys())
 		{
-			#if MODS_ALLOWED
 			var luaToLoad:String = Paths.modFolders('custom_notetypes/' + notetype + '.lua');
 			if (FileSystem.exists(luaToLoad))
 			{
@@ -920,17 +917,9 @@ class PlayState extends MusicBeatState
 					luaArray.push(new FunkinLua(luaToLoad));
 				}
 			}
-			#elseif sys
-			var luaToLoad:String = Paths.getPreloadPath('custom_notetypes/' + notetype + '.lua');
-			if (OpenFlAssets.exists(luaToLoad))
-			{
-				luaArray.push(new FunkinLua(luaToLoad));
-			}
-			#end
 		}
 		for (event in eventPushedMap.keys())
 		{
-			#if MODS_ALLOWED
 			var luaToLoad:String = Paths.modFolders('custom_events/' + event + '.lua');
 			if (FileSystem.exists(luaToLoad))
 			{
@@ -944,13 +933,6 @@ class PlayState extends MusicBeatState
 					luaArray.push(new FunkinLua(luaToLoad));
 				}
 			}
-			#elseif sys
-			var luaToLoad:String = Paths.getPreloadPath('custom_events/' + event + '.lua');
-			if (OpenFlAssets.exists(luaToLoad))
-			{
-				luaArray.push(new FunkinLua(luaToLoad));
-			}
-			#end
 		}
 		#end
 		noteTypeMap.clear();
@@ -1063,7 +1045,6 @@ class PlayState extends MusicBeatState
 		var filesPushed:Array<String> = [];
 		var foldersToCheck:Array<String> = [Paths.getPreloadPath('data/' + Paths.formatToSongPath(SONG.song) + '/')];
 
-		#if MODS_ALLOWED
 		foldersToCheck.insert(0, Paths.mods('data/' + Paths.formatToSongPath(SONG.song) + '/'));
 		if (Paths.currentModDirectory != null && Paths.currentModDirectory.length > 0)
 			foldersToCheck.insert(0, Paths.mods(Paths.currentModDirectory + '/data/' + Paths.formatToSongPath(SONG.song) + '/'));
@@ -1072,7 +1053,6 @@ class PlayState extends MusicBeatState
 			foldersToCheck.insert(0,
 				Paths.mods(mod + '/data/' + Paths.formatToSongPath(SONG.song) +
 					'/')); // using push instead of insert because these should run after everything else
-		#end
 
 		for (folder in foldersToCheck)
 		{
@@ -1246,7 +1226,6 @@ class PlayState extends MusicBeatState
 		#if LUA_ALLOWED
 		var doPush:Bool = false;
 		var luaFile:String = 'characters/' + name + '.lua';
-		#if MODS_ALLOWED
 		if (FileSystem.exists(Paths.modFolders(luaFile)))
 		{
 			luaFile = Paths.modFolders(luaFile);
@@ -1260,13 +1239,6 @@ class PlayState extends MusicBeatState
 				doPush = true;
 			}
 		}
-		#else
-		luaFile = Paths.getPreloadPath(luaFile);
-		if (Assets.exists(luaFile))
-		{
-			doPush = true;
-		}
-		#end
 
 		if (doPush)
 		{
@@ -1764,11 +1736,7 @@ class PlayState extends MusicBeatState
 
 		var songName:String = Paths.formatToSongPath(SONG.song);
 		var file:String = Paths.json(songName + '/events');
-		#if MODS_ALLOWED
 		if (FileSystem.exists(Paths.modsJson(songName + '/events')) || FileSystem.exists(file))
-		#else
-		if (OpenFlAssets.exists(file))
-		#end
 		{
 			var eventsData:Array<Dynamic> = Song.loadFromJson('events', songName).events;
 			for (event in eventsData) // Event Notes
@@ -4133,7 +4101,6 @@ class PlayState extends MusicBeatState
 		if (!ClientPrefs.shaders)
 			return new FlxRuntimeShader();
 
-		#if (!flash && MODS_ALLOWED)
 		if (!runtimeShaders.exists(name) && !initLuaShader(name))
 		{
 			FlxG.log.warn('Shader $name is missing!');
@@ -4142,10 +4109,6 @@ class PlayState extends MusicBeatState
 
 		var arr:Array<String> = runtimeShaders.get(name);
 		return new FlxRuntimeShader(arr[0], arr[1]);
-		#else
-		FlxG.log.warn("Platform unsupported for Runtime Shaders!");
-		return null;
-		#end
 	}
 
 	public function initLuaShader(name:String, ?glslVersion:Int = 120)
