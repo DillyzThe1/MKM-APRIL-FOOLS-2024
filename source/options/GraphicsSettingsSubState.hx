@@ -56,6 +56,14 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		option.displayFormat = '%v FPS';
 		option.onChange = onChangeFramerate;
 
+		var option:Option = new Option('Simple Rating Popup', 'Normally, ratings popup and fall in the middle of the screen.\nThis will make the popup static in the corner.',
+			'simpleRatingPopup', 'bool', false);
+		addOption(option);
+
+		var option:Option = new Option('Simple Note Splash', 'Normally, note splashes stack and can grow in groups.\nThis will optimize the game by making them static sprites.',
+			'simpleNoteSplash', 'bool', false);
+		addOption(option);
+
 		/*
 			var option:Option = new Option('Persistent Cached Data',
 				'If checked, images loaded will stay in memory\nuntil the game is closed, this increases memory usage,\nbut basically makes reloading times instant.',

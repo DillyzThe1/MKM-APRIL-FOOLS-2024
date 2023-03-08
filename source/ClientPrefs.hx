@@ -66,6 +66,9 @@ class ClientPrefs
 	public static var badWindow:Int = 135;
 	public static var safeFrames:Float = 10;
 
+	public static var simpleRatingPopup:Bool = false;
+	public static var simpleNoteSplash:Bool = false;
+
 	// Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
 	public static var keyBinds:Map<String, Array<FlxKey>> = [
 		// Key Bind, Name for ControlsSubState
@@ -151,6 +154,8 @@ class ClientPrefs
 		FlxG.save.data.hitsoundVolume = hitsoundVolume;
 		FlxG.save.data.pauseMusic = pauseMusic;
 		FlxG.save.data.checkForUpdates = checkForUpdates;
+		FlxG.save.data.simpleRatingPopup = simpleRatingPopup;
+		FlxG.save.data.simpleNoteSplash = simpleNoteSplash;
 
 		FlxG.save.flush();
 
@@ -324,6 +329,10 @@ class ClientPrefs
 		{
 			checkForUpdates = FlxG.save.data.checkForUpdates;
 		}
+		if (FlxG.save.data.simpleRatingPopup != null)
+			simpleRatingPopup = FlxG.save.data.simpleRatingPopup;
+		if (FlxG.save.data.simpleNoteSplash != null)
+			simpleNoteSplash = FlxG.save.data.simpleNoteSplash;
 
 		var save:FlxSave = new FlxSave();
 		save.bind('controls_v2', 'ninjamuffin99');
