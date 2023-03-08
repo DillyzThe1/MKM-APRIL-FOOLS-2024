@@ -4393,9 +4393,30 @@ class PlayState extends MusicBeatState
 			brt = note.noteSplashBrt;
 		}
 
-		var splash:NoteSplash = grpNoteSplashes.recycle(NoteSplash);
+		//var splash:NoteSplash = grpNoteSplashes.recycle(NoteSplash);
+		var splash:NoteSplash = null;
+
+		if (!ClientPrefs.simpleNoteSplash) {
+			splash = grpNoteSplashes.recycle(NoteSplash);
+			splash.setupNoteSplash(x, y, data, skin, hue, sat, brt);
+			grpNoteSplashes.add(splash);
+			return;
+		}
+		for (i in grpNoteSplashes) {
+			if (i.prevNote != data)
+				continue;
+			splash = i;
+			splash.revive();
+			splash.visible = true;
+			break;
+		}
+		if (splash == null) {
+			splash = grpNoteSplashes.recycle(NoteSplash);
+			splash.setupNoteSplash(x, y, data, skin, hue, sat, brt);
+			grpNoteSplashes.add(splash);
+			return;
+		}
 		splash.setupNoteSplash(x, y, data, skin, hue, sat, brt);
-		grpNoteSplashes.add(splash);
 	}
 
 	override function destroy()

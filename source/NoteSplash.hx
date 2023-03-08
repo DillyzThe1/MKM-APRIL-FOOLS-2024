@@ -28,6 +28,7 @@ class NoteSplash extends FlxSprite
 		antialiasing = ClientPrefs.globalAntialiasing;
 	}
 
+	public var prevNote:Int = 0;
 	public function setupNoteSplash(x:Float, y:Float, note:Int = 0, texture:String = null, hueColor:Float = 0, satColor:Float = 0, brtColor:Float = 0)
 	{
 		setPosition(x - Note.swagWidth * 0.95, y - Note.swagWidth);
@@ -54,6 +55,8 @@ class NoteSplash extends FlxSprite
 		scale.x = scale.y = Note.noteScale + 0.3;
 		if (animation.curAnim != null)
 			animation.curAnim.frameRate = 24 + FlxG.random.int(-2, 2);
+
+		prevNote = note;
 	}
 
 	function loadAnims(skin:String)
