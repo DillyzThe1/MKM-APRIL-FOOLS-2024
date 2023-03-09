@@ -74,6 +74,9 @@ class VisualsUISubState extends BaseOptionsMenu
 			'checkForUpdates', 'bool', true);
 		addOption(option);
 		#end
+			var option:Option = new Option('Subtitles', 'Adds subtitles to the music, for deaf accessibility.',
+			'deafTitles', 'bool', false);
+		addOption(option);
 
 		super();
 	}
