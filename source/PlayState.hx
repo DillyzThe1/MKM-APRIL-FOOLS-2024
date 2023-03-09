@@ -520,8 +520,6 @@ class PlayState extends MusicBeatState
 		doMiddleScroll = ClientPrefs.middleScroll;
 		hideOpponentArrows = !ClientPrefs.opponentStrums;
 
-		
-		
 		// for lua
 		instance = this;
 
@@ -1140,11 +1138,6 @@ class PlayState extends MusicBeatState
 		closedCaptions = new CaptionObject("", [camOther]);
 		closedCaptions.animate = true;
 		add(closedCaptions);
-		
-		if (ClientPrefs.deafTitles == true)
-		{
-			closedCaptions.text = "[Music]";
-		}
 	}
 
 	function set_songSpeed(value:Float):Float
@@ -2137,8 +2130,6 @@ class PlayState extends MusicBeatState
 		}*/
 		callOnLuas('onUpdate', [elapsed]);
 
-		
-		
 		for (i in filterMap)
 			if (i.onUpdate != null)
 				i.onUpdate();
@@ -2659,7 +2650,6 @@ class PlayState extends MusicBeatState
 		// trace('Control result: ' + pressed);
 		return pressed;
 	}
-	
 
 	public function triggerEventNote(eventName:String, value1:String, value2:String)
 	{
@@ -2938,14 +2928,7 @@ class PlayState extends MusicBeatState
 			case 'Key Count Swap':
 				changeKeyCount(Std.parseInt(value1));
 			case 'Closed Captions':
-				if (ClientPrefs.deafTitles == false)
-				{
 				closedCaptions.text = value1;
-				}
-				if (ClientPrefs.deafTitles == true)
-				{
-				closedCaptions.text = "[Music]";
-				}
 			case 'Show Countdown Index':
 				showCountdownPiece(Std.parseInt(value1), (value2 == "true" || value2 == "t" || value2 == "1" || value2 == "yes" || value2 == "y"));
 		}
