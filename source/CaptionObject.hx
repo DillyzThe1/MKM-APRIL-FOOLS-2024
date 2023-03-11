@@ -111,6 +111,7 @@ class CaptionObject extends FlxSpriteGroup {
         return captionText.text;
     }
 
+    @:noCompletion
 	function get_text():String
 		return captionText.text;
 }
