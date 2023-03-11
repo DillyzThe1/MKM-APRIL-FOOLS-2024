@@ -3301,12 +3301,14 @@ class PlayState extends MusicBeatState
 			ratingtween.destroy();
 		}
 
-		for (i in 0...combotweenstuff.length) {
-			var tweeeen:FlxTween = combotweenstuff[i];
+		if (ClientPrefs.simpleRatingPopup) {
+			for (i in 0...combotweenstuff.length) {
+				var tweeeen:FlxTween = combotweenstuff[i];
 
-			if (tweeeen != null) {
-				tweeeen.cancel();
-				tweeeen.destroy();
+				if (tweeeen != null) {
+					tweeeen.cancel();
+					tweeeen.destroy();
+				}
 			}
 		}
 
