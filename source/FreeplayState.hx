@@ -124,14 +124,7 @@ class FreeplayState extends MusicBeatState
 				continue;
 			}
 
-			var fixedsongname:String = songs[i].songName.toLowerCase().replace(" ", "-");
-
-			// trace(fixedsongname);
-
-			// note to self: if a name is over 25 chars, just simplify it like this
-			if (fixedsongname == "top-10-great-amazing-super-duper-wonderful-outstanding-saster-level-music-that-ever-has-been-heard")
-				fixedsongname = "t10gasdwoslmtehbh";
-
+			var fixedsongname:String = CoolUtil.shortenSongName(songs[i].songName.toLowerCase().replace(" ", "-"));
 			var gwagwa = 'portraits/${songIsUnlockedEmoji ? fixedsongname : 'null'}';
 			// trace(gwagwa);
 			var portrait:FlxSprite = new FlxSprite().loadGraphic(Paths.image(gwagwa, 'shared'));

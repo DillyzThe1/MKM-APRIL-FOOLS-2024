@@ -339,4 +339,12 @@ class CoolUtil
 		FlxG.sound.music.volume = 0;
 		return true;
 	}
+
+	public static function shortenSongName(songInput:String) {
+		var formattedSong:String = songInput.toLowerCase().replace(" ", "-");
+		return switch(formattedSong) {
+			case "top-10-great-amazing-super-duper-wonderful-outstanding-saster-level-music-that-ever-has-been-heard": "t10gasdwoslmtehbh";
+			default: songInput;
+		};
+	}
 }

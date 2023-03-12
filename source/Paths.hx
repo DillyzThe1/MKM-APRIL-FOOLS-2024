@@ -28,7 +28,7 @@ class Paths
 
 	inline public static function checkStr(str:String)
 	{
-		return str.replace('top-10-great-amazing-super-duper-wonderful-outstanding-saster-level-music-that-ever-has-been-heard', 't10gasdwoslmtehbh');
+		return CoolUtil.shortenSongName(str);
 	}
 
 	public static var ignoreModFolders:Array<String> = [

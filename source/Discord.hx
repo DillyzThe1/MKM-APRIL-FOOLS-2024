@@ -118,9 +118,7 @@ class DiscordClient
 			trace(largekey);
 			return;
 		}
-		largekey = PlayState.SONG.song.toLowerCase().replace(" ", "-");
-		if (largekey == "top-10-great-amazing-super-duper-wonderful-outstanding-saster-level-music-that-ever-has-been-heard")
-			largekey = "t10gasdwoslmtehbh";
+		largekey = CoolUtil.shortenSongName(PlayState.SONG.song.toLowerCase().replace(" ", "-"));
 		trace(largekey);
 	}
 
