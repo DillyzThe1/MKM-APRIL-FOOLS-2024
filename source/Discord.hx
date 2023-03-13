@@ -93,7 +93,7 @@ class DiscordClient
 			details: details,
 			state: state,
 			largeImageKey: largekey,
-			largeImageText: "v" + MainMenuState.mushroomKingdomMadnessVersion.trim() + " (DEV BUILD)",
+			largeImageText: "v" + MainMenuState.mushroomKingdomMadnessVersion.trim(),
 			smallImageKey: '',
 			// Obtained times are in milliseconds so they are divided so Discord can use it
 			startTimestamp: Std.int(startTimestamp / 1000),

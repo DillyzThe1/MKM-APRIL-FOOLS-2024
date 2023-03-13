@@ -197,6 +197,12 @@ class TitleState extends MusicBeatState
 			}
 		}
 		#end
+
+		if (FlxG.save.data.lastPlayedMKMVersion != MainMenuState.mushroomKingdomMadnessVersion) {
+			FlxG.save.data.lastPlayedMKMVersion = MainMenuState.mushroomKingdomMadnessVersion;
+			ClientPrefs.pauseMusic = "Betwixt The Chaos";
+			trace('User hasn\'t played v${MainMenuState.mushroomKingdomMadnessVersion} prior to this!');
+		}
 	}
 
 	var logoBl:FlxSprite;
