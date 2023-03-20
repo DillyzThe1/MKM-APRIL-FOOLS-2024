@@ -151,6 +151,10 @@ class TitleState extends MusicBeatState
 			}
 			persistentUpdate = true;
 			persistentDraw = true;
+
+			var date = Date.now();
+			CoolUtil.fredMode = (date.getHours() == 3 && FlxG.random.bool(1)) || (date.getFullYear() == 2023 && date.getMonth() == 3 && date.getDate() == 1);
+			trace(!CoolUtil.fredMode ? "normal mkm lol" : "THE THA THE - THE THE THI THE - THE THA THE - THE THE THI THAAAAAAAAAH");
 		}
 
 		if (FlxG.save.data.weekCompleted != null)
@@ -462,6 +466,12 @@ class TitleState extends MusicBeatState
 
 				new FlxTimer().start(1, function(tmr:FlxTimer)
 				{
+					if (CoolUtil.fredMode) {
+						CoolUtil.loadFreeplaySong(CoolUtil.fredCrossoverWeekName, "Karrd Kollision");
+						closedState = true;
+						return;
+					}
+
 					if (CoolUtil.babyMode())
 						MusicBeatState.switchState(new BabyModeTitleState());
 					else

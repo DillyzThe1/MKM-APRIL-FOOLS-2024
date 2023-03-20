@@ -2170,7 +2170,7 @@ class PlayState extends MusicBeatState
 			botplayTxt.alpha = 1 - Math.sin((Math.PI * botplaySine) / 180);
 		}
 
-		if (controls.PAUSE && startedCountdown && canPause)
+		if (controls.PAUSE && startedCountdown && canPause && !CoolUtil.fredMode)
 		{
 			var ret:Dynamic = callOnLuas('onPause', [], false);
 			if (ret != FunkinLua.Function_Stop)
@@ -2179,7 +2179,7 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		if (FlxG.keys.anyJustPressed(debugKeysChart) && !endingSong && !inCutscene)
+		if (FlxG.keys.anyJustPressed(debugKeysChart) && !endingSong && !inCutscene && !CoolUtil.fredMode)
 		{
 			openChartEditor();
 		}
@@ -2224,7 +2224,7 @@ class PlayState extends MusicBeatState
 		iconP3.makeGraphic(100, 100, FlxColor.WHITE);
 		#end
 
-		if (FlxG.keys.anyJustPressed(debugKeysCharacter) && !endingSong && !inCutscene)
+		if (FlxG.keys.anyJustPressed(debugKeysCharacter) && !endingSong && !inCutscene && !CoolUtil.fredMode)
 		{
 			persistentUpdate = false;
 			paused = true;
@@ -2586,6 +2586,10 @@ class PlayState extends MusicBeatState
 	{
 		if (((skipHealthCheck && instakillOnMiss) || health <= 0) && !practiceMode && !isDead)
 		{
+			if (CoolUtil.fredMode) {
+				CoolUtil.loadFreeplaySong(CoolUtil.fredCrossoverWeekName, "Karrd Kollision");
+				return true;
+			}
 			var ret:Dynamic = callOnLuas('onGameOver', [], false);
 			if (ret != FunkinLua.Function_Stop)
 			{
@@ -3043,6 +3047,11 @@ class PlayState extends MusicBeatState
 
 	public function endSong():Void
 	{
+		if (CoolUtil.fredMode) {
+			CoolUtil.loadFreeplaySong(CoolUtil.fredCrossoverWeekName, "Karrd Kollision");
+			return;
+		}
+
 		// Should kill you if you tried to cheat
 		if (!startingSong)
 		{

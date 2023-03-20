@@ -46,7 +46,7 @@
 	<!-- PSYCH ENGINE CUSTOMIZATION -->
 	<define name="MODS_ALLOWED"/>
 	<define name="LUA_ALLOWED" if="desktop" />
-	<define name="ACHIEVEMENTS_ALLOWED" />
+	<!-- <define name="ACHIEVEMENTS_ALLOWED" /> they're broken so i'm gonna rewrite them in 2.0 or if i feel like having time for 1.5 -->
 	<define name="TITLE_SCREEN_EASTER_EGG" />
 	<define name="VIDEOS_ALLOWED" if="web || windows" unless="32bits"/>
 	<define name="PSYCH_WATERMARKS"/> <!-- DELETE THIS TO REMOVE WATERMARKS/DEV NAMES ON TITLE SCREEN -->

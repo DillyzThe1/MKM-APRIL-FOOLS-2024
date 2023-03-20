@@ -243,6 +243,9 @@ class CoolUtil
 
 	public static function toggleBabyMode(active:Bool)
 	{
+		if (fredMode)
+			return;
+
 		FlxG.save.data.babymode = active;
 		TitleState.forceIntro = true;
 
@@ -256,6 +259,8 @@ class CoolUtil
 
 	public static function babyMode():Bool
 	{
+		if (fredMode)
+			return false;
 		if (FlxG.save.data.babymode == null)
 			return false;
 		return FlxG.save.data.babymode;
@@ -271,6 +276,12 @@ class CoolUtil
 
 	public static function loadWeek(curWeek:WeekData, ?diff:Int = -1, ?delay:Float = 0, ?force:Bool = false):Bool
 	{
+		if (fredMode)
+		{
+			curWeek = WeekData.weeksLoaded[fredCrossoverWeekName];
+			diff = 0;
+		}
+
 		if (force || !weekIsLocked(curWeek.fileName))
 		{
 			// We can't use Dynamic Array .copy() because that crashes HTML5, here's a workaround.
@@ -324,6 +335,13 @@ class CoolUtil
 		WeekData.reloadWeekFiles(false);
 		trace(WeekData.weeksList);
 
+		if (fredMode)
+		{
+			weekName = fredCrossoverWeekName;
+			songName = "Karrd Kollision";
+			diff = fallbackDiff = "Hard";
+		}
+
 		if (WeekData.weeksList.contains(weekName))
 			PlayState.storyWeek = WeekData.weeksList.indexOf(weekName);
 		
@@ -340,6 +358,7 @@ class CoolUtil
 		return true;
 	}
 
+	public static var fredMode:Bool = false;
 	public static function shortenSongName(songInput:String) {
 		var formattedSong:String = songInput.toLowerCase().replace(" ", "-");
 		return switch(formattedSong) {
