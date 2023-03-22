@@ -540,7 +540,7 @@ class PlayState extends MusicBeatState
 		bruhhhh = Note.noteManiaSettings[keyCount][6];
 		reloadNoteAnimsHeHeHeHa();
 		Note.reloadNoteStuffs();
-		PauseSubState.parentalControls_vals = [true, false, false, true];
+		PauseSubState.parentalControls_vals = PauseSubState.parentalControls_vals_default.copy();
 
 		keysArray = getKeys();
 
@@ -2170,7 +2170,7 @@ class PlayState extends MusicBeatState
 			botplayTxt.alpha = 1 - Math.sin((Math.PI * botplaySine) / 180);
 		}
 
-		if (controls.PAUSE && startedCountdown && canPause)
+		if (controls.PAUSE && startedCountdown && canPause && !CoolUtil.fredMode)
 		{
 			var ret:Dynamic = callOnLuas('onPause', [], false);
 			if (ret != FunkinLua.Function_Stop)
@@ -2179,7 +2179,7 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		if (FlxG.keys.anyJustPressed(debugKeysChart) && !endingSong && !inCutscene)
+		if (FlxG.keys.anyJustPressed(debugKeysChart) && !endingSong && !inCutscene && !CoolUtil.fredMode)
 		{
 			openChartEditor();
 		}
@@ -2208,6 +2208,8 @@ class PlayState extends MusicBeatState
 
 		if (health > 2)
 			health = 2;
+		if (health < 0)
+			health = 0;
 
 		if (healthBar.percent < 20)
 			iconP1.animation.curAnim.curFrame = 1;
@@ -2224,7 +2226,7 @@ class PlayState extends MusicBeatState
 		iconP3.makeGraphic(100, 100, FlxColor.WHITE);
 		#end
 
-		if (FlxG.keys.anyJustPressed(debugKeysCharacter) && !endingSong && !inCutscene)
+		if (FlxG.keys.anyJustPressed(debugKeysCharacter) && !endingSong && !inCutscene && !CoolUtil.fredMode)
 		{
 			persistentUpdate = false;
 			paused = true;
@@ -2556,8 +2558,40 @@ class PlayState extends MusicBeatState
 		DiscordClient.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 	}
 
+	var squareChecks:Array<String> = ['house', 'no-shrooms', 'chaotically-stupid', 'bup'];
+
+	function chartKeyFormat(songName:String)
+		return songName.toLowerCase().replace(" ", "-") + "-chart";
+
+	function shouldGoToSquare()
+	{
+		for (i in squareChecks)
+			if (!ClientPrefs.getKeyUnlocked(chartKeyFormat(i)))
+				return false;
+		return true;
+	}
+
 	function openChartEditor(?force:Bool = false)
 	{
+		var fsong:String = SONG.song.toLowerCase().replace(" ", "-");
+		var chsong:String = chartKeyFormat(SONG.song);
+		var hasDoneThisBefore:Bool = ClientPrefs.getKeyUnlocked(chsong);
+		if (squareChecks.contains(fsong) && !hasDoneThisBefore)
+		{
+			FlxG.sound.play(Paths.sound("chart_activated", "shared"), 0.875).persist = true;
+			ClientPrefs.setKeyUnlocked(chsong, true);
+
+			if (shouldGoToSquare()) {
+				persistentUpdate = false;
+				paused = true;
+				cancelMusicFadeTween();
+				CoolUtil.loadFreeplaySong("3the1point5extras", "Square");
+				return;
+			}
+		}
+		else
+			FlxG.sound.play(Paths.sound("chart_ok", "shared"), 0.65).persist = true;
+
 		#if debug
 		var ret:Dynamic;
 
@@ -2584,8 +2618,15 @@ class PlayState extends MusicBeatState
 
 	function doDeathCheck(?skipHealthCheck:Bool = false)
 	{
+		if (PauseSubState.parentalControls_vals[5])
+			return false;
+
 		if (((skipHealthCheck && instakillOnMiss) || health <= 0) && !practiceMode && !isDead)
 		{
+			if (CoolUtil.fredMode) {
+				CoolUtil.loadFreeplaySong(CoolUtil.fredCrossoverWeekName, "Karrd Kollision");
+				return true;
+			}
 			var ret:Dynamic = callOnLuas('onGameOver', [], false);
 			if (ret != FunkinLua.Function_Stop)
 			{
@@ -3043,6 +3084,11 @@ class PlayState extends MusicBeatState
 
 	public function endSong():Void
 	{
+		if (CoolUtil.fredMode) {
+			CoolUtil.loadFreeplaySong(CoolUtil.fredCrossoverWeekName, "Karrd Kollision");
+			return;
+		}
+
 		// Should kill you if you tried to cheat
 		if (!startingSong)
 		{
@@ -4023,7 +4069,8 @@ class PlayState extends MusicBeatState
 			// For testing purposes
 			// trace(daNote.missHealth);
 			songMisses++;
-			vocals.volume = 0;
+			if (PauseSubState.parentalControls_vals[6])
+				vocals.volume = 0;
 			if (!practiceMode)
 				songScore -= 10;
 
@@ -4099,7 +4146,8 @@ class PlayState extends MusicBeatState
 			{
 				boyfriend.playAnim(singAnimations[Std.int(Math.abs(direction))] + 'miss', true);
 			}
-			vocals.volume = 0;
+			if (PauseSubState.parentalControls_vals[6])
+				vocals.volume = 0;
 		}
 		callOnLuas('noteMissPress', [direction]);
 	}

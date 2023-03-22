@@ -43,6 +43,8 @@ class FreeplayState extends MusicBeatState
 
 	var overCam:FlxCamera;
 
+	var theFunnyyyyyyyyyyyy:Int = 0;
+
 	override function create()
 	{
 		// Paths.clearStoredMemory();
@@ -115,8 +117,10 @@ class FreeplayState extends MusicBeatState
 
 		for (i in 0...songs.length)
 		{
-			var songIsUnlockedEmoji:Bool = ClientPrefs.getKeyUnlocked(songs[i].unlockerKey)
-				&& !FreeplayState.weekIsLocked(WeekData.weeksList[songs[i].week]);
+			if (songs[i].songName.toLowerCase().replace(" ", "-") == "karrd-kollision")
+				theFunnyyyyyyyyyyyy = i;
+			var songIsUnlockedEmoji:Bool = CoolUtil.fredMode || (ClientPrefs.getKeyUnlocked(songs[i].unlockerKey)
+				&& !FreeplayState.weekIsLocked(WeekData.weeksList[songs[i].week]));
 
 			if (!songIsUnlockedEmoji && songs[i].hiddenFromStoryMode)
 			{
@@ -124,7 +128,7 @@ class FreeplayState extends MusicBeatState
 				continue;
 			}
 
-			var fixedsongname:String = CoolUtil.shortenSongName(songs[i].songName.toLowerCase().replace(" ", "-"));
+			var fixedsongname:String = CoolUtil.fredMode ? "karrd-kollision" : CoolUtil.shortenSongName(songs[i].songName.toLowerCase().replace(" ", "-"));
 			var gwagwa = 'portraits/${songIsUnlockedEmoji ? fixedsongname : 'null'}';
 			// trace(gwagwa);
 			var portrait:FlxSprite = new FlxSprite().loadGraphic(Paths.image(gwagwa, 'shared'));
@@ -135,7 +139,11 @@ class FreeplayState extends MusicBeatState
 
 			portrait.antialiasing = ClientPrefs.globalAntialiasing;
 
-			var songText:Alphabet = new Alphabet(0, portrait.y + portrait.height + 20, songIsUnlockedEmoji ? songs[i].songName : '???', true, false);
+			var sonnngNAmeee:String = songIsUnlockedEmoji ? songs[i].songName : '???';
+			if (CoolUtil.fredMode)
+				sonnngNAmeee = "Karrd Kollision";
+
+			var songText:Alphabet = new Alphabet(0, portrait.y + portrait.height + 20, sonnngNAmeee, true, false);
 			grpSongs.add(songText);
 
 			if (songText.width > 980)
@@ -151,8 +159,8 @@ class FreeplayState extends MusicBeatState
 				// trace(songs[i].songName + ' new scale: ' + textScale);
 			}
 
-			Paths.currentModDirectory = songs[i].folder;
-			var icon:HealthIcon = new HealthIcon(songs[i].songCharacter);
+			Paths.currentModDirectory = CoolUtil.fredMode ? '' : songs[i].folder;
+			var icon:HealthIcon = new HealthIcon(CoolUtil.fredMode ? "uncle-fred" : songs[i].songCharacter);
 			icon.y = portrait.y + portrait.height + 75;
 
 			if (!songIsUnlockedEmoji)
@@ -258,8 +266,11 @@ class FreeplayState extends MusicBeatState
 
 		if (controls.ACCEPT)
 		{
-			if (ClientPrefs.getKeyUnlocked(songs[curIndex].unlockerKey)
-				&& !FreeplayState.weekIsLocked(WeekData.weeksList[songs[curIndex].week]))
+			if (CoolUtil.fredMode)
+				changeSelection(theFunnyyyyyyyyyyyy - curIndex);
+			
+			if (CoolUtil.fredMode || (ClientPrefs.getKeyUnlocked(songs[curIndex].unlockerKey)
+				&& !FreeplayState.weekIsLocked(WeekData.weeksList[songs[curIndex].week])))
 			{
 				hasSelected = true;
 
@@ -346,6 +357,8 @@ class FreeplayState extends MusicBeatState
 	var intendedColor:FlxColor;
 	var lastDifficultyName:String = "";
 
+	var top27freds:Array<String> = ["fred", "redf", "fref", "fan", "fork", "freed", "frolic", "derf", "fdre", "ferd", "dref", 
+									"FNF: VS Uncle Fred", "abcdeFREDghjiklmnopqrstuvwxyz", "ferf", "phineas and ferb"];
 	function changeSelection(change:Int = 0, ?playSound:Bool = true)
 	{
 		#if !desktop
@@ -384,8 +397,9 @@ class FreeplayState extends MusicBeatState
 			});
 		}
 		
-		hintObj.text = songs[curIndex].hint;
-		hintObj.visible = (!ClientPrefs.getKeyUnlocked(songs[curIndex].unlockerKey) || FreeplayState.weekIsLocked(WeekData.weeksList[songs[curIndex].week]));
+
+		hintObj.text = CoolUtil.fredMode ? top27freds[FlxG.random.int(0, top27freds.length - 1)] : songs[curIndex].hint;
+		hintObj.visible = CoolUtil.fredMode || (!ClientPrefs.getKeyUnlocked(songs[curIndex].unlockerKey) || FreeplayState.weekIsLocked(WeekData.weeksList[songs[curIndex].week]));
 
 		intendedScore = Highscore.getScore(songs[curIndex].songName, curDifficulty);
 		intendedRating = Highscore.getRating(songs[curIndex].songName, curDifficulty);

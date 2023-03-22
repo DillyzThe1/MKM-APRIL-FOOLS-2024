@@ -28,9 +28,6 @@ function onCreatePost()
 		runHaxeCode("PlayState.instance.healthBar.createColoredFilledBar(0xFF66FF33);")
 		runHaxeCode("PlayState.instance.healthBar.updateBar();")
 		
-		runHaxeCode("PlayState.instance.healthBar.createColoredFilledBar(0xFF66FF33);")
-		runHaxeCode("PlayState.instance.healthBar.updateBar();")
-		
 		setTextSize("timeTxt", 16)
 		setTextBorder('timeTxt',1.25,'0xFF000000')
 		
@@ -79,5 +76,14 @@ function onUpdatePost()
 		setProperty("scoreTxt.text", "Score: " .. score .. " | Combo Breaks: " .. misses .. " | Accuracy:" .. ratingPercent .. " % | " .. ratingName)
 		setProperty("timeTxt.text", songName)
 		setProperty("timeTxt.y", getProperty("timeBar.y") - 4)
+	end
+end
+
+function onEvent(n,v1,v2)
+	if string.lower(n) == 'change character' and string.lower(difficultyName) == "alpha" then
+		runHaxeCode("PlayState.instance.healthBar.createColoredEmptyBar(0xFFFF0000);")
+		runHaxeCode("PlayState.instance.healthBar.updateBar();")
+		runHaxeCode("PlayState.instance.healthBar.createColoredFilledBar(0xFF66FF33);")
+		runHaxeCode("PlayState.instance.healthBar.updateBar();")
 	end
 end
