@@ -540,7 +540,7 @@ class PlayState extends MusicBeatState
 		bruhhhh = Note.noteManiaSettings[keyCount][6];
 		reloadNoteAnimsHeHeHeHa();
 		Note.reloadNoteStuffs();
-		PauseSubState.parentalControls_vals = [true, false, false, true];
+		PauseSubState.parentalControls_vals = PauseSubState.parentalControls_vals_default.copy();
 
 		keysArray = getKeys();
 
@@ -2208,6 +2208,8 @@ class PlayState extends MusicBeatState
 
 		if (health > 2)
 			health = 2;
+		if (health < 0)
+			health = 0;
 
 		if (healthBar.percent < 20)
 			iconP1.animation.curAnim.curFrame = 1;
@@ -2616,6 +2618,9 @@ class PlayState extends MusicBeatState
 
 	function doDeathCheck(?skipHealthCheck:Bool = false)
 	{
+		if (PauseSubState.parentalControls_vals[5])
+			return false;
+
 		if (((skipHealthCheck && instakillOnMiss) || health <= 0) && !practiceMode && !isDead)
 		{
 			if (CoolUtil.fredMode) {
@@ -4064,7 +4069,8 @@ class PlayState extends MusicBeatState
 			// For testing purposes
 			// trace(daNote.missHealth);
 			songMisses++;
-			vocals.volume = 0;
+			if (PauseSubState.parentalControls_vals[6])
+				vocals.volume = 0;
 			if (!practiceMode)
 				songScore -= 10;
 
@@ -4140,7 +4146,8 @@ class PlayState extends MusicBeatState
 			{
 				boyfriend.playAnim(singAnimations[Std.int(Math.abs(direction))] + 'miss', true);
 			}
-			vocals.volume = 0;
+			if (PauseSubState.parentalControls_vals[6])
+				vocals.volume = 0;
 		}
 		callOnLuas('noteMissPress', [direction]);
 	}
