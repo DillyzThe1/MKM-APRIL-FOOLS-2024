@@ -25,15 +25,15 @@ vec2 posEffect(vec2 curpos) {
 }
 
 void main() {
+	if (stopshader)
+	{
+		gl_FragColor = flixel_texture2D(bitmap, openfl_TextureCoordv);
+		return;
+	}
+	
 	vec2 curpos = openfl_TextureCoordv;
 
 	vec4 color = flixel_texture2D(bitmap, posEffect(curpos));
-	
-	if (stopshader)
-	{
-		gl_FragColor = color;
-		return;
-	}
 	
 	vec4 outputPixel = vec4(color.x, color.y, color.z, 1.0);
 	

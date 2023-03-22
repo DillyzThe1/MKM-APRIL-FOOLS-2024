@@ -19,12 +19,20 @@ function onCreatePost()
 	
 	runHaxeCode('getMadeShader("nether").setFloat("curtime", 0);')
 	
+	makeLuaSprite('mc_OG','bgs/a minecraft screenshot from 5 minutes ago',0,0)
+	addLuaSprite('mc_OG',false)
+	setProperty('mc_OG.antialiasing',true)
+	setProperty('mc_OG.scale.x',1.4)
+	setProperty('mc_OG.scale.y',1.4)
+	
 	setProperty('dad.alpha', 0.0005)
 	setProperty('boyfriend.alpha', 0.0005)
 	setProperty('mc.alpha', 0.0005)
 	
 	ogcamzoom = getProperty('defaultCamZoom')
 	setProperty('camZooming', true)
+	
+	runHaxeCode('getMadeShader("nether").setBool("stopshader", true);')
 end
 
 local alltime = 0
@@ -56,6 +64,12 @@ function onUpdatePost(e)
 	setProperty('camHUD.x', theofalltime*15)
 	setProperty('camGame.y', theofalltime2*10)
 	setProperty('camHUD.y', theofalltime2*10)
+	
+	if getProperty('mc_OG.visible') then
+		setProperty('mc_OG.scale.x', 1.4 + math.cos(alltime * 2.5) * 0.0025)
+		setProperty('mc_OG.scale.y', 1.4 - math.sin(alltime * 2.5) * 0.0025)
+	end
+	
 	runHaxeCode('getMadeShader("nether").setFloat("curtime", ' .. tostring(alltime) .. ');')
 end
 
@@ -107,10 +121,11 @@ function onBeatHit()
 		setProperty('dad.alpha', 0.0005)
 		setProperty('boyfriend.alpha', 0.0005)
 		setProperty('mc.alpha', 0.0005)
+		setProperty('mc_OG.alpha', 0)
+		setProperty('mc_OG.visible', false)
 		setProperty('defaultCamZoom', ogcamzoom)
 	end
 	if tryBeat(127) then
-		runHaxeCode('getMadeShader("nether").setBool("stopshader", true);')
 		doTweenAlpha('dadAlpha', 'dad', 0.75, (stepCrochet/1000) * 4, 'cubeout')
 		ogtoady = getProperty('dad.x')
 		setProperty('dad.x', ogtoady - 250)
