@@ -96,6 +96,7 @@ class TitleState extends MusicBeatState
 
 		PlayerSettings.init();
 
+		
 		curWacky = FlxG.random.getObject(getIntroTextShit());
 
 		// DEBUG BULLSHIT
@@ -155,6 +156,9 @@ class TitleState extends MusicBeatState
 			var date = Date.now();
 			CoolUtil.fredMode = (date.getHours() == 3 && FlxG.random.bool(1)) || (date.getFullYear() == 2023 && date.getMonth() == 3 && date.getDate() == 1);
 			trace(!CoolUtil.fredMode ? "normal mkm lol" : "THE THA THE - THE THE THI THE - THE THA THE - THE THE THI THAAAAAAAAAH");
+
+			if (CoolUtil.fredMode)
+				curWacky = ["VS Uncle Fred", "Full Week Mod"];
 		}
 
 		if (FlxG.save.data.weekCompleted != null)
@@ -581,7 +585,7 @@ class TitleState extends MusicBeatState
 					#if PSYCH_WATERMARKS
 					createCoolText(['Original engine by'], -40);
 					#else
-					createCoolText(['In association', 'with'], -40);
+					createCoolText(['Not in association', 'with'], -40);
 					#end
 				case 8:
 					#if PSYCH_WATERMARKS
@@ -600,12 +604,22 @@ class TitleState extends MusicBeatState
 				case 13:
 					deleteCoolText();
 				case 14:
-					logoBl.screenCenter();
-					logoBl.animation.play('intro1', true);
+					if (CoolUtil.fredMode)
+						addMoreText('Karrd');
+					else {
+						logoBl.screenCenter();
+						logoBl.animation.play('intro1', true);
+					}
 				case 15:
-					logoBl.animation.play('intro2', true);
+					if (CoolUtil.fredMode)
+						addMoreText('Kollision');
+					else
+						logoBl.animation.play('intro2', true);
 				case 16:
-					logoBl.animation.play('intro3', true);
+					if (CoolUtil.fredMode)
+						addMoreText('Simulator');
+					else
+						logoBl.animation.play('intro3', true);
 				case 17:
 					skipIntro();
 			}
