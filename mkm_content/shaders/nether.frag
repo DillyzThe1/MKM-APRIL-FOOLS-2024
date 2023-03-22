@@ -10,6 +10,7 @@ float calcDiff(float val) {
 }
 
 uniform float curtime;
+uniform bool stopshader;
 
 float loopme(float valueee) {
 	if (valueee > 1)
@@ -27,9 +28,17 @@ void main() {
 	vec2 curpos = openfl_TextureCoordv;
 
 	vec4 color = flixel_texture2D(bitmap, posEffect(curpos));
+	
+	if (stopshader)
+	{
+		gl_FragColor = color;
+		return;
+	}
+	
 	vec4 outputPixel = vec4(color.x, color.y, color.z, 1.0);
 	
 	float diff = max(calcDiff(curpos.x), calcDiff(curpos.y));
+	
 	
 	//diff *= (sin(curtime * 0.5)/8) + (1 - (1/8));
 	

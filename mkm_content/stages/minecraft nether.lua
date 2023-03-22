@@ -8,9 +8,11 @@ end
 
 --local realElapsed = 0
 function onUpdatePost(elapsed)
-	if mustHitSection then
-		cameraSetTarget('bf')
-	else 
-		cameraSetTarget('dad')
+	if not getProperty('isCameraOnForcedPos') then
+		if mustHitSection then
+			cameraSetTarget('bf')
+		else 
+			cameraSetTarget('dad')
+		end
 	end
 end
