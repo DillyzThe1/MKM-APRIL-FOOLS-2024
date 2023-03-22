@@ -2556,8 +2556,40 @@ class PlayState extends MusicBeatState
 		DiscordClient.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 	}
 
+	var squareChecks:Array<String> = ['house', 'no-shrooms', 'chaotically-stupid', 'bup'];
+
+	function chartKeyFormat(songName:String)
+		return songName.toLowerCase().replace(" ", "-") + "-chart";
+
+	function shouldGoToSquare()
+	{
+		for (i in squareChecks)
+			if (!ClientPrefs.getKeyUnlocked(chartKeyFormat(i)))
+				return false;
+		return true;
+	}
+
 	function openChartEditor(?force:Bool = false)
 	{
+		var fsong:String = SONG.song.toLowerCase().replace(" ", "-");
+		var chsong:String = chartKeyFormat(SONG.song);
+		var hasDoneThisBefore:Bool = ClientPrefs.getKeyUnlocked(chsong);
+		if (squareChecks.contains(fsong) && !hasDoneThisBefore)
+		{
+			FlxG.sound.play(Paths.sound("chart_activated", "shared"), 0.875).persist = true;
+			ClientPrefs.setKeyUnlocked(chsong, true);
+
+			if (shouldGoToSquare()) {
+				persistentUpdate = false;
+				paused = true;
+				cancelMusicFadeTween();
+				CoolUtil.loadFreeplaySong("3the1point5extras", "Square");
+				return;
+			}
+		}
+		else
+			FlxG.sound.play(Paths.sound("chart_ok", "shared"), 0.65).persist = true;
+
 		#if debug
 		var ret:Dynamic;
 
