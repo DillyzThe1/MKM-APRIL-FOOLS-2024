@@ -512,6 +512,6 @@
 		"needsVoices": true,
 		"speed": 1,
 		"bpm": 100,
-		"audioPostfix": ""
+		"audioPostfix": "-alpha"
 	}
 }
