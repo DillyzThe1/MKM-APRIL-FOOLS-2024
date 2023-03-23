@@ -3238,7 +3238,7 @@ class PlayState extends MusicBeatState
 					prevCamFollow = camFollow;
 					prevCamFollowPos = camFollowPos;
 
-					var nextSongGonnaSuck:Bool = nextSong.mania != 0;
+					var nextSongGonnaSuck:Bool = originallyWantedDiffName.toLowerCase() == "hard" && nextSong.mania != 0;
 					var bruhFunction = function(theSong:SwagSong)
 					{
 						PlayState.SONG = theSong;
