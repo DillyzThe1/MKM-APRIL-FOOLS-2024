@@ -22,13 +22,14 @@ function onCreatePost()
 	
 	setProperty('bg.alpha', 0)
 	setProperty('gf.alpha', 0)
+	setProperty('boyfriend.alpha', 0)
 	setProperty('spotlight.alpha', 0)
 	--
 	
 	
 	setProperty('dad.visible', false)
 	
-	--setProperty('camHUD.alpha', 0)
+	setProperty('camHUD.alpha', 0)
 	setProperty('healthBar.alpha', 0)
 	setProperty('iconP2.visible',false)
 	setProperty('scoreTxt.visible',false)
@@ -43,13 +44,19 @@ function onCreatePost()
 	--end
 end
 
+function onCountdownTick(t)
+	if t == 1 then
+		doTweenAlpha('boyman jumpscare','boyfriend',1,1.25,'cubeInOut')
+	end
+end
+
 local activcam = false
 local introanim = false
 function onBeatHit()
 	if not introanim and curBeat >= 4 then
 		introanim = true
 		playAnim('boyfriend','intro',true)
-		doTweenAlpha('funnyhudalpha','camHUD',0,1.25,'cubeInOut')
+		--doTweenAlpha('funnyhudalpha','camHUD',0,1.25,'cubeInOut')
 		
 		triggerEvent('Alt Idle Animation', 'Dad', '-null')
 		triggerEvent('Alt Idle Animation', 'BF', '-null')
