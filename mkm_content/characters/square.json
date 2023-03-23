@@ -1,92 +1,103 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				77,
 				-9
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "Square Note Sing Left"
+			"fps": 24,
+			"name": "Square Note Sing Left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				11,
 				-74
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "Square Note Sing Down"
+			"fps": 24,
+			"name": "Square Note Sing Down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				10,
 				50
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "Square Note Sing Up"
+			"fps": 24,
+			"name": "Square Note Sing Up",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-21,
 				8
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "Square Note Sing Right"
+			"fps": 24,
+			"name": "Square Note Sing Right",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				10,
 				105
 			],
-			"anim": "singUP-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "Square Note Sing Alt Up",
-			"indices": []
+			"anim": "singUP-alt",
+			"indices": [],
+			"name": "Square Note Sing Alt Up"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				-30
 			],
-			"anim": "hey",
+			"loop": false,
 			"fps": 24,
-			"name": "Square Hey0",
-			"indices": []
+			"anim": "hey",
+			"indices": [],
+			"name": "Square Hey0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				355,
 				668
 			],
-			"anim": "intro",
+			"loop": false,
 			"fps": 24,
-			"name": "Square Intro Cutscene0",
-			"indices": []
+			"anim": "intro",
+			"indices": [],
+			"name": "Square Intro Cutscene0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 24,
-			"name": "Square Idle Dance",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "Square Idle Dance"
+		},
+		{
+			"offsets": [
+				307,
+				72
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "like",
+			"loop": false,
+			"name": "Square Leave A Like"
 		}
 	],
 	"no_antialiasing": false,
