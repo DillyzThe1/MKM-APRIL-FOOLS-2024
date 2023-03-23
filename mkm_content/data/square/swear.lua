@@ -87,8 +87,36 @@ function onBeatHit()
 		triggerEvent('Camera Follow Pos', '', '')
 		setProperty('defaultCamZoom', 0.9)
 	end
+	
+	if tryBeat(372) then
+		doTweenAlpha('funnyhudalpha', 'camHUD', 0, 1.15, 'cubeInOut')
+		triggerEvent('Camera Follow Pos', 500, 560)
+		setProperty('defaultCamZoom', 1.175)
+	end
+	
+	if tryBeat(375) then
+		triggerEvent('Camera Follow Pos', 650, 550)
+		setProperty('defaultCamZoom', 1)
+	end
+	
+	if tryBeat(392) then
+		local timeeeeeeeeee = (stepCrochet / 1000) * 16
+		doTweenAlpha('gfaaaa', 'gf', 0, timeeeeeeeeee, 'quartInOut')
+		doTweenAlpha('bggggggg', 'bg', 0, timeeeeeeeeee, 'quartInOut')
+		doTweenAlpha('spotlighttween', 'spotlight', 0.5, timeeeeeeeeee, 'quartInOut')
+	end
+	
+	--if tryBeat(395) then
+	--	doTweenAlpha('spotlighttween', 'spotlight', 0, 0.5, 'quartInOut')
+	--	doTweenAlpha('bffffff', 'boyfriend', 0, 0.5, 'quartInOut')
+	--end
 end
 
+function onEvent(n, v1, v2)
+	if string.lower(n) == "play animation" and v1 == "pistol-shoot" and v2 == "bf" then
+		setProperty('camGame.zoom', getProperty('defaultCamZoom') + 0.075)
+	end
+end
 
 function onTimerCompleted(tag, loops, loopsleft)
 	if tag == 'squarestart' then
