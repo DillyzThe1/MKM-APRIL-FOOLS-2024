@@ -552,7 +552,7 @@ class MainMenuState extends MusicBeatState
 							break;
 						}
 					case 'test':
-						if (!CoolUtil.loadFreeplaySong("", "test", "Normal")) {
+						if (!CoolUtil.loadFreeplaySong("", "Test", "Normal")) {
 							trace("WARNING! Cannot load Test!");
 							FlxG.resetState();
 							break;
