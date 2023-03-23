@@ -33,6 +33,11 @@ function onCreatePost()
 	setProperty('camZooming', true)
 	
 	runHaxeCode('getMadeShader("nether").setBool("stopshader", true);')
+	--runHaxeCode('game.modchartSprites.get("mc_OG").shader = makeShader("grain");')
+	--runHaxeCode('getMadeShader("grain").setBool("colored", true);')
+	setShaderBool("mc_OG", "colored", true)
+	
+	setSpriteShader("mc_OG", "grain")
 end
 
 local alltime = 0
@@ -66,11 +71,14 @@ function onUpdatePost(e)
 	setProperty('camHUD.y', theofalltime2*10)
 	
 	if getProperty('mc_OG.visible') then
-		setProperty('mc_OG.scale.x', 1.4 + math.cos(alltime * 2.5) * 0.0025)
-		setProperty('mc_OG.scale.y', 1.4 - math.sin(alltime * 2.5) * 0.0025)
+		setProperty('mc_OG.scale.x', 1.4 + math.cos(alltime * 2.5) * 0.01)
+		setProperty('mc_OG.scale.y', 1.4 - math.sin(alltime * 2.5) * 0.01)
+		setProperty('mc_OG.alpha', 0.85 + math.sin(alltime * 1.5) * 0.15)
 	end
 	
 	runHaxeCode('getMadeShader("nether").setFloat("curtime", ' .. tostring(alltime) .. ');')
+	--runHaxeCode('getMadeShader("grain").setFloat("uTime", ' .. tostring(alltime) .. ');')
+	setShaderFloat("mc_OG", "uTime", alltime)
 end
 
 local tablejumpsquare = {}
