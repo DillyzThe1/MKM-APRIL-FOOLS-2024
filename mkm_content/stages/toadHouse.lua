@@ -20,12 +20,3 @@ function onCreatePost()
 	setProperty('floor line.active',false)
 	
 end
-
---local realElapsed = 0
-function onUpdatePostageNote(elapsed)
-	if mustHitSection then
-		cameraSetTarget('bf')
-	else 
-		cameraSetTarget('dad')
-	end
-end
