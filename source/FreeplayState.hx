@@ -230,14 +230,16 @@ class FreeplayState extends MusicBeatState
 		if (FlxG.keys.justPressed.R && FlxG.keys.pressed.SHIFT)
 		{
 			trace(songs[curIndex].songName + " " + songs[curIndex].unlockerKey);
-			ClientPrefs.setKeyUnlocked(songs[curIndex].unlockerKey, !ClientPrefs.getKeyUnlocked(songs[curIndex].unlockerKey));
+			var wasunlocked = ClientPrefs.getKeyUnlocked(songs[curIndex].unlockerKey);
+			ClientPrefs.setKeyUnlocked(songs[curIndex].unlockerKey, !wasunlocked);
 			var saieahiwahiwfaih:String = songs[curIndex].songName.toLowerCase().replace(" ", "-");
-			ClientPrefs.setKeyUnlocked(saieahiwahiwfaih + "-start", false);
+			ClientPrefs.setKeyUnlocked(saieahiwahiwfaih + "-start", !wasunlocked);
 			ClientPrefs.setKeyUnlocked(saieahiwahiwfaih + "-end", false);
 			CoolUtil.loadSongDiffs(songs[curIndex].songName);
 			@:privateAccess
-			for (i in 0...CoolUtil.difficulties.length)
-				Highscore.setScore(Highscore.formatSong(songs[curIndex].songName, i), 0);
+			if (wasunlocked)
+				for (i in 0...CoolUtil.difficulties.length)
+					Highscore.setScore(Highscore.formatSong(songs[curIndex].songName, i), 0);
 			FlxG.resetState();
 			return;
 		}
