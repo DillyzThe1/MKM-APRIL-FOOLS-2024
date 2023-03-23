@@ -5,12 +5,3 @@ function onCreatePost()
 	setProperty('mc.scale.x',1.4)
 	setProperty('mc.scale.y',1.4)
 end
-
---local realElapsed = 0
-function onUpdatePost(elapsed)
-	if mustHitSection then
-		cameraSetTarget('bf')
-	else 
-		cameraSetTarget('dad')
-	end
-end

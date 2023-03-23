@@ -8,12 +8,3 @@ function onCreatePost()
 	setProperty('mc.scrollFactor.y', 0.9)
 	setProperty('mc.active', false)
 end
-
---local realElapsed = 0
-function onUpdatePost(elapsed)
-	if mustHitSection then
-		cameraSetTarget('bf')
-	else 
-		cameraSetTarget('dad')
-	end
-end

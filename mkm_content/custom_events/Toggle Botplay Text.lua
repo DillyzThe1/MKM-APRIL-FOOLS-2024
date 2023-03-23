@@ -6,7 +6,7 @@ local botplaySine = 0
 function onCreatePost()
 	luaDebugMode = true
 	--luaDeprecatedWarnings = true
-	makeLuaText('fakeBotplay',getProperty('botplayTxt.text'),250,0,0)
+	makeLuaText('fakeBotplay', "BOTPLAY", 250, 0, 0)
 	setTextSize('fakeBotplay',40)
 	setTextBorder('fakeBotplay',2,'000000')
 	--setTextAlignment('fakeBotplay','center')

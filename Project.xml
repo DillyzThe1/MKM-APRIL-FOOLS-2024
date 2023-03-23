@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Friday Night Funkin': Mushroom Kingdom Madness" file="Mushroom Kingdom Madness" packageName="com.github.dillyzthe1.fnf.mkm" package="com.github.dillyzthe1.fnf.mkm" main="Main" version="1.5.0-dev" company="DillyzThe1" />
+	<app title="Friday Night Funkin': Mushroom Kingdom Madness" file="Mushroom Kingdom Madness" packageName="com.github.dillyzthe1.fnf.mkm" package="com.github.dillyzthe1.fnf.mkm" main="Main" version="1.5.0" company="DillyzThe1" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />

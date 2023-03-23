@@ -20,29 +20,37 @@ function tryBeat(newbeat)
 	return true
 end
 
+local onHardMode = false
+
 function onCreatePost()
-	setProperty('bg.alpha', 0)
-	setProperty('gf.alpha', 0)
-	setProperty('boyfriend.alpha', 0)
-	setProperty('spotlight.alpha', 0)
-	--
-	
-	
-	setProperty('dad.visible', false)
-	
-	setProperty('camHUD.alpha', 0)
-	setProperty('healthBar.alpha', 0)
-	setProperty('iconP2.visible',false)
-	setProperty('scoreTxt.visible',false)
-	
-	local aaa = getProperty("playerStrums.members.length") - 1
-	for i=0, aaa, 1 do 
-		setPropertyFromGroup('opponentStrums.members',i,'visible',false)
-		--setPropertyFromGroup('playerStrums.members',i,'visible',false)
+	if string.lower(difficultyName) == "hard" then
+		onHardMode = true
+		
+		setProperty('bg.alpha', 0)
+		setProperty('gf.alpha', 0)
+		setProperty('boyfriend.alpha', 0)
+		setProperty('spotlight.alpha', 0)
+		--
+		
+		
+		setProperty('dad.visible', false)
+		
+		setProperty('camHUD.alpha', 0)
+		setProperty('healthBar.alpha', 0)
+		setProperty('iconP2.visible',false)
+		setProperty('scoreTxt.visible',false)
+		
+		local aaa = getProperty("playerStrums.members.length") - 1
+		for i=0, aaa, 1 do 
+			setPropertyFromGroup('opponentStrums.members',i,'visible',false)
+			--setPropertyFromGroup('playerStrums.members',i,'visible',false)
+		end
+		--for i=keyCount/2, 0, 1 do 
+		--	setPropertyFromGroup('strumLineNotes.members',i,'alpha',0)
+		--end
+	else
+		triggerEvent('Change Credits', 'Composed by DillyzThe1', '')
 	end
-	--for i=keyCount/2, 0, 1 do 
-	--	setPropertyFromGroup('strumLineNotes.members',i,'alpha',0)
-	--end
 end
 
 function onCountdownTick(t)
@@ -53,63 +61,65 @@ end
 
 local activcam = false
 function onBeatHit()
-	if tryBeat(4) then
-		playAnim('boyfriend','intro',true)
-		--doTweenAlpha('funnyhudalpha','camHUD',0,1.25,'cubeInOut')
+	if onHardMode then
+		if tryBeat(4) then
+			playAnim('boyfriend','intro',true)
+			--doTweenAlpha('funnyhudalpha','camHUD',0,1.25,'cubeInOut')
+			
+			triggerEvent('Alt Idle Animation', 'Dad', '-null')
+			triggerEvent('Alt Idle Animation', 'BF', '-null')
+			triggerEvent('Camera Follow Pos', 650, 560)
+			setProperty('camZooming', true)
+			setProperty('defaultCamZoom', 1.25)
+			
+			runTimer('floorin', 8/24)
+			runTimer('floorout', 9/24)
+			runTimer('floorin1', 10/24)
+			runTimer('floorout1', 11/24)
+			runTimer('floorin2', 12/24)
+			runTimer('floorout2', 16/24)
+			runTimer('floorin3', 18/24)
+			
+			runTimer('squarestart', 94/24)
+			runTimer('squarezoom1', 154/24)
+			runTimer('squarezoom2', 174/24)
+			runTimer('squarezoom3', 208/24)
+			runTimer('squarezoom4', 292/24)
+			
+			runTimer('fadethebg', 336/24)
+			
+			runTimer('playable', 370/24)
+		end
 		
-		triggerEvent('Alt Idle Animation', 'Dad', '-null')
-		triggerEvent('Alt Idle Animation', 'BF', '-null')
-		triggerEvent('Camera Follow Pos', 650, 560)
-		setProperty('camZooming', true)
-		setProperty('defaultCamZoom', 1.25)
+		if activcam and curBeat >= 78 then
+			activcam = false
+			triggerEvent('Camera Follow Pos', '', '')
+			setProperty('defaultCamZoom', 0.9)
+		end
 		
-		runTimer('floorin', 8/24)
-		runTimer('floorout', 9/24)
-		runTimer('floorin1', 10/24)
-		runTimer('floorout1', 11/24)
-		runTimer('floorin2', 12/24)
-		runTimer('floorout2', 16/24)
-		runTimer('floorin3', 18/24)
+		if tryBeat(372) then
+			doTweenAlpha('funnyhudalpha', 'camHUD', 0, 1.15, 'cubeInOut')
+			triggerEvent('Camera Follow Pos', 500, 560)
+			setProperty('defaultCamZoom', 1.175)
+		end
 		
-		runTimer('squarestart', 94/24)
-		runTimer('squarezoom1', 154/24)
-		runTimer('squarezoom2', 174/24)
-		runTimer('squarezoom3', 208/24)
-		runTimer('squarezoom4', 292/24)
+		if tryBeat(375) then
+			triggerEvent('Camera Follow Pos', 650, 550)
+			setProperty('defaultCamZoom', 1)
+		end
 		
-		runTimer('fadethebg', 336/24)
+		if tryBeat(392) then
+			local timeeeeeeeeee = (stepCrochet / 1000) * 16
+			doTweenAlpha('gfaaaa', 'gf', 0, timeeeeeeeeee, 'quartInOut')
+			doTweenAlpha('bggggggg', 'bg', 0, timeeeeeeeeee, 'quartInOut')
+			doTweenAlpha('spotlighttween', 'spotlight', 0.5, timeeeeeeeeee, 'quartInOut')
+		end
 		
-		runTimer('playable', 370/24)
+		--if tryBeat(395) then
+		--	doTweenAlpha('spotlighttween', 'spotlight', 0, 0.5, 'quartInOut')
+		--	doTweenAlpha('bffffff', 'boyfriend', 0, 0.5, 'quartInOut')
+		--end
 	end
-	
-	if activcam and curBeat >= 78 then
-		activcam = false
-		triggerEvent('Camera Follow Pos', '', '')
-		setProperty('defaultCamZoom', 0.9)
-	end
-	
-	if tryBeat(372) then
-		doTweenAlpha('funnyhudalpha', 'camHUD', 0, 1.15, 'cubeInOut')
-		triggerEvent('Camera Follow Pos', 500, 560)
-		setProperty('defaultCamZoom', 1.175)
-	end
-	
-	if tryBeat(375) then
-		triggerEvent('Camera Follow Pos', 650, 550)
-		setProperty('defaultCamZoom', 1)
-	end
-	
-	if tryBeat(392) then
-		local timeeeeeeeeee = (stepCrochet / 1000) * 16
-		doTweenAlpha('gfaaaa', 'gf', 0, timeeeeeeeeee, 'quartInOut')
-		doTweenAlpha('bggggggg', 'bg', 0, timeeeeeeeeee, 'quartInOut')
-		doTweenAlpha('spotlighttween', 'spotlight', 0.5, timeeeeeeeeee, 'quartInOut')
-	end
-	
-	--if tryBeat(395) then
-	--	doTweenAlpha('spotlighttween', 'spotlight', 0, 0.5, 'quartInOut')
-	--	doTweenAlpha('bffffff', 'boyfriend', 0, 0.5, 'quartInOut')
-	--end
 end
 
 function onEvent(n, v1, v2)

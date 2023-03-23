@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "Toad Idle"
+		},
+		{
+			"offsets": [
+				60,
+				15
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Toad Note Up"
+		},
+		{
+			"offsets": [
+				97,
+				-2
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Toad Note Left"
+		},
+		{
+			"offsets": [
+				72,
+				-36
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Toad Note Down"
+		},
+		{
+			"offsets": [
+				23,
+				-28
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Toad Note Right"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/toad suspicious",
+	"position": [
+		60,
+		230
+	],
+	"healthicon": "toad-sus",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		0,
+		51
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}
