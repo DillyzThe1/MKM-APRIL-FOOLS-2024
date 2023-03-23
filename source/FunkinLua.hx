@@ -1058,10 +1058,10 @@ class FunkinLua
 		});
 		Lua_helper.add_callback(lua, "doTweenY", function(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
 		{
-			var penisExam:Dynamic = tweenShit(tag, vars);
-			if (penisExam != null)
+			var youreNotFunnyShadowMario:Dynamic = tweenShit(tag, vars);
+			if (youreNotFunnyShadowMario != null)
 			{
-				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(penisExam, {y: value}, duration, {
+				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(youreNotFunnyShadowMario, {y: value}, duration, {
 					ease: getFlxEaseByString(ease),
 					onComplete: function(twn:FlxTween)
 					{
@@ -1082,10 +1082,10 @@ class FunkinLua
 		Lua_helper.add_callback(lua, "doTweenAlpha", function(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
 		{
 			//trace(vars);
-			var penisExam:Dynamic = tweenShit(tag, vars);
-			if (penisExam != null)
+			var youreNotFunnyShadowMario:Dynamic = tweenShit(tag, vars);
+			if (youreNotFunnyShadowMario != null)
 			{
-				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(penisExam, {alpha: value}, duration, {
+				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(youreNotFunnyShadowMario, {alpha: value}, duration, {
 					ease: getFlxEaseByString(ease),
 					onComplete: function(twn:FlxTween)
 					{
@@ -1101,10 +1101,10 @@ class FunkinLua
 		});
 		Lua_helper.add_callback(lua, "doTweenZoom", function(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
 		{
-			var penisExam:Dynamic = tweenShit(tag, vars);
-			if (penisExam != null)
+			var youreNotFunnyShadowMario:Dynamic = tweenShit(tag, vars);
+			if (youreNotFunnyShadowMario != null)
 			{
-				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(penisExam, {zoom: value}, duration, {
+				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(youreNotFunnyShadowMario, {zoom: value}, duration, {
 					ease: getFlxEaseByString(ease),
 					onComplete: function(twn:FlxTween)
 					{
@@ -1120,16 +1120,16 @@ class FunkinLua
 		});
 		Lua_helper.add_callback(lua, "doTweenColor", function(tag:String, vars:String, targetColor:String, duration:Float, ease:String)
 		{
-			var penisExam:Dynamic = tweenShit(tag, vars);
-			if (penisExam != null)
+			var youreNotFunnyShadowMario:Dynamic = tweenShit(tag, vars);
+			if (youreNotFunnyShadowMario != null)
 			{
 				var color:Int = Std.parseInt(targetColor);
 				if (!targetColor.startsWith('0x'))
 					color = Std.parseInt('0xff' + targetColor);
 
-				var curColor:FlxColor = penisExam.color;
-				curColor.alphaFloat = penisExam.alpha;
-				PlayState.instance.modchartTweens.set(tag, FlxTween.color(penisExam, duration, curColor, color, {
+				var curColor:FlxColor = youreNotFunnyShadowMario.color;
+				curColor.alphaFloat = youreNotFunnyShadowMario.alpha;
+				PlayState.instance.modchartTweens.set(tag, FlxTween.color(youreNotFunnyShadowMario, duration, curColor, color, {
 					ease: getFlxEaseByString(ease),
 					onComplete: function(twn:FlxTween)
 					{
@@ -1203,11 +1203,11 @@ class FunkinLua
 			cancelTween(tag);
 			if (note < 0)
 				note = 0;
-			var testicle:StrumNote = PlayState.instance.strumLineNotes.members[note % PlayState.instance.strumLineNotes.length];
+			var stillNotFunnyMan:StrumNote = PlayState.instance.strumLineNotes.members[note % PlayState.instance.strumLineNotes.length];
 
-			if (testicle != null)
+			if (stillNotFunnyMan != null)
 			{
-				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(testicle, {x: value}, duration, {
+				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(stillNotFunnyMan, {x: value}, duration, {
 					ease: getFlxEaseByString(ease),
 					onComplete: function(twn:FlxTween)
 					{
@@ -1222,11 +1222,11 @@ class FunkinLua
 			cancelTween(tag);
 			if (note < 0)
 				note = 0;
-			var testicle:StrumNote = PlayState.instance.strumLineNotes.members[note % PlayState.instance.strumLineNotes.length];
+			var stillNotFunnyMan:StrumNote = PlayState.instance.strumLineNotes.members[note % PlayState.instance.strumLineNotes.length];
 
-			if (testicle != null)
+			if (stillNotFunnyMan != null)
 			{
-				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(testicle, {y: value}, duration, {
+				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(stillNotFunnyMan, {y: value}, duration, {
 					ease: getFlxEaseByString(ease),
 					onComplete: function(twn:FlxTween)
 					{
@@ -1241,11 +1241,11 @@ class FunkinLua
 			cancelTween(tag);
 			if (note < 0)
 				note = 0;
-			var testicle:StrumNote = PlayState.instance.strumLineNotes.members[note % PlayState.instance.strumLineNotes.length];
+			var stillNotFunnyMan:StrumNote = PlayState.instance.strumLineNotes.members[note % PlayState.instance.strumLineNotes.length];
 
-			if (testicle != null)
+			if (stillNotFunnyMan != null)
 			{
-				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(testicle, {angle: value}, duration, {
+				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(stillNotFunnyMan, {angle: value}, duration, {
 					ease: getFlxEaseByString(ease),
 					onComplete: function(twn:FlxTween)
 					{
@@ -1260,11 +1260,11 @@ class FunkinLua
 			cancelTween(tag);
 			if (note < 0)
 				note = 0;
-			var testicle:StrumNote = PlayState.instance.strumLineNotes.members[note % PlayState.instance.strumLineNotes.length];
+			var stillNotFunnyMan:StrumNote = PlayState.instance.strumLineNotes.members[note % PlayState.instance.strumLineNotes.length];
 
-			if (testicle != null)
+			if (stillNotFunnyMan != null)
 			{
-				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(testicle, {direction: value}, duration, {
+				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(stillNotFunnyMan, {direction: value}, duration, {
 					ease: getFlxEaseByString(ease),
 					onComplete: function(twn:FlxTween)
 					{
@@ -1316,11 +1316,11 @@ class FunkinLua
 			cancelTween(tag);
 			if (note < 0)
 				note = 0;
-			var testicle:StrumNote = PlayState.instance.strumLineNotes.members[note % PlayState.instance.strumLineNotes.length];
+			var stillNotFunnyMan:StrumNote = PlayState.instance.strumLineNotes.members[note % PlayState.instance.strumLineNotes.length];
 
-			if (testicle != null)
+			if (stillNotFunnyMan != null)
 			{
-				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(testicle, {angle: value}, duration, {
+				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(stillNotFunnyMan, {angle: value}, duration, {
 					ease: getFlxEaseByString(ease),
 					onComplete: function(twn:FlxTween)
 					{
@@ -1335,11 +1335,11 @@ class FunkinLua
 			cancelTween(tag);
 			if (note < 0)
 				note = 0;
-			var testicle:StrumNote = PlayState.instance.strumLineNotes.members[note % PlayState.instance.strumLineNotes.length];
+			var stillNotFunnyMan:StrumNote = PlayState.instance.strumLineNotes.members[note % PlayState.instance.strumLineNotes.length];
 
-			if (testicle != null)
+			if (stillNotFunnyMan != null)
 			{
-				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(testicle, {alpha: value}, duration, {
+				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(stillNotFunnyMan, {alpha: value}, duration, {
 					ease: getFlxEaseByString(ease),
 					onComplete: function(twn:FlxTween)
 					{
@@ -3420,10 +3420,10 @@ class FunkinLua
 
 	function doTweenX(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
 	{
-		var penisExam:Dynamic = tweenShit(tag, vars);
-		if (penisExam != null)
+		var youreNotFunnyShadowMario:Dynamic = tweenShit(tag, vars);
+		if (youreNotFunnyShadowMario != null)
 		{
-			PlayState.instance.modchartTweens.set(tag, FlxTween.tween(penisExam, {x: value}, duration, {
+			PlayState.instance.modchartTweens.set(tag, FlxTween.tween(youreNotFunnyShadowMario, {x: value}, duration, {
 				ease: getFlxEaseByString(ease),
 				onComplete: function(twn:FlxTween)
 				{
@@ -3440,10 +3440,10 @@ class FunkinLua
 
 	function doTweenAngle(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
 	{
-		var penisExam:Dynamic = tweenShit(tag, vars);
-		if (penisExam != null)
+		var youreNotFunnyShadowMario:Dynamic = tweenShit(tag, vars);
+		if (youreNotFunnyShadowMario != null)
 		{
-			PlayState.instance.modchartTweens.set(tag, FlxTween.tween(penisExam, {angle: value}, duration, {
+			PlayState.instance.modchartTweens.set(tag, FlxTween.tween(youreNotFunnyShadowMario, {angle: value}, duration, {
 				ease: getFlxEaseByString(ease),
 				onComplete: function(twn:FlxTween)
 				{
