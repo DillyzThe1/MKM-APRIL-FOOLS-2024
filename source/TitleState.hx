@@ -108,6 +108,8 @@ class TitleState extends MusicBeatState
 
 		ClientPrefs.loadPrefs();
 
+		MainMenuState.mushroomKingdomMadnessVersion = Application.current.meta.get('version');
+
 		#if CHECK_FOR_UPDATES
 		if (!closedState)
 		{
