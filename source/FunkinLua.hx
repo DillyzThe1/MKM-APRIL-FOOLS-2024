@@ -1081,7 +1081,7 @@ class FunkinLua
 		});
 		Lua_helper.add_callback(lua, "doTweenAlpha", function(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
 		{
-			trace(vars);
+			//trace(vars);
 			var penisExam:Dynamic = tweenShit(tag, vars);
 			if (penisExam != null)
 			{
