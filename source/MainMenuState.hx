@@ -65,7 +65,6 @@ class MainMenuState extends MusicBeatState
 
 	override function create()
 	{
-		mushroomKingdomMadnessVersion = Application.current.meta.get('version');
 		Paths.pushGlobalMods();
 		WeekData.loadTheFirstEnabledMod();
 
