@@ -1,4 +1,4 @@
-1.1.0
-3
-https://drive.google.com/file/d/135Z1PUmwjr6h_DewJ3yNs2eLEM6A3tr4/view
-A small update adding a few QOL features.
+1.5.1
+4
+https://drive.google.com/file/d/1xJBZP-h8n3GimyxM5ZubDKgcgleYBGg5/view
+A huge update extending upon 1.0
