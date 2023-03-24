@@ -3624,6 +3624,8 @@ class FunkinLua
 				return PlayState.instance.camHUD;
 			case 'camother' | 'other':
 				return PlayState.instance.camOther;
+			case 'camcaptions' | 'captions':
+				return PlayState.instance.camCaptions;
 		}
 		return PlayState.instance.camGame;
 	}

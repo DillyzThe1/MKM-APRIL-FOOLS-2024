@@ -23,7 +23,7 @@ end
 
 function onEvent(n,v1,v2)
 	if string.lower(n) == 'nes jumpscare' then 
-		cameraFlash('camHUD','0xFFFFFFFF',1.25,true)
+		cameraFlash('camOther','0xFFFFFFFF',1.25,true)
 		
 		if string.lower(v1) == 'true' or string.lower(v1) == 't' or string.lower(v1) == '1' then 
 			setProperty('gf.alpha',0)

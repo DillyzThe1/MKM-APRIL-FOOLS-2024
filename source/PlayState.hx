@@ -305,6 +305,7 @@ class PlayState extends MusicBeatState
 	public var camHUD:FlxCamera;
 	public var camGame:FlxCamera;
 	public var camOther:FlxCamera;
+	public var camCaptions:FlxCamera;
 	public var cameraSpeed:Float = 1;
 
 	var dialogue:Array<String> = ['blah blah blah', 'coolswag'];
@@ -585,18 +586,19 @@ class PlayState extends MusicBeatState
 		camGame = new FlxCamera();
 		camHUD = new FlxCamera();
 		camOther = new FlxCamera();
-		camHUD.bgColor.alpha = 0;
-		camOther.bgColor.alpha = 0;
+		camCaptions = new FlxCamera();
+		camHUD.bgColor.alpha = camOther.bgColor.alpha = camCaptions.bgColor.alpha = 0;
 
 		// getting around DCE
-		camHUD.alpha = camGame.alpha = camOther.alpha = 1;
+		camHUD.alpha = camGame.alpha = camOther.alpha = camCaptions.alpha = 1;
 
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camHUD, false);
 		FlxG.cameras.add(camOther, false);
+		FlxG.cameras.add(camCaptions, false);
 		grpNoteSplashes = new FlxTypedGroup<NoteSplash>();
 
-		CustomFadeTransition.nextCamera = camOther;
+		CustomFadeTransition.nextCamera = camCaptions;
 		// FlxG.cameras.setDefaultDrawTarget(camGame, true);
 
 		persistentUpdate = true;
@@ -1133,9 +1135,9 @@ class PlayState extends MusicBeatState
 					Paths.music(key);
 			}
 		}
-		CustomFadeTransition.nextCamera = camOther;
+		CustomFadeTransition.nextCamera = camCaptions;
 
-		closedCaptions = new CaptionObject("", [camOther]);
+		closedCaptions = new CaptionObject("", [camCaptions]);
 		closedCaptions.animate = true;
 		add(closedCaptions);
 	}
