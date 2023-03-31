@@ -4473,7 +4473,7 @@ class PlayState extends MusicBeatState
 
 	override function destroy()
 	{
-		Application.current.window.title = "Friday Night Funkin': Mushroom Kingdom Madness";
+		lime.app.Application.current.window.title = "Friday Night Funkin': Mushroom Kingdom Madness";
 		for (lua in luaArray)
 		{
 			lua.call('onDestroy', []);
