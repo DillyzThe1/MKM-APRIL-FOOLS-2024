@@ -27,12 +27,15 @@ import flixel.util.FlxTimer;
 import hscript.Interp;
 import hscript.Interp;
 import hscript.Parser;
+import lime.app.Application;
+import lime.math.Rectangle;
 import llua.Convert;
 import llua.Lua;
 import llua.LuaL;
 import llua.LuaL;
 import llua.State;
 import openfl.Lib;
+import openfl.display.BitmapData;
 import openfl.display.BlendMode;
 import openfl.filters.BitmapFilter;
 import openfl.filters.BlurFilter;
@@ -1921,26 +1924,58 @@ class FunkinLua
 				object.makeGraphic(width, height, colorNum);
 			}
 		});
+
+		Lua_helper.add_callback(lua, "makeGraphicFromScreenshot", function(obj:String)
+		{
+			var windowww:lime.ui.Window = Application.current.window;
+			var funnyhahaha:Float = (windowww.height/9)*16;
+			var screenshotdata:BitmapData = BitmapData.fromImage(windowww.readPixels(new Rectangle((windowww.width - funnyhahaha) / 2, 0, funnyhahaha, windowww.height)));
+
+			var spr:FlxSprite = PlayState.instance.getLuaObject(obj, false);
+			if (spr != null)
+			{
+				spr.loadGraphic(screenshotdata);
+				spr.setGraphicSize(1280, 720);
+				return;
+			}
+
+			var object:FlxSprite = Reflect.getProperty(getInstance(), obj);
+			if (object != null) {
+				object.loadGraphic(screenshotdata);
+				object.setGraphicSize(1280, 720);
+			}
+		});
+
+		Lua_helper.add_callback(lua, "setWindowTitle", function(newtitle:String)
+		{
+			if (newtitle == "" || newtitle == null || newtitle == "default")
+			{
+				Application.current.window.title = "Friday Night Funkin': Mushroom Kingdom Madness";
+				return;
+			}
+			Application.current.window.title = newtitle;
+		});
+
 		Lua_helper.add_callback(lua, "addAnimationByPrefix", function(obj:String, name:String, prefix:String, framerate:Int = 24, loop:Bool = true)
 		{
 			if (PlayState.instance.getLuaObject(obj, false) != null)
 			{
-				var cock:FlxSprite = PlayState.instance.getLuaObject(obj, false);
-				cock.animation.addByPrefix(name, prefix, framerate, loop);
-				if (cock.animation.curAnim == null)
+				var chickenvseggsplatfest:FlxSprite = PlayState.instance.getLuaObject(obj, false);
+				chickenvseggsplatfest.animation.addByPrefix(name, prefix, framerate, loop);
+				if (chickenvseggsplatfest.animation.curAnim == null)
 				{
-					cock.animation.play(name, true);
+					chickenvseggsplatfest.animation.play(name, true);
 				}
 				return;
 			}
 
-			var cock:FlxSprite = Reflect.getProperty(getInstance(), obj);
-			if (cock != null)
+			var chickenvseggsplatfest:FlxSprite = Reflect.getProperty(getInstance(), obj);
+			if (chickenvseggsplatfest != null)
 			{
-				cock.animation.addByPrefix(name, prefix, framerate, loop);
-				if (cock.animation.curAnim == null)
+				chickenvseggsplatfest.animation.addByPrefix(name, prefix, framerate, loop);
+				if (chickenvseggsplatfest.animation.curAnim == null)
 				{
-					cock.animation.play(name, true);
+					chickenvseggsplatfest.animation.play(name, true);
 				}
 			}
 		});
@@ -1949,22 +1984,22 @@ class FunkinLua
 		{
 			if (PlayState.instance.getLuaObject(obj, false) != null)
 			{
-				var cock:FlxSprite = PlayState.instance.getLuaObject(obj, false);
-				cock.animation.add(name, frames, framerate, loop);
-				if (cock.animation.curAnim == null)
+				var chickenvseggsplatfest:FlxSprite = PlayState.instance.getLuaObject(obj, false);
+				chickenvseggsplatfest.animation.add(name, frames, framerate, loop);
+				if (chickenvseggsplatfest.animation.curAnim == null)
 				{
-					cock.animation.play(name, true);
+					chickenvseggsplatfest.animation.play(name, true);
 				}
 				return;
 			}
 
-			var cock:FlxSprite = Reflect.getProperty(getInstance(), obj);
-			if (cock != null)
+			var chickenvseggsplatfest:FlxSprite = Reflect.getProperty(getInstance(), obj);
+			if (chickenvseggsplatfest != null)
 			{
-				cock.animation.add(name, frames, framerate, loop);
-				if (cock.animation.curAnim == null)
+				chickenvseggsplatfest.animation.add(name, frames, framerate, loop);
+				if (chickenvseggsplatfest.animation.curAnim == null)
 				{
-					cock.animation.play(name, true);
+					chickenvseggsplatfest.animation.play(name, true);
 				}
 			}
 		});
@@ -2969,11 +3004,11 @@ class FunkinLua
 			luaTrace("luaSpriteAddAnimationByPrefix is deprecated! Use addAnimationByPrefix instead", false, true);
 			if (PlayState.instance.modchartSprites.exists(tag))
 			{
-				var cock:ModchartSprite = PlayState.instance.modchartSprites.get(tag);
-				cock.animation.addByPrefix(name, prefix, framerate, loop);
-				if (cock.animation.curAnim == null)
+				var chickenvseggsplatfest:ModchartSprite = PlayState.instance.modchartSprites.get(tag);
+				chickenvseggsplatfest.animation.addByPrefix(name, prefix, framerate, loop);
+				if (chickenvseggsplatfest.animation.curAnim == null)
 				{
-					cock.animation.play(name, true);
+					chickenvseggsplatfest.animation.play(name, true);
 				}
 			}
 		});
