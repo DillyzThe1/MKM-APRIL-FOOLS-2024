@@ -98,25 +98,25 @@ class CreditsState extends MusicBeatState
 				'505050'
 			],
 			[''],
-			['Psych Engine Team'],
+			[' Engine Team'],
 			[
 				'Shadow Mario',
 				'shadowmario',
-				'Main Programmer of Psych Engine',
+				'Main Programmer of  Engine',
 				'https://twitter.com/Shadow_Mario_',
 				'444444'
 			],
 			[
 				'RiverOaken',
 				'river',
-				'Main Artist/Animator of Psych Engine',
+				'Main Artist/Animator of  Engine',
 				'https://twitter.com/RiverOaken',
 				'B42F71'
 			],
 			[
 				'shubs',
 				'shubs',
-				'Additional Programmer of Psych Engine',
+				'Additional Programmer of  Engine',
 				'https://twitter.com/yoshubs',
 				'5E99DF'
 			],
@@ -125,7 +125,7 @@ class CreditsState extends MusicBeatState
 			[
 				'bb-panzu',
 				'bb',
-				'Ex-Programmer of Psych Engine',
+				'Ex-Programmer of  Engine',
 				'https://twitter.com/bbsub3',
 				'3E813A'
 			],
@@ -134,7 +134,7 @@ class CreditsState extends MusicBeatState
 			[
 				'iFlicky',
 				'flicky',
-				'Composer of Psync and Tea Time\nMade the Dialogue Sounds',
+				'Composer of  and  \nMade the  Sounds',
 				'https://twitter.com/flicky_i',
 				'9E29CF'
 			],
@@ -181,32 +181,32 @@ class CreditsState extends MusicBeatState
 				'483D92'
 			],
 			[''],
-			["Funkin' Crew"],
+			["' Crew"],
 			[
 				'ninjamuffin99',
 				'ninjamuffin99',
-				"Programmer of Friday Night Funkin'",
+				"Programmer of   '",
 				'https://twitter.com/ninja_muffin99',
 				'CF2D2D'
 			],
 			[
 				'PhantomArcade',
 				'phantomarcade',
-				"Animator of Friday Night Funkin'",
+				"Animator of   '",
 				'https://twitter.com/PhantomArcade3K',
 				'FADC45'
 			],
 			[
 				'evilsk8r',
 				'evilsk8r',
-				"Artist of Friday Night Funkin'",
+				"Artist of   '",
 				'https://twitter.com/evilsk8r',
 				'5ABD4B'
 			],
 			[
 				'kawaisprite',
 				'kawaisprite',
-				"Composer of Friday Night Funkin'",
+				"Composer of   '",
 				'https://twitter.com/kawaisprite',
 				'378FC7'
 			]

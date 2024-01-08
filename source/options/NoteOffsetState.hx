@@ -18,8 +18,9 @@ using StringTools;
 
 class NoteOffsetState extends MusicBeatState
 {
-	var boyfriend:Character;
-	var gf:Character;
+	var fred:Character;
+	var toad:Character;
+	var speakers:Character;
 
 	public var camHUD:FlxCamera;
 	public var camGame:FlxCamera;
@@ -87,15 +88,19 @@ class NoteOffsetState extends MusicBeatState
 		}
 
 		// Characters
-		gf = new Character(400, 130, 'gf');
-		gf.x += gf.positionArray[0];
-		gf.y += gf.positionArray[1];
-		gf.scrollFactor.set(0.95, 0.95);
-		boyfriend = new Character(770, 100, 'bf', true);
-		boyfriend.x += boyfriend.positionArray[0];
-		boyfriend.y += boyfriend.positionArray[1];
-		add(gf);
-		add(boyfriend);
+		speakers = new Character(400, 130, 'speakers');
+		speakers.x += speakers.positionArray[0];
+		speakers.y += speakers.positionArray[1];
+		speakers.scrollFactor.set(0.95, 0.95);
+		add(speakers);
+		fred = new Character(100, 100, 'uncle-fred', false);
+		fred.x += fred.positionArray[0];
+		fred.y += fred.positionArray[1];
+		add(fred);
+		toad = new Character(770, 100, 'toad-playerr', true);
+		toad.x += toad.positionArray[0];
+		toad.y += toad.positionArray[1];
+		add(toad);
 
 		// Combo stuff
 
@@ -375,8 +380,9 @@ class NoteOffsetState extends MusicBeatState
 
 		if(curBeat % 2 == 0)
 		{
-			boyfriend.dance();
-			gf.dance();
+			fred.dance();
+			toad.dance();
+			speakers.dance();
 		}
 		
 		if(curBeat % 4 == 2)

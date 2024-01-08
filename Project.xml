@@ -34,7 +34,7 @@
 
 	<classpath name="source" />
 	
-	<!-- PSYCH ENGINE CUSTOMIZATION -->
+	<!-- ENGINE CUSTOMIZATION -->
 	<define name="MODS_ALLOWED"/>
 	<define name="LUA_ALLOWED" if="desktop" />
 	<!-- <define name="ACHIEVEMENTS_ALLOWED" /> they're broken so i'm gonna rewrite them in 2.0 or if i feel like having time for 1.5 -->

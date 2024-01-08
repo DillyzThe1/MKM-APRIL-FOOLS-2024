@@ -35,7 +35,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 	private var checkboxGroup:FlxTypedGroup<CheckboxThingie>;
 	private var grpTexts:FlxTypedGroup<AttachedText>;
 
-	private var boyfriend:Character = null;
+	private var toad:Character = null;
 	private var descBox:FlxSprite;
 	private var descText:FlxText;
 
@@ -115,9 +115,9 @@ class BaseOptionsMenu extends MusicBeatSubstate
 				optionsArray[i].setChild(valueText);
 			}
 
-			if (optionsArray[i].showBoyfriend && boyfriend == null)
+			if (optionsArray[i].showToad && toad == null)
 			{
-				reloadBoyfriend();
+				reloadToad();
 			}
 			updateTextFrom(optionsArray[i]);
 		}
@@ -284,9 +284,9 @@ class BaseOptionsMenu extends MusicBeatSubstate
 			}
 		}
 
-		if (boyfriend != null && boyfriend.animation.curAnim.finished)
+		if (toad != null && toad.animation.curAnim.finished)
 		{
-			boyfriend.dance();
+			toad.dance();
 		}
 
 		if (nextAccept > 0)
@@ -353,31 +353,31 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		descBox.setGraphicSize(Std.int(descText.width + 20), Std.int(descText.height + 25));
 		descBox.updateHitbox();
 
-		if (boyfriend != null)
+		if (toad != null)
 		{
-			boyfriend.visible = optionsArray[curSelected].showBoyfriend;
+			toad.visible = optionsArray[curSelected].showToad;
 		}
 		curOption = optionsArray[curSelected]; // shorter lol
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 
-	public function reloadBoyfriend()
+	public function reloadToad()
 	{
 		var wasVisible:Bool = false;
-		if (boyfriend != null)
+		if (toad != null)
 		{
-			wasVisible = boyfriend.visible;
-			boyfriend.kill();
-			remove(boyfriend);
-			boyfriend.destroy();
+			wasVisible = toad.visible;
+			toad.kill();
+			remove(toad);
+			toad.destroy();
 		}
 
-		boyfriend = new Character(840, 170, 'bf', true);
-		boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
-		boyfriend.updateHitbox();
-		boyfriend.dance();
-		insert(1, boyfriend);
-		boyfriend.visible = wasVisible;
+		toad = new Character(840, 170, 'toad-playerr', true);
+		toad.setGraphicSize(Std.int(toad.width * 0.75));
+		toad.updateHitbox();
+		toad.dance();
+		insert(1, toad);
+		toad.visible = wasVisible;
 	}
 
 	function reloadCheckboxes()
