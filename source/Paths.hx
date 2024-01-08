@@ -44,8 +44,7 @@ class Paths
 
 	public static var dumpExclusions:Array<String> = [
 		'assets/music/toadMenu.ogg',
-		'assets/shared/music/breakfast.ogg',
-		'assets/shared/music/tea-time.ogg',
+		'assets/shared/music/betwixt-the-chaos.ogg'
 	];
 
 	/// haya I love you for the base cache dump I took to the max

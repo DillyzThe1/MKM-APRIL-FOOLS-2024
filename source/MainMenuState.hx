@@ -360,7 +360,7 @@ class MainMenuState extends MusicBeatState
 									#if VIDEOS_ALLOWED
 									case 'album':
 										var video:MP4Handler = new MP4Handler();
-										video.playVideo(Paths.video('fnf fans'));
+										video.playVideo(Paths.video('fans'));
 										video.finishCallback = function()
 										{
 											MusicBeatState.switchState(new MainMenuState());

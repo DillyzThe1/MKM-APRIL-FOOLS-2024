@@ -1097,7 +1097,7 @@ class PlayState extends MusicBeatState
 		}
 		else if (ClientPrefs.pauseMusic != 'None')
 		{
-			precacheList.set(Paths.formatToSongPath(ClientPrefs.pauseMusic), 'music');
+			precacheList.set(Paths.formatToSongPath('Betwixt The Chaos'), 'music');
 		}
 
 		// Updating Discord Rich Presence.

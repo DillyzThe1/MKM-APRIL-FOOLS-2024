@@ -65,7 +65,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		option.onChange = onChangeFPSCounter;
 
 		var option:Option = new Option('Pause Screen Song:', "What song do you prefer for the Pause Screen?", 'pauseMusic', 'string', 'Betwixt The Chaos',
-			['None', 'Breakfast', 'Tea Time', 'Betwixt The Chaos']);
+			['None', 'Betwixt The Chaos']);
 		addOption(option);
 		option.onChange = onChangePauseMusic;
 
@@ -85,7 +85,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		if (ClientPrefs.pauseMusic == 'None')
 			FlxG.sound.music.volume = 0;
 		else
-			FlxG.sound.playMusic(Paths.music(Paths.formatToSongPath(ClientPrefs.pauseMusic)));
+			FlxG.sound.playMusic(Paths.music(Paths.formatToSongPath('Betwixt The Chaos')));
 
 		changedMusic = true;
 	}

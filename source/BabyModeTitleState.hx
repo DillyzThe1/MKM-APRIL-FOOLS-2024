@@ -123,7 +123,7 @@ class DangerIcon extends FlxSprite {
     var mbToFollow:FlxSprite;
     public function new(mbToFollow:FlxSprite) {
         super();
-        loadGraphic(Paths.image("babymode/Danger - Friday Night Funkin' Vs Impostor", "preload"));
+        loadGraphic(Paths.image("babymode/Danger - Vs Impostor", "preload"));
         scale.x = scale.y = 0.5;
         antialiasing = ClientPrefs.globalAntialiasing;
 
