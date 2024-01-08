@@ -1950,7 +1950,7 @@ class FunkinLua
 		{
 			if (newtitle == "" || newtitle == null || newtitle == "default")
 			{
-				Application.current.window.title = "Friday Night Funkin': Mushroom Kingdom Madness";
+				Application.current.window.title = "': Mushroom Kingdom Madness";
 				return;
 			}
 			Application.current.window.title = newtitle;

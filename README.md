@@ -1,4 +1,4 @@
-# Friday Night Funkin' - Mushroom Kingdom Madness
+# ' - Mushroom Kingdom Madness
 [![](https://img.shields.io/github/repo-size/DillyzThe1/FNF-MKM)](../../archive/refs/heads/main.zip)<br/>
 <i>* Disclaimer: This mod is a fork of [Psych Engine](https://github.com/ShadowMario/FNF-PsychEngine). I did not program most features of this.</i><br>
 <i>* Also, all rights to Toad go to Nintendo and they can say if this mod needs to be taken away or not.</i><br>

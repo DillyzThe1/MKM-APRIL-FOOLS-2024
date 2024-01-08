@@ -21,7 +21,7 @@ function onEvent(n,v1,v2)
 			screenCenter('screenshot')
 
 			setProperty('freezeOverlay.alpha',0.25)
-			setWindowTitle('Friday Night Funkin\': Mushroom Kingdom Madness (Not Responding)')
+			setWindowTitle('\': Mushroom Kingdom Madness (Not Responding)')
 		else 
 			removeLuaSprite('screenshot', false)
 
