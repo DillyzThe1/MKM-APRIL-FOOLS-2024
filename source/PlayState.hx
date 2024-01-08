@@ -262,6 +262,7 @@ class PlayState extends MusicBeatState
 
 	public var gfSpeed:Int = 1;
 	public var health:Float = 1;
+	public var health_display:Float = 1;
 	public var combo:Int = 0;
 
 	private var healthBarBG:AttachedSprite;
@@ -400,6 +401,7 @@ class PlayState extends MusicBeatState
 		}*/
 	}
 
+	public var isSoloMode:Bool = false;
 	public var doMiddleScroll:Bool = false;
 	public var hideOpponentArrows:Bool = false;
 
@@ -518,8 +520,9 @@ class PlayState extends MusicBeatState
 	{
 		Paths.clearStoredMemory();
 
-		doMiddleScroll = ClientPrefs.middleScroll;
-		hideOpponentArrows = !ClientPrefs.opponentStrums;
+		isSoloMode = SONG.soloMode;
+		doMiddleScroll = ClientPrefs.middleScroll || isSoloMode;
+		hideOpponentArrows = !ClientPrefs.opponentStrums || isSoloMode;
 
 		// for lua
 		instance = this;
@@ -983,7 +986,7 @@ class PlayState extends MusicBeatState
 			healthBarBG.y = 0.11 * FlxG.height;
 
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
-			'health', 0, 2);
+			'health_display', 0, 2);
 		healthBar.scrollFactor.set();
 		// healthBar
 		healthBar.visible = !ClientPrefs.hideHud;
@@ -2525,6 +2528,7 @@ class PlayState extends MusicBeatState
 		if (inCutscene && DiscordClient.lastDetails != detailsCutsceneText)
 			DiscordClient.changePresence(detailsCutsceneText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 
+		health_display = SONG.reverseHealth ? 2 - health : health;
 		setOnLuas('cameraX', camFollowPos.x);
 		setOnLuas('cameraY', camFollowPos.y);
 		setOnLuas('botPlay', cpuControlled);

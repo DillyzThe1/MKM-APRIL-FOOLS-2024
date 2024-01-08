@@ -3,8 +3,8 @@ local textY = 0
 
 function onCreate()
 	if string.lower(difficultyName) == "alpha" then
-		setProperty("doMiddleScroll", false)
-		setProperty("hideOpponentArrows", false)
+		setProperty("doMiddleScroll", getProperty("isSoloMode"))
+		setProperty("hideOpponentArrows", getProperty("isSoloMode"))
 	end
 end
 

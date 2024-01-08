@@ -238,7 +238,9 @@ class ChartingState extends MusicBeatState
 				stage: 'stage',
 				validScore: false,
 				mania: 0,
-				audioPostfix: ""
+				audioPostfix: "",
+				soloMode: false,
+				reverseHealth: false
 			};
 			addSection();
 			PlayState.SONG = _song;
@@ -654,6 +656,15 @@ class ChartingState extends MusicBeatState
 		tab_group_song.name = "Song";
 		tab_group_song.add(UI_songTitle);
 
+		// super checkio
+		var soloMode_check = new FlxUICheckBox(stageDropDown.x, gfVersionDropDown.y, null, null, "Solo Mode", 100);
+		soloMode_check.checked = _song.soloMode;
+		soloMode_check.callback = function() { _song.soloMode = soloMode_check.checked; };
+
+		var reverseHealth_check = new FlxUICheckBox(stageDropDown.x, player2DropDown.y, null, null, "Reverse Health", 100);
+		reverseHealth_check.checked = _song.reverseHealth;
+		reverseHealth_check.callback = function() { _song.reverseHealth = reverseHealth_check.checked; };
+
 		tab_group_song.add(check_voices);
 		tab_group_song.add(clear_events);
 		tab_group_song.add(clear_notes);
@@ -669,6 +680,10 @@ class ChartingState extends MusicBeatState
 		tab_group_song.add(reloadNotesButton);
 		tab_group_song.add(noteSkinInputText);
 		tab_group_song.add(noteSplashesInputText);
+
+		tab_group_song.add(soloMode_check);
+		tab_group_song.add(reverseHealth_check);
+
 		tab_group_song.add(new FlxText(stepperBPM.x, stepperBPM.y - 15, 0, 'Song BPM:'));
 		tab_group_song.add(new FlxText(stepperBPM.x + 100, stepperBPM.y - 15, 0, 'Song Offset:'));
 		tab_group_song.add(new FlxText(stepperSpeed.x, stepperSpeed.y - 15, 0, 'Song Speed:'));

@@ -28,6 +28,8 @@ typedef SwagSong =
 	var mania:Int;
 
 	var audioPostfix:String;
+	var soloMode:Bool;
+	var reverseHealth:Bool;
 }
 
 class Song
@@ -45,7 +47,10 @@ class Song
 	public var player2:String = 'dad';
 	public var gfVersion:String = 'gf';
 	public var keyCount:Int;
+
 	public var audioPostfix:String;
+	public var soloMode:Bool;
+	public var reverseHealth:Bool;
 
 	private static function onLoadJson(songJson:Dynamic) // Convert old charts to newest format
 	{
@@ -86,6 +91,10 @@ class Song
 
 		if (songJson.audioPostfix == null)
 			songJson.audioPostfix = "";
+		if (songJson.soloMode == null)
+			songJson.soloMode = false;
+		if (songJson.reverseHealth == null)
+			songJson.reverseHealth = false;
 	}
 
 	public function new(song, notes, bpm)
