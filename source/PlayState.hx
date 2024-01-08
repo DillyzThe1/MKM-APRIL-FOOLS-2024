@@ -4030,6 +4030,8 @@ class PlayState extends MusicBeatState
 		// prevent missing notes you can't hit
 		if (daNote != null && Note.noteManiaSettings[PlayState.keyCount].length > 10) {
 			var intsofalltime:Array<Int> = Note.noteManiaSettings[PlayState.keyCount][10];
+			if (!daNote.isSustainNote)
+				FlxG.sound.play(Paths.soundRandom('missnote', 1, 3), FlxG.random.float(0.1, 0.2));
 			if (intsofalltime != null && intsofalltime[daNote.noteData % intsofalltime.length] == -1) {
 				daNote.kill();
 				notes.remove(daNote, true);
