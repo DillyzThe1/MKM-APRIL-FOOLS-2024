@@ -1,0 +1,18 @@
+{
+	"song": {
+		"player1": "bf",
+		"gfVersion": "bf",
+		"notes": [],
+		"events": [],
+		"player2": "bf",
+		"mania": 0,
+		"splashSkin": "noteSplashes",
+		"song": "Brrrrr",
+		"needsVoices": false,
+		"arrowSkin": "",
+		"stage": "void",
+		"validScore": true,
+		"bpm": 100,
+		"speed": 2
+	}
+}

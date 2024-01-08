@@ -29,15 +29,15 @@
 			"Play the first week of the mod."
 		],
 		[
-			"No Shrooms",
-			"toadcraft",
+			"Brrrrr",
+			"brrrrr",
 			[
 				255,
 				50,
 				40
 			],
 			false,
-			"no-shrooms-start",
+			"brrrrr-start",
 			"Play the first week of the mod."
 		],
 		[

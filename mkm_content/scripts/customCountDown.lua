@@ -20,7 +20,7 @@ function onCreatePost()
 		volume = 2
 	end
 	
-	if string.lower(songName) == 'no shrooms' or string.lower(songName) == 'hell shrooms' then 
+	if string.lower(songName) == 'brrrrr' or string.lower(songName) == 'hell shrooms' then 
 		prefix = 'mc'
 		volume = 2
 	end

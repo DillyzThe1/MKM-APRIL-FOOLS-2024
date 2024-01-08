@@ -10,7 +10,7 @@ local creditsMatch = {
 	{'incorrect residence', 'this song had me in tears (and it\'s by dillyz)'},
 	{'karrd kollision', 'Composed by DillyzThe1'},
 	{'normalized', 'Composed by DillyzThe1'},
-	{'no shrooms', 'Composed By DillyzThe1'},
+	{'brrrrr', 'Composed/Animated By DillyzThe1'},
 	{'shroomus toodus', 'Original versions by Adam McHummus & Ethan The Doodler, Remixed by DillyzThe1'},
 	{'square', 'Composed by DillyzThe1 & Impostor5875'},
 	{'top 10 great amazing super duper wonderful outstanding saster level music that ever has been heard', 'Composed by DillyzThe1'},
