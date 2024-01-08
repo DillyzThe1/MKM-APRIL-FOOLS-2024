@@ -66,7 +66,7 @@ class GameOverSubstate extends MusicBeatSubstate
 		FlxG.camera.scroll.set();
 		FlxG.camera.target = null;
 
-		boyfriend.playAnim('firstDeath');
+		boyfriend.playAnim('firstDeath', true);
 
 		camFollowPos = new FlxObject(0, 0, 1, 1);
 		camFollowPos.setPosition(FlxG.camera.scroll.x + (FlxG.camera.width / 2), FlxG.camera.scroll.y + (FlxG.camera.height / 2));
@@ -74,10 +74,14 @@ class GameOverSubstate extends MusicBeatSubstate
 	}
 
 	var isFollowingAlready:Bool = false;
+	var totalElapsed:Float = 0;
+	static var neededElapsed:Float = 12/24;
+	static var neededElapsed_2:Float = 64/24;
 
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
+		totalElapsed += elapsed;
 
 		PlayState.instance.callOnLuas('onUpdate', [elapsed]);
 		if (updateCamera)
@@ -107,20 +111,17 @@ class GameOverSubstate extends MusicBeatSubstate
 			PlayState.instance.callOnLuas('onGameOverConfirm', [false]);
 		}
 
-		if (boyfriend.animation.curAnim.name == 'firstDeath')
+		if (totalElapsed >= neededElapsed && !isFollowingAlready)
 		{
-			if (boyfriend.animation.curAnim.curFrame >= 12 && !isFollowingAlready)
-			{
-				FlxG.camera.follow(camFollowPos, LOCKON, 1);
-				updateCamera = true;
-				isFollowingAlready = true;
-			}
+			FlxG.camera.follow(camFollowPos, LOCKON, 1);
+			updateCamera = true;
+			isFollowingAlready = true;
+		}
 
-			if (boyfriend.animation.curAnim.finished && !playingDeathSound)
-			{
-				coolStartDeath();
-				boyfriend.startedDeath = true;
-			}
+		if (totalElapsed >= neededElapsed_2 && !playingDeathSound && !boyfriend.startedDeath)
+		{
+			coolStartDeath();
+			boyfriend.startedDeath = true;
 		}
 
 		if (FlxG.sound.music.playing)
