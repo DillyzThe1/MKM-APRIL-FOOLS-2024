@@ -2126,10 +2126,6 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
-		/*if (FlxG.keys.justPressed.NINE)
-			{
-				iconP1.swapOldIcon();
-		}*/
 		callOnLuas('onUpdate', [elapsed]);
 
 		for (i in filterMap)
@@ -3201,7 +3197,7 @@ class PlayState extends MusicBeatState
 				if (storyPlaylist.length <= 0)
 				{
 					WeekData.loadTheFirstEnabledMod();
-					FlxG.sound.playMusic(Paths.music('freakyMenu'));
+					FlxG.sound.playMusic(Paths.music('toadMenu'));
 
 					cancelMusicFadeTween();
 					if (FlxTransitionableState.skipNextTransIn)
@@ -3264,7 +3260,7 @@ class PlayState extends MusicBeatState
 					CustomFadeTransition.nextCamera = null;
 				}
 				MusicBeatState.switchState(new FreeplayState());
-				FlxG.sound.playMusic(Paths.music('freakyMenu'));
+				FlxG.sound.playMusic(Paths.music('toadMenu'));
 				changedDifficulty = false;
 			}
 			transitioning = true;

@@ -70,15 +70,15 @@ class ChartingState extends MusicBeatState
 		['', "Nothing. Yep, that's right."],
 		[
 			'Hey!',
-			"Plays the \"Hey!\" animation from Bopeebo,\nValue 1: BF = Only Boyfriend, GF = Only Girlfriend,\nSomething else = Both.\nValue 2: Custom animation duration,\nleave it blank for 0.6s"
+			"Plays the \"Hey!\" animation from Bopeebo,\nValue 1: BF = Only IDK, GF = Only Still Dunno,\nSomething else = Both.\nValue 2: Custom animation duration,\nleave it blank for 0.6s"
 		],
 		[
-			'Set GF Speed',
-			"Sets GF head bopping speed,\nValue 1: 1 = Normal speed,\n2 = 1/2 speed, 4 = 1/4 speed etc.\nUsed on Fresh during the beatbox parts.\n\nWarning: Value must be integer!"
+			'Set Who? Speed',
+			"Sets Who? head bopping speed,\nValue 1: 1 = Normal speed,\n2 = 1/2 speed, 4 = 1/4 speed etc.\nUsed on Fresh during the beatbox parts.\n\nWarning: Value must be integer!"
 		],
 		[
 			'Add Camera Zoom',
-			"Used on MILF on that one \"hard\" part\nValue 1: Camera zoom add (Default: 0.015)\nValue 2: UI zoom add (Default: 0.03)\nLeave the values blank if you want to use Default."
+			"Used on idk on that one \"hard\" part\nValue 1: Camera zoom add (Default: 0.015)\nValue 2: UI zoom add (Default: 0.03)\nLeave the values blank if you want to use Default."
 		],
 		[
 			'Play Animation',
@@ -674,8 +674,8 @@ class ChartingState extends MusicBeatState
 		tab_group_song.add(new FlxText(stepperSpeed.x, stepperSpeed.y - 15, 0, 'Song Speed:'));
 		tab_group_song.add(new FlxText(keyCountThing.x, keyCountThing.y - 15, 0, 'Key Count:'));
 		tab_group_song.add(new FlxText(player2DropDown.x, player2DropDown.y - 15, 0, 'Opponent:'));
-		tab_group_song.add(new FlxText(gfVersionDropDown.x, gfVersionDropDown.y - 15, 0, 'Girlfriend:'));
-		tab_group_song.add(new FlxText(player1DropDown.x, player1DropDown.y - 15, 0, 'Boyfriend:'));
+		tab_group_song.add(new FlxText(gfVersionDropDown.x, gfVersionDropDown.y - 15, 0, 'Huh?:'));
+		tab_group_song.add(new FlxText(player1DropDown.x, player1DropDown.y - 15, 0, 'Who?:'));
 		tab_group_song.add(new FlxText(stageDropDown.x, stageDropDown.y - 15, 0, 'Stage:'));
 		tab_group_song.add(new FlxText(noteSkinInputText.x, noteSkinInputText.y - 15, 0, 'Note Texture:'));
 		tab_group_song.add(new FlxText(noteSplashesInputText.x, noteSplashesInputText.y - 15, 0, 'Note Splashes Texture:'));
@@ -1066,7 +1066,8 @@ class ChartingState extends MusicBeatState
 			displayNameList[i] = i + '. ' + displayNameList[i];
 		}
 
-		noteTypeDropDown = new FlxUIDropDownMenuCustom(10, 105, FlxUIDropDownMenuCustom.makeStrIdLabelArray(displayNameList, true), function(character:String)
+		var scaryoffsetdotdotdot:Int = 25;
+		noteTypeDropDown = new FlxUIDropDownMenuCustom(10, 105 + scaryoffsetdotdotdot, FlxUIDropDownMenuCustom.makeStrIdLabelArray(displayNameList, true), function(character:String)
 		{
 			currentType = Std.parseInt(character);
 			if (curSelectedNote != null && curSelectedNote[1] > -1)
@@ -1079,7 +1080,30 @@ class ChartingState extends MusicBeatState
 
 		tab_group_note.add(new FlxText(10, 10, 0, 'Sustain length:'));
 		tab_group_note.add(new FlxText(10, 50, 0, 'Strum time (in miliseconds):'));
-		tab_group_note.add(new FlxText(10, 90, 0, 'Note type:'));
+		tab_group_note.add(new FlxText(10, 90 + scaryoffsetdotdotdot, 0, 'Note type:'));
+		var setMhToType:FlxButton = new FlxButton(10, 90, "Set \"Must Hits\"", function() {
+			for (i in 0..._song.notes[curSec].sectionNotes.length)
+			{
+				var mustPress:Bool = _song.notes[curSec].mustHitSection;
+				if (_song.notes[curSec].sectionNotes[i][1] > getKeyCount() - 1)
+					mustPress = !mustPress;
+				if(mustPress)
+					_song.notes[curSec].sectionNotes[i][3] = noteTypeIntMap.get(currentType);
+			}
+			updateGrid(false);
+		});
+		tab_group_note.add(setMhToType);
+		tab_group_note.add(new FlxButton(setMhToType.x + setMhToType.width + 10, setMhToType.y, "Set others", function() {
+			for (i in 0..._song.notes[curSec].sectionNotes.length)
+			{
+				var mustPress:Bool = _song.notes[curSec].mustHitSection;
+				if (_song.notes[curSec].sectionNotes[i][1] > getKeyCount() - 1)
+					mustPress = !mustPress;
+				if(!mustPress)
+					_song.notes[curSec].sectionNotes[i][3] = noteTypeIntMap.get(currentType);
+			}
+			updateGrid(false);
+		}));
 		tab_group_note.add(stepperSusLength);
 		tab_group_note.add(strumTimeInputText);
 		tab_group_note.add(noteTypeDropDown);
@@ -1836,7 +1860,7 @@ class ChartingState extends MusicBeatState
 			{
 				// if(onMasterEditor) {
 				MusicBeatState.switchState(new editors.MasterEditorMenu());
-				FlxG.sound.playMusic(Paths.music('freakyMenu'));
+				FlxG.sound.playMusic(Paths.music('toadMenu'));
 				// }
 				FlxG.mouse.visible = false;
 				return;

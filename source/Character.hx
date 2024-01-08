@@ -82,9 +82,9 @@ class Character extends FlxSprite
 	public var originalFlipX:Bool = false;
 	public var healthColorArray:Array<Int> = [255, 0, 0];
 
-	public static var DEFAULT_CHARACTER:String = 'bf'; // In case a character is missing, it will use BF on its place
+	public static var DEFAULT_CHARACTER:String = 'none';
 
-	public function new(x:Float, y:Float, ?character:String = 'bf', ?isPlayer:Bool = false)
+	public function new(x:Float, y:Float, ?character:String = 'none', ?isPlayer:Bool = false)
 	{
 		super(x, y);
 
@@ -112,8 +112,7 @@ class Character extends FlxSprite
 
 				if (!FileSystem.exists(path))
 				{
-					path = Paths.getPreloadPath('characters/' + DEFAULT_CHARACTER +
-						'.json'); // If a character couldn't be found, change him to BF just to prevent a crash
+					path = Paths.getPreloadPath('characters/' + DEFAULT_CHARACTER + '.json');
 				}
 
 				var rawJson = File.getContent(path);
@@ -230,7 +229,7 @@ class Character extends FlxSprite
 				}
 				else
 				{
-					quickAnimAdd('idle', 'BF idle dance');
+					quickAnimAdd('idle', 'nothing');
 				}
 				// trace('Loaded file to character ' + curCharacter);
 		}

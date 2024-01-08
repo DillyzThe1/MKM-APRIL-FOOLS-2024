@@ -8,6 +8,7 @@ import flixel.addons.display.FlxGridOverlay;
 import flixel.addons.transition.FlxTransitionSprite.GraphicTransTileDiamond;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.addons.transition.TransitionData;
+// import flixel.graphics.FlxGraphic;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.graphics.frames.FlxFrame;
 import flixel.group.FlxGroup;
@@ -34,8 +35,6 @@ import sys.io.File;
 import sys.thread.Thread;
 
 using StringTools;
-
-// import flixel.graphics.FlxGraphic;
 typedef TitleData =
 {
 	titlex:Float,
@@ -244,12 +243,12 @@ class TitleState extends MusicBeatState
 			// https://github.com/HaxeFlixel/flixel-addons/pull/348
 
 			// var music:FlxSound = new FlxSound();
-			// music.loadStream(Paths.music('freakyMenu'));
+			// music.loadStream(Paths.music('toadMenu'));
 			// FlxG.sound.list.add(music);
 			// music.play();
 
 			if (FlxG.sound.music == null || forceIntro)
-				FlxG.sound.playMusic(Paths.music(CoolUtil.babyMode() ? 'babyMenu' : 'freakyMenu', 'preload'), 0);
+				FlxG.sound.playMusic(Paths.music(CoolUtil.babyMode() ? 'babyMenu' : 'toadMenu', 'preload'), 0);
 		}
 
 		Conductor.changeBPM(CoolUtil.babyMode() ? 82 : titleJSON.bpm);
@@ -570,7 +569,7 @@ class TitleState extends MusicBeatState
 			{
 				case 1:
 					// FlxG.sound.music.stop();
-					FlxG.sound.playMusic(Paths.music(CoolUtil.babyMode() ? 'babyMenu' : 'freakyMenu'), 0);
+					FlxG.sound.playMusic(Paths.music(CoolUtil.babyMode() ? 'babyMenu' : 'toadMenu'), 0);
 					Conductor.changeBPM(CoolUtil.babyMode() ? 82 : titleJSON.bpm);
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 				case 2:
@@ -663,7 +662,7 @@ class TitleState extends MusicBeatState
 						skippedIntro = true;
 						playJingle = false;
 
-						FlxG.sound.playMusic(Paths.music(CoolUtil.babyMode() ? 'babyMenu' : 'freakyMenu'), 0);
+						FlxG.sound.playMusic(Paths.music(CoolUtil.babyMode() ? 'babyMenu' : 'toadMenu'), 0);
 						Conductor.changeBPM(CoolUtil.babyMode() ? 82 : titleJSON.bpm);
 						FlxG.sound.music.fadeIn(4, 0, 0.7);
 						return;
@@ -687,7 +686,7 @@ class TitleState extends MusicBeatState
 					FlxG.camera.flash(FlxColor.WHITE, 3);
 					sound.onComplete = function()
 					{
-						FlxG.sound.playMusic(Paths.music(CoolUtil.babyMode() ? 'babyMenu' : 'freakyMenu'), 0);
+						FlxG.sound.playMusic(Paths.music(CoolUtil.babyMode() ? 'babyMenu' : 'toadMenu'), 0);
 						Conductor.changeBPM(CoolUtil.babyMode() ? 82 : titleJSON.bpm);
 						FlxG.sound.music.fadeIn(4, 0, 0.7);
 						transitioning = false;
@@ -708,7 +707,7 @@ class TitleState extends MusicBeatState
 
 				if (forceIntro)
 				{
-					FlxG.sound.playMusic(Paths.music(CoolUtil.babyMode() ? 'babyMenu' : 'freakyMenu'), 0);
+					FlxG.sound.playMusic(Paths.music(CoolUtil.babyMode() ? 'babyMenu' : 'toadMenu'), 0);
 					Conductor.changeBPM(CoolUtil.babyMode() ? 82 : titleJSON.bpm);
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 				}
