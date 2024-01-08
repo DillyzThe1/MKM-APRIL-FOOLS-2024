@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Friday Night Funkin': Mushroom Kingdom Madness" file="Mushroom Kingdom Madness" packageName="com.github.dillyzthe1.fnf.mkm" package="com.github.dillyzthe1.fnf.mkm" main="Main" version="2.oh nvm" company="DillyzThe1" />
+	<app title="': Mushroom Kingdom Madness" file="Mushroom Kingdom Madness" packageName="com.github.dillyzthe1.fnf.mkm" package="com.github.dillyzthe1.fnf.mkm" main="Main" version="2.oh nvm" company="DillyzThe1" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />
@@ -23,17 +23,8 @@
 	<!--These window settings apply to all targets-->
 	<window width="1280" height="720" fps="" background="#000000" hardware="true" vsync="false" />
 
-	<!--HTML5-specific-->
-	<window if="html5" resizable="true" />
-
 	<!--Desktop-specific-->
 	<window if="desktop" orientation="landscape" fullscreen="false" resizable="true" vsync="false"/>
-
-	<!--Mobile-specific-->
-	<window if="mobile" orientation="landscape" fullscreen="true" width="0" height="0" resizable="false"/>
-
-	<!--Switch-specific-->
-	<window if="switch" orientation="landscape" fullscreen="true" width="0" height="0" resizable="true" />
 
 	<!-- _____________________________ Path Settings ____________________________ -->
 
