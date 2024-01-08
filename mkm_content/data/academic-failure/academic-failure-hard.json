@@ -5,7 +5,14 @@
 			{
 				"typeOfSection": 0,
 				"lengthInSteps": 16,
-				"sectionNotes": [],
+				"sectionNotes": [
+					[
+						0,
+						4,
+						0,
+						"Nothing"
+					]
+				],
 				"mustHitSection": true
 			},
 			{
@@ -2366,6 +2373,16 @@
 				"mustHitSection": true,
 				"changeBPM": false,
 				"bpm": 115
+			},
+			{
+				"gfSection": false,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 115,
+				"sectionBeats": 4,
+				"changeBPM": false,
+				"mustHitSection": true
 			},
 			{
 				"gfSection": false,
