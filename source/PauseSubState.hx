@@ -109,7 +109,7 @@ class PauseSubState extends MusicBeatSubstate
 		add(levelDifficulty);
 
 		var epicfailsTxt:FlxText = new FlxText(20, 15 + 64, 0, "", 32);
-		epicfailsTxt.text = "Sentenced to Clam Blitz: " + PlayState.deathCounter;
+		epicfailsTxt.text = "Sentenced to Clam Blitz " + PlayState.deathCounter + " times.";
 		epicfailsTxt.scrollFactor.set();
 		epicfailsTxt.setFormat(Paths.font('vcr.ttf'), 32);
 		epicfailsTxt.updateHitbox();
