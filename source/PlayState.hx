@@ -10,7 +10,6 @@ import Section.SwagSection;
 import Song.SwagSong;
 import StageData;
 import animateatlas.AtlasFrameMaker;
-import discord_rpc.DiscordRpc;
 import editors.CharacterEditorState;
 import editors.ChartingState;
 import flixel.FlxBasic;
@@ -72,6 +71,9 @@ import vlc.MP4Handler;
 import vlc.MP4Handler;
 
 using StringTools;
+#if DISCORD_RPC_ALLOWED
+import discord_rpc.DiscordRpc;
+#end
 
 #if !flash
 import flixel.addons.display.FlxRuntimeShader;

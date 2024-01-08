@@ -36,6 +36,7 @@
 	
 	<!-- ENGINE CUSTOMIZATION -->
 	<define name="MODS_ALLOWED"/>
+	<define name="DISCORD_RPC_ALLOWED" unless="debug"/>
 	<define name="LUA_ALLOWED" if="desktop" />
 	<!-- <define name="ACHIEVEMENTS_ALLOWED" /> they're broken so i'm gonna rewrite them in 2.0 or if i feel like having time for 1.5 -->
 	<define name="TITLE_SCREEN_EASTER_EGG" />
@@ -97,7 +98,7 @@
 	<haxelib name="hxCodec" if="VIDEOS_ALLOWED"/>
 	<haxelib name="faxe" if='switch'/>
 	<!--<haxelib name="polymod"/> -->
-	<haxelib name="discord_rpc" if="desktop"/>
+	<haxelib name="discord_rpc" if="desktop DISCORD_RPC_ALLOWED"/>
 	<!-- <haxelib name="hxcpp-debug-server" if="desktop"/> -->
 
 	<!-- spr map 1 https://github.com/Dot-Stuff/flxanimate (git) -->

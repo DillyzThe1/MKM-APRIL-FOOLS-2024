@@ -1,7 +1,9 @@
 package;
 
+#if DISCORD_RPC_ALLOWED
 import Sys.sleep;
 import discord_rpc.DiscordRpc;
+#end
 
 using StringTools;
 
@@ -17,6 +19,7 @@ class DiscordClient
 
 	public function new()
 	{
+		#if DISCORD_RPC_ALLOWED
 		trace("Discord Client starting...");
 		DiscordRpc.start({
 			clientID: "940825854626365550",
@@ -38,21 +41,26 @@ class DiscordClient
 
 		if (!epicPrank)
 			DiscordRpc.shutdown();
+		#end
 	}
 
 	public static function shutdown()
 	{
+		#if DISCORD_RPC_ALLOWED
 		DiscordRpc.shutdown();
+		#end
 	}
 
 	static function onReady()
 	{
+		#if DISCORD_RPC_ALLOWED
 		DiscordRpc.presence({
 			details: "In the Menus",
 			state: null,
 			largeImageKey: 'icon',
 			largeImageText: "Psych Engine"
 		});
+		#end
 	}
 
 	static function onError(_code:Int, _message:String)
@@ -67,12 +75,14 @@ class DiscordClient
 
 	public static function initialize()
 	{
+		#if DISCORD_RPC_ALLOWED
 		var DiscordDaemon = sys.thread.Thread.create(() ->
 		{
 			new DiscordClient();
 		});
 		trace("Discord Client initialized");
 		isInitialized = true;
+		#end
 	}
 
 	private static var largekey:String = 'icon';
@@ -81,6 +91,7 @@ class DiscordClient
 
 	public static function changePresence(details:String, state:Null<String>, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float)
 	{
+		#if DISCORD_RPC_ALLOWED
 		var startTimestamp:Float = if (hasStartTimestamp) Date.now().getTime() else 0;
 
 		if (endTimestamp > 0)
@@ -101,16 +112,20 @@ class DiscordClient
 		});
 
 		// trace('Discord RPC Updated. Arguments: $details, $state, $smallImageKey, $hasStartTimestamp, $endTimestamp');
+		#end
 	}
 
 	public static function inMenus()
 	{
+		#if DISCORD_RPC_ALLOWED
 		updateLargeImage(true);
 		DiscordClient.changePresence("In the Menus", null);
+		#end
 	}
 
 	public static function updateLargeImage(?forceIcon:Bool = false)
 	{
+		#if DISCORD_RPC_ALLOWED
 		if (forceIcon || PlayState.instance == null || PlayState.SONG == null || PlayState.SONG.song == null || PlayState.SONG.song == ""
 			|| PlayState.instance.endingSong)
 		{
@@ -120,6 +135,7 @@ class DiscordClient
 		}
 		largekey = CoolUtil.shortenSongName(PlayState.SONG.song.toLowerCase().replace(" ", "-"));
 		trace(largekey);
+		#end
 	}
 
 	#if LUA_ALLOWED
