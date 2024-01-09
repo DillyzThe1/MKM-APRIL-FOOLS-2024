@@ -1,0 +1,56 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "Toad Idle",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "firstDeath",
+			"loop": false,
+			"name": "Toad Idle"
+		},
+		{
+			"offsets": [
+				135,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "deathConfirm",
+			"loop": false,
+			"name": "Toad Stares"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/toad-dead",
+	"position": [
+		60,
+		230
+	],
+	"healthicon": "toad",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		0,
+		51
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}
