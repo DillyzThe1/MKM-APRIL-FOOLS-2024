@@ -147,6 +147,15 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 			changeSel(1);
         else if (controls.ACCEPT)
 			select();
+	
+	if (controls.BACK)
+		{
+			persistentUpdate = false;
+			if (colorTween != null)
+				colorTween.cancel();
+			FlxG.sound.play(Paths.sound('cancelMenu'));
+			MusicBeatState.switchState(new FreeplayState());
+		}
     }
 }
 
