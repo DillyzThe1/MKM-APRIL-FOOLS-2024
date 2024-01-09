@@ -6,6 +6,7 @@ import editors.ChartingState;
 import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.FlxSubState;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
@@ -20,6 +21,7 @@ using StringTools;
 
 class FreeplayState extends MusicBeatState
 {
+	public static var instance:FreeplayState;
 	var songs:Array<SongMetadata> = [];
 	var bgalt:FlxSprite;
 	var bg:FlxSprite;
@@ -45,10 +47,14 @@ class FreeplayState extends MusicBeatState
 
 	var theFunnyyyyyyyyyyyy:Int = 0;
 
+	var overspitrhwrwhjwak:FlxSprite;
+
 	override function create()
 	{
 		// Paths.clearStoredMemory();
 		// Paths.clearUnusedMemory();
+
+		instance = this;
 
 		persistentUpdate = true;
 		PlayState.isStoryMode = false;
@@ -191,6 +197,33 @@ class FreeplayState extends MusicBeatState
 		FlxG.camera.setFilters([new ShaderFilter(zoomShader)]);
 		trace("booted up zoom shader");
 		#end
+
+		// soup soup soup
+		this.subStateClosed.add(function(substate:FlxSubState) {
+			trace('substate died lmao');
+
+			var theSongEver:SongMetadata = songs[curIndex];
+
+			FlxG.sound.music.fadeIn(0.175);
+			FlxTween.tween(theSongEver.portrait.scale, {x: 1, y: 1}, 1, {ease: FlxEase.cubeIn});
+			FlxTween.tween(FlxG.camera, {zoom: 1}, 1, {
+				ease: FlxEase.cubeIn,
+				#if FREEPLAY_SHADER_THING
+				onUpdate: function(t:FlxTween)
+				{
+					if (zoomShader != null && zoomShader.zoomRadius != null && zoomShader.zoomRadius.value != null)
+						zoomShader.zoomRadius.value[0] = 100 - t.percent;
+				},
+				#end
+				onComplete: function(t:FlxTween)
+				{
+					FlxG.camera.setFilters([]);
+					hasSelected = false;
+					if (overspitrhwrwhjwak != null)
+						overspitrhwrwhjwak.visible = false;
+				}
+			});
+		});
 	}
 
 	override function update(e:Float)
@@ -276,6 +309,7 @@ class FreeplayState extends MusicBeatState
 			{
 				hasSelected = true;
 
+				// soup soup soup
 				trace(CoolUtil.difficulties);
 				PlayState.storyDifficulty = CoolUtil.difficulties.indexOf('Hard');
 				if (PlayState.storyDifficulty < 0)
@@ -297,7 +331,7 @@ class FreeplayState extends MusicBeatState
 				if (WeekData.weeksList[theSongEver.week] == CoolUtil.fredCrossoverWeekName)
 					FlxG.sound.play(Paths.sound('fred'), 0.125, false);
 
-				FlxG.camera.fade(FlxColor.WHITE, 0.85, false, null, true);
+				//FlxG.camera.fade(FlxColor.WHITE, 0.85, false, null, true);
 				FlxTween.tween(theSongEver.portrait, {y: FlxG.height / 2 - theSongEver.portrait.height / 2, "scale.x": 1.15, "scale.y": 1.15}, 0.75,
 					{ease: FlxEase.cubeInOut});
 				FlxTween.tween(theSongEver.text, {y: FlxG.height + 100}, 0.75, {ease: FlxEase.cubeInOut});
@@ -315,11 +349,18 @@ class FreeplayState extends MusicBeatState
 					onComplete: function(t:FlxTween)
 					{
 						FlxG.camera.setFilters([]);
-						add(new FlxSprite(FlxG.width * -0.5, FlxG.height * -0.5).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.WHITE));
+
+						/*if (overspitrhwrwhjwak == null) {
+							overspitrhwrwhjwak = new FlxSprite(FlxG.width * -0.5, FlxG.height * -0.5).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.WHITE);
+							add(overspitrhwrwhjwak);
+						}
+						overspitrhwrwhjwak.visible = true;*/
+
 						/*FlxG.camera.fade(FlxColor.BLACK, 0.15, false, function()
 						{
 							LoadingState.loadAndSwitchState(goToChart ? new ChartingState() : new PlayState());
 						});*/
+
 						openSubState(new FreeplayDifficultySubstate(songs[curIndex].songName));
 					}
 				});

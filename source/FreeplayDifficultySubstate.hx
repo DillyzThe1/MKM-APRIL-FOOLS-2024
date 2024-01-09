@@ -150,9 +150,17 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 	
 		if (controls.BACK)
 		{
-			persistentUpdate = false;
+			hasSel = true;
 			FlxG.sound.play(Paths.sound('cancelMenu'));
-			MusicBeatState.switchState(new FreeplayState());
+			//diffCam.fade(FlxColor.WHITE, 0.15, false, function()
+			//{
+				stars.destroy();
+				songText.destroy();
+				diffText.destroy();
+				persistentUpdate = false;
+				//diffCam.alpha = 0;
+				close();
+			//});
 		}
     }
 }
