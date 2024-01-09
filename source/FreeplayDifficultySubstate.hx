@@ -6,6 +6,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.graphics.FlxGraphic;
 import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.system.FlxSound;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import openfl.utils.AssetType;
@@ -23,6 +24,8 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 
     var diffText:FlxText;
     var songText:FlxText;
+
+	var funnyBupBupBupSound:FlxSound;
 
     public function new (song:String) {
         super();
@@ -86,7 +89,7 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 
 		stars.cameras = playerSymbol.cameras = songText.cameras = diffText.cameras = [diffCam];
 
-        FlxG.sound.play(Paths.sound("difficulty screen", "preload"), 0.75);
+        funnyBupBupBupSound = FlxG.sound.play(Paths.sound("difficulty screen", "preload"), 0.75);
 		changeSel();
     }
 
@@ -152,15 +155,14 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 		{
 			hasSel = true;
 			FlxG.sound.play(Paths.sound('cancelMenu'));
-			//diffCam.fade(FlxColor.WHITE, 0.15, false, function()
-			//{
-				stars.destroy();
-				songText.destroy();
-				diffText.destroy();
-				persistentUpdate = false;
-				//diffCam.alpha = 0;
-				close();
-			//});
+			if (funnyBupBupBupSound != null)
+				funnyBupBupBupSound.fadeOut(0.25);
+			stars.destroy();
+			songText.destroy();
+			diffText.destroy();
+			persistentUpdate = false;
+			//diffCam.alpha = 0;
+			close();
 		}
     }
 }
