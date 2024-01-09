@@ -461,7 +461,7 @@ class MainMenuState extends MusicBeatState
 
 	// mario teaches typing
 	var typingGoals:Array<String> = ['fred', 'uncle fred', 'impostor top 10', 'wrong house', 'crossover', 'fnf vs uncle fred full week mod', 'top 10', 'karrd kollision',
-									'leak', 'vs uncle fred', 'secret', 'hello chat', 'source code', 'github', 'yeah', 'test'];
+									'leak', 'vs uncle fred', 'secret', 'hello chat', 'source code', 'github', 'yeah'];
 	var typingBuffer:String = '';
 	var keyBlacklist:Array<String> = ['left', 'down', 'up', 'right'];
 	var numberNames:Array<String> = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
@@ -548,12 +548,6 @@ class MainMenuState extends MusicBeatState
 					case 'yeah':
 						if (!CoolUtil.loadFreeplaySong("", "yeah")) {
 							trace("WARNING! Cannot load yeah!");
-							FlxG.resetState();
-							break;
-						}
-					case 'test':
-						if (!CoolUtil.loadFreeplaySong("", "Test", "Normal")) {
-							trace("WARNING! Cannot load Test!");
 							FlxG.resetState();
 							break;
 						}
