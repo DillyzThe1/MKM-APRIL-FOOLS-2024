@@ -1,4 +1,5 @@
 local creditedPeople = ''
+local dillyzStupid = false
 
 local creditsMatch = {
 	{'academic failure', 'Composed by Zarzok'},
@@ -10,7 +11,7 @@ local creditsMatch = {
 	{'incorrect residence', 'this song had me in tears (and it\'s by dillyz)'},
 	{'karrd kollision', 'Composed by DillyzThe1'},
 	{'normalized', 'Composed by DillyzThe1'},
-	{'brrrrr', 'Composed/Animated By DillyzThe1'},
+	{'no shrooms', 'Composed By DillyzThe1'},
 	{'shroomus toodus', 'Original versions by Adam McHummus & Ethan The Doodler, Remixed by DillyzThe1'},
 	{'square', 'Composed by DillyzThe1 & Impostor5875'},
 	{'top 10 great amazing super duper wonderful outstanding saster level music that ever has been heard', 'Composed by DillyzThe1'},
@@ -46,13 +47,18 @@ function onEvent(ev, v1, v2)
 	if ev == 'Change Credits' then 
 		setProperty('creditsTxt.text',v1)
 		setProperty('creditsTxt.x',getPropertyFromClass('flixel.FlxG','width')/2 - getTextWidth('creditsTxt')/2)
-	end
+	elseif ev == 'Credits Tween X' then
+		dillyzStupid = true
+		debugPrint('i fucking hate my life oh my god')
+		doTweenX('epicCreditsTween', 'creditsTxt', tonumber(v1), tonumber(v2), 'cubeInOut')
+	end 
 end
 
 function onUpdatePost()
-	if string.lower(difficultyName) == "alpha" then 
+	if not dillyzStupid == true
+		if string.lower(difficultyName) == "alpha" then 
 		setProperty('creditsTxt.x',getPropertyFromClass('flixel.FlxG','width') - getTextWidth('creditsTxt') - 10)
-	else
+		else
 		setProperty('creditsTxt.x',getPropertyFromClass('flixel.FlxG','width')/2 - getTextWidth('creditsTxt')/2)
 	end
 end
