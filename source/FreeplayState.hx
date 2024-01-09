@@ -49,6 +49,8 @@ class FreeplayState extends MusicBeatState
 
 	var overspitrhwrwhjwak:FlxSprite;
 
+	var epicOverTween:FlxTween;
+
 	override function create()
 	{
 		// Paths.clearStoredMemory();
@@ -204,10 +206,21 @@ class FreeplayState extends MusicBeatState
 
 			var theSongEver:SongMetadata = songs[curIndex];
 
+			if (epicOverTween != null)
+				epicOverTween.cancel();
+			epicOverTween = FlxTween.tween(overspitrhwrwhjwak, {alpha: 0}, 0.5);
+
+			FlxG.camera.flash(FlxColor.WHITE, 0.5, null, true);
+
+			var intendedPortraitY:Float = (FlxG.height / 2) - (theSongEver.portrait.height / 2) - 75;
+
+			FlxTween.tween(theSongEver.portrait, {y: intendedPortraitY}, 0.75, {ease: FlxEase.cubeInOut});
 			FlxG.sound.music.fadeIn(0.175);
-			FlxTween.tween(theSongEver.portrait.scale, {x: 1, y: 1}, 1, {ease: FlxEase.cubeIn});
+			FlxTween.tween(theSongEver.text, {y: intendedPortraitY + theSongEver.portrait.height + 20}, 0.75, {ease: FlxEase.cubeInOut, startDelay: 0.15});
+			FlxTween.tween(theSongEver.icon, {y: intendedPortraitY + theSongEver.portrait.height + 75}, 0.75, {ease: FlxEase.cubeInOut, startDelay: 0.15});
+			FlxTween.tween(theSongEver.portrait.scale, {x: 1, y: 1}, 1, {ease: FlxEase.cubeOut});
 			FlxTween.tween(FlxG.camera, {zoom: 1}, 1, {
-				ease: FlxEase.cubeIn,
+				ease: FlxEase.cubeOut,
 				#if FREEPLAY_SHADER_THING
 				onUpdate: function(t:FlxTween)
 				{
@@ -219,8 +232,6 @@ class FreeplayState extends MusicBeatState
 				{
 					FlxG.camera.setFilters([]);
 					hasSelected = false;
-					if (overspitrhwrwhjwak != null)
-						overspitrhwrwhjwak.visible = false;
 				}
 			});
 		});
@@ -337,6 +348,17 @@ class FreeplayState extends MusicBeatState
 				FlxTween.tween(theSongEver.text, {y: FlxG.height + 100}, 0.75, {ease: FlxEase.cubeInOut});
 				FlxTween.tween(theSongEver.icon, {y: FlxG.height + 100}, 0.75, {ease: FlxEase.cubeInOut});
 				FlxTween.tween(theSongEver.portrait.scale, {x: 2.25, y: 2.25}, 1, {ease: FlxEase.cubeIn});
+
+				if (overspitrhwrwhjwak == null) {
+					overspitrhwrwhjwak = new FlxSprite(FlxG.width * -0.5, FlxG.height * -0.5).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.WHITE);
+					overspitrhwrwhjwak.alpha = 0;
+					add(overspitrhwrwhjwak);
+				}
+
+				if (epicOverTween != null)
+					epicOverTween.cancel();
+				epicOverTween = FlxTween.tween(overspitrhwrwhjwak, {alpha: 1}, 0.85);
+
 				FlxTween.tween(FlxG.camera, {zoom: 2.25}, 1, {
 					ease: FlxEase.cubeIn,
 					#if FREEPLAY_SHADER_THING
@@ -349,13 +371,6 @@ class FreeplayState extends MusicBeatState
 					onComplete: function(t:FlxTween)
 					{
 						FlxG.camera.setFilters([]);
-
-						/*if (overspitrhwrwhjwak == null) {
-							overspitrhwrwhjwak = new FlxSprite(FlxG.width * -0.5, FlxG.height * -0.5).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.WHITE);
-							add(overspitrhwrwhjwak);
-						}
-						overspitrhwrwhjwak.visible = true;*/
-
 						/*FlxG.camera.fade(FlxColor.BLACK, 0.15, false, function()
 						{
 							LoadingState.loadAndSwitchState(goToChart ? new ChartingState() : new PlayState());
