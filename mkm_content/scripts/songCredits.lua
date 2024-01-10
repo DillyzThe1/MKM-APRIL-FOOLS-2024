@@ -55,10 +55,11 @@ function onEvent(ev, v1, v2)
 end
 
 function onUpdatePost()
-	if not dillyzStupid == true
+	if not dillyzStupid == true then
 		if string.lower(difficultyName) == "alpha" then 
-		setProperty('creditsTxt.x',getPropertyFromClass('flixel.FlxG','width') - getTextWidth('creditsTxt') - 10)
+			setProperty('creditsTxt.x',getPropertyFromClass('flixel.FlxG','width') - getTextWidth('creditsTxt') - 10)
 		else
-		setProperty('creditsTxt.x',getPropertyFromClass('flixel.FlxG','width')/2 - getTextWidth('creditsTxt')/2)
+			setProperty('creditsTxt.x',getPropertyFromClass('flixel.FlxG','width')/2 - getTextWidth('creditsTxt')/2)
+		end
 	end
 end
