@@ -1,6 +1,6 @@
 {
 	"song": {
-		"player1": "bf",
+		"player1": "hi-im-spongebob",
 		"player2": "toad-sus",
 		"notes": [
 			{
@@ -29382,7 +29382,7 @@
 		"chartVersion": "2",
 		"reverseHealth": false,
 		"needsVoices": true,
-		"stage": "toadHouse shroomus toodus",
+		"stage": "toadHouse-st",
 		"audioPostfix": "",
 		"bpm": 150,
 		"noteStyle": "toadHouse"
