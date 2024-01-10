@@ -2,6 +2,21 @@
 <TextureAtlas imagePath="spongewindow.png">
 	<!-- Created with Adobe Animate version 24.0.0.305 -->
 	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Spongebob Dead0000" x="0" y="682" width="271" height="337"/>
+	<SubTexture name="Spongebob Dead0001" x="0" y="682" width="271" height="337"/>
+	<SubTexture name="Spongebob Dead0002" x="0" y="682" width="271" height="337"/>
+	<SubTexture name="Spongebob Dead0003" x="0" y="682" width="271" height="337"/>
+	<SubTexture name="Spongebob Dead0004" x="0" y="682" width="271" height="337"/>
+	<SubTexture name="Spongebob Dead0005" x="0" y="682" width="271" height="337"/>
+	<SubTexture name="Spongebob Dead0006" x="0" y="682" width="271" height="337"/>
+	<SubTexture name="Spongebob Dead0007" x="0" y="682" width="271" height="337"/>
+	<SubTexture name="Spongebob Dead0008" x="0" y="682" width="271" height="337"/>
+	<SubTexture name="Spongebob Dead0009" x="0" y="682" width="271" height="337"/>
+	<SubTexture name="Spongebob Dead0010" x="0" y="682" width="271" height="337"/>
+	<SubTexture name="Spongebob Dead0011" x="0" y="682" width="271" height="337"/>
+	<SubTexture name="Spongebob Dead0012" x="0" y="682" width="271" height="337"/>
+	<SubTexture name="Spongebob Dead0013" x="0" y="682" width="271" height="337"/>
+	<SubTexture name="Spongebob Dead0014" x="0" y="682" width="271" height="337"/>
 	<SubTexture name="Spongebob Down0000" x="275" y="341" width="271" height="337"/>
 	<SubTexture name="Spongebob Down0001" x="275" y="341" width="271" height="337"/>
 	<SubTexture name="Spongebob Down0002" x="550" y="341" width="271" height="337"/>

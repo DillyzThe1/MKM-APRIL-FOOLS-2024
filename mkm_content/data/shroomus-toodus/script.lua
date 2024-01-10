@@ -6,14 +6,14 @@ function onUpdatePost()
 		triggerEvent('Camera Follow Pos', dadnewx, 500)
 		setProperty('defaultCamZoom', 0.85)
 	else
-		triggerEvent('Camera Follow Pos', 1000, 300)
+		triggerEvent('Camera Follow Pos', 1000, 400)
 		setProperty('defaultCamZoom', 1.25)
 	end
 end
 
 function onBeatHit()
-	if curBeat >= 24 and not beat8event then
-		doTweenX('toadtweenx', 'dad', 600, 2.5, 'cubeInOut')
+	if curBeat >= 26 and not beat8event then
+		doTweenX('toadtweenx', 'dad', 600, 2, 'cubeInOut')
 		beat8event = true
 	end
 end
