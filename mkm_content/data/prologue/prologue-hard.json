@@ -1,0 +1,18 @@
+{
+	"song": {
+		"player1": "none",
+		"gfVersion": "none",
+		"notes": [],
+		"events": [],
+		"player2": "none",
+		"mania": 0,
+		"splashSkin": "noteSplashes",
+		"song": "Prologue",
+		"needsVoices": false,
+		"arrowSkin": "",
+		"stage": "void",
+		"validScore": true,
+		"bpm": 100,
+		"speed": 2
+	}
+}

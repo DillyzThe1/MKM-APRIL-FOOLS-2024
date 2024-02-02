@@ -9,7 +9,7 @@
 		253
 	],
 	"weekBefore": "tutorial",
-	"startUnlocked": true,
+	"startUnlocked": false,
 	"weekCharacters": [
 		"toad-new",
 		"bf",

@@ -8,21 +8,22 @@
 	"weekCharacters": [
 		"",
 		"bf",
-		"gf"
+		""
 	],
 	"songs": [
 		[
-			"Tutorial",
-			"gf",
+			"Prologue",
+			"square",
 			[
-				165,
-				0,
-				77
+				40,
+				40,
+				60
 			],
 			null,
-			""
+			"",
+			"Watch the prologue."
 		]
 	],
 	"hideStoryMode": false,
-	"weekName": "Tutorial"
+	"weekName": "The Prologue."
 }
