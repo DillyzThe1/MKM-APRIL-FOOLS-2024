@@ -204,11 +204,16 @@ class FreeplayState extends MusicBeatState
 		this.subStateClosed.add(function(substate:FlxSubState) {
 			trace('substate died lmao');
 
+			if (!(substate is FreeplayDifficultySubstate))
+				return;
+
+			trace('ok, let\'s go');
 			var theSongEver:SongMetadata = songs[curIndex];
 
 			if (epicOverTween != null)
 				epicOverTween.cancel();
-			epicOverTween = FlxTween.tween(overspitrhwrwhjwak, {alpha: 0}, 0.5);
+			if (overspitrhwrwhjwak != null)
+				epicOverTween = FlxTween.tween(overspitrhwrwhjwak, {alpha: 0}, 0.5);
 
 			FlxG.camera.flash(FlxColor.WHITE, 0.5, null, true);
 

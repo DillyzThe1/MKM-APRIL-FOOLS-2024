@@ -1,5 +1,5 @@
 @echo off
-title FNF: MKM - Build Screen
+title MKM: Aprl Fools 2024 - Build Screen
 set /p menu="Build game? [Y/N/C]"
        if %menu%==Y goto BuildGame
        if %menu%==y goto BuildGame
@@ -11,7 +11,7 @@ set /p menu="Build game? [Y/N/C]"
 	   
 :BuildGame 
 cls
-title FNF: MKM - Building
+title MKM: Aprl Fools 2024 - Building
 set /p menu="Build debug? [Y/N/C]"
        if %menu%==Y goto BuildDebug
        if %menu%==y goto BuildDebug
@@ -23,7 +23,7 @@ set /p menu="Build debug? [Y/N/C]"
 	   
 :BuildDebug
 cls
-title FNF: MKM - Building Debug
+title MKM: Aprl Fools 2024 - Building Debug
 echo Compiling, please wait...
 lime test windows -debug
 echo.
@@ -40,7 +40,7 @@ exit
 	   
 :BuildRelease
 cls
-title FNF: MKM - Building
+title MKM: Aprl Fools 2024 - Building
 echo Compiling, please wait...
 lime test windows -release
 echo.
@@ -57,13 +57,13 @@ exit
 
 :CancelGame 
 cls
-title FNF: MKM - Cancelling
+title MKM: Aprl Fools 2024 - Cancelling
 echo Build aborted. Press any key to continue.
 exit 
 
 :Credits
 cls
-title FNF: MKM - Credits
+title MKM: Aprl Fools 2024 - Credits
 echo FNF: Mushroom Kingdom Madness
 echo.
 echo Dev links:
