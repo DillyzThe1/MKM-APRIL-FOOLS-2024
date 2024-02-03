@@ -19,7 +19,7 @@ class MusicBeatState extends FlxUIState
 	private var curSection:Int = 0;
 	private var stepsToDo:Int = 0;
 
-	private var terror:Float = FlxG.random.float(900, 7200) / 100;
+	private var terror:Float = FlxG.random.float(900, 7200);
 	private var curStep:Int = 0;
 
 	public var curBeat:Int = 0;
