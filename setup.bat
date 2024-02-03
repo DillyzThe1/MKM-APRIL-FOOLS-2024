@@ -53,7 +53,7 @@ haxe -version >nul 2>&1 && (
 ::)
 
 ::lime 
-haxelib install lime 8.0.0
+haxelib install lime 7.9.0
 haxelib run lime setup
 
 :: openfl
