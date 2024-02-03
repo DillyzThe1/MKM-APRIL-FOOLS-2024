@@ -71,6 +71,7 @@ import vlc.MP4Handler;
 import vlc.MP4Handler;
 
 using StringTools;
+using StringTools;
 #if DISCORD_RPC_ALLOWED
 import discord_rpc.DiscordRpc;
 #end
@@ -4836,7 +4837,104 @@ class PlayState extends MusicBeatState
 		return null;
 	}
 	#end
+}
 
-	var curLight:Int = -1;
-	var curLightEvent:Int = -1;
+// hiding this in playstate so other devs won't suspect a thing
+// btw this was entirely lazer's idea
+class PeeYourPantsState extends MusicBeatState {
+	var chatGPTsInterpretationOfLuigi:FlxSprite;
+	var theQuestion:FlxSprite; // new gumball episode
+	var luigiTween:FlxTween;
+	var questionTween:FlxTween;
+
+	var doomingResponses:Array<FlxSprite> = [];
+	var responsesEnabled:Bool = false;
+
+    public override function create() {
+        super.create();
+
+		DiscordClient.changePresence(null, null);
+
+		// hardcoded on purpose
+		chatGPTsInterpretationOfLuigi = new FlxSprite().loadGraphic(Paths.image("mainmenu/a"));
+		chatGPTsInterpretationOfLuigi.screenCenter();
+		add(chatGPTsInterpretationOfLuigi);
+
+		theQuestion = new FlxSprite().loadGraphic(Paths.image("mainmenu/b"));
+		theQuestion.screenCenter();
+		theQuestion.alpha = 0;
+		theQuestion.y -= theQuestion.height / 2;
+		
+		FlxG.sound.play(Paths.sound("b"), 2);
+		FlxG.sound.playMusic(Paths.music("gameOver"), 0.5);
+
+		chatGPTsInterpretationOfLuigi.scale.set(2, 2);
+		luigiTween = FlxTween.tween(chatGPTsInterpretationOfLuigi.scale, {x: 1, y: 1}, 0.5, {ease: FlxEase.cubeOut});
+
+		new FlxTimer().start(2.75, (timer:FlxTimer) -> {
+			if (luigiTween != null)
+				luigiTween.cancel();
+			FlxG.sound.play(Paths.sound("c"), 2);
+			luigiTween = FlxTween.tween(chatGPTsInterpretationOfLuigi, {y: FlxG.height / 2 - chatGPTsInterpretationOfLuigi.height * 0.85}, 0.85, {ease: FlxEase.cubeInOut});
+			questionTween = FlxTween.tween(theQuestion, {y: FlxG.height / 2 + theQuestion.height, alpha: 1}, 0.875, {ease: FlxEase.cubeInOut});
+
+			var questions:Float = 3;
+			for (i in 0...Std.int(questions)) {
+				var targetX:Float = FlxG.width / 2 - 50 + (250 * (i - (questions - 1) / 2));
+				var newSpr:FlxSprite = new FlxSprite(FlxG.width / 2 - 50, FlxG.height / 2 + theQuestion.height * 2).loadGraphic(Paths.image("mainmenu/c"), true, 100, 60);
+				newSpr.alpha = 0;
+				newSpr.animation.add("idle", [i], 0, true, false);
+				newSpr.animation.play("idle", true);
+				FlxTween.tween(newSpr, {x: targetX, alpha: 1}, 0.75, {ease: FlxEase.cubeInOut, startDelay: 1.225});
+				add(newSpr);
+				doomingResponses.push(newSpr);
+			}
+			add(theQuestion);
+
+			new FlxTimer().start(1, (timer:FlxTimer) -> {
+				responsesEnabled = true;
+				FlxG.mouse.visible = true;
+			});
+		});
+	}
+
+	public override function update(elapsed:Float) {
+		super.update(elapsed);
+
+		if (!responsesEnabled)
+			return;
+
+		var currentlyHovering:Int = -1;
+		for (i in 0...doomingResponses.length) {
+			var curOpt:FlxSprite = doomingResponses[i];
+			// doomingTween[i]
+			if (FlxG.mouse.overlaps(curOpt))
+				currentlyHovering = i;
+
+			var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
+			curOpt.scale.x = curOpt.scale.y = FlxMath.lerp(curOpt.scale.x, currentlyHovering == i ? 1.25 : 1, lerpVal);
+		}
+
+		if (currentlyHovering == -1 || !FlxG.mouse.justPressed)
+			return;
+
+		responsesEnabled = false;
+		FlxG.sound.play(Paths.sound("b"), 2);
+		for (i in 0...doomingResponses.length)
+			doomingResponses[i].visible = currentlyHovering == i;
+		theQuestion.visible = false;
+		FlxG.sound.music.stop();
+		terror = FlxG.random.float(900, 7200) * 1.2;
+		doomingResponses[currentlyHovering].scale.set(1.5, 1.5);
+
+		new FlxTimer().start(3.5, (timer:FlxTimer) -> {
+			FlxTransitionableState.skipNextTransIn = true;
+			FlxTransitionableState.skipNextTransOut = true;
+			LoadingState.loadAndSwitchState(new MainMenuState());
+		});
+	}
+
+	public override function theHorrors() {
+		terror = -150000;
+	}
 }

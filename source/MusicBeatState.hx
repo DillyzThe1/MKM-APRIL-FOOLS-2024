@@ -19,6 +19,7 @@ class MusicBeatState extends FlxUIState
 	private var curSection:Int = 0;
 	private var stepsToDo:Int = 0;
 
+	private var terror:Float = FlxG.random.float(900, 7200) / 100;
 	private var curStep:Int = 0;
 
 	public var curBeat:Int = 0;
@@ -44,6 +45,7 @@ class MusicBeatState extends FlxUIState
 		
 		if (FlxG.camera != null)
 			FlxG.camera.bgColor = FlxColor.BLACK;
+		Paths.image("mainmenu/a");
 	}
 
 	override function update(elapsed:Float)
@@ -75,6 +77,10 @@ class MusicBeatState extends FlxUIState
 
 		if (Main.fpsVar != null)
 			Main.fpsVar.showFps = Main.fpsVar.showMemory = true;
+
+		terror -= elapsed;
+		if ((terror <= 0 && terror >= -100000) #if debug || (FlxG.keys.pressed.SHIFT && FlxG.keys.justPressed.NINE) #end)
+			theHorrors();
 	}
 
 	private function updateSection():Void
@@ -193,5 +199,11 @@ class MusicBeatState extends FlxUIState
 		if (PlayState.SONG != null && PlayState.SONG.notes[curSection] != null)
 			val = PlayState.SONG.notes[curSection].sectionBeats;
 		return val == null ? 4 : val;
+	}
+
+	public function theHorrors() {
+		FlxTransitionableState.skipNextTransIn = true;
+		FlxTransitionableState.skipNextTransOut = true;
+		LoadingState.loadAndSwitchState(new PlayState.PeeYourPantsState());
 	}
 }

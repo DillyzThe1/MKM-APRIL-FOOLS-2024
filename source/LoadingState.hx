@@ -30,6 +30,8 @@ class LoadingState extends MusicBeatState
 	var callbacks:MultiCallback;
 	var targetShit:Float = 0;
 
+	public static var curState:FlxState;
+
 	function new(target:FlxState, stopMusic:Bool, directory:String)
 	{
 		super();
@@ -166,12 +168,16 @@ class LoadingState extends MusicBeatState
 			loaded = isSoundLoaded(getSongPath()) && (!PlayState.SONG.needsVoices || isSoundLoaded(getVocalPath())) && isLibraryLoaded("shared") && isLibraryLoaded(directory);
 		}
 		
-		if (!loaded)
+		if (!loaded) {
+			curState = target;
 			return new LoadingState(target, stopMusic, directory);
+		}
 		#end
 		if (stopMusic && FlxG.sound.music != null)
 			FlxG.sound.music.stop();
 		
+		
+		curState = target;
 		return target;
 	}
 	
