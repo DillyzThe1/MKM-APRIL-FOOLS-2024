@@ -77,6 +77,12 @@ haxelib install hxcpp 4.2.1
 haxelib install linc_luajit 0.0.4
 haxelib install newgrounds 2.0.0
 
+:: git things
+haxelib git flxanimate https://github.com/DillyzThe1/flxanimate-fork
+haxelib git hxCodec https://github.com/polybiusproxy/hxCodec.git 
+haxelib git hxdiscord_rpc https://github.com/MAJigsaw77/hxdiscord_rpc.git
+haxelib git linc_luajit https://github.com/superpowers04/linc_luajit.git
+
 echo Press any key to continue.
 pause>nul
 goto FinishLibraries
