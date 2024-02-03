@@ -60,7 +60,7 @@ haxelib run lime setup
 haxelib install openfl 9.1.0
 
 :: flixel
-haxelib install flixel 5.2.1
+haxelib install flixel 4.11.0
 haxelib run lime setup flixel
 
 :: flixel-tools
@@ -69,17 +69,15 @@ haxelib run flixel-tools setup
 
 :: new libs
 haxelib install asepriteatlas 1.0.0
-haxelib install flixel-addons 3.0.2
+haxelib install flixel-addons 2.11.0
 haxelib install flixel-ui 2.5.0
-haxelib install hxCodec 2.5.1
 haxelib install hxcpp-debug-server 1.2.4
 haxelib install hxcpp 4.2.1
-haxelib install linc_luajit 0.0.4
 haxelib install newgrounds 2.0.0
+haxelib install hxCodec 2.5.1
 
 :: git things
 haxelib git flxanimate https://github.com/DillyzThe1/flxanimate-fork
-haxelib git hxCodec https://github.com/polybiusproxy/hxCodec.git 
 haxelib git hxdiscord_rpc https://github.com/MAJigsaw77/hxdiscord_rpc.git
 haxelib git linc_luajit https://github.com/superpowers04/linc_luajit.git
 
