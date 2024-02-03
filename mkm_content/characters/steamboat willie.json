@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "mIdle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-60,
+				73
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "mRight",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				23,
+				24
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "mLeft",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-51,
+				1
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "mDown",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-42,
+				53
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "mUp",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/steamboat willie",
+	"position": [
+		-80,
+		270
+	],
+	"healthicon": "public domain",
+	"flip_x": true,
+	"healthbar_colors": [
+		24,
+		24,
+		24
+	],
+	"camera_position": [
+		-230,
+		-20
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}
