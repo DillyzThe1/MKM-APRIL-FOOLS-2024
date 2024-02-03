@@ -1,6 +1,6 @@
 cls
 @echo off
-title ColorCove - Library Installer and Setup
+title MKM: April Fools 2024 - Library Installer and Setup
 echo.
 echo This batch file will automatically setup all the libraries and whatnot for you.
 echo If it can't automatically do something, it'll point you in the direction.
@@ -24,7 +24,7 @@ pause>nul
 exit
 
 :CheckLibraries
-title ColorCove - Library Installer and Setup (Active)
+title MKM: April Fools 2024 - Library Installer and Setup (Active)
 cls
 echo.
 haxe -version >nul 2>&1 && (
@@ -53,25 +53,33 @@ haxe -version >nul 2>&1 && (
 ::)
 
 ::lime 
-haxelib install lime
+haxelib install lime 8.0.0
 haxelib run lime setup
 
 :: openfl
-haxelib install openfl
+haxelib install openfl 9.1.0
 
 :: flixel
-haxelib install flixel
+haxelib install flixel 4.11.0
 haxelib run lime setup flixel
 
 :: flixel-tools
-haxelib install flixel-tools
+haxelib install flixel-tools 1.5.1
 haxelib run flixel-tools setup
 
-:: update it
-haxelib update lime
-haxelib update openfl
-haxelib update flixel
-haxelib update flixel-tools
+:: new libs
+haxelib install asepriteatlas 1.0.0
+haxelib install flixel-addons 2.11.0
+haxelib install flixel-ui 2.5.0
+haxelib install hxcpp-debug-server 1.2.4
+haxelib install hxcpp 4.2.1
+haxelib install newgrounds 2.0.0
+haxelib install hxCodec 2.5.1
+
+:: git things
+haxelib git flxanimate https://github.com/DillyzThe1/flxanimate-fork
+haxelib git hxdiscord_rpc https://github.com/MAJigsaw77/hxdiscord_rpc.git
+haxelib git linc_luajit https://github.com/superpowers04/linc_luajit.git
 
 echo Press any key to continue.
 pause>nul
@@ -79,7 +87,7 @@ goto FinishLibraries
 
 :FinishLibraries
 cls
-title ColorCove - Library Installer and Setup (Done)
+title MKM: April Fools 2024 - Library Installer and Setup (Done)
 echo.
 echo All libraries have been installed; you can now use "build.bat" or "build html.bat".
 echo.
@@ -90,11 +98,14 @@ exit
 
 :Credits
 cls
-title ColorCove - Credits
-echo ColorCove
+title MKM: April Fools 2024 - Credits
+echo MKM: April Fools 2024
 echo.
 echo Dev links:
 echo https://www.github.com/DillyzThe1
+echo https://www.youtube.com/channel/UC5VLnoYgJ-Cxd2KWlc9LN6w
+echo https://github.com/impostor5875
+echo https://www.youtube.com/channel/UClNue2iaeFaK-Jbqo4E8c1g/about
 echo.
 echo.
 echo Press any key to continue.
