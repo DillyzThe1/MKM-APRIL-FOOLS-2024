@@ -73,6 +73,7 @@ class FreeplayState extends MusicBeatState
 		bgalt.screenCenter();
 		bgalt.visible = false;
 
+		FlxG.cameras.reset(new FlxCamera());
 		overCam = new FlxCamera();
 		overCam.bgColor.alpha = 0;
 		FlxG.cameras.add(overCam, false);
@@ -118,7 +119,6 @@ class FreeplayState extends MusicBeatState
 					song.length >= 5 ? song[4] : '${song[0].toLowerCase().replace(' ', '-')}-start', song.length >= 6 ? song[5] : '');
 			}
 		}
-		WeekData.loadTheFirstEnabledMod();
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);

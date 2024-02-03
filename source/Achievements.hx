@@ -123,7 +123,7 @@ class AchievementObject extends FlxSpriteGroup {
 		add(achievementText);
 		add(achievementIcon);
 
-		var cam:Array<FlxCamera> = FlxCamera.defaultCameras;
+		var cam:Array<FlxCamera> = [FlxG.camera];
 		if(camera != null) {
 			cam = [camera];
 		}

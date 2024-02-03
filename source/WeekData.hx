@@ -202,9 +202,4 @@ class WeekData
 			Paths.currentModDirectory = data.folder;
 		}
 	}
-
-	public static function loadTheFirstEnabledMod()
-	{
-		Paths.currentModDirectory = '';
-	}
 }

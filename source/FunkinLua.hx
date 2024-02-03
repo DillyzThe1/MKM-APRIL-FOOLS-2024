@@ -1653,7 +1653,6 @@ class FunkinLua
 			PlayState.changedDifficulty = false;
 			PlayState.chartingMode = false;
 			PlayState.instance.transitioning = true;
-			WeekData.loadTheFirstEnabledMod();
 			return true;
 		});
 		Lua_helper.add_callback(lua, "getSongPosition", function()
