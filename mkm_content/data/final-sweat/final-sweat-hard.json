@@ -1,0 +1,32 @@
+{
+	"song": {
+		"player1": "toad",
+		"events": [],
+		"gfVersion": "none",
+		"notes": [
+			{
+				"sectionNotes": [
+					[
+						0,
+						0,
+						0,
+						"Nothing"
+					]
+				],
+				"lengthInSteps": 16,
+				"typeOfSection": 0,
+				"mustHitSection": false
+			}
+		],
+		"player2": "none",
+		"mania": 0,
+		"player3": null,
+		"song": "Final Sweat",
+		"stage": "void",
+		"needsVoices": true,
+		"validScore": true,
+		"audioPostfix": "",
+		"bpm": 160,
+		"speed": 3.5
+	}
+}
