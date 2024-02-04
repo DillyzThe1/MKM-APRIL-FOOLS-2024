@@ -16,10 +16,11 @@ import flixel.util.FlxTimer;
 
 class MusicBeatState extends FlxUIState
 {
+	public static var instance:MusicBeatState;
 	private var curSection:Int = 0;
 	private var stepsToDo:Int = 0;
 
-	private var terror:Float = FlxG.random.float(900, 7200);
+	public var terror:Float = FlxG.random.float(900, 7200);
 	private var curStep:Int = 0;
 
 	public var curBeat:Int = 0;
@@ -33,6 +34,7 @@ class MusicBeatState extends FlxUIState
 
 	override function create()
 	{
+		instance = this;
 		var skip:Bool = FlxTransitionableState.skipNextTransOut;
 		super.create();
 

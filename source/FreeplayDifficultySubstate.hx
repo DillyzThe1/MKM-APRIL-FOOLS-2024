@@ -107,6 +107,17 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 			goToChart = false;
 			epicfail = true;
 		} 
+		else if (songLowercase == "chaotically-stupid" && stars.members[curStar].diffName.toLowerCase() == "alpha") {
+			FlxG.sound.play(Paths.sound('alpha/toadWeekRandom${FlxG.random.int(1, 5)}'));
+			FlxG.sound.play(Paths.sound('missnote${FlxG.random.int(1, 3)}', 'shared'));
+			diffCam.shake(0.05, 0.375);
+			hasSel = false;
+			MusicBeatState.instance.terror -= 120;
+			trace(MusicBeatState.instance.terror);
+			if (MusicBeatState.instance.terror <= 0)
+				MusicBeatState.instance.theHorrors();
+			return;
+		} 
 		else
 			PlayState.storyDifficulty = CoolUtil.difficulties.indexOf(stars.members[curStar].diffName);
         
