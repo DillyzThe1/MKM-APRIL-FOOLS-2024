@@ -1,0 +1,44 @@
+{
+	"song": {
+		"player1": "none",
+		"player2": "none",
+		"notes": [
+			{
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"sectionNotes": [
+					[
+						0,
+						0,
+						0,
+						"Nothing"
+					]
+				],
+				"mustHitSection": false
+			},
+			{
+				"gfSection": false,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 70,
+				"sectionBeats": 4,
+				"changeBPM": false,
+				"mustHitSection": true
+			}
+		],
+		"gfVersion": "none",
+		"events": [],
+		"soloMode": true,
+		"player3": null,
+		"mania": 0,
+		"song": "Wario's Song",
+		"reverseHealth": false,
+		"validScore": true,
+		"needsVoices": true,
+		"stage": "void",
+		"speed": 3.5,
+		"bpm": 70,
+		"audioPostfix": ""
+	}
+}

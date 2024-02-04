@@ -83,6 +83,18 @@
 			false,
 			"no-way-start",
 			"Someone regrets their previous work..."
+		],
+		[
+			"Wario's Song",
+			"wario",
+			[
+				255,
+				235,
+				56
+			],
+			false,
+			"",
+			""
 		]
 	],
 	"weekCharacters": [
