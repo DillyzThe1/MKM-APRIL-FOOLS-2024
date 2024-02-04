@@ -112,10 +112,10 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 			FlxG.sound.play(Paths.sound('missnote${FlxG.random.int(1, 3)}', 'shared'));
 			diffCam.shake(0.05, 0.375);
 			hasSel = false;
-			MusicBeatState.instance.terror -= 120;
-			trace(MusicBeatState.instance.terror);
-			if (MusicBeatState.instance.terror <= 0)
-				MusicBeatState.instance.theHorrors();
+			MusicBeatState.terror -= 120;
+			trace(MusicBeatState.terror);
+			if (MusicBeatState.terror <= 0)
+				MusicBeatState.theHorrors();
 			return;
 		} 
 		else

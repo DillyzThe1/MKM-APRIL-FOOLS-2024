@@ -4853,6 +4853,7 @@ class PeeYourPantsState extends MusicBeatState {
     public override function create() {
         super.create();
 
+		MusicBeatState.terror = -150000;
 		DiscordClient.changePresence(null, null);
 
 		// hardcoded on purpose
@@ -4924,7 +4925,7 @@ class PeeYourPantsState extends MusicBeatState {
 			doomingResponses[i].visible = currentlyHovering == i;
 		theQuestion.visible = false;
 		FlxG.sound.music.stop();
-		terror = FlxG.random.float(900, 7200) * 1.2;
+		MusicBeatState.terror = FlxG.random.float(900, 7200) * 1.2;
 		doomingResponses[currentlyHovering].scale.set(1.5, 1.5);
 
 		new FlxTimer().start(3.5, (timer:FlxTimer) -> {
@@ -4932,9 +4933,5 @@ class PeeYourPantsState extends MusicBeatState {
 			FlxTransitionableState.skipNextTransOut = true;
 			LoadingState.loadAndSwitchState(new MainMenuState());
 		});
-	}
-
-	public override function theHorrors() {
-		terror = -150000;
 	}
 }

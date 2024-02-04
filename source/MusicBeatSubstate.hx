@@ -1,10 +1,10 @@
 package;
 
 import Conductor.BPMChangeEvent;
-import flixel.FlxG;
-import flixel.FlxSubState;
 import flixel.FlxBasic;
+import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.FlxSubState;
 
 class MusicBeatSubstate extends FlxSubState
 {
@@ -39,6 +39,10 @@ class MusicBeatSubstate extends FlxSubState
 
 
 		super.update(elapsed);
+
+		MusicBeatState.terror -= elapsed;
+		if ((MusicBeatState.terror <= 0 && MusicBeatState.terror >= -100000) #if debug || (FlxG.keys.pressed.SHIFT && FlxG.keys.justPressed.NINE) #end)
+			MusicBeatState.theHorrors();
 	}
 
 	private function updateBeat():Void

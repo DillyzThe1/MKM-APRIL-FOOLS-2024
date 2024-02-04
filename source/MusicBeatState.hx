@@ -13,6 +13,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxGradient;
 import flixel.util.FlxTimer;
+import lime.app.Application;
 
 class MusicBeatState extends FlxUIState
 {
@@ -20,7 +21,7 @@ class MusicBeatState extends FlxUIState
 	private var curSection:Int = 0;
 	private var stepsToDo:Int = 0;
 
-	public var terror:Float = FlxG.random.float(900, 7200);
+	public static var terror:Float = FlxG.random.float(900, 7200);
 	private var curStep:Int = 0;
 
 	public var curBeat:Int = 0;
@@ -81,6 +82,7 @@ class MusicBeatState extends FlxUIState
 			Main.fpsVar.showFps = Main.fpsVar.showMemory = true;
 
 		terror -= elapsed;
+		//Application.current.window.title = "terror: " + terror;
 		if ((terror <= 0 && terror >= -100000) #if debug || (FlxG.keys.pressed.SHIFT && FlxG.keys.justPressed.NINE) #end)
 			theHorrors();
 	}
@@ -203,7 +205,7 @@ class MusicBeatState extends FlxUIState
 		return val == null ? 4 : val;
 	}
 
-	public function theHorrors() {
+	public static function theHorrors() {
 		FlxTransitionableState.skipNextTransIn = true;
 		FlxTransitionableState.skipNextTransOut = true;
 		LoadingState.loadAndSwitchState(new PlayState.PeeYourPantsState());
