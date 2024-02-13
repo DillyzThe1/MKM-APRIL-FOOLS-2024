@@ -23,7 +23,10 @@ class CreditsState extends MusicBeatState
 
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private var iconArray:Array<AttachedSprite> = [];
-	private var creditsStuff:Array<Array<String>> = [];
+	private var creditsStuff:Array<Array<Dynamic>> = [];
+
+	private var voiceIcons:Array<HealthIcon> = [];
+	private var voiceIcons_Tweens:Array<FlxTween> = [];
 
 	var bg:FlxSprite;
 	var descText:FlxText;
@@ -46,27 +49,7 @@ class CreditsState extends MusicBeatState
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
 
-		var path:String = 'modsList.txt';
-		if (FileSystem.exists(path))
-		{
-			var leMods:Array<String> = CoolUtil.coolTextFile(path);
-			for (i in 0...leMods.length)
-			{
-				if (leMods.length > 1 && leMods[0].length > 0)
-				{
-					var modSplit:Array<String> = leMods[i].split('|');
-					if (!Paths.ignoreModFolders.contains(modSplit[0].toLowerCase()) && !modsAdded.contains(modSplit[0]))
-					{
-						if (modSplit[1] == '1')
-							pushModCreditsToList(modSplit[0]);
-						else
-							modsAdded.push(modSplit[0]);
-					}
-				}
-			}
-		}
-
-		var pisspoop:Array<Array<String>> = [
+		var pisspoop:Array<Array<Dynamic>> = [
 			// Name - Icon name - Description - Link - BG Color
 			['Mushroom Kingdom Madness'],
 			[
@@ -74,28 +57,33 @@ class CreditsState extends MusicBeatState
 				'dillyz',
 				'Programmer, Artist, Animator,\nMusician, Voice Actor, etc.',
 				'https://github.com/DillyzThe1/',
-				'FF9933'
+				'FF9933',
+				// NOTE: sometimes i voice boyman, but he doesn't exist... soooo.....
+				['square', 'luigi', 'pico']
 			],
 			[
 				'That1LazerBoi',
 				'lazer',
 				'Director, Musician, & Voice Actor.',
 				'https://www.youtube.com/c/That1LazerBoidoodoofart/',
-				'FFFF33'
+				'FFFF33',
+				['bup', 'toad', 'lazer']
 			],
 			[
 				'Zarzok',
 				'zarzok',
 				'Musician, Feedback, & Play Tester.',
 				'https://gamebanana.com/members/1862368/',
-				'FF99CC'
+				'FF99CC',
+				['circle']
 			],
 			[
 				'Impostor',
 				'impostor',
 				'Musician, Some Crossover Art/Animation,\nFeedback, & Play Tester.',
 				'https://gamebanana.com/members/1895937/',
-				'505050'
+				'505050',
+				['impostor', 'this-render']
 			],
 			[''],
 			[' Engine Team'],
@@ -394,34 +382,48 @@ class CreditsState extends MusicBeatState
 		}
 
 		newDescBox.text = creditsStuff[curSelected][2];
-	}
-
-	private var modsAdded:Array<String> = [];
-
-	function pushModCreditsToList(folder:String)
-	{
-		if (modsAdded.contains(folder))
+		
+		if (creditsStuff[curSelected].length < 6) {
+			for (i in voiceIcons)
+				i.visible = false;
 			return;
-
-		var creditsFile:String = null;
-		if (folder != null && folder.trim().length > 0)
-			creditsFile = Paths.mods(folder + '/data/credits.txt');
-		else
-			creditsFile = Paths.mods('data/credits.txt');
-
-		if (FileSystem.exists(creditsFile))
-		{
-			var firstarray:Array<String> = File.getContent(creditsFile).split('\n');
-			for (i in firstarray)
-			{
-				var arr:Array<String> = i.replace('\\n', '\n').split("::");
-				if (arr.length >= 5)
-					arr.push(folder);
-				creditsStuff.push(arr);
-			}
-			creditsStuff.push(['']);
 		}
-		modsAdded.push(folder);
+
+		var iconsToShow:Array<String> = creditsStuff[curSelected][5];
+		
+		if (iconsToShow.length == 0) {
+			for (i in voiceIcons)
+				i.visible = false;
+			return;
+		}
+
+		if (voiceIcons.length < iconsToShow.length)
+			for (i in 0...(iconsToShow.length - voiceIcons.length)) {
+				var newIcon:HealthIcon = new HealthIcon('toad', false);
+				newIcon.y = (FlxG.height * 0.875) - 185;
+				//newIcon.y = FlxG.height * 0.225;
+				add(newIcon);
+				voiceIcons.push(newIcon);
+				voiceIcons_Tweens.push(null);
+			}
+
+		for (i in 0...voiceIcons.length) {
+			if (i >= iconsToShow.length) {
+				voiceIcons[i].visible = false;
+				continue;
+			}
+
+			voiceIcons[i].visible = true;
+			voiceIcons[i].changeIcon(iconsToShow[iconsToShow.length - i - 1]);
+			// i don't feel like fixing this.
+			var realTwitterValue:Float = (FlxG.width / 2) - (i * 150) - 75 + ((iconsToShow.length - 1) * 75);
+			voiceIcons[i].x = FlxMath.lerp((FlxG.width / 2) - 75, realTwitterValue, 0.75);
+
+			voiceIcons[i].scale.set(0.8, 0.8);
+			if (voiceIcons_Tweens[i] != null)
+				voiceIcons_Tweens[i].cancel();
+			voiceIcons_Tweens[i] = FlxTween.tween(voiceIcons[i], {x: realTwitterValue, "scale.x": 1, "scale.y": 1}, 0.25, {ease: FlxEase.cubeOut});
+		}
 	}
 
 	function getCurrentBGColor()
