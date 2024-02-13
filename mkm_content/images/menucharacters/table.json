@@ -1,9 +1,9 @@
 {
-	"idle_anim": "GF Dancing Beat",
-	"image": "gf-table",
+	"idle_anim": "Dancing Beat",
+	"image": "table",
 	"position": [
 		30,
-		61
+		-100
 	],
 	"flipX": false,
 	"scale": 0.6,

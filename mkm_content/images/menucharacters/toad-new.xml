@@ -1,20 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="toad-new.png">
-	<!-- Created with Adobe Animate version 23.0.1.70 -->
+	<!-- Created with Adobe Animate version 24.0.0.305 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="Toad Idle0000" x="324" y="0" width="309" height="468" frameX="-21" frameY="-17" frameWidth="341" frameHeight="485"/>
-	<SubTexture name="Toad Idle0001" x="324" y="0" width="309" height="468" frameX="-21" frameY="-17" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Idle0000" x="0" y="934" width="309" height="468" frameX="-21" frameY="-17" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Idle0001" x="0" y="934" width="309" height="468" frameX="-21" frameY="-17" frameWidth="341" frameHeight="485"/>
 	<SubTexture name="Toad Idle0002" x="0" y="0" width="320" height="463" frameX="-21" frameY="-22" frameWidth="341" frameHeight="485"/>
 	<SubTexture name="Toad Idle0003" x="0" y="0" width="320" height="463" frameX="-21" frameY="-22" frameWidth="341" frameHeight="485"/>
-	<SubTexture name="Toad Idle0004" x="291" y="472" width="287" height="473" frameX="-20" frameY="-12" frameWidth="341" frameHeight="485"/>
-	<SubTexture name="Toad Idle0005" x="291" y="472" width="287" height="473" frameX="-20" frameY="-12" frameWidth="341" frameHeight="485"/>
-	<SubTexture name="Toad Idle0006" x="582" y="472" width="280" height="483" frameX="-8" frameY="-2" frameWidth="341" frameHeight="485"/>
-	<SubTexture name="Toad Idle0007" x="582" y="472" width="280" height="483" frameX="-8" frameY="-2" frameWidth="341" frameHeight="485"/>
-	<SubTexture name="Toad Idle0008" x="0" y="467" width="287" height="485" frameX="0" frameY="0" frameWidth="341" frameHeight="485"/>
-	<SubTexture name="Toad Idle0009" x="0" y="467" width="287" height="485" frameX="0" frameY="0" frameWidth="341" frameHeight="485"/>
-	<SubTexture name="Toad Idle0010" x="0" y="467" width="287" height="485" frameX="0" frameY="0" frameWidth="341" frameHeight="485"/>
-	<SubTexture name="Toad Idle0011" x="0" y="467" width="287" height="485" frameX="0" frameY="0" frameWidth="341" frameHeight="485"/>
-	<SubTexture name="Toad Idle0012" x="0" y="467" width="287" height="485" frameX="0" frameY="0" frameWidth="341" frameHeight="485"/>
-	<SubTexture name="Toad Idle0013" x="0" y="467" width="287" height="485" frameX="0" frameY="0" frameWidth="341" frameHeight="485"/>
-	<SubTexture name="Toad Idle0014" x="0" y="467" width="287" height="485" frameX="0" frameY="0" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Idle0004" x="324" y="0" width="287" height="473" frameX="-20" frameY="-12" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Idle0005" x="324" y="0" width="287" height="473" frameX="-20" frameY="-12" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Idle0006" x="604" y="954" width="280" height="483" frameX="-8" frameY="-2" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Idle0007" x="604" y="954" width="280" height="483" frameX="-8" frameY="-2" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Idle0008" x="313" y="934" width="287" height="485" frameX="0" frameY="0" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Idle0009" x="313" y="934" width="287" height="485" frameX="0" frameY="0" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Idle0010" x="313" y="934" width="287" height="485" frameX="0" frameY="0" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Idle0011" x="313" y="934" width="287" height="485" frameX="0" frameY="0" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Idle0012" x="313" y="934" width="287" height="485" frameX="0" frameY="0" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Idle0013" x="313" y="934" width="287" height="485" frameX="0" frameY="0" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Idle0014" x="313" y="934" width="287" height="485" frameX="0" frameY="0" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Nervous0000" x="0" y="1406" width="309" height="468" frameX="-21" frameY="-17" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Nervous0001" x="0" y="1406" width="309" height="468" frameX="-21" frameY="-17" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Nervous0002" x="0" y="467" width="320" height="463" frameX="-21" frameY="-22" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Nervous0003" x="0" y="467" width="320" height="463" frameX="-21" frameY="-22" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Nervous0004" x="604" y="477" width="287" height="473" frameX="-20" frameY="-12" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Nervous0005" x="604" y="477" width="287" height="473" frameX="-20" frameY="-12" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Nervous0006" x="604" y="1441" width="280" height="483" frameX="-8" frameY="-2" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Nervous0007" x="604" y="1441" width="280" height="483" frameX="-8" frameY="-2" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Nervous0008" x="313" y="1423" width="287" height="485" frameX="0" frameY="0" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Nervous0009" x="313" y="1423" width="287" height="485" frameX="0" frameY="0" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Nervous0010" x="313" y="1423" width="287" height="485" frameX="0" frameY="0" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Nervous0011" x="313" y="1423" width="287" height="485" frameX="0" frameY="0" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Nervous0012" x="313" y="1423" width="287" height="485" frameX="0" frameY="0" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Nervous0013" x="313" y="1423" width="287" height="485" frameX="0" frameY="0" frameWidth="341" frameHeight="485"/>
+	<SubTexture name="Toad Nervous0014" x="313" y="1423" width="287" height="485" frameX="0" frameY="0" frameWidth="341" frameHeight="485"/>
 </TextureAtlas>

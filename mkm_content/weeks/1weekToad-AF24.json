@@ -1,0 +1,46 @@
+{
+	"storyName": "Toad's House (4am)",
+	"difficulties": "Hard",
+	"hideFreeplay": false,
+	"weekBackground": "stewie",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "0weekToad",
+	"startUnlocked": false,
+	"weekCharacters": [
+		"toad-new",
+		"",
+		""
+	],
+	"songs": [
+		[
+			"Final Sweat",
+			"peter",
+			[
+				41,
+				101,
+				49
+			],
+			true,
+			"",
+			"I wanna dress up like a GOLDEN SCAR and have I'M IN FORTNITE with children and VICTORY ROYALE them."
+		],
+		[
+			"square vs toad",
+			"square",
+			[
+				40,
+				40,
+				60
+			],
+			false,
+			"",
+			"Wait, there's MORE than the first week?!"
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "Toad Through Time"
+}

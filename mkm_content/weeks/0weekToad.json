@@ -12,8 +12,8 @@
 	"startUnlocked": false,
 	"weekCharacters": [
 		"toad-new",
-		"bf",
-		"gf-table"
+		"",
+		"table"
 	],
 	"songs": [
 		[
@@ -63,30 +63,6 @@
 			true,
 			"bup-start",
 			"Play the first week of the mod."
-		],
-		[
-			"Final Sweat",
-			"peter",
-			[
-				41,
-				101,
-				49
-			],
-			false,
-			"",
-			"Wait, there's MORE in the first week?!"
-		],
-		[
-			"square vs toad",
-			"square",
-			[
-				40,
-				40,
-				60
-			],
-			false,
-			"",
-			"Wait, there's MORE in the first week?!"
 		]
 	],
 	"hideStoryMode": false,

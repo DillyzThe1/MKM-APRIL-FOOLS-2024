@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="gf-table.png">
+	<!-- Created with Adobe Animate version 24.0.0.305 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Dancing Beat0000" x="0" y="0" width="471" height="297"/>
+	<SubTexture name="Dancing Beat0001" x="0" y="0" width="471" height="297"/>
+	<SubTexture name="Dancing Beat0002" x="0" y="593" width="460" height="284" frameX="0" frameY="-13" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0003" x="0" y="593" width="460" height="284" frameX="0" frameY="-13" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0004" x="0" y="301" width="463" height="288" frameX="0" frameY="-9" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0005" x="0" y="301" width="463" height="288" frameX="0" frameY="-9" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0006" x="0" y="301" width="463" height="288" frameX="0" frameY="-9" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0007" x="0" y="301" width="463" height="288" frameX="0" frameY="-9" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0008" x="0" y="301" width="463" height="288" frameX="0" frameY="-9" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0009" x="0" y="301" width="463" height="288" frameX="0" frameY="-9" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0010" x="0" y="301" width="463" height="288" frameX="0" frameY="-9" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0011" x="0" y="301" width="463" height="288" frameX="0" frameY="-9" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0012" x="0" y="301" width="463" height="288" frameX="0" frameY="-9" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0013" x="0" y="301" width="463" height="288" frameX="0" frameY="-9" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0014" x="0" y="301" width="463" height="288" frameX="0" frameY="-9" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0015" x="475" y="0" width="471" height="297"/>
+	<SubTexture name="Dancing Beat0016" x="475" y="0" width="471" height="297"/>
+	<SubTexture name="Dancing Beat0017" x="464" y="593" width="460" height="284" frameX="0" frameY="-13" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0018" x="464" y="593" width="460" height="284" frameX="0" frameY="-13" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0019" x="467" y="301" width="463" height="288" frameX="0" frameY="-9" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0020" x="467" y="301" width="463" height="288" frameX="0" frameY="-9" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0021" x="467" y="301" width="463" height="288" frameX="0" frameY="-9" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0022" x="467" y="301" width="463" height="288" frameX="0" frameY="-9" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0023" x="467" y="301" width="463" height="288" frameX="0" frameY="-9" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0024" x="467" y="301" width="463" height="288" frameX="0" frameY="-9" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0025" x="467" y="301" width="463" height="288" frameX="0" frameY="-9" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0026" x="467" y="301" width="463" height="288" frameX="0" frameY="-9" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0027" x="467" y="301" width="463" height="288" frameX="0" frameY="-9" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0028" x="467" y="301" width="463" height="288" frameX="0" frameY="-9" frameWidth="471" frameHeight="297"/>
+	<SubTexture name="Dancing Beat0029" x="467" y="301" width="463" height="288" frameX="0" frameY="-9" frameWidth="471" frameHeight="297"/>
+</TextureAtlas>
