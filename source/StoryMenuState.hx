@@ -201,6 +201,8 @@ class StoryMenuState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
+		if (FlxG.sound.music != null)
+			Conductor.songPosition = FlxG.sound.music.time;
 		// scoreText.setFormat('VCR OSD Mono', 32);
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, CoolUtil.boundTo(elapsed * 30, 0, 1)));
 		if (Math.abs(intendedScore - lerpScore) < 10)
@@ -300,9 +302,10 @@ class StoryMenuState extends MusicBeatState
 
 			grpWeekText.members[curWeek].startFlashing();
 
-			var bf:MenuCharacter = grpWeekCharacters.members[1];
-			if (bf.character != '' && bf.hasConfirmAnimation)
-				grpWeekCharacters.members[1].animation.play('confirm');
+			for (character in grpWeekCharacters) {
+				if (character.character != '' && character.hasConfirmAnimation)
+					character.animation.play('confirm', true);
+			}
 			stopspamming = true;
 		}
 	}
@@ -472,5 +475,13 @@ class StoryMenuState extends MusicBeatState
 		txtTracklist.x -= FlxG.width * 0.35;
 
 		intendedScore = Highscore.getWeekScore(loadedWeeks[curWeek].fileName, curDifficulty);
+	}
+
+	override function beatHit() {
+		super.beatHit();
+		if (curBeat % 2 == 0)
+			for (i in grpWeekCharacters)
+				if (i.animation == null || i.animation.curAnim == null || i.animation.curAnim.name != 'confirm')
+					i.dance();
 	}
 }

@@ -34,6 +34,10 @@ class MenuCharacter extends FlxSprite
 		if(character == null) character = '';
 		if(character == this.character) return;
 
+		var prevFrame:Int = 0;
+		if (this.animation != null && this.animation.curAnim != null)
+			prevFrame = this.animation.curAnim.curFrame;
+
 		this.character = character;
 		antialiasing = ClientPrefs.globalAntialiasing;
 		visible = true;
@@ -63,7 +67,7 @@ class MenuCharacter extends FlxSprite
 				
 				var charFile:MenuCharacterFile = cast Json.parse(rawJson);
 				frames = Paths.getSparrowAtlas('menucharacters/' + charFile.image);
-				animation.addByPrefix('idle', charFile.idle_anim, 24);
+				animation.addByPrefix('idle', charFile.idle_anim, 24, false);
 
 				var confirmAnim:String = charFile.confirm_anim;
 				if(confirmAnim != null && confirmAnim != charFile.idle_anim)
@@ -80,7 +84,11 @@ class MenuCharacter extends FlxSprite
 					updateHitbox();
 				}
 				offset.set(charFile.position[0], charFile.position[1]);
-				animation.play('idle');
+				animation.play('idle', true, false, prevFrame);
 		}
+	}
+
+	public function dance() {
+		animation.play('idle', true);
 	}
 }

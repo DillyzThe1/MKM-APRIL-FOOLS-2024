@@ -1,5 +1,5 @@
 {
-	"idle_anim": "Toad Nervous",
+	"idle_anim": "Toad Nervous0",
 	"image": "toad-new",
 	"position": [
 		70,
@@ -7,5 +7,5 @@
 	],
 	"flipX": false,
 	"scale": 0.75,
-	"confirm_anim": "M Dad Idle"
+	"confirm_anim": "Toad Nervous Confirm"
 }
