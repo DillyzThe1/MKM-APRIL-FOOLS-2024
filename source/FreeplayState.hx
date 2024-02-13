@@ -283,7 +283,7 @@ class FreeplayState extends MusicBeatState
 			ClientPrefs.setKeyUnlocked(songs[curIndex].unlockerKey, !wasunlocked);
 			var saieahiwahiwfaih:String = songs[curIndex].songName.toLowerCase().replace(" ", "-");
 			ClientPrefs.setKeyUnlocked(saieahiwahiwfaih + "-start", !wasunlocked);
-			ClientPrefs.setKeyUnlocked(saieahiwahiwfaih + "-end", false);
+			ClientPrefs.setKeyUnlocked(saieahiwahiwfaih + "-end", !wasunlocked);
 			CoolUtil.loadSongDiffs(songs[curIndex].songName);
 			@:privateAccess
 			if (wasunlocked)

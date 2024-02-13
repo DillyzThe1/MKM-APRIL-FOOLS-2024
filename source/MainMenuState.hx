@@ -71,6 +71,10 @@ class MainMenuState extends MusicBeatState
 		DiscordClient.inMenus();
 		debugKeys = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 
+		if (CoolUtil.squareWarning()) {
+			optionShit = ['story_mode', 'credits', 'options'];
+		}
+
 		camGame = new FlxCamera();
 		camAchievement = new FlxCamera();
 		camAchievement.bgColor.alpha = 0;
@@ -84,7 +88,7 @@ class MainMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
-		bg = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
+		bg = new FlxSprite(-80).loadGraphic(Paths.image(CoolUtil.squareWarning() ? 'menuDoom' : 'menuBG'));
 		bg.scrollFactor.set(0, yScroll);
 		bg.setGraphicSize(Std.int(bg.width * 1.175));
 		bg.updateHitbox();
@@ -116,6 +120,13 @@ class MainMenuState extends MusicBeatState
 		magenta.color = 0xFFfd719b;
 		add(magenta);
 
+		if (CoolUtil.squareWarning()) {
+			magenta.color = FlxColor.BLACK;
+			magenta.visible = true;
+			magenta.alpha = 0;
+			FlxTween.tween(magenta, {alpha: 0.65}, 7.25, {ease: FlxEase.cubeInOut, type: PINGPONG, loopDelay: 0.15});
+		}
+
 		magentaNormalized = new FlxSprite(-80).loadGraphic(Paths.image('menuBGBlue-Luigi'));
 		magentaNormalized.scrollFactor.set(0, yScroll);
 		magentaNormalized.setGraphicSize(Std.int(magentaNormalized.width * 1.175));
@@ -130,7 +141,8 @@ class MainMenuState extends MusicBeatState
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 		menuItemsRight = new FlxTypedGroup<FlxSprite>();
-		add(menuItemsRight);
+		if (!CoolUtil.squareWarning())
+			add(menuItemsRight);
 
 		setOnRight(false);
 
@@ -224,7 +236,7 @@ class MainMenuState extends MusicBeatState
 
 		super.create();
 
-		beatenToadWeekONE = StoryMenuState.weekCompleted.get('0weekToad');
+		beatenToadWeekONE = StoryMenuState.weekCompleted.get('0weekToad') && !CoolUtil.squareWarning();
 		// allow typing secrets
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, checkKeyDown);
 
@@ -312,7 +324,9 @@ class MainMenuState extends MusicBeatState
 					selectedSomethin = true;
 					FlxG.sound.play(Paths.sound('confirmMenu'));
 
-					if (ClientPrefs.flashing)
+					if (CoolUtil.squareWarning())
+						FlxTween.tween(bg, {alpha: 0}, 1.1, {ease: FlxEase.cubeInOut});
+					else if (ClientPrefs.flashing)
 						FlxFlicker.flicker(selOnRight ? magentaNormalized : magenta, 1.1, 0.15, false);
 
 					(!selOnRight ? menuItemsRight : menuItems).forEach(function(spr:FlxSprite)

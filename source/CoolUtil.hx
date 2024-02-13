@@ -264,11 +264,18 @@ class CoolUtil
 		return FlxG.save.data.babymode;
 	}
 
+	// i'm debating on making this bup-end & square-vs-toad-end or 0weekToad & 1weekToad-AF24
+	public static function squareWarning():Bool {
+		if (StoryMenuState.weekCompleted.get('0weekToad') && #if debug !ClientPrefs.getKeyUnlocked("square-vs-toad-end") #else !StoryMenuState.weekCompleted.get('1weekToad-AF24') #end)
+			return true;
+		return false;
+	}
+
 	public static function playMenuTheme(?volume:Float = 1, ?looped:Bool = true) {
 		var menuThemeName:String = 'toadMenu';
 		var babyMode:Bool = FlxG.save.data.babymode;
 
-		if (false #if debug || FlxG.keys.pressed.CONTROL #end) {
+		if (squareWarning()) {
 			menuThemeName = 'danger-bup-ahead';
 			Conductor.changeBPM(140);
 

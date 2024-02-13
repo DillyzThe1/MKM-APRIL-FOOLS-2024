@@ -97,6 +97,7 @@ class StoryMenuState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.inMenus();
 
+		var rememberToSelect:Int = 0;
 		var num:Int = 0;
 		for (i in 0...WeekData.weeksList.length)
 		{
@@ -114,6 +115,9 @@ class StoryMenuState extends MusicBeatState
 				weekThing.screenCenter(X);
 				weekThing.antialiasing = ClientPrefs.globalAntialiasing;
 				// weekThing.updateHitbox();
+
+				if (WeekData.weeksList[i] == '1weekToad-AF24' && CoolUtil.squareWarning())
+					rememberToSelect = num;
 
 				// Needs an offset thingie
 				if (isLocked)
@@ -186,7 +190,7 @@ class StoryMenuState extends MusicBeatState
 		add(scoreText);
 		add(txtWeekTitle);
 
-		changeWeek();
+		changeWeek(rememberToSelect - curWeek);
 		changeDifficulty();
 
 		super.create();

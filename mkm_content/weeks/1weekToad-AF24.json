@@ -25,7 +25,7 @@
 				49
 			],
 			true,
-			"",
+			"final-sweat-start",
 			"I wanna dress up like a GOLDEN SCAR and have I'M IN FORTNITE with children and VICTORY ROYALE them."
 		],
 		[
@@ -37,10 +37,11 @@
 				60
 			],
 			false,
-			"",
+			"square-vs-toad-start",
 			"Wait, there's MORE than the first week?!"
 		]
 	],
 	"hideStoryMode": false,
+	"hiddenUntilUnlocked": true,
 	"weekName": "Toad Through Time"
 }
