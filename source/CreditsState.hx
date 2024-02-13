@@ -29,7 +29,7 @@ class CreditsState extends MusicBeatState
 	var descText:FlxText;
 	var intendedColor:Int;
 	var colorTween:FlxTween;
-	var descBox:AttachedSprite;
+	var newDescBox:CaptionObject;
 
 	var offsetThing:Float = -75;
 
@@ -72,7 +72,7 @@ class CreditsState extends MusicBeatState
 			[
 				'DillyzThe1',
 				'dillyz',
-				'Programmer, Artist, Animator, Musician, Voice Actor, etc.',
+				'Programmer, Artist, Animator,\nMusician, Voice Actor, etc.',
 				'https://github.com/DillyzThe1/',
 				'FF9933'
 			],
@@ -93,7 +93,7 @@ class CreditsState extends MusicBeatState
 			[
 				'Impostor',
 				'impostor',
-				'Musician, Some Crossover Art/Animation, Feedback, & Play Tester.',
+				'Musician, Some Crossover Art/Animation,\nFeedback, & Play Tester.',
 				'https://gamebanana.com/members/1895937/',
 				'505050'
 			],
@@ -254,20 +254,9 @@ class CreditsState extends MusicBeatState
 			}
 		}
 
-		descBox = new AttachedSprite();
-		descBox.makeGraphic(1, 1, FlxColor.BLACK);
-		descBox.xAdd = -10;
-		descBox.yAdd = -10;
-		descBox.alphaMult = 0.6;
-		descBox.alpha = 0.6;
-		add(descBox);
-
-		descText = new FlxText(50, FlxG.height + offsetThing - 25, 1180, "", 32);
-		descText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER /*, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK*/);
-		descText.scrollFactor.set();
-		// descText.borderSize = 2.4;
-		descBox.sprTracker = descText;
-		add(descText);
+		newDescBox = new CaptionObject("");
+		newDescBox.animate = true;
+		add(newDescBox);
 
 		bg.color = getCurrentBGColor();
 		intendedColor = bg.color;
@@ -358,8 +347,6 @@ class CreditsState extends MusicBeatState
 		super.update(elapsed);
 	}
 
-	var moveTween:FlxTween = null;
-
 	function changeSelection(change:Int = 0)
 	{
 		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
@@ -406,15 +393,7 @@ class CreditsState extends MusicBeatState
 			}
 		}
 
-		descText.text = creditsStuff[curSelected][2];
-		descText.y = FlxG.height - descText.height + offsetThing - 60;
-
-		if (moveTween != null)
-			moveTween.cancel();
-		moveTween = FlxTween.tween(descText, {y: descText.y + 75}, 0.25, {ease: FlxEase.sineOut});
-
-		descBox.setGraphicSize(Std.int(descText.width + 20), Std.int(descText.height + 25));
-		descBox.updateHitbox();
+		newDescBox.text = creditsStuff[curSelected][2];
 	}
 
 	private var modsAdded:Array<String> = [];
