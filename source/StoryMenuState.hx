@@ -429,6 +429,8 @@ class StoryMenuState extends MusicBeatState
 			curDifficulty = 0;
 		}
 
+		leftArrow.visible = rightArrow.visible = (CoolUtil.difficulties.length > 1);
+
 		var newPos:Int = CoolUtil.difficulties.indexOf(lastDifficultyName);
 		// trace('Pos of ' + lastDifficultyName + ' is ' + newPos);
 		if (newPos > -1)
