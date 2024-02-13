@@ -50,7 +50,7 @@ class CreditsState extends MusicBeatState
 		add(grpOptions);
 
 		var pisspoop:Array<Array<Dynamic>> = [
-			// Name - Icon name - Description - Link - BG Color
+			// Name - Icon name - Description - Link - BG Color - Voice(s)
 			['Mushroom Kingdom Madness'],
 			[
 				'DillyzThe1',
