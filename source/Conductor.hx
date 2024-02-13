@@ -148,6 +148,7 @@ class Conductor
 
 	public static function changeBPM(newBpm:Float)
 	{
+		trace('bpm is now $newBpm');
 		bpm = newBpm;
 
 		crochet = calculateCrochet(bpm);

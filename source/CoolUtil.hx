@@ -252,8 +252,6 @@ class CoolUtil
 		if (active)
 			ClientPrefs.setKeyUnlocked("babymode", true);
 
-		// FlxG.sound.playMusic(Paths.music('toadMenu', 'preload'));
-		// FlxG.sound.music.fadeIn(1.75, 0, 1);
 		LoadingState.loadAndSwitchState(new TitleState(), false);
 	}
 
@@ -264,6 +262,25 @@ class CoolUtil
 		if (FlxG.save.data.babymode == null)
 			return false;
 		return FlxG.save.data.babymode;
+	}
+
+	public static function playMenuTheme(?volume:Float = 1, ?looped:Bool = true) {
+		var menuThemeName:String = 'toadMenu';
+		var babyMode:Bool = FlxG.save.data.babymode;
+
+		if (false #if debug || FlxG.keys.pressed.CONTROL #end) {
+			menuThemeName = 'danger-bup-ahead';
+			Conductor.changeBPM(140);
+
+			if (babyMode)
+				trace('CRAAAAP I FORGOT TO MAKE DANGER BABY AHEAD!!!!');
+		}
+		else {
+			menuThemeName = babyMode ? 'babyMenu' : 'toadMenu';
+			Conductor.changeBPM(babyMode ? 82 : 102);
+		}
+		trace('ok we gotta play the $menuThemeName at ${Conductor.bpm} BPM');
+		FlxG.sound.playMusic(Paths.music(menuThemeName, 'preload'), volume, looped);
 	}
 
 	public static function weekIsLocked(name:String):Bool

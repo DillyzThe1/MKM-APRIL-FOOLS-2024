@@ -43,7 +43,9 @@ class Paths
 	}
 
 	public static var dumpExclusions:Array<String> = [
+		'assets/music/babyMenu.ogg',
 		'assets/music/toadMenu.ogg',
+		'assets/music/danger-bup-ahead.ogg',
 		'assets/shared/music/betwixt-the-chaos.ogg'
 	];
 

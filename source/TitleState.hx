@@ -223,34 +223,11 @@ class TitleState extends MusicBeatState
 
 	function startIntro()
 	{
-		if (!initialized || forceIntro)
-		{
-			/*var diamond:FlxGraphic = FlxGraphic.fromClass(GraphicTransTileDiamond);
-				diamond.persist = true;
-				diamond.destroyOnNoUse = false;
+		if (!initialized || FlxG.sound.music == null || forceIntro)
+			CoolUtil.playMenuTheme(0);
 
-				FlxTransitionableState.defaultTransIn = new TransitionData(FADE, FlxColor.BLACK, 1, new FlxPoint(0, -1), {asset: diamond, width: 32, height: 32},
-					new FlxRect(-300, -300, FlxG.width * 1.8, FlxG.height * 1.8));
-				FlxTransitionableState.defaultTransOut = new TransitionData(FADE, FlxColor.BLACK, 0.7, new FlxPoint(0, 1),
-					{asset: diamond, width: 32, height: 32}, new FlxRect(-300, -300, FlxG.width * 1.8, FlxG.height * 1.8));
-
-				transIn = FlxTransitionableState.defaultTransIn;
-				transOut = FlxTransitionableState.defaultTransOut; */
-
-			// HAD TO MODIFY SOME BACKEND SHIT
-			// IF THIS PR IS HERE IF ITS ACCEPTED UR GOOD TO GO
-			// https://github.com/HaxeFlixel/flixel-addons/pull/348
-
-			// var music:FlxSound = new FlxSound();
-			// music.loadStream(Paths.music('toadMenu'));
-			// FlxG.sound.list.add(music);
-			// music.play();
-
-			if (FlxG.sound.music == null || forceIntro)
-				FlxG.sound.playMusic(Paths.music(CoolUtil.babyMode() ? 'babyMenu' : 'toadMenu', 'preload'), 0);
-		}
-
-		Conductor.changeBPM(CoolUtil.babyMode() ? 82 : titleJSON.bpm);
+		//if (Conductor.bpm == 0)
+		//	Conductor.changeBPM(CoolUtil.babyMode() ? 82 : titleJSON.bpm);
 		persistentUpdate = true;
 
 		var bg:FlxSprite = new FlxSprite();
@@ -568,8 +545,7 @@ class TitleState extends MusicBeatState
 			{
 				case 1:
 					// FlxG.sound.music.stop();
-					FlxG.sound.playMusic(Paths.music(CoolUtil.babyMode() ? 'babyMenu' : 'toadMenu'), 0);
-					Conductor.changeBPM(CoolUtil.babyMode() ? 82 : titleJSON.bpm);
+					CoolUtil.playMenuTheme();
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 				case 2:
 					#if PSYCH_WATERMARKS
@@ -661,8 +637,7 @@ class TitleState extends MusicBeatState
 						skippedIntro = true;
 						playJingle = false;
 
-						FlxG.sound.playMusic(Paths.music(CoolUtil.babyMode() ? 'babyMenu' : 'toadMenu'), 0);
-						Conductor.changeBPM(CoolUtil.babyMode() ? 82 : titleJSON.bpm);
+						CoolUtil.playMenuTheme();
 						FlxG.sound.music.fadeIn(4, 0, 0.7);
 						return;
 				}
@@ -685,8 +660,7 @@ class TitleState extends MusicBeatState
 					FlxG.camera.flash(FlxColor.WHITE, 3);
 					sound.onComplete = function()
 					{
-						FlxG.sound.playMusic(Paths.music(CoolUtil.babyMode() ? 'babyMenu' : 'toadMenu'), 0);
-						Conductor.changeBPM(CoolUtil.babyMode() ? 82 : titleJSON.bpm);
+						CoolUtil.playMenuTheme();
 						FlxG.sound.music.fadeIn(4, 0, 0.7);
 						transitioning = false;
 					};
@@ -706,8 +680,7 @@ class TitleState extends MusicBeatState
 
 				if (forceIntro)
 				{
-					FlxG.sound.playMusic(Paths.music(CoolUtil.babyMode() ? 'babyMenu' : 'toadMenu'), 0);
-					Conductor.changeBPM(CoolUtil.babyMode() ? 82 : titleJSON.bpm);
+					CoolUtil.playMenuTheme();
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 				}
 			}

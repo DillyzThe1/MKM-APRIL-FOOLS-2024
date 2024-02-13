@@ -1649,7 +1649,7 @@ class FunkinLua
 			else
 				MusicBeatState.switchState(new FreeplayState());
 
-			FlxG.sound.playMusic(Paths.music('toadMenu'));
+			CoolUtil.playMenuTheme();
 			PlayState.changedDifficulty = false;
 			PlayState.chartingMode = false;
 			PlayState.instance.transitioning = true;

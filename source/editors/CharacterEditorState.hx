@@ -1183,7 +1183,7 @@ class CharacterEditorState extends MusicBeatState
 				else
 				{
 					MusicBeatState.switchState(new editors.MasterEditorMenu());
-					FlxG.sound.playMusic(Paths.music('toadMenu'));
+					CoolUtil.playMenuTheme();
 				}
 				FlxG.mouse.visible = false;
 				return;

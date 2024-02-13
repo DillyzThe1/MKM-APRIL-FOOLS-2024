@@ -3202,7 +3202,7 @@ class PlayState extends MusicBeatState
 
 				if (storyPlaylist.length <= 0)
 				{
-					FlxG.sound.playMusic(Paths.music('toadMenu'));
+					CoolUtil.playMenuTheme();
 
 					cancelMusicFadeTween();
 					if (FlxTransitionableState.skipNextTransIn)
@@ -3264,7 +3264,7 @@ class PlayState extends MusicBeatState
 					CustomFadeTransition.nextCamera = null;
 				}
 				MusicBeatState.switchState(new FreeplayState());
-				FlxG.sound.playMusic(Paths.music('toadMenu'));
+				CoolUtil.playMenuTheme();
 				changedDifficulty = false;
 			}
 			transitioning = true;

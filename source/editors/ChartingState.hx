@@ -1875,7 +1875,7 @@ class ChartingState extends MusicBeatState
 			{
 				// if(onMasterEditor) {
 				MusicBeatState.switchState(new editors.MasterEditorMenu());
-				FlxG.sound.playMusic(Paths.music('toadMenu'));
+				CoolUtil.playMenuTheme();
 				// }
 				FlxG.mouse.visible = false;
 				return;
