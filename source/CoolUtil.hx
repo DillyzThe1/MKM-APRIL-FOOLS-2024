@@ -276,11 +276,8 @@ class CoolUtil
 		var babyMode:Bool = FlxG.save.data.babymode;
 
 		if (squareWarning()) {
-			menuThemeName = 'danger-bup-ahead';
+			menuThemeName = babyMode ? 'playtime-bup-ahead' : 'danger-bup-ahead';
 			Conductor.changeBPM(140);
-
-			if (babyMode)
-				trace('CRAAAAP I FORGOT TO MAKE DANGER BABY AHEAD!!!!');
 		}
 		else {
 			menuThemeName = babyMode ? 'babyMenu' : 'toadMenu';
