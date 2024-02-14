@@ -53,6 +53,7 @@ class StoryMenuState extends MusicBeatState
 	var rightArrow:FlxSprite;
 
 	var loadedWeeks:Array<WeekData> = [];
+	var rememberToSelect:Int = -1;
 
 	override function create()
 	{
@@ -97,7 +98,6 @@ class StoryMenuState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.inMenus();
 
-		var rememberToSelect:Int = 0;
 		var num:Int = 0;
 		for (i in 0...WeekData.weeksList.length)
 		{
@@ -190,7 +190,7 @@ class StoryMenuState extends MusicBeatState
 		add(scoreText);
 		add(txtWeekTitle);
 
-		changeWeek(rememberToSelect - curWeek);
+		changeWeek(rememberToSelect == -1 ? 0 : rememberToSelect - curWeek);
 		changeDifficulty();
 
 		super.create();
@@ -267,8 +267,24 @@ class StoryMenuState extends MusicBeatState
 				openSubState(new ResetScoreSubState('', curDifficulty, '', curWeek));
 				// FlxG.sound.play(Paths.sound('scrollMenu'));
 			}
-			else if (controls.ACCEPT)
-				selectWeek();
+			else if (controls.ACCEPT) {
+				if (curWeek != rememberToSelect && rememberToSelect != -1) {
+					// make it locked
+					var lock:FlxSprite = new FlxSprite(grpWeekText.members[curWeek].width + 10 + grpWeekText.members[curWeek].x);
+					lock.frames = Paths.getSparrowAtlas('campaign_menu_UI_assets');
+					lock.animation.addByPrefix('lock', 'lock');
+					lock.animation.play('lock');
+					lock.ID = curWeek;
+					lock.antialiasing = ClientPrefs.globalAntialiasing;
+					grpLocks.add(lock);
+
+					forceLockWeeks.push(loadedWeeks[curWeek].fileName);
+					changeWeek(rememberToSelect - curWeek);
+					FlxG.sound.play(Paths.sound('cancelMenu'));
+				}
+				else
+					selectWeek();
+			}
 		}
 
 		if (controls.BACK && !movedBack && !selectedWeek)
@@ -357,6 +373,7 @@ class StoryMenuState extends MusicBeatState
 	var lerpScore:Int = 0;
 	var intendedScore:Int = 0;
 
+	var forceLockWeeks:Array<String> = [];
 	function changeWeek(change:Int = 0):Void
 	{
 		curWeek += change;
@@ -375,7 +392,7 @@ class StoryMenuState extends MusicBeatState
 
 		var bullShit:Int = 0;
 
-		var unlocked:Bool = !CoolUtil.weekIsLocked(leWeek.fileName);
+		var unlocked:Bool = !CoolUtil.weekIsLocked(leWeek.fileName) && !forceLockWeeks.contains(leWeek.fileName);
 		for (item in grpWeekText.members)
 		{
 			item.targetY = bullShit - curWeek;
