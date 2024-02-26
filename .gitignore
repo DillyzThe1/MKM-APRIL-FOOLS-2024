@@ -39,3 +39,4 @@ art/mhat/MHATCompressor/tinyfiledialogs.cpp
 art/mhat/MHATCompressor/tinyfiledialogs.h
 art/mhat/MHATCompressor/x64/*
 art/mhat/MHATCompressor/x32/*
+art/mhat/MHATCompressor/output.mhat

@@ -4,24 +4,23 @@
 #include "ByteStream.h"
 #include "tinyfiledialogs.h"
 #include <fstream>
+#include <sstream>
 
 int prog_en() {
 	system("cls");
 	std::cout << "MHAT Compressor Program v1.0.0" << std::endl << std::endl;
 
-	int fileCount = 0;
-	std::cout << "How many files do you have? ";
-	std::cin >> fileCount;
-	std::cout << std::endl << fileCount << " files detected." << std::endl;
-
-	if (fileCount < 1) {
-		std::cout << std::endl << "Insufficient amount of data." << std::endl;
-		return 0;
-	}
-
 	std::vector<std::string> filePaths;
-	for (int i = 0; i < fileCount; i++)
-		filePaths.push_back(tinyfd_openFileDialog("Adding file ", 0, 0, 0, "Any File", 0));
+	std::string awesomeFiles = tinyfd_openFileDialog("Adding file ", 0, 0, 0, "Any File", 1);
+
+	std::stringstream ss(awesomeFiles);
+	std::string segment;
+	while (std::getline(ss, segment, '|'))
+		filePaths.push_back(segment);
+
+	for (int i = 0; i < filePaths.size(); i++)
+		std::cout << i << ": " << filePaths[i] << std::endl;
+	int fileCount = filePaths.size();
 
 	system("cls");
 	std::cout << "MHAT Compressor Program v1.0.0" << std::endl << std::endl;
