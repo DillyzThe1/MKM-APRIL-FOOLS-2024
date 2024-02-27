@@ -441,4 +441,10 @@ class CreditsState extends MusicBeatState
 	{
 		return creditsStuff[num].length <= 1;
 	}
+
+	override function destroy()
+	{
+		Mhat.call("menu_credits_end");
+		super.destroy();
+	}
 }

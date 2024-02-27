@@ -16,8 +16,8 @@ class MhatData {
     public var indexCache:Array<String>;
     public var count(get, never):Int;
     public var mounted(get, set):Bool;
-    public var add:String;
-    public var remove:String;
+    public var add:Array<String>;
+    public var remove:Array<String>;
 
     public var fileCount:UInt16 = 0;
     var zstd:Bool;
@@ -37,7 +37,7 @@ class MhatData {
         return builtString;
     }
 
-    public function new(fileName:String, hostPath:String, zstd:Bool, add:String, ?remove:String="", ?key:String=null) {
+    public function new(fileName:String, hostPath:String, zstd:Bool, add:Array<String>, remove:Array<String>, ?key:String=null) {
         this.fileName = fileName;
         this.hostPath = hostPath;
         this.add = add;
@@ -148,8 +148,8 @@ typedef MhatMetadata = {
     var parent:String;
     var zstd:Bool;
     var key:String;
-    var add:String;
-    var remove:String;
+    var add:Array<String>;
+    var remove:Array<String>;
 }
 
 typedef MountMetadata = {
@@ -177,10 +177,10 @@ class Mhat {
             return;
         trace('MHAT MANAGER: Key $key triggered.');
         for (mhat in mhats) {
-            trace('MHAT MANAGER: Checking ${mhat.fileName}; add on "${mhat.add}" & remove on "${mhat.remove}".');
-            if (mhat.add == key)
+            //trace('MHAT MANAGER: Checking ${mhat.fileName}; add on "${mhat.add}" & remove on "${mhat.remove}".');
+            if (mhat.add.contains(key))
                 mhat.mounted = true;
-            else if (mhat.remove == key)
+            else if (mhat.remove.contains(key))
                 mhat.mounted = false;
         }
     }

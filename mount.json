@@ -5,24 +5,38 @@
 			"parent": "images/",
 			"zstd": false,
 			"key": "",
-			"add": "main",
-			"remove": ""
+			"add": [ "main" ],
+			"remove": []
 		},
 		{
 			"data": "texMMB.mhat",
 			"parent": "images/mainmenu/",
 			"zstd": false,
 			"key": "",
-			"add": "main",
-			"remove": ""
+			"add": [ "main" ],
+			"remove": []
 		},
 		{
 			"data": "texBabyMode.mhat",
 			"parent": "images/babymode/",
 			"zstd": false,
 			"key": "",
-			"add": "mode_baby",
-			"remove": "mode_main"
+			"add": [ "mode_baby" ],
+			"remove": [ "mode_main" ]
+		},
+		{
+			"data": "bgHouse.mhat",
+			"parent": "images/bgs/house/",
+			"zstd": false,
+			"key": "",
+			"add": [
+				"bg_toadHouse",
+				"bg_toadHouse camfix"
+			],
+			"remove": [
+				"bg_toadHouse_remove",
+				"bg_toadHouse camfix_remove"
+			]
 		}
 	],
 	"log_verbose": true

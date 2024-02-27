@@ -522,6 +522,7 @@ class PlayState extends MusicBeatState
 	override public function create()
 	{
 		Paths.clearStoredMemory();
+		Mhat.call("playstate");
 
 		isSoloMode = SONG.soloMode;
 		doMiddleScroll = ClientPrefs.middleScroll || isSoloMode;
@@ -615,6 +616,8 @@ class PlayState extends MusicBeatState
 			SONG = Song.loadFromJson('tutorial');
 		}
 
+		Mhat.call("song_" + SONG.song);
+
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
 
@@ -642,6 +645,8 @@ class PlayState extends MusicBeatState
 		if (SONG.stage == null || SONG.stage.length < 1)
 			curStage = 'stage';
 		SONG.stage = curStage;
+
+		Mhat.call("bg_" + curStage);
 
 		var stageData:StageFile = StageData.getStageFile(curStage);
 		if (stageData == null)
@@ -4475,6 +4480,9 @@ class PlayState extends MusicBeatState
 
 	override function destroy()
 	{
+		Mhat.call("playstate_end");
+		Mhat.call("song_" + SONG.song + "_end");
+		Mhat.call("bg_" + curStage + "_remove");
 		lime.app.Application.current.window.title = "': Mushroom Kingdom Madness";
 		for (lua in luaArray)
 		{

@@ -593,6 +593,7 @@ class MainMenuState extends MusicBeatState
 
 	override public function destroy()
 	{
+		Mhat.call("menu_main_end");
 		FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, checkKeyDown);
 		super.destroy();
 	}

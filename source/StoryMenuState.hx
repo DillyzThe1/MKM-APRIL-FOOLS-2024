@@ -509,4 +509,10 @@ class StoryMenuState extends MusicBeatState
 				if (i.animation == null || i.animation.curAnim == null || i.animation.curAnim.name != 'confirm')
 					i.dance();
 	}
+
+	override function destroy()
+	{
+		Mhat.call("song_story_end");
+		super.destroy();
+	}
 }
