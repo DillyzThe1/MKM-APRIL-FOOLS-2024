@@ -37,6 +37,14 @@
 				"bg_toadHouse_remove",
 				"bg_toadHouse camfix_remove"
 			]
+		},
+		{
+			"data": "mus_snd_shared.mhat",
+			"parent": "",
+			"zstd": false,
+			"key": "",
+			"add": [ "main" ],
+			"remove": []
 		}
 	],
 	"log_verbose": true

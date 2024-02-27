@@ -12,6 +12,7 @@ import flixel.math.FlxRect;
 import haxe.Json;
 import haxe.io.Bytes;
 import haxe.xml.Access;
+import lime.media.AudioBuffer;
 import lime.utils.Assets;
 import openfl.display.BitmapData;
 import openfl.geom.Rectangle;
@@ -381,6 +382,15 @@ class Paths
 
 	public static function returnSound(path:String, key:String, ?library:String)
 	{
+		var mhatBytes:Bytes = Mhat.getFile('$path/$key.ogg');
+		if (mhatBytes != null && mhatBytes.length != 0) {
+			var mhatKey:String = 'mhat:$path/$key.ogg';
+			if (!currentTrackedSounds.exists(mhatKey))
+				currentTrackedSounds.set(mhatKey, Sound.fromAudioBuffer(AudioBuffer.fromBytes(mhatBytes)));
+			localTrackedAssets.push(key);
+			return currentTrackedSounds.get(mhatKey);
+		}
+
 		var file:String = modsSounds(path, key);
 		if (FileSystem.exists(file))
 		{
