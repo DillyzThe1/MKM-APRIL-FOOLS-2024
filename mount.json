@@ -53,6 +53,44 @@
 			"key": "",
 			"add": [ "playstate" ],
 			"remove": []
+		},
+		{
+			"data": "bgHouse-alpha.mhat",
+			"parent": "images/bgs/alpha/house/",
+			"zstd": false,
+			"key": "",
+			"add": [ "bg_toadHouse-alpha" ],
+			"remove": [ "bg_toadHouse-alpha_remove" ]
+		},
+		{
+			"data": "bgBupground.mhat",
+			"parent": "images/bgs/bupground/",
+			"zstd": false,
+			"key": "",
+			"add": [ "bg_bupground" ],
+			"remove": [ "bg_bupground_remove" ]
+		},
+		{
+			"data": "bgBupground-alpha.mhat",
+			"parent": "images/bgs/alpha/bupground/",
+			"zstd": false,
+			"key": "",
+			"add": [ 
+				"bg_bupground-alpha",
+				"bg_bupground-alpha-minimum"
+			],
+			"remove": [
+				"bg_bupground-alpha_remove",
+				"bg_bupground-alpha-minimum_remove"
+			]
+		},
+		{
+			"data": "bgSquare.mhat",
+			"parent": "images/bgs/square/",
+			"zstd": false,
+			"key": "",
+			"add": [ "bg_square" ],
+			"remove": [ "bg_square_remove" ]
 		}
 	],
 	"log_verbose": true
