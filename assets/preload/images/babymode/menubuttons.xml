@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="menubuttons.png">
-	<!-- Created with Adobe Animate version 23.0.1.70 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="baby menubuttons0000" x="0" y="0" width="541" height="166"/>
-	<SubTexture name="baby menubuttons0001" x="0" y="170" width="541" height="166"/>
-	<SubTexture name="baby menubuttons0002" x="0" y="340" width="495" height="121" frameX="-21" frameY="-21" frameWidth="541" frameHeight="166"/>
-</TextureAtlas>

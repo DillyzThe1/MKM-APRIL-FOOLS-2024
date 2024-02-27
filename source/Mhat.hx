@@ -59,7 +59,7 @@ class MhatData {
             pos += awesomeFileName.length + 1;
             var awesomeFileSize:Int = data.getInt32(pos);
             pos += 4;
-            trace('MHAT MANAGER: $fileName has a file called "${awesomeFileName}" with the heap size of ${awesomeFileSize}.');
+            //trace('MHAT MANAGER: $fileName has a file called "${awesomeFileName}" with the heap size of ${awesomeFileSize}.');
     
             //File.saveBytes('debug/$fileName/$awesomeFileName.png', data.sub(pos, awesomeFileSize));
             indexCache.push(awesomeFileName);
@@ -133,7 +133,6 @@ class MhatData {
             for (i in 0...data.length)
                 data.getData().pop();
             data = null;
-            trace('MHAT MANAGER: $fileName data: ${data.length} bytes.');
             return false;
         }
         trace('MHAT MANAGER: Mounting $fileName.');
@@ -178,7 +177,7 @@ class Mhat {
             return;
         trace('MHAT MANAGER: Key $key triggered.');
         for (mhat in mhats) {
-            trace('MHAT MANAGER: Checking ${mhat.data}; add on "${mhat.add}" & remove on "${mhat.remove}".');
+            trace('MHAT MANAGER: Checking ${mhat.fileName}; add on "${mhat.add}" & remove on "${mhat.remove}".');
             if (mhat.add == key)
                 mhat.mounted = true;
             else if (mhat.remove == key)

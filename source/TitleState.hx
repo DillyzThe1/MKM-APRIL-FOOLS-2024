@@ -107,6 +107,7 @@ class TitleState extends MusicBeatState
 		ClientPrefs.loadPrefs();
 
 		MainMenuState.mushroomKingdomMadnessVersion = Application.current.meta.get('version');
+		Mhat.call('mode_${CoolUtil.babyMode() ? "baby" : "main"}');
 
 		#if CHECK_FOR_UPDATES
 		if (!closedState)

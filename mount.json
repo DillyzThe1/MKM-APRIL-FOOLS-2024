@@ -15,6 +15,14 @@
 			"key": "",
 			"add": "main",
 			"remove": ""
+		},
+		{
+			"data": "texBabyMode.mhat",
+			"parent": "images/babymode/",
+			"zstd": false,
+			"key": "",
+			"add": "mode_baby",
+			"remove": "mode_main"
 		}
 	],
 	"log_verbose": true
