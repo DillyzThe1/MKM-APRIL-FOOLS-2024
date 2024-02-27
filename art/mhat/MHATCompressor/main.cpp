@@ -10,16 +10,43 @@ int prog_en() {
 	system("cls");
 	std::cout << "MHAT Compressor Program v1.0.0" << std::endl << std::endl;
 
+	int paths = 0;
+	std::cout << "How many paths do you want?" << std::endl << "Paths: ";
+	std::cin >> paths;
+	std::cout << std::endl;
+
+	if (paths < 0 || paths > 256) {
+		std::cout << std::endl << "That's a little overkill, dude." << std::endl;
+		return false;
+	}
+
 	std::vector<std::string> filePaths;
-	std::string awesomeFiles = tinyfd_openFileDialog("Adding file ", 0, 0, 0, "Any File", 1);
+	std::vector<std::string> fileNames;
 
-	std::stringstream ss(awesomeFiles);
-	std::string segment;
-	while (std::getline(ss, segment, '|'))
-		filePaths.push_back(segment);
+	for (int i = 0; i < paths; i++) {
+		system("cls");
+		std::cout << "MHAT Compressor Program v1.0.0" << std::endl << "Path: ";
 
-	for (int i = 0; i < filePaths.size(); i++)
-		std::cout << i << ": " << filePaths[i] << std::endl;
+		std::string str_title = "What's the name of path num. " + std::to_string(i) + "?";
+		std::string pathName = tinyfd_inputBox("MHAT Compressor", str_title.c_str(), "");
+
+		std::cout << pathName << std::endl << std::endl;
+
+		std::vector<std::string> filePaths_inPath;
+		std::string awesomeFiles = tinyfd_openFileDialog("Adding file ", 0, 0, 0, "Any File", 1);
+
+		std::stringstream ss(awesomeFiles);
+		std::string segment;
+		while (std::getline(ss, segment, '|'))
+			filePaths_inPath.push_back(segment);
+
+		for (int i = 0; i < filePaths_inPath.size(); i++) {
+			fileNames.push_back(pathName + filePaths_inPath[i].substr(filePaths_inPath[i].find_last_of("/\\") + 1));
+			filePaths.push_back(filePaths_inPath[i]);
+			std::cout << i << ": " << filePaths_inPath[i] << std::endl;
+		}
+	}
+	
 	int fileCount = filePaths.size();
 
 	system("cls");
@@ -51,8 +78,7 @@ int prog_en() {
 		else
 			std::cout << filePaths[i] << ", ";
 
-		std::string base_filename = filePaths[i].substr(filePaths[i].find_last_of("/\\") + 1);
-
+		std::string base_filename = fileNames[i];
 
 		std::ifstream inputFile(filePaths[i], std::ios::binary | std::ios::ate);
 		inputFile.seekg(0, std::ios::end);

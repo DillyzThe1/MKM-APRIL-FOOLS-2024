@@ -59,6 +59,7 @@ class StoryMenuState extends MusicBeatState
 	{
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
+		Mhat.call("menu_story");
 
 		PlayState.isStoryMode = true;
 		WeekData.reloadWeekFiles(true);

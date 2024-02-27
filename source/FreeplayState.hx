@@ -55,6 +55,7 @@ class FreeplayState extends MusicBeatState
 	{
 		// Paths.clearStoredMemory();
 		// Paths.clearUnusedMemory();
+		Mhat.call("menu_freeplay");
 
 		instance = this;
 

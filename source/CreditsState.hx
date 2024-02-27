@@ -40,6 +40,7 @@ class CreditsState extends MusicBeatState
 	{
 		// Updating Discord Rich Presence
 		DiscordClient.inMenus();
+		Mhat.call("menu_credits");
 
 		persistentUpdate = true;
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
