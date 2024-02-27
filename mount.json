@@ -45,6 +45,14 @@
 			"key": "",
 			"add": [ "main" ],
 			"remove": []
+		},
+		{
+			"data": "snd_countdown.mhat",
+			"parent": "sounds/",
+			"zstd": false,
+			"key": "",
+			"add": [ "playstate" ],
+			"remove": []
 		}
 	],
 	"log_verbose": true
