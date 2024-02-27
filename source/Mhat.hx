@@ -24,7 +24,7 @@ class MhatData {
     var key:String;
 
     // Read "Null Terminated String"
-    function readNTS(pos:Int):String {
+    public function readNTS(pos:Int):String {
         if (pos < 0 || pos >= data.length)
             return "";
         var builtString:String = "";
@@ -61,9 +61,9 @@ class MhatData {
             pos += 4;
             trace('MHAT MANAGER: $fileName has a file called "${awesomeFileName}" with the heap size of ${awesomeFileSize}.');
     
+            //File.saveBytes('debug/$fileName/$awesomeFileName.png', data.sub(pos, awesomeFileSize));
             indexCache.push(awesomeFileName);
             pos += awesomeFileSize;
-            //File.saveBytes("debug.png", data.sub(pos, awesomeFileSize));
         }
         //
 
@@ -184,5 +184,24 @@ class Mhat {
             else if (mhat.remove == key)
                 mhat.mounted = false;
         }
+    }
+
+    public static function getFile(path:String):Bytes {
+        for (mhat in mhats) {
+            if (!mhat.mounted)
+                continue;
+
+            var pos:Int = 0x20;
+            for (i in 0...mhat.fileCount) {
+                var awesomeFileName:String = mhat.readNTS(pos);
+                pos += awesomeFileName.length + 1;
+                var awesomeFileSize:Int = mhat.data.getInt32(pos);
+                pos += 4;
+                if (mhat.hostPath + awesomeFileName == path)
+                    return mhat.data.sub(pos, awesomeFileSize);
+                pos += awesomeFileSize;
+            }
+        }
+        return null;
     }
 }

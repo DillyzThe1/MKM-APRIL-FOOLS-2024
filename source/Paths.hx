@@ -10,6 +10,7 @@ import flixel.graphics.frames.FlxFrame.FlxFrameAngle;
 import flixel.math.FlxPoint;
 import flixel.math.FlxRect;
 import haxe.Json;
+import haxe.io.Bytes;
 import haxe.xml.Access;
 import lime.utils.Assets;
 import openfl.display.BitmapData;
@@ -289,14 +290,18 @@ class Paths
 	inline static public function getSparrowAtlas(key:String, ?library:String):FlxAtlasFrames
 	{
 		var imageLoaded:FlxGraphic = returnGraphic(key);
+
+		var mhatXML:String = null;
+		var mhatBytes:Bytes = Mhat.getFile('images/$key.xml');
+		if (mhatBytes != null && mhatBytes.length != 0)
+			mhatXML = mhatBytes.toString();
+
 		var xmlExists:Bool = false;
-		if (FileSystem.exists(modsXml(key)))
-		{
+		if (mhatXML == null && FileSystem.exists(modsXml(key)))
 			xmlExists = true;
-		}
 
 		return FlxAtlasFrames.fromSparrow((imageLoaded != null ? imageLoaded : image(key, library)),
-			(xmlExists ? File.getContent(modsXml(key)) : file('images/$key.xml', library)));
+		mhatXML == null ? (xmlExists ? File.getContent(modsXml(key)) : file('images/$key.xml', library)) : mhatXML);
 	}
 
 	inline static public function getPackerAtlas(key:String, ?library:String)
@@ -326,6 +331,21 @@ class Paths
 	}
 
 	public static function graphicFromLoosePath(pathhhhh:String, ?library:String) {
+		var mhatBytes:Bytes = Mhat.getFile(pathhhhh);
+		if (mhatBytes != null && mhatBytes.length != 0) {
+			//trace('MHAT bytes detected!');
+			var mhatKey:String = "mhat:" + pathhhhh;
+
+			if (!currentTrackedAssets.exists(mhatKey))
+			{
+				var newGraphic:FlxGraphic = FlxGraphic.fromBitmapData(BitmapData.fromBytes(mhatBytes), false, mhatKey);
+				newGraphic.persist = true;
+				currentTrackedAssets.set(mhatKey, newGraphic);
+			}
+			localTrackedAssets.push(mhatKey);
+			return currentTrackedAssets.get(mhatKey);
+		}
+
 		var modKey:String = mods(pathhhhh);
 		if (FileSystem.exists(modKey))
 		{

@@ -25,8 +25,8 @@ int prog_en() {
 	system("cls");
 	std::cout << "MHAT Compressor Program v1.0.0" << std::endl << std::endl;
 
-
-	std::ofstream outputArchive("output.mhat", std::ios::binary | std::ios::ate);
+	const char* bruhhh[1] = { "*.mhat" };
+	std::ofstream outputArchive(tinyfd_saveFileDialog("MHAT Compressor", "output.mhat", 1, bruhhh, "Mushroom Head Archive Type (*.mhat)"), std::ios::binary | std::ios::ate);
 	if (!outputArchive.is_open() || outputArchive.fail())
 		return 0;
 
@@ -56,7 +56,7 @@ int prog_en() {
 
 		std::ifstream inputFile(filePaths[i], std::ios::binary | std::ios::ate);
 		inputFile.seekg(0, std::ios::end);
-		const unsigned int ifBufSize = inputFile.tellg();
+		const unsigned int ifBufSize = ((unsigned int)inputFile.tellg() + 1);
 		inputFile.seekg(0, std::ios::beg);
 		unsigned char* mcbrrrrr = new unsigned char[ifBufSize];
 		inputFile.read((char*)mcbrrrrr, ifBufSize);
