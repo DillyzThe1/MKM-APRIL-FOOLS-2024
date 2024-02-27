@@ -74,6 +74,8 @@
 	<assets path='art/readme.txt' rename='do NOT readme.txt' />
 	<assets path='art/all secrets guide.txt' rename='FULL UNLOCK GUIDE.txt' />
 	<assets path='art/apirlfoolsguys.gif' rename='april fools guys.gif' />
+	<assets path="mounted" library="mounted"/>
+	<assets path='mount.json'/>
 	
 	<!-- assets path="CHANGELOG.md" rename='changelog.txt' -->
 

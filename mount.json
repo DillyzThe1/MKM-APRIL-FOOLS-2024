@@ -1,0 +1,21 @@
+{
+	"mhats": [
+		{
+			"data": "tex1.mhat",
+			"parent": "images/",
+			"zstd": false,
+			"key": "",
+			"add": "main",
+			"remove": ""
+		},
+		{
+			"data": "texMMB.mhat",
+			"parent": "images/mainmenu/",
+			"zstd": false,
+			"key": "",
+			"add": "main",
+			"remove": ""
+		}
+	],
+	"log_verbose": true
+}

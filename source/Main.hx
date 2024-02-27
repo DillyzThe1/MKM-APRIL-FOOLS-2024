@@ -69,6 +69,8 @@ class Main extends Sprite
 
 	private function setupGame():Void
 	{
+		Mhat.initialize();
+		Mhat.call("main");
 		var stageWidth:Int = Lib.current.stage.stageWidth;
 		var stageHeight:Int = Lib.current.stage.stageHeight;
 
