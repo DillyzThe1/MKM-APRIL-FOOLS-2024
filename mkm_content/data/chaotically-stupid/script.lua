@@ -10,11 +10,6 @@ function onCreatePost()
 	end
 end
 
-function onChartAccessed() 
-	loadSong('Extra Screwed')
-	return Function_Stop
-end
-
 function onUpdatePost(e)
 	if isInANormalMode() then
 		local ratingpercent = rating * 100
