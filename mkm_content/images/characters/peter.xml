@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="peter.png">
+	<!-- Created with Adobe Animate version 24.0.0.305 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="peter down0000" x="1097" y="0" width="354" height="515"/>
+	<SubTexture name="peter down0001" x="1097" y="0" width="354" height="515"/>
+	<SubTexture name="peter down0002" x="1455" y="0" width="354" height="515"/>
+	<SubTexture name="peter down0003" x="1455" y="0" width="354" height="515"/>
+	<SubTexture name="peter down0004" x="1455" y="0" width="354" height="515"/>
+	<SubTexture name="peter down0005" x="1455" y="0" width="354" height="515"/>
+	<SubTexture name="peter down0006" x="1455" y="0" width="354" height="515"/>
+	<SubTexture name="peter down0007" x="1455" y="0" width="354" height="515"/>
+	<SubTexture name="peter down0008" x="1455" y="0" width="354" height="515"/>
+	<SubTexture name="peter down0009" x="1455" y="0" width="354" height="515"/>
+	<SubTexture name="peter down0010" x="1455" y="0" width="354" height="515"/>
+	<SubTexture name="peter down0011" x="1455" y="0" width="354" height="515"/>
+	<SubTexture name="peter down0012" x="1455" y="0" width="354" height="515"/>
+	<SubTexture name="peter down0013" x="1455" y="0" width="354" height="515"/>
+	<SubTexture name="peter down0014" x="1455" y="0" width="354" height="515"/>
+	<SubTexture name="peter idle0000" x="739" y="0" width="354" height="515"/>
+	<SubTexture name="peter laugh0000" x="739" y="0" width="354" height="515" frameX="-222" frameY="0" frameWidth="354" frameHeight="515"/>
+	<SubTexture name="peter laugh0001" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0002" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0003" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0004" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0005" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0006" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0007" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0008" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0009" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0010" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0011" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0012" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0013" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0014" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0015" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0016" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0017" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0018" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0019" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0020" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0021" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0022" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0023" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0024" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0025" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0026" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0027" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0028" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0029" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0030" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0031" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter laugh0032" x="0" y="0" width="735" height="488" frameX="0" frameY="-55" frameWidth="735" frameHeight="543"/>
+	<SubTexture name="peter left0000" x="0" y="492" width="354" height="515"/>
+	<SubTexture name="peter left0001" x="0" y="492" width="354" height="515"/>
+	<SubTexture name="peter left0002" x="358" y="492" width="354" height="515"/>
+	<SubTexture name="peter left0003" x="358" y="492" width="354" height="515"/>
+	<SubTexture name="peter left0004" x="358" y="492" width="354" height="515"/>
+	<SubTexture name="peter left0005" x="358" y="492" width="354" height="515"/>
+	<SubTexture name="peter left0006" x="358" y="492" width="354" height="515"/>
+	<SubTexture name="peter left0007" x="358" y="492" width="354" height="515"/>
+	<SubTexture name="peter left0008" x="358" y="492" width="354" height="515"/>
+	<SubTexture name="peter left0009" x="358" y="492" width="354" height="515"/>
+	<SubTexture name="peter left0010" x="358" y="492" width="354" height="515"/>
+	<SubTexture name="peter left0011" x="358" y="492" width="354" height="515"/>
+	<SubTexture name="peter left0012" x="358" y="492" width="354" height="515"/>
+	<SubTexture name="peter left0013" x="358" y="492" width="354" height="515"/>
+	<SubTexture name="peter left0014" x="358" y="492" width="354" height="515"/>
+	<SubTexture name="peter shoot0000" x="0" y="1011" width="370" height="463" frameX="0" frameY="0" frameWidth="386" frameHeight="463"/>
+	<SubTexture name="peter shoot0001" x="0" y="1011" width="370" height="463" frameX="0" frameY="0" frameWidth="386" frameHeight="463"/>
+	<SubTexture name="peter shoot0002" x="1432" y="986" width="377" height="463" frameX="-3" frameY="0" frameWidth="386" frameHeight="463"/>
+	<SubTexture name="peter shoot0003" x="1432" y="986" width="377" height="463" frameX="-3" frameY="0" frameWidth="386" frameHeight="463"/>
+	<SubTexture name="peter shoot0004" x="1432" y="519" width="383" height="463" frameX="-3" frameY="0" frameWidth="386" frameHeight="463"/>
+	<SubTexture name="peter shoot0005" x="1432" y="519" width="383" height="463" frameX="-3" frameY="0" frameWidth="386" frameHeight="463"/>
+	<SubTexture name="peter shoot0006" x="1432" y="519" width="383" height="463" frameX="-3" frameY="0" frameWidth="386" frameHeight="463"/>
+	<SubTexture name="peter shoot0007" x="1432" y="519" width="383" height="463" frameX="-3" frameY="0" frameWidth="386" frameHeight="463"/>
+	<SubTexture name="peter shoot0008" x="1432" y="519" width="383" height="463" frameX="-3" frameY="0" frameWidth="386" frameHeight="463"/>
+	<SubTexture name="peter shoot0009" x="1432" y="519" width="383" height="463" frameX="-3" frameY="0" frameWidth="386" frameHeight="463"/>
+	<SubTexture name="peter shoot0010" x="1432" y="519" width="383" height="463" frameX="-3" frameY="0" frameWidth="386" frameHeight="463"/>
+	<SubTexture name="peter shoot0011" x="1432" y="519" width="383" height="463" frameX="-3" frameY="0" frameWidth="386" frameHeight="463"/>
+	<SubTexture name="peter shoot0012" x="1432" y="519" width="383" height="463" frameX="-3" frameY="0" frameWidth="386" frameHeight="463"/>
+	<SubTexture name="peter shoot0013" x="1432" y="519" width="383" height="463" frameX="-3" frameY="0" frameWidth="386" frameHeight="463"/>
+	<SubTexture name="peter shoot0014" x="1432" y="519" width="383" height="463" frameX="-3" frameY="0" frameWidth="386" frameHeight="463"/>
+	<SubTexture name="peter up0000" x="716" y="519" width="354" height="515"/>
+	<SubTexture name="peter up0001" x="1074" y="519" width="354" height="515"/>
+	<SubTexture name="peter up0002" x="1074" y="519" width="354" height="515"/>
+	<SubTexture name="peter up0003" x="1074" y="519" width="354" height="515"/>
+	<SubTexture name="peter up0004" x="1074" y="519" width="354" height="515"/>
+	<SubTexture name="peter up0005" x="1074" y="519" width="354" height="515"/>
+	<SubTexture name="peter up0006" x="1074" y="519" width="354" height="515"/>
+	<SubTexture name="peter up0007" x="1074" y="519" width="354" height="515"/>
+	<SubTexture name="peter up0008" x="1074" y="519" width="354" height="515"/>
+	<SubTexture name="peter up0009" x="1074" y="519" width="354" height="515"/>
+	<SubTexture name="peter up0010" x="1074" y="519" width="354" height="515"/>
+	<SubTexture name="peter up0011" x="1074" y="519" width="354" height="515"/>
+	<SubTexture name="peter up0012" x="1074" y="519" width="354" height="515"/>
+	<SubTexture name="peter up0013" x="1074" y="519" width="354" height="515"/>
+	<SubTexture name="peter up0014" x="1074" y="519" width="354" height="515"/>
+</TextureAtlas>
