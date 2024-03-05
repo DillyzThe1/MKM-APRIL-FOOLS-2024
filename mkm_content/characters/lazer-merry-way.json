@@ -1,0 +1,144 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "Lazer Idle Normal0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle-alt",
+			"fps": 24,
+			"name": "Lazer Idle0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				57,
+				-33
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Lazer Left0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				9,
+				-52
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "Lazer Down0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				35,
+				37
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "Lazer Up0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				20,
+				2
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Lazer Right0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				10,
+				-81
+			],
+			"anim": "singDOWN-alt",
+			"fps": 24,
+			"name": "Lazer Button0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				1,
+				-16
+			],
+			"anim": "singLEFT-alt",
+			"fps": 24,
+			"name": "Lazer Gun Reload0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				10,
+				-1
+			],
+			"anim": "singUP-alt",
+			"fps": 24,
+			"name": "Lazer Gun Shoot10",
+			"indices": []
+		},
+		{
+			"offsets": [
+				60,
+				6
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "jolly",
+			"loop": false,
+			"name": "Lazer dont care"
+		},
+		{
+			"offsets": [
+				18,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "giftRecieve",
+			"loop": false,
+			"name": "Lazer Get Gift"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/lazer merry way",
+	"position": [
+		-10,
+		60
+	],
+	"healthicon": "lazer",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		255,
+		51
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

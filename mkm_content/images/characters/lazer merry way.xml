@@ -1,0 +1,451 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="lazer merry way.png">
+	<!-- Created with Adobe Animate version 24.0.0.305 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Lazer Button0000" x="649" y="0" width="727" height="614" frameX="-5" frameY="0" frameWidth="732" frameHeight="614"/>
+	<SubTexture name="Lazer Button0001" x="1380" y="0" width="721" height="614" frameX="-3" frameY="0" frameWidth="732" frameHeight="614"/>
+	<SubTexture name="Lazer Button0002" x="4161" y="0" width="708" height="614" frameX="-3" frameY="0" frameWidth="732" frameHeight="614"/>
+	<SubTexture name="Lazer Button0003" x="2732" y="0" width="711" height="614" frameX="0" frameY="0" frameWidth="732" frameHeight="614"/>
+	<SubTexture name="Lazer Button0004" x="3447" y="0" width="710" height="614" frameX="0" frameY="0" frameWidth="732" frameHeight="614"/>
+	<SubTexture name="Lazer Button0005" x="3447" y="0" width="710" height="614" frameX="0" frameY="0" frameWidth="732" frameHeight="614"/>
+	<SubTexture name="Lazer Button0006" x="3447" y="0" width="710" height="614" frameX="0" frameY="0" frameWidth="732" frameHeight="614"/>
+	<SubTexture name="Lazer Button0007" x="3447" y="0" width="710" height="614" frameX="0" frameY="0" frameWidth="732" frameHeight="614"/>
+	<SubTexture name="Lazer Button0008" x="3447" y="0" width="710" height="614" frameX="0" frameY="0" frameWidth="732" frameHeight="614"/>
+	<SubTexture name="Lazer Button0009" x="3447" y="0" width="710" height="614" frameX="0" frameY="0" frameWidth="732" frameHeight="614"/>
+	<SubTexture name="Lazer Button0010" x="3447" y="0" width="710" height="614" frameX="0" frameY="0" frameWidth="732" frameHeight="614"/>
+	<SubTexture name="Lazer Button0011" x="3447" y="0" width="710" height="614" frameX="0" frameY="0" frameWidth="732" frameHeight="614"/>
+	<SubTexture name="Lazer Button0012" x="3447" y="0" width="710" height="614" frameX="0" frameY="0" frameWidth="732" frameHeight="614"/>
+	<SubTexture name="Lazer Button0013" x="3447" y="0" width="710" height="614" frameX="0" frameY="0" frameWidth="732" frameHeight="614"/>
+	<SubTexture name="Lazer Button0014" x="3447" y="0" width="710" height="614" frameX="0" frameY="0" frameWidth="732" frameHeight="614"/>
+	<SubTexture name="Lazer Down0000" x="4784" y="3558" width="400" height="664" frameX="0" frameY="-9" frameWidth="400" frameHeight="673"/>
+	<SubTexture name="Lazer Down0001" x="4784" y="3558" width="400" height="664" frameX="0" frameY="-9" frameWidth="400" frameHeight="673"/>
+	<SubTexture name="Lazer Down0002" x="4491" y="4957" width="395" height="669" frameX="-5" frameY="0" frameWidth="400" frameHeight="673"/>
+	<SubTexture name="Lazer Down0003" x="4491" y="4957" width="395" height="669" frameX="-5" frameY="0" frameWidth="400" frameHeight="673"/>
+	<SubTexture name="Lazer Down0004" x="4491" y="4957" width="395" height="669" frameX="-5" frameY="0" frameWidth="400" frameHeight="673"/>
+	<SubTexture name="Lazer Down0005" x="4491" y="4957" width="395" height="669" frameX="-5" frameY="0" frameWidth="400" frameHeight="673"/>
+	<SubTexture name="Lazer Down0006" x="4491" y="4957" width="395" height="669" frameX="-5" frameY="0" frameWidth="400" frameHeight="673"/>
+	<SubTexture name="Lazer Down0007" x="4491" y="4957" width="395" height="669" frameX="-5" frameY="0" frameWidth="400" frameHeight="673"/>
+	<SubTexture name="Lazer Down0008" x="4491" y="4957" width="395" height="669" frameX="-5" frameY="0" frameWidth="400" frameHeight="673"/>
+	<SubTexture name="Lazer Down0009" x="4491" y="4957" width="395" height="669" frameX="-5" frameY="0" frameWidth="400" frameHeight="673"/>
+	<SubTexture name="Lazer Down0010" x="4491" y="4957" width="395" height="669" frameX="-5" frameY="0" frameWidth="400" frameHeight="673"/>
+	<SubTexture name="Lazer Down0011" x="4491" y="4957" width="395" height="669" frameX="-5" frameY="0" frameWidth="400" frameHeight="673"/>
+	<SubTexture name="Lazer Down0012" x="4491" y="4957" width="395" height="669" frameX="-5" frameY="0" frameWidth="400" frameHeight="673"/>
+	<SubTexture name="Lazer Down0013" x="4491" y="4957" width="395" height="669" frameX="-5" frameY="0" frameWidth="400" frameHeight="673"/>
+	<SubTexture name="Lazer Down0014" x="4491" y="4957" width="395" height="669" frameX="-5" frameY="0" frameWidth="400" frameHeight="673"/>
+	<SubTexture name="Lazer Get Gift0000" x="0" y="4944" width="413" height="719" frameX="0" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0001" x="0" y="4944" width="413" height="719" frameX="0" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0002" x="5257" y="4247" width="413" height="791"/>
+	<SubTexture name="Lazer Get Gift0003" x="5257" y="4247" width="413" height="791"/>
+	<SubTexture name="Lazer Get Gift0004" x="6664" y="4944" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0005" x="6664" y="4944" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0006" x="1432" y="4945" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0007" x="1432" y="4945" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0008" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0009" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0010" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0011" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0012" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0013" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0014" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0015" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0016" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0017" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0018" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0019" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0020" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0021" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0022" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0023" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0024" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0025" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0026" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0027" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0028" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0029" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0030" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Get Gift0031" x="5674" y="4953" width="395" height="710" frameX="-18" frameY="0" frameWidth="413" frameHeight="791"/>
+	<SubTexture name="Lazer Gun Reload0000" x="7797" y="0" width="395" height="695"/>
+	<SubTexture name="Lazer Gun Reload0001" x="3820" y="2739" width="395" height="695"/>
+	<SubTexture name="Lazer Gun Reload0002" x="3820" y="2739" width="395" height="695"/>
+	<SubTexture name="Lazer Gun Reload0003" x="7745" y="3537" width="395" height="695"/>
+	<SubTexture name="Lazer Gun Reload0004" x="7063" y="4953" width="395" height="695"/>
+	<SubTexture name="Lazer Gun Reload0005" x="7063" y="4953" width="395" height="695"/>
+	<SubTexture name="Lazer Gun Reload0006" x="7462" y="4953" width="395" height="695"/>
+	<SubTexture name="Lazer Gun Reload0007" x="7462" y="4953" width="395" height="695"/>
+	<SubTexture name="Lazer Gun Reload0008" x="7462" y="4953" width="395" height="695"/>
+	<SubTexture name="Lazer Gun Reload0009" x="7462" y="4953" width="395" height="695"/>
+	<SubTexture name="Lazer Gun Reload0010" x="7462" y="4953" width="395" height="695"/>
+	<SubTexture name="Lazer Gun Reload0011" x="7462" y="4953" width="395" height="695"/>
+	<SubTexture name="Lazer Gun Reload0012" x="7462" y="4953" width="395" height="695"/>
+	<SubTexture name="Lazer Gun Reload0013" x="7462" y="4953" width="395" height="695"/>
+	<SubTexture name="Lazer Gun Reload0014" x="7462" y="4953" width="395" height="695"/>
+	<SubTexture name="Lazer Gun Shoot10000" x="4873" y="0" width="604" height="704" frameX="0" frameY="-6" frameWidth="658" frameHeight="710"/>
+	<SubTexture name="Lazer Gun Shoot10001" x="2105" y="0" width="623" height="704" frameX="0" frameY="-6" frameWidth="658" frameHeight="710"/>
+	<SubTexture name="Lazer Gun Shoot10002" x="0" y="0" width="645" height="707" frameX="-13" frameY="-3" frameWidth="658" frameHeight="710"/>
+	<SubTexture name="Lazer Gun Shoot10003" x="0" y="0" width="645" height="707" frameX="-13" frameY="-3" frameWidth="658" frameHeight="710"/>
+	<SubTexture name="Lazer Gun Shoot10004" x="3268" y="618" width="519" height="710" frameX="-10" frameY="0" frameWidth="658" frameHeight="710"/>
+	<SubTexture name="Lazer Gun Shoot10005" x="3268" y="618" width="519" height="710" frameX="-10" frameY="0" frameWidth="658" frameHeight="710"/>
+	<SubTexture name="Lazer Gun Shoot10006" x="3268" y="618" width="519" height="710" frameX="-10" frameY="0" frameWidth="658" frameHeight="710"/>
+	<SubTexture name="Lazer Gun Shoot10007" x="3268" y="618" width="519" height="710" frameX="-10" frameY="0" frameWidth="658" frameHeight="710"/>
+	<SubTexture name="Lazer Gun Shoot10008" x="3268" y="618" width="519" height="710" frameX="-10" frameY="0" frameWidth="658" frameHeight="710"/>
+	<SubTexture name="Lazer Gun Shoot10009" x="3268" y="618" width="519" height="710" frameX="-10" frameY="0" frameWidth="658" frameHeight="710"/>
+	<SubTexture name="Lazer Gun Shoot10010" x="3268" y="618" width="519" height="710" frameX="-10" frameY="0" frameWidth="658" frameHeight="710"/>
+	<SubTexture name="Lazer Gun Shoot10011" x="3268" y="618" width="519" height="710" frameX="-10" frameY="0" frameWidth="658" frameHeight="710"/>
+	<SubTexture name="Lazer Gun Shoot10012" x="3268" y="618" width="519" height="710" frameX="-10" frameY="0" frameWidth="658" frameHeight="710"/>
+	<SubTexture name="Lazer Gun Shoot10013" x="3268" y="618" width="519" height="710" frameX="-10" frameY="0" frameWidth="658" frameHeight="710"/>
+	<SubTexture name="Lazer Gun Shoot10014" x="3268" y="618" width="519" height="710" frameX="-10" frameY="0" frameWidth="658" frameHeight="710"/>
+	<SubTexture name="Lazer Idle0000" x="3334" y="2739" width="482" height="708" frameX="0" frameY="-2" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle0001" x="3334" y="2739" width="482" height="708" frameX="0" frameY="-2" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle0002" x="6890" y="1417" width="505" height="701" frameX="0" frameY="-9" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle0003" x="6890" y="1417" width="505" height="701" frameX="0" frameY="-9" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle0004" x="0" y="1415" width="504" height="706" frameX="0" frameY="-4" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle0005" x="0" y="1415" width="504" height="706" frameX="0" frameY="-4" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle0006" x="5307" y="2115" width="487" height="709" frameX="0" frameY="-2" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle0007" x="5307" y="2115" width="487" height="709" frameX="0" frameY="-2" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle0008" x="981" y="2742" width="480" height="710" frameX="0" frameY="0" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle0009" x="981" y="2742" width="480" height="710" frameX="0" frameY="0" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle0010" x="981" y="2742" width="480" height="710" frameX="0" frameY="0" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle0011" x="981" y="2742" width="480" height="710" frameX="0" frameY="0" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle0012" x="981" y="2742" width="480" height="710" frameX="0" frameY="0" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle0013" x="981" y="2742" width="480" height="710" frameX="0" frameY="0" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle0014" x="981" y="2742" width="480" height="710" frameX="0" frameY="0" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle Normal0000" x="495" y="2742" width="482" height="708" frameX="0" frameY="-2" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle Normal0001" x="495" y="2742" width="482" height="708" frameX="0" frameY="-2" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle Normal0002" x="7399" y="1417" width="505" height="701" frameX="0" frameY="-9" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle Normal0003" x="7399" y="1417" width="505" height="701" frameX="0" frameY="-9" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle Normal0004" x="6382" y="1417" width="504" height="706" frameX="0" frameY="-4" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle Normal0005" x="6382" y="1417" width="504" height="706" frameX="0" frameY="-4" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle Normal0006" x="5798" y="2115" width="487" height="709" frameX="0" frameY="-2" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle Normal0007" x="5798" y="2115" width="487" height="709" frameX="0" frameY="-2" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle Normal0008" x="2573" y="2745" width="480" height="710" frameX="0" frameY="0" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle Normal0009" x="2573" y="2745" width="480" height="710" frameX="0" frameY="0" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle Normal0010" x="2573" y="2745" width="480" height="710" frameX="0" frameY="0" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle Normal0011" x="2573" y="2745" width="480" height="710" frameX="0" frameY="0" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle Normal0012" x="2573" y="2745" width="480" height="710" frameX="0" frameY="0" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle Normal0013" x="2573" y="2745" width="480" height="710" frameX="0" frameY="0" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Idle Normal0014" x="2573" y="2745" width="480" height="710" frameX="0" frameY="0" frameWidth="505" frameHeight="711"/>
+	<SubTexture name="Lazer Left0000" x="3334" y="2036" width="440" height="673" frameX="0" frameY="-4" frameWidth="443" frameHeight="677"/>
+	<SubTexture name="Lazer Left0001" x="3334" y="2036" width="440" height="673" frameX="0" frameY="-4" frameWidth="443" frameHeight="677"/>
+	<SubTexture name="Lazer Left0002" x="2835" y="1339" width="421" height="677" frameX="-22" frameY="0" frameWidth="443" frameHeight="677"/>
+	<SubTexture name="Lazer Left0003" x="2835" y="1339" width="421" height="677" frameX="-22" frameY="0" frameWidth="443" frameHeight="677"/>
+	<SubTexture name="Lazer Left0004" x="2835" y="1339" width="421" height="677" frameX="-22" frameY="0" frameWidth="443" frameHeight="677"/>
+	<SubTexture name="Lazer Left0005" x="2835" y="1339" width="421" height="677" frameX="-22" frameY="0" frameWidth="443" frameHeight="677"/>
+	<SubTexture name="Lazer Left0006" x="2835" y="1339" width="421" height="677" frameX="-22" frameY="0" frameWidth="443" frameHeight="677"/>
+	<SubTexture name="Lazer Left0007" x="2835" y="1339" width="421" height="677" frameX="-22" frameY="0" frameWidth="443" frameHeight="677"/>
+	<SubTexture name="Lazer Left0008" x="2835" y="1339" width="421" height="677" frameX="-22" frameY="0" frameWidth="443" frameHeight="677"/>
+	<SubTexture name="Lazer Left0009" x="2835" y="1339" width="421" height="677" frameX="-22" frameY="0" frameWidth="443" frameHeight="677"/>
+	<SubTexture name="Lazer Left0010" x="2835" y="1339" width="421" height="677" frameX="-22" frameY="0" frameWidth="443" frameHeight="677"/>
+	<SubTexture name="Lazer Left0011" x="2835" y="1339" width="421" height="677" frameX="-22" frameY="0" frameWidth="443" frameHeight="677"/>
+	<SubTexture name="Lazer Left0012" x="2835" y="1339" width="421" height="677" frameX="-22" frameY="0" frameWidth="443" frameHeight="677"/>
+	<SubTexture name="Lazer Left0013" x="2835" y="1339" width="421" height="677" frameX="-22" frameY="0" frameWidth="443" frameHeight="677"/>
+	<SubTexture name="Lazer Left0014" x="2835" y="1339" width="421" height="677" frameX="-22" frameY="0" frameWidth="443" frameHeight="677"/>
+	<SubTexture name="Lazer Right0000" x="2732" y="618" width="532" height="717"/>
+	<SubTexture name="Lazer Right0001" x="2732" y="618" width="532" height="717"/>
+	<SubTexture name="Lazer Right0002" x="3791" y="618" width="509" height="710" frameX="-10" frameY="-7" frameWidth="532" frameHeight="717"/>
+	<SubTexture name="Lazer Right0003" x="3791" y="618" width="509" height="710" frameX="-10" frameY="-7" frameWidth="532" frameHeight="717"/>
+	<SubTexture name="Lazer Right0004" x="3791" y="618" width="509" height="710" frameX="-10" frameY="-7" frameWidth="532" frameHeight="717"/>
+	<SubTexture name="Lazer Right0005" x="3791" y="618" width="509" height="710" frameX="-10" frameY="-7" frameWidth="532" frameHeight="717"/>
+	<SubTexture name="Lazer Right0006" x="3791" y="618" width="509" height="710" frameX="-10" frameY="-7" frameWidth="532" frameHeight="717"/>
+	<SubTexture name="Lazer Right0007" x="3791" y="618" width="509" height="710" frameX="-10" frameY="-7" frameWidth="532" frameHeight="717"/>
+	<SubTexture name="Lazer Right0008" x="3791" y="618" width="509" height="710" frameX="-10" frameY="-7" frameWidth="532" frameHeight="717"/>
+	<SubTexture name="Lazer Right0009" x="3791" y="618" width="509" height="710" frameX="-10" frameY="-7" frameWidth="532" frameHeight="717"/>
+	<SubTexture name="Lazer Right0010" x="3791" y="618" width="509" height="710" frameX="-10" frameY="-7" frameWidth="532" frameHeight="717"/>
+	<SubTexture name="Lazer Right0011" x="3791" y="618" width="509" height="710" frameX="-10" frameY="-7" frameWidth="532" frameHeight="717"/>
+	<SubTexture name="Lazer Right0012" x="3791" y="618" width="509" height="710" frameX="-10" frameY="-7" frameWidth="532" frameHeight="717"/>
+	<SubTexture name="Lazer Right0013" x="3791" y="618" width="509" height="710" frameX="-10" frameY="-7" frameWidth="532" frameHeight="717"/>
+	<SubTexture name="Lazer Right0014" x="3791" y="618" width="509" height="710" frameX="-10" frameY="-7" frameWidth="532" frameHeight="717"/>
+	<SubTexture name="Lazer Up0000" x="4770" y="2821" width="464" height="733" frameX="0" frameY="0" frameWidth="465" frameHeight="741"/>
+	<SubTexture name="Lazer Up0001" x="4770" y="2821" width="464" height="733" frameX="0" frameY="0" frameWidth="465" frameHeight="741"/>
+	<SubTexture name="Lazer Up0002" x="1919" y="4872" width="450" height="718" frameX="-15" frameY="-23" frameWidth="465" frameHeight="741"/>
+	<SubTexture name="Lazer Up0003" x="1919" y="4872" width="450" height="718" frameX="-15" frameY="-23" frameWidth="465" frameHeight="741"/>
+	<SubTexture name="Lazer Up0004" x="1919" y="4872" width="450" height="718" frameX="-15" frameY="-23" frameWidth="465" frameHeight="741"/>
+	<SubTexture name="Lazer Up0005" x="1919" y="4872" width="450" height="718" frameX="-15" frameY="-23" frameWidth="465" frameHeight="741"/>
+	<SubTexture name="Lazer Up0006" x="1919" y="4872" width="450" height="718" frameX="-15" frameY="-23" frameWidth="465" frameHeight="741"/>
+	<SubTexture name="Lazer Up0007" x="1919" y="4872" width="450" height="718" frameX="-15" frameY="-23" frameWidth="465" frameHeight="741"/>
+	<SubTexture name="Lazer Up0008" x="1919" y="4872" width="450" height="718" frameX="-15" frameY="-23" frameWidth="465" frameHeight="741"/>
+	<SubTexture name="Lazer Up0009" x="1919" y="4872" width="450" height="718" frameX="-15" frameY="-23" frameWidth="465" frameHeight="741"/>
+	<SubTexture name="Lazer Up0010" x="1919" y="4872" width="450" height="718" frameX="-15" frameY="-23" frameWidth="465" frameHeight="741"/>
+	<SubTexture name="Lazer Up0011" x="1919" y="4872" width="450" height="718" frameX="-15" frameY="-23" frameWidth="465" frameHeight="741"/>
+	<SubTexture name="Lazer Up0012" x="1919" y="4872" width="450" height="718" frameX="-15" frameY="-23" frameWidth="465" frameHeight="741"/>
+	<SubTexture name="Lazer Up0013" x="1919" y="4872" width="450" height="718" frameX="-15" frameY="-23" frameWidth="465" frameHeight="741"/>
+	<SubTexture name="Lazer Up0014" x="1919" y="4872" width="450" height="718" frameX="-15" frameY="-23" frameWidth="465" frameHeight="741"/>
+	<SubTexture name="Lazer dont care0000" x="2005" y="2746" width="480" height="710" frameX="-60" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0001" x="1465" y="2819" width="480" height="710" frameX="-60" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0002" x="481" y="4164" width="474" height="701" frameX="-66" frameY="-15" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0003" x="481" y="4164" width="474" height="701" frameX="-66" frameY="-15" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0004" x="0" y="3540" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0005" x="6696" y="3540" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0006" x="6198" y="3545" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0007" x="6198" y="3545" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0008" x="4303" y="3558" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0009" x="4303" y="3558" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0010" x="3537" y="4148" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0011" x="3537" y="4148" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0012" x="3537" y="4148" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0013" x="3537" y="4148" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0014" x="2969" y="4161" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0015" x="2969" y="4161" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0016" x="2969" y="4161" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0017" x="2969" y="4161" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0018" x="2969" y="4161" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0019" x="2969" y="4161" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0020" x="2969" y="4161" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0021" x="2969" y="4161" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0022" x="2969" y="4161" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0023" x="2969" y="4161" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0024" x="2969" y="4161" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0025" x="2969" y="4161" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0026" x="2969" y="4161" width="477" height="698" frameX="-66" frameY="-18" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0027" x="4304" y="2026" width="501" height="697" frameX="-58" frameY="-16" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0028" x="4304" y="2026" width="501" height="697" frameX="-58" frameY="-16" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0029" x="4304" y="618" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0030" x="1797" y="708" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0031" x="1797" y="708" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0032" x="4822" y="708" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0033" x="4822" y="708" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0034" x="0" y="711" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0035" x="0" y="711" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0036" x="5340" y="713" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0037" x="5340" y="713" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0038" x="5858" y="713" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0039" x="5858" y="713" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0040" x="5340" y="713" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0041" x="5340" y="713" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0042" x="1797" y="708" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0043" x="1797" y="708" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0044" x="1797" y="708" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0045" x="6376" y="713" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0046" x="6894" y="713" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0047" x="6894" y="713" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0048" x="7412" y="713" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0049" x="7412" y="713" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0050" x="4304" y="1322" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0051" x="4304" y="1322" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0052" x="518" y="1329" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0053" x="518" y="1329" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0054" x="1797" y="708" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0055" x="1797" y="708" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0056" x="1036" y="1329" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0057" x="1036" y="1329" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0058" x="1036" y="1329" width="514" height="700" frameX="-47" frameY="-12" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0059" x="649" y="618" width="570" height="707" frameX="-8" frameY="-7" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0060" x="1223" y="618" width="570" height="707" frameX="-8" frameY="-7" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0061" x="5481" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0062" x="6060" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0063" x="6060" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0064" x="6639" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0065" x="6639" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0066" x="6639" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0067" x="7218" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0068" x="7218" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0069" x="6639" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0070" x="6639" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0071" x="6639" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0072" x="7218" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0073" x="7218" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0074" x="7218" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0075" x="6639" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0076" x="6639" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0077" x="6639" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0078" x="7218" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0079" x="7218" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0080" x="6639" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0081" x="6639" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0082" x="6639" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0083" x="6639" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0084" x="6639" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0085" x="6639" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0086" x="6639" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0087" x="6639" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0088" x="6639" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0089" x="6639" y="0" width="575" height="709" frameX="0" frameY="-6" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0090" x="7383" y="2122" width="491" height="702" frameX="-48" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0091" x="0" y="2125" width="491" height="702" frameX="-48" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0092" x="959" y="4166" width="476" height="698" frameX="-62" frameY="-11" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0093" x="2429" y="4169" width="476" height="698" frameX="-62" frameY="-11" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0094" x="2429" y="4169" width="476" height="698" frameX="-62" frameY="-11" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0095" x="2429" y="4169" width="476" height="698" frameX="-62" frameY="-11" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0096" x="1926" y="4170" width="476" height="698" frameX="-62" frameY="-11" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0097" x="0" y="4242" width="476" height="698" frameX="-62" frameY="-11" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0098" x="0" y="4242" width="476" height="698" frameX="-62" frameY="-11" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0099" x="6679" y="4242" width="476" height="698" frameX="-62" frameY="-11" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0100" x="6679" y="4242" width="476" height="698" frameX="-62" frameY="-11" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0101" x="2429" y="4169" width="476" height="698" frameX="-62" frameY="-11" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0102" x="2429" y="4169" width="476" height="698" frameX="-62" frameY="-11" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0103" x="2429" y="4169" width="476" height="698" frameX="-62" frameY="-11" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0104" x="2429" y="4169" width="476" height="698" frameX="-62" frameY="-11" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0105" x="2429" y="4169" width="476" height="698" frameX="-62" frameY="-11" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0106" x="2429" y="4169" width="476" height="698" frameX="-62" frameY="-11" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0107" x="2429" y="4169" width="476" height="698" frameX="-62" frameY="-11" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0108" x="6679" y="4242" width="476" height="698" frameX="-62" frameY="-11" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0109" x="6679" y="4242" width="476" height="698" frameX="-62" frameY="-11" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0110" x="1439" y="4243" width="476" height="698" frameX="-62" frameY="-11" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0111" x="5718" y="3537" width="476" height="702" frameX="-62" frameY="-7" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0112" x="7265" y="3537" width="476" height="702" frameX="-62" frameY="-7" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0113" x="5238" y="2828" width="482" height="705" frameX="-56" frameY="-4" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0114" x="5724" y="2828" width="482" height="705" frameX="-56" frameY="-4" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0115" x="5724" y="2828" width="482" height="705" frameX="-56" frameY="-4" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0116" x="7383" y="2828" width="482" height="705" frameX="-56" frameY="-4" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0117" x="7383" y="2828" width="482" height="705" frameX="-56" frameY="-4" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0118" x="5238" y="2828" width="482" height="705" frameX="-56" frameY="-4" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0119" x="5238" y="2828" width="482" height="705" frameX="-56" frameY="-4" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0120" x="5724" y="2828" width="482" height="705" frameX="-56" frameY="-4" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0121" x="5724" y="2828" width="482" height="705" frameX="-56" frameY="-4" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0122" x="5724" y="2828" width="482" height="705" frameX="-56" frameY="-4" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0123" x="0" y="2831" width="482" height="705" frameX="-56" frameY="-4" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0124" x="6779" y="2831" width="482" height="705" frameX="-56" frameY="-4" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0125" x="6779" y="2831" width="482" height="705" frameX="-56" frameY="-4" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0126" x="6210" y="2836" width="482" height="705" frameX="-56" frameY="-4" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0127" x="6210" y="2836" width="482" height="705" frameX="-56" frameY="-4" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0128" x="4809" y="2115" width="494" height="702" frameX="-41" frameY="-4" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0129" x="4809" y="2115" width="494" height="702" frameX="-41" frameY="-4" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0130" x="3784" y="2030" width="495" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0131" x="508" y="2033" width="495" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0132" x="1007" y="2033" width="495" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0133" x="1007" y="2033" width="495" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0134" x="2835" y="2036" width="495" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0135" x="2835" y="2036" width="495" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0136" x="2074" y="2037" width="495" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0137" x="2074" y="2037" width="495" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0138" x="2074" y="2037" width="495" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0139" x="1506" y="2110" width="495" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0140" x="1506" y="2110" width="495" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0141" x="2074" y="2037" width="495" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0142" x="2074" y="2037" width="495" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0143" x="2074" y="2037" width="495" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0144" x="2074" y="2037" width="495" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0145" x="2074" y="2037" width="495" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0146" x="2074" y="2037" width="495" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0147" x="2074" y="2037" width="495" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0148" x="2074" y="2037" width="495" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0149" x="2074" y="2037" width="495" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0150" x="2074" y="2037" width="495" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0151" x="6890" y="2122" width="489" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0152" x="6890" y="2122" width="489" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0153" x="6289" y="2127" width="486" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0154" x="6289" y="2127" width="486" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0155" x="6289" y="2127" width="486" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0156" x="6289" y="2127" width="486" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0157" x="6289" y="2127" width="486" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0158" x="6289" y="2127" width="486" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0159" x="6289" y="2127" width="486" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0160" x="6289" y="2127" width="486" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0161" x="6289" y="2127" width="486" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0162" x="6289" y="2127" width="486" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0163" x="6289" y="2127" width="486" height="705" frameX="-34" frameY="0" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0164" x="4283" y="2727" width="483" height="707" frameX="-46" frameY="-2" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0165" x="4283" y="2727" width="483" height="707" frameX="-46" frameY="-2" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0166" x="5718" y="4243" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0167" x="5718" y="4243" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0168" x="5718" y="4243" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0169" x="5718" y="4243" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0170" x="7159" y="4243" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0171" x="7159" y="4243" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0172" x="7632" y="4243" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0173" x="7632" y="4243" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0174" x="7159" y="4243" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0175" x="7159" y="4243" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0176" x="7159" y="4243" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0177" x="4784" y="4247" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0178" x="4784" y="4247" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0179" x="4784" y="4247" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0180" x="6191" y="4247" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0181" x="6191" y="4247" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0182" x="7632" y="4243" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0183" x="4018" y="4260" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0184" x="4018" y="4260" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0185" x="3450" y="4850" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0186" x="2909" y="4863" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0187" x="2909" y="4863" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0188" x="7159" y="4243" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0189" x="7159" y="4243" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0190" x="7159" y="4243" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0191" x="959" y="4868" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0192" x="959" y="4868" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0193" x="959" y="4868" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0194" x="480" y="4869" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0195" x="480" y="4869" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0196" x="480" y="4869" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0197" x="480" y="4869" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0198" x="480" y="4869" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0199" x="480" y="4869" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0200" x="480" y="4869" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0201" x="480" y="4869" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0202" x="480" y="4869" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0203" x="480" y="4869" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0204" x="480" y="4869" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0205" x="480" y="4869" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0206" x="480" y="4869" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0207" x="2406" y="4871" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0208" x="2406" y="4871" width="469" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0209" x="3820" y="3438" width="479" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0210" x="3820" y="3438" width="479" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0211" x="3057" y="3451" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0212" x="3057" y="3451" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0213" x="3057" y="3451" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0214" x="486" y="3454" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0215" x="486" y="3454" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0216" x="486" y="3454" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0217" x="966" y="3456" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0218" x="966" y="3456" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0219" x="966" y="3456" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0220" x="2489" y="3459" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0221" x="2489" y="3459" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0222" x="486" y="3454" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0223" x="486" y="3454" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0224" x="486" y="3454" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0225" x="1949" y="3460" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0226" x="1949" y="3460" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0227" x="1949" y="3460" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0228" x="1949" y="3460" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0229" x="1949" y="3460" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0230" x="1949" y="3460" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0231" x="1949" y="3460" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0232" x="1949" y="3460" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0233" x="1949" y="3460" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0234" x="1949" y="3460" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0235" x="1949" y="3460" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0236" x="1949" y="3460" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0237" x="1949" y="3460" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0238" x="1949" y="3460" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0239" x="1949" y="3460" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0240" x="1446" y="3533" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0241" x="1446" y="3533" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0242" x="5238" y="3537" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0243" x="5238" y="3537" width="476" height="706" frameX="-56" frameY="-5" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0244" x="3268" y="1332" width="512" height="700" frameX="-28" frameY="-7" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0245" x="3268" y="1332" width="512" height="700" frameX="-28" frameY="-7" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0246" x="3784" y="1332" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0247" x="3784" y="1332" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0248" x="2315" y="1339" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0249" x="2315" y="1339" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0250" x="1554" y="1412" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0251" x="2315" y="1339" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0252" x="2315" y="1339" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0253" x="4822" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0254" x="4822" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0255" x="5342" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0256" x="5342" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0257" x="5862" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0258" x="5862" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0259" x="5862" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0260" x="4822" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0261" x="4822" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0262" x="4822" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0263" x="4822" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0264" x="4822" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0265" x="4822" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0266" x="4822" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0267" x="4822" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0268" x="4822" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0269" x="4822" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0270" x="4822" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0271" x="4822" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0272" x="4822" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0273" x="4822" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0274" x="4822" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0275" x="4822" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0276" x="4822" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0277" x="4822" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+	<SubTexture name="Lazer dont care0278" x="4822" y="1417" width="516" height="694" frameX="-23" frameY="-13" frameWidth="578" frameHeight="716"/>
+</TextureAtlas>
