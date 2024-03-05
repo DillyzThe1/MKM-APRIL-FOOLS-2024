@@ -1,6 +1,6 @@
 {
 	"song": {
-		"player1": "toad",
+		"player1": "toad-playerr",
 		"notes": [
 			{
 				"sectionBeats": 4,
@@ -591,54 +591,64 @@
 				"sectionBeats": 4,
 				"sectionNotes": [
 					[
-						32470.5882352941,
-						4,
-						0
-					],
-					[
 						32647.0588235294,
 						4,
-						0
+						0,
+						"Impossible Hit"
+					],
+					[
+						32470.5882352941,
+						4,
+						0,
+						"Impossible Hit"
 					],
 					[
 						32470.5882352941,
 						0,
-						0
+						0,
+						"Impossible Hit"
 					],
 					[
 						32647.0588235294,
 						0,
-						0
+						0,
+						"Impossible Hit"
 					],
 					[
 						33000,
 						3,
-						0
+						0,
+						"Impossible Hit"
 					],
 					[
 						33176.4705882353,
 						3,
-						0
-					],
-					[
-						33000,
-						7,
-						0
+						0,
+						"Impossible Hit"
 					],
 					[
 						33176.4705882353,
 						7,
-						0
+						0,
+						"Impossible Hit"
+					],
+					[
+						33000,
+						7,
+						0,
+						"Impossible Hit"
 					],
 					[
 						33529.4117647059,
 						1,
-						264.705882352941
+						264.705882352941,
+						"Impossible Hit"
 					],
 					[
 						33529.4117647059,
 						5,
-						264.705882352941
+						264.705882352941,
+						"Impossible Hit"
 					]
 				],
 				"typeOfSection": 0,
@@ -990,16 +1000,6 @@
 						49411.7647058823,
 						2,
 						264.705882352941
-					],
-					[
-						49764.7058823529,
-						1,
-						0
-					],
-					[
-						50117.6470588235,
-						1,
-						0
 					]
 				],
 				"sectionBeats": 4,
@@ -1257,53 +1257,7 @@
 			},
 			{
 				"typeOfSection": 0,
-				"sectionNotes": [
-					[
-						62117.6470588235,
-						1,
-						0
-					],
-					[
-						62294.1176470588,
-						1,
-						0
-					],
-					[
-						62470.588235294,
-						3,
-						0
-					],
-					[
-						62647.0588235293,
-						1,
-						0
-					],
-					[
-						62823.5294117646,
-						1,
-						0
-					],
-					[
-						62911.7647058823,
-						0,
-						0
-					],
-					[
-						63176.4705882352,
-						1,
-						0
-					],
-					[
-						62999.9999999999,
-						3,
-						0
-					],
-					[
-						63352.9411764705,
-						1,
-						0
-					]
-				],
+				"sectionNotes": [],
 				"sectionBeats": 4,
 				"altAnim": false,
 				"gfSection": false,
@@ -1313,68 +1267,7 @@
 			},
 			{
 				"typeOfSection": 0,
-				"sectionNotes": [
-					[
-						63529.4117647058,
-						1,
-						0
-					],
-					[
-						63705.8823529411,
-						1,
-						0
-					],
-					[
-						63882.3529411764,
-						1,
-						0
-					],
-					[
-						63970.588235294,
-						0,
-						0
-					],
-					[
-						64058.8235294117,
-						1,
-						0
-					],
-					[
-						64147.0588235293,
-						2,
-						0
-					],
-					[
-						64235.294117647,
-						1,
-						0
-					],
-					[
-						64323.5294117646,
-						0,
-						0
-					],
-					[
-						64411.7647058823,
-						1,
-						0
-					],
-					[
-						64852.9411764705,
-						1,
-						0
-					],
-					[
-						64676.4705882352,
-						1,
-						0
-					],
-					[
-						64588.2352941176,
-						0,
-						0
-					]
-				],
+				"sectionNotes": [],
 				"sectionBeats": 4,
 				"altAnim": false,
 				"gfSection": false,
@@ -1384,58 +1277,7 @@
 			},
 			{
 				"typeOfSection": 0,
-				"sectionNotes": [
-					[
-						65294.1176470587,
-						1,
-						0
-					],
-					[
-						65470.588235294,
-						1,
-						0
-					],
-					[
-						65647.0588235293,
-						1,
-						0
-					],
-					[
-						65558.8235294117,
-						0,
-						0
-					],
-					[
-						65029.4117647058,
-						0,
-						0
-					],
-					[
-						65117.6470588235,
-						1,
-						0
-					],
-					[
-						65823.5294117646,
-						3,
-						0
-					],
-					[
-						65911.7647058823,
-						1,
-						0
-					],
-					[
-						65999.9999999999,
-						0,
-						0
-					],
-					[
-						66088.2352941176,
-						3,
-						0
-					]
-				],
+				"sectionNotes": [],
 				"sectionBeats": 4,
 				"altAnim": false,
 				"gfSection": false,
@@ -1445,75 +1287,7 @@
 			},
 			{
 				"typeOfSection": 0,
-				"sectionNotes": [
-					[
-						66352.9411764705,
-						3,
-						0
-					],
-					[
-						66441.1764705882,
-						0,
-						0
-					],
-					[
-						66529.4117647058,
-						3,
-						0
-					],
-					[
-						66617.6470588235,
-						0,
-						0
-					],
-					[
-						66705.8823529411,
-						3,
-						0
-					],
-					[
-						66794.1176470588,
-						0,
-						0
-					],
-					[
-						66882.3529411764,
-						3,
-						0
-					],
-					[
-						67058.8235294117,
-						2,
-						0
-					],
-					[
-						67147.0588235293,
-						1,
-						0
-					],
-					[
-						67235.294117647,
-						2,
-						0
-					],
-					[
-						67323.5294117646,
-						1,
-						0
-					],
-					[
-						67411.7647058823,
-						2,
-						0,
-						"Hey!"
-					],
-					[
-						67588.2352941176,
-						2,
-						0,
-						"Hey!"
-					]
-				],
+				"sectionNotes": [],
 				"sectionBeats": 4,
 				"altAnim": false,
 				"gfSection": false,
@@ -1659,36 +1433,6 @@
 						1,
 						0,
 						"Alt Animation"
-					],
-					[
-						71470.588235294,
-						1,
-						0,
-						"Alt Animation"
-					],
-					[
-						71558.8235294117,
-						1,
-						0,
-						"Alt Animation"
-					],
-					[
-						71647.0588235293,
-						1,
-						0,
-						"Alt Animation"
-					],
-					[
-						71735.294117647,
-						1,
-						0,
-						"Alt Animation"
-					],
-					[
-						71823.5294117646,
-						1,
-						0,
-						"Alt Animation"
 					]
 				],
 				"sectionBeats": 4,
@@ -1710,54 +1454,7 @@
 			},
 			{
 				"typeOfSection": 0,
-				"sectionNotes": [
-					[
-						73411.7647058823,
-						1,
-						0
-					],
-					[
-						73499.9999999999,
-						0,
-						0
-					],
-					[
-						73588.2352941176,
-						1,
-						0
-					],
-					[
-						73764.7058823528,
-						2,
-						0
-					],
-					[
-						73941.1764705882,
-						2,
-						0
-					],
-					[
-						74117.6470588234,
-						3,
-						0
-					],
-					[
-						74294.1176470587,
-						3,
-						0
-					],
-					[
-						74470.588235294,
-						2,
-						0
-					],
-					[
-						74647.0588235293,
-						0,
-						0,
-						"Hey!"
-					]
-				],
+				"sectionNotes": [],
 				"sectionBeats": 4,
 				"altAnim": false,
 				"gfSection": false,
@@ -1767,73 +1464,7 @@
 			},
 			{
 				"typeOfSection": 0,
-				"sectionNotes": [
-					[
-						74823.5294117646,
-						1,
-						0
-					],
-					[
-						74911.7647058823,
-						0,
-						0
-					],
-					[
-						74999.9999999999,
-						1,
-						0
-					],
-					[
-						75088.2352941175,
-						3,
-						0
-					],
-					[
-						75352.9411764705,
-						1,
-						0
-					],
-					[
-						75441.1764705881,
-						0,
-						0
-					],
-					[
-						75529.4117647058,
-						3,
-						0
-					],
-					[
-						75617.6470588234,
-						2,
-						0
-					],
-					[
-						75794.1176470587,
-						1,
-						0
-					],
-					[
-						75882.3529411764,
-						2,
-						0
-					],
-					[
-						75970.588235294,
-						0,
-						0
-					],
-					[
-						76058.8235294117,
-						3,
-						0
-					],
-					[
-						75264.7058823528,
-						2,
-						0
-					]
-				],
+				"sectionNotes": [],
 				"sectionBeats": 4,
 				"altAnim": false,
 				"gfSection": false,
@@ -1843,68 +1474,7 @@
 			},
 			{
 				"typeOfSection": 0,
-				"sectionNotes": [
-					[
-						76235.294117647,
-						1,
-						0
-					],
-					[
-						76411.7647058823,
-						0,
-						0
-					],
-					[
-						76499.9999999999,
-						1,
-						0
-					],
-					[
-						76676.4705882352,
-						3,
-						0
-					],
-					[
-						76764.7058823528,
-						1,
-						0
-					],
-					[
-						76941.1764705881,
-						0,
-						0
-					],
-					[
-						77029.4117647058,
-						3,
-						0
-					],
-					[
-						77117.6470588234,
-						0,
-						0
-					],
-					[
-						77294.1176470587,
-						2,
-						0
-					],
-					[
-						77382.3529411764,
-						1,
-						0
-					],
-					[
-						77558.8235294117,
-						0,
-						0
-					],
-					[
-						76852.9411764705,
-						2,
-						0
-					]
-				],
+				"sectionNotes": [],
 				"sectionBeats": 4,
 				"altAnim": false,
 				"gfSection": false,
@@ -1914,64 +1484,7 @@
 			},
 			{
 				"typeOfSection": 0,
-				"sectionNotes": [
-					[
-						77647.0588235293,
-						2,
-						0,
-						"Hey!"
-					],
-					[
-						77999.9999999999,
-						1,
-						0
-					],
-					[
-						78176.4705882352,
-						1,
-						0
-					],
-					[
-						78352.9411764705,
-						3,
-						0
-					],
-					[
-						78441.1764705881,
-						1,
-						0
-					],
-					[
-						78529.4117647058,
-						3,
-						0
-					],
-					[
-						78617.6470588234,
-						0,
-						0
-					],
-					[
-						78705.8823529411,
-						3,
-						0
-					],
-					[
-						78794.1176470587,
-						1,
-						0
-					],
-					[
-						78882.3529411764,
-						3,
-						0
-					],
-					[
-						78970.588235294,
-						0,
-						0
-					]
-				],
+				"sectionNotes": [],
 				"sectionBeats": 4,
 				"altAnim": false,
 				"gfSection": false,
@@ -3111,12 +2624,12 @@
 				"sectionNotes": [
 					[
 						120000,
-						1,
+						7,
 						1323.52941176471
 					],
 					[
 						120000,
-						7,
+						2,
 						1323.52941176471
 					]
 				],
@@ -5347,24 +4860,44 @@
 				"bpm": 170
 			},
 			{
-				"gfSection": false,
-				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
-				"bpm": 170,
 				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 170,
 				"changeBPM": false,
 				"mustHitSection": true
 			},
 			{
-				"gfSection": false,
-				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
-				"bpm": 170,
 				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 170,
 				"changeBPM": false,
 				"mustHitSection": true
+			},
+			{
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 170,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 170
 			},
 			{
 				"gfSection": false,
@@ -5407,27 +4940,17 @@
 		"speed": 2.7,
 		"events": [
 			[
-				0,
-				[
-					[
-						"Play Animation",
-						"jolly",
-						"dad"
-					],
-					[
-						"Alt Idle Animation",
-						"dad",
-						"-"
-					]
-				]
-			],
-			[
 				88.2352941176471,
 				[
 					[
 						"Closed Captions",
 						"I don't care.",
 						""
+					],
+					[
+						"Play Animation",
+						"jolly",
+						"dad"
 					]
 				]
 			],
@@ -5446,47 +4969,37 @@
 				[
 					[
 						"Closed Captions",
-						"....one month,",
+						"1 month,",
 						""
 					]
 				]
 			],
 			[
-				4650,
+				4676.47058823529,
 				[
 					[
 						"Closed Captions",
-						"....one month, three weeks,",
+						"3 weeks,",
 						""
 					]
 				]
 			],
 			[
-				5029.41176470588,
+				5205.88235294118,
 				[
 					[
 						"Closed Captions",
-						"....one month, three wee-",
+						"2 months.",
 						""
 					]
 				]
 			],
 			[
-				5285.29411764706,
+				5911.76470588235,
 				[
 					[
 						"Closed Captions",
-						"....one month, three week- TWO months.",
-						""
-					]
-				]
-			],
-			[
-				6352.94117647059,
-				[
-					[
-						"Closed Captions",
-						" ",
+						"",
 						""
 					]
 				]
@@ -5502,11 +5015,21 @@
 				]
 			],
 			[
-				10200,
+				8823.52941176471,
 				[
 					[
 						"Closed Captions",
-						"Merry Christmas!",
+						"I'm gonna let you play... Bup Alpha!",
+						""
+					]
+				]
+			],
+			[
+				10147.0588235294,
+				[
+					[
+						"Closed Captions",
+						"Merry Christmas.",
 						""
 					]
 				]
@@ -5518,11 +5041,6 @@
 						"Closed Captions",
 						"",
 						""
-					],
-					[
-						"Alt Idle Animation",
-						"dad",
-						""
 					]
 				]
 			],
@@ -5531,7 +5049,7 @@
 				[
 					[
 						"Closed Captions",
-						"You think you're BETTER than me?",
+						"You think you're more FESTIVE than me?!",
 						""
 					]
 				]
@@ -5541,13 +5059,13 @@
 				[
 					[
 						"Closed Captions",
-						"(Yeah!)",
+						"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa",
 						""
 					]
 				]
 			],
 			[
-				52941.1764705882,
+				52764.7058823529,
 				[
 					[
 						"Closed Captions",
@@ -5557,22 +5075,17 @@
 				]
 			],
 			[
-				53647.0588235294,
+				53294.1176470588,
 				[
 					[
 						"Closed Captions",
 						"Three.",
 						""
-					],
-					[
-						"Show Countdown Index",
-						"0",
-						"false"
 					]
 				]
 			],
 			[
-				54352.9411764705,
+				53999.9999999999,
 				[
 					[
 						"Closed Captions",
@@ -5587,7 +5100,7 @@
 				]
 			],
 			[
-				55058.8235294117,
+				54882.3529411764,
 				[
 					[
 						"Closed Captions",
@@ -5602,11 +5115,11 @@
 				]
 			],
 			[
-				55764.7058823529,
+				55411.7647058823,
 				[
 					[
 						"Closed Captions",
-						"BEATBOX.",
+						"GIFTBOX.",
 						""
 					],
 					[
@@ -5632,26 +5145,6 @@
 				]
 			],
 			[
-				61411.7647058823,
-				[
-					[
-						"Closed Captions",
-						"screw_you.mp3",
-						""
-					]
-				]
-			],
-			[
-				62117.6470588235,
-				[
-					[
-						"Closed Captions",
-						"",
-						""
-					]
-				]
-			],
-			[
 				65029.4117647058,
 				[
 					[
@@ -5662,7 +5155,7 @@
 				]
 			],
 			[
-				65999.9999999999,
+				66352.9411764705,
 				[
 					[
 						"Closed Captions",
@@ -5672,37 +5165,57 @@
 				]
 			],
 			[
-				74117.6470588234,
+				71558.8235294117,
 				[
 					[
 						"Closed Captions",
-						"I set off a nuclear explosion...",
+						"Look what I go-",
 						""
 					]
 				]
 			],
 			[
-				76058.8235294117,
+				71999.9999999999,
 				[
 					[
 						"Closed Captions",
-						"and you're STILL alive?!",
+						"*LAZER IS DEAD.*",
+						""
+					]
+				]
+			],
+			[
+				73411.7647058823,
+				[
+					[
+						"Closed Captions",
+						"",
+						""
+					]
+				]
+			],
+			[
+				74823.5294117646,
+				[
+					[
+						"Closed Captions",
+						"I gave you a gift and you're..",
+						""
+					]
+				]
+			],
+			[
+				76235.294117647,
+				[
+					[
+						"Closed Captions",
+						"I gave you a gift and you're STILL not jolly?!",
 						""
 					]
 				]
 			],
 			[
 				77647.0588235293,
-				[
-					[
-						"Closed Captions",
-						"(Yeah!)",
-						""
-					]
-				]
-			],
-			[
-				77999.9999999999,
 				[
 					[
 						"Closed Captions",
@@ -5746,27 +5259,7 @@
 				[
 					[
 						"Closed Captions",
-						"for the typical FNF mod?",
-						""
-					]
-				]
-			],
-			[
-				98823.5294117646,
-				[
-					[
-						"Closed Captions",
-						"for the typical FNF mod?",
-						""
-					]
-				]
-			],
-			[
-				98823.5294117646,
-				[
-					[
-						"Closed Captions",
-						"for the typical FNF mod?",
+						"for the typical christmas carol?",
 						""
 					]
 				]
@@ -5796,7 +5289,7 @@
 				[
 					[
 						"Closed Captions",
-						"This is MY mod!",
+						"This is MY holiday!",
 						""
 					]
 				]
@@ -5826,16 +5319,6 @@
 				[
 					[
 						"Closed Captions",
-						"I",
-						""
-					]
-				]
-			],
-			[
-				130058.823529412,
-				[
-					[
-						"Closed Captions",
 						"I AM",
 						""
 					]
@@ -5852,11 +5335,11 @@
 				]
 			],
 			[
-				130676.470588235,
+				130588.235294117,
 				[
 					[
 						"Closed Captions",
-						"I AM THE FUNNY",
+						"I AM THE JOLLY.",
 						""
 					]
 				]
@@ -5886,37 +5369,27 @@
 				[
 					[
 						"Closed Captions",
-						"Please don't...",
+						"Please...",
 						""
 					]
 				]
 			],
 			[
-				157994.117647059,
+				157941.176470588,
 				[
 					[
 						"Closed Captions",
-						"I-",
+						"Please... do..",
 						""
 					]
 				]
 			],
 			[
-				158091.176470588,
+				158647.058823529,
 				[
 					[
 						"Closed Captions",
-						"",
-						""
-					]
-				]
-			],
-			[
-				158205.882352941,
-				[
-					[
-						"Closed Captions",
-						"I WARNED you...",
+						"Please.. do play!",
 						""
 					]
 				]
@@ -5932,181 +5405,121 @@
 				]
 			],
 			[
-				159341.911764706,
+				159176.470588235,
 				[
 					[
 						"Closed Captions",
-						"This song is actually",
+						"I recommend you!",
 						""
 					]
 				]
 			],
 			[
-				160645.588235294,
+				160676.470588235,
 				[
 					[
 						"Closed Captions",
-						"This song is actually REALLY BAD.",
+						"This song is actually really good!",
 						""
 					]
 				]
 			],
 			[
-				161470.588235294,
+				163235.294117647,
 				[
 					[
 						"Closed Captions",
-						" ",
+						"You're gonna love this mod,",
 						""
 					]
 				]
 			],
 			[
-				161666.911764706,
+				164205.882352941,
 				[
 					[
 						"Closed Captions",
-						"You're gonna HATE this mod.",
+						"you're gonna love this song,",
 						""
 					]
 				]
 			],
 			[
-				162754.411764706,
+				165529.411764706,
 				[
 					[
 						"Closed Captions",
-						"You're gonna hate this \"SONG\".",
+						"",
 						""
 					]
 				]
 			],
 			[
-				163764.705882353,
+				166058.823529411,
 				[
 					[
 						"Closed Captions",
-						" ",
+						"You're gonna like..",
 						""
 					]
 				]
 			],
 			[
-				164082.352941176,
+				166941.176470588,
 				[
 					[
 						"Closed Captions",
-						"You're gonna like",
+						"You're gonna like.. reinstall your WHOLE life",
 						""
 					]
 				]
 			],
 			[
-				164823.529411764,
+				168176.470588235,
 				[
 					[
 						"Closed Captions",
-						"uninstall",
+						"or",
 						""
 					]
 				]
 			],
 			[
-				165441.176470588,
+				168617.647058823,
 				[
 					[
 						"Closed Captions",
-						"...",
+						"or :rainbow: yourself or something.",
 						""
 					]
 				]
 			],
 			[
-				165816.176470588,
+				169941.176470588,
 				[
 					[
 						"Closed Captions",
-						"your whole",
+						"",
 						""
 					]
 				]
 			],
 			[
-				166411.764705882,
+				172411.764705882,
 				[
 					[
 						"Closed Captions",
-						"your whole LIFE",
+						"The",
 						""
 					]
 				]
 			],
 			[
-				166912.5,
+				172764.705882353,
 				[
 					[
 						"Closed Captions",
-						"or :zap: or something",
-						""
-					]
-				]
-			],
-			[
-				168209.558823529,
-				[
-					[
-						"Closed Captions",
-						" ",
-						""
-					]
-				]
-			],
-			[
-				168705.882352941,
-				[
-					[
-						"Closed Captions",
-						"PLEASE.",
-						""
-					]
-				]
-			],
-			[
-				169411.764705882,
-				[
-					[
-						"Closed Captions",
-						"DON'T.",
-						""
-					]
-				]
-			],
-			[
-				170294.117647059,
-				[
-					[
-						"Closed Captions",
-						"PLAY.",
-						""
-					]
-				]
-			],
-			[
-				171088.235294117,
-				[
-					[
-						"Closed Captions",
-						"I'm warning you!",
-						""
-					]
-				]
-			],
-			[
-				172385.294117647,
-				[
-					[
-						"Closed Captions",
-						"This \"song\"",
+						"The song..",
 						""
 					]
 				]
@@ -6122,11 +5535,41 @@
 				]
 			],
 			[
-				174485.294117647,
+				174176.470588235,
 				[
 					[
 						"Closed Captions",
-						"AWFUL.",
+						"FAN",
+						""
+					]
+				]
+			],
+			[
+				174529.411764706,
+				[
+					[
+						"Closed Captions",
+						"FANTA",
+						""
+					]
+				]
+			],
+			[
+				174970.588235294,
+				[
+					[
+						"Closed Captions",
+						"FANTAS",
+						""
+					]
+				]
+			],
+			[
+				175058.823529411,
+				[
+					[
+						"Closed Captions",
+						"FANTASTIC!",
 						""
 					]
 				]
@@ -6142,7 +5585,7 @@
 				]
 			]
 		],
-		"gfVersion": "gf-alpha-speakerless",
+		"gfVersion": "nobody",
 		"reverseHealth": false,
 		"stage": "bupground-alpha-minimum",
 		"needsVoices": true,

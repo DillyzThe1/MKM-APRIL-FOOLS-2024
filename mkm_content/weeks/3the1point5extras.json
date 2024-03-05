@@ -73,7 +73,7 @@
 			"Among-Us-Crewmate-Red-FULLRESDEFAULT.jpg"
 		],
 		[
-			"No Way",
+			"Merry Way",
 			"lazer",
 			[
 				255,
@@ -81,8 +81,8 @@
 				51
 			],
 			false,
-			"no-way-start",
-			"Someone regrets their previous work..."
+			"merry-way-start",
+			"Someone's a bit jolly this evening..."
 		],
 		[
 			"Wario's Song",
