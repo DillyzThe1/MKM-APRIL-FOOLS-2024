@@ -327,6 +327,8 @@ class FreeplayState extends MusicBeatState
 			
 			if (songs[curIndex].songName.toLowerCase() == "brrrrr")
 				FlxG.sound.play(Paths.sound('brrrrr'), 1, false);
+			else if (songs[curIndex].songName.toLowerCase() == "nether brrrrr")
+				FlxG.sound.play(Paths.sound("brrrrrn't"), 1, false);
 			
 			if (CoolUtil.fredMode || (ClientPrefs.getKeyUnlocked(songs[curIndex].unlockerKey)
 				&& !FreeplayState.weekIsLocked(WeekData.weeksList[songs[curIndex].week])))
