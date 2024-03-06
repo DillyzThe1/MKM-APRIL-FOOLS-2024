@@ -384,6 +384,10 @@ class PlayState extends MusicBeatState
 	public static var mania:Int = 0;
 	public static var keyCount:Int = 4;
 
+	public var isBrrrrr:Bool = false;
+	public var chartEditorThroughBrrrrr:Bool = false;
+	var video:MP4Handler;
+
 	public function getKeys()
 	{
 		var redAngryBirdIsComingToTakeYourWifi:Array<Array<FlxKey>> = [];
@@ -1290,6 +1294,10 @@ class PlayState extends MusicBeatState
 	{
 		#if VIDEOS_ALLOWED
 		inCutscene = true;
+		if (name == "brrrrr-hard")
+			isBrrrrr = true;
+		trace(name);
+		trace(isBrrrrr);
 
 		var filepath:String = Paths.video(name);
 		if (!FileSystem.exists(filepath))
@@ -1299,11 +1307,12 @@ class PlayState extends MusicBeatState
 			return;
 		}
 
-		var video:MP4Handler = new MP4Handler();
+		video = new MP4Handler();
 		video.playVideo(filepath);
 		video.finishCallback = function()
 		{
-			startAndEnd();
+			if (!chartEditorThroughBrrrrr)
+				startAndEnd();
 			return;
 		}
 		#else
@@ -2188,8 +2197,17 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		if (FlxG.keys.anyJustPressed(debugKeysChart) && !endingSong && !inCutscene && !CoolUtil.fredMode)
+		if (FlxG.keys.anyJustPressed(debugKeysChart) && !endingSong && (!inCutscene || isBrrrrr) && !CoolUtil.fredMode)
 		{
+			if (isBrrrrr)
+				chartEditorThroughBrrrrr = true;
+			if (video != null && video.isPlaying)
+			{
+				video.stop();
+				video.dispose();
+				video.visible = false;
+			}
+				
 			openChartEditor();
 		}
 

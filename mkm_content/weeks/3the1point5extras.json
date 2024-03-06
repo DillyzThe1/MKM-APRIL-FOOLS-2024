@@ -13,6 +13,18 @@
 	"hideStoryMode": true,
 	"songs": [
 		[
+			"Nether Brrrrr",
+			"nether-brrrrr",
+			[
+				255,
+				0,
+				0
+			],
+			false,
+			"nether-brrrrr-start",
+			"Hmmm.. how exactly was the nether accessed again..?"
+		],
+		[
 			"Normalized",
 			"luigi",
 			[
