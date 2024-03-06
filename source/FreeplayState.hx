@@ -51,6 +51,8 @@ class FreeplayState extends MusicBeatState
 
 	var epicOverTween:FlxTween;
 
+	public var pleaseStop:Bool = false; 
+
 	override function create()
 	{
 		// Paths.clearStoredMemory();
@@ -207,39 +209,41 @@ class FreeplayState extends MusicBeatState
 
 			if (!(substate is FreeplayDifficultySubstate))
 				return;
-
-			trace('ok, let\'s go');
-			var theSongEver:SongMetadata = songs[curIndex];
-
-			if (epicOverTween != null)
-				epicOverTween.cancel();
-			if (overspitrhwrwhjwak != null)
-				epicOverTween = FlxTween.tween(overspitrhwrwhjwak, {alpha: 0}, 0.5);
-
-			FlxG.camera.flash(FlxColor.WHITE, 0.5, null, true);
-
-			var intendedPortraitY:Float = (FlxG.height / 2) - (theSongEver.portrait.height / 2) - 75;
-
-			FlxTween.tween(theSongEver.portrait, {y: intendedPortraitY}, 0.75, {ease: FlxEase.cubeInOut});
-			FlxG.sound.music.fadeIn(0.175);
-			FlxTween.tween(theSongEver.text, {y: intendedPortraitY + theSongEver.portrait.height + 20}, 0.75, {ease: FlxEase.cubeInOut, startDelay: 0.15});
-			FlxTween.tween(theSongEver.icon, {y: intendedPortraitY + theSongEver.portrait.height + 75}, 0.75, {ease: FlxEase.cubeInOut, startDelay: 0.15});
-			FlxTween.tween(theSongEver.portrait.scale, {x: 1, y: 1}, 1, {ease: FlxEase.cubeOut});
-			FlxTween.tween(FlxG.camera, {zoom: 1}, 1, {
-				ease: FlxEase.cubeOut,
-				#if FREEPLAY_SHADER_THING
-				onUpdate: function(t:FlxTween)
-				{
-					if (zoomShader != null && zoomShader.zoomRadius != null && zoomShader.zoomRadius.value != null)
-						zoomShader.zoomRadius.value[0] = 100 - t.percent;
-				},
-				#end
-				onComplete: function(t:FlxTween)
-				{
-					FlxG.camera.setFilters([]);
-					hasSelected = false;
-				}
-			});
+			if (!pleaseStop)
+			{
+				trace('ok, let\'s go');
+				var theSongEver:SongMetadata = songs[curIndex];
+	
+				if (epicOverTween != null)
+					epicOverTween.cancel();
+				if (overspitrhwrwhjwak != null)
+					epicOverTween = FlxTween.tween(overspitrhwrwhjwak, {alpha: 0}, 0.5);
+	
+				FlxG.camera.flash(FlxColor.WHITE, 0.5, null, true);
+	
+				var intendedPortraitY:Float = (FlxG.height / 2) - (theSongEver.portrait.height / 2) - 75;
+	
+				FlxTween.tween(theSongEver.portrait, {y: intendedPortraitY}, 0.75, {ease: FlxEase.cubeInOut});
+				FlxG.sound.music.fadeIn(0.175);
+				FlxTween.tween(theSongEver.text, {y: intendedPortraitY + theSongEver.portrait.height + 20}, 0.75, {ease: FlxEase.cubeInOut, startDelay: 0.15});
+				FlxTween.tween(theSongEver.icon, {y: intendedPortraitY + theSongEver.portrait.height + 75}, 0.75, {ease: FlxEase.cubeInOut, startDelay: 0.15});
+				FlxTween.tween(theSongEver.portrait.scale, {x: 1, y: 1}, 1, {ease: FlxEase.cubeOut});
+				FlxTween.tween(FlxG.camera, {zoom: 1}, 1, {
+					ease: FlxEase.cubeOut,
+					#if FREEPLAY_SHADER_THING
+					onUpdate: function(t:FlxTween)
+					{
+						if (zoomShader != null && zoomShader.zoomRadius != null && zoomShader.zoomRadius.value != null)
+							zoomShader.zoomRadius.value[0] = 100 - t.percent;
+					},
+					#end
+					onComplete: function(t:FlxTween)
+					{
+						FlxG.camera.setFilters([]);
+						hasSelected = false;
+					}
+				});
+			}
 		});
 	}
 

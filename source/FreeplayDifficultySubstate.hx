@@ -95,6 +95,7 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 
     public function select() {
 		hasSel = true;
+		FreeplayState.instance.pleaseStop = true;
 
 		var goToChart:Bool = FlxG.keys.pressed.SHIFT;
 		var epicfail:Bool = false;
