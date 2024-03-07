@@ -3,6 +3,7 @@ local deathTimer = 0
 local dead
 function onBeatHit()
 	if not dead then
+		math.randomseed(math.random() * math.random())
 		deathTimer = math.random(1, 1000)
 	
 		if deathTimer == 1000 then

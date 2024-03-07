@@ -13,6 +13,7 @@ import haxe.Json;
 import haxe.io.Bytes;
 import haxe.xml.Access;
 import lime.media.AudioBuffer;
+import lime.utils.AssetType;
 import lime.utils.Assets;
 import openfl.display.BitmapData;
 import openfl.geom.Rectangle;
@@ -223,7 +224,7 @@ class Paths
 		var songKey:String;
 		if (side != null)
 		{
-			if (FileSystem.exists('${formatToSongPath(song)}/Voices' + postfix + side + '/$character'))
+			if (fileExists('songs/${formatToSongPath(song)}/Voices' + postfix + side + '/$character.ogg', AssetType.SOUND))
 				songKey = '${formatToSongPath(song)}/Voices' + postfix + side + '/$character';
 			else
 				songKey = '${formatToSongPath(song)}/Voices' + postfix + side + '/default';

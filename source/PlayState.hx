@@ -4228,7 +4228,6 @@ class PlayState extends MusicBeatState
 			{
 				if (splitVocals)
 				{
-					vocalsLeft.volume = 0; //remove this line if this system is used outside of wrong house
 					vocalsRight.volume = 0;
 				}
 				else
