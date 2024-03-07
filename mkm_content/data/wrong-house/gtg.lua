@@ -29,7 +29,7 @@ function onTimerCompleted(t)
 end
 
 function gtg()
-	debugPrint('dying')
+	--debugPrint('dying')
 	playSound('wrong-house/oh gtg')
 	setProperty('dad.stunned', true)
 	objectPlayAnimation('dad', 'gtg')
