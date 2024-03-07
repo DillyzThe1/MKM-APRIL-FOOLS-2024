@@ -218,9 +218,18 @@ class Paths
 		return file;
 	}
 
-	inline static public function voices(song:String, ?postfix:String = ""):Any
+	inline static public function voices(song:String, ?postfix:String = "", ?side:String, ?character:String = ""):Any
 	{
-		var songKey:String = '${formatToSongPath(song)}/Voices' + postfix;
+		var songKey:String;
+		if (side != null)
+		{
+			if (FileSystem.exists('${formatToSongPath(song)}/Voices' + postfix + side + '/$character'))
+				songKey = '${formatToSongPath(song)}/Voices' + postfix + side + '/$character';
+			else
+				songKey = '${formatToSongPath(song)}/Voices' + postfix + side + '/default';
+		}
+		else
+			songKey = '${formatToSongPath(song)}/Voices' + postfix;
 		var voices = returnSound('songs', songKey);
 		return voices;
 	}

@@ -235,6 +235,11 @@ class PlayState extends MusicBeatState
 
 	public var vocals:FlxSound;
 
+	public var vocalsLeft:FlxSound;
+	public var vocalsRight:FlxSound;
+
+	public var splitVocals:Bool = false;
+
 	public var dad:Character = null;
 	public var gf:Character = null;
 	public var boyfriend:Boyfriend = null;
@@ -426,6 +431,8 @@ class PlayState extends MusicBeatState
 	var bruhhhh:Array<String> = [];
 
 	var closedCaptions:CaptionObject;
+
+	public var whatInTheWorldLua:Bool = false;
 
 	function reloadNoteAnimsHeHeHeHa()
 	{
@@ -643,6 +650,13 @@ class PlayState extends MusicBeatState
 
 		GameOverSubstate.resetVariables();
 		var songName:String = Paths.formatToSongPath(SONG.song);
+		var mario:String = SONG.audioPostfix;
+
+		if ((FileSystem.exists('assets/songs/$songName/Voices$mario-left') || FileSystem.exists('mkm_content/songs/$songName/Voices$mario-left'))
+			&& (FileSystem.exists('assets/songs/$songName/Voices$mario-right') || FileSystem.exists('mkm_content/songs/$songName/Voices$mario-right')))
+			splitVocals = true;
+
+		trace('split vocals? $splitVocals...');
 
 		curStage = SONG.stage;
 		// trace('stage is: ' + curStage);
@@ -1649,16 +1663,32 @@ class PlayState extends MusicBeatState
 			time = 0;
 
 		FlxG.sound.music.pause();
-		vocals.pause();
+		if (splitVocals)
+		{
+			vocalsLeft.pause();
+			vocalsRight.pause();
+		}
+		else
+			vocals.pause();
+
 
 		FlxG.sound.music.time = time;
 		FlxG.sound.music.play();
 
-		if (Conductor.songPosition <= vocals.length)
+		if (splitVocals && (Conductor.songPosition <= vocalsLeft.length))
 		{
-			vocals.time = time;
+			vocalsLeft.time = time;
+			vocalsRight.time = time;
 		}
-		vocals.play();
+		else if ((!splitVocals && (Conductor.songPosition <= vocals.length)))
+			vocals.time = time;
+		if (splitVocals)
+		{
+			vocalsLeft.play();
+			vocalsRight.play();
+		}
+		else
+			vocals.play();
 		Conductor.songPosition = time;
 		songTime = time;
 	}
@@ -1687,7 +1717,13 @@ class PlayState extends MusicBeatState
 
 		FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song, PlayState.SONG.audioPostfix), 1, false);
 		FlxG.sound.music.onComplete = onSongComplete;
-		vocals.play();
+		if (splitVocals)
+		{
+			vocalsLeft.play();
+			vocalsRight.play();
+		}
+		else
+			vocals.play();
 
 		if (startOnTime > 0)
 		{
@@ -1699,7 +1735,13 @@ class PlayState extends MusicBeatState
 		{
 			// trace('Oopsie doopsie! Paused sound');
 			FlxG.sound.music.pause();
-			vocals.pause();
+			if (splitVocals)
+			{
+				vocalsLeft.pause();
+				vocalsRight.pause();
+			}
+			else
+				vocals.pause();
 		}
 
 		// Song duration in a float, useful for the time left feature
@@ -1736,12 +1778,34 @@ class PlayState extends MusicBeatState
 
 		curSong = songData.song;
 
-		if (SONG.needsVoices)
-			vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song, PlayState.SONG.audioPostfix));
+		if (splitVocals)
+		{
+			if (SONG.needsVoices)
+			{
+				vocalsLeft = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song, PlayState.SONG.audioPostfix, "-left", dad.curCharacter));
+				vocalsRight = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song, PlayState.SONG.audioPostfix, "-right", boyfriend.curCharacter));
+			}
+			else
+			{
+				vocalsLeft = new FlxSound();
+				vocalsRight = new FlxSound();
+			}
+		}
 		else
-			vocals = new FlxSound();
+		{
+			if (SONG.needsVoices)
+				vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song, PlayState.SONG.audioPostfix));
+			else
+				vocals = new FlxSound();
+		}
 
-		FlxG.sound.list.add(vocals);
+		if (splitVocals)
+		{
+			FlxG.sound.list.add(vocalsLeft);
+			FlxG.sound.list.add(vocalsRight);
+		}
+		else
+			FlxG.sound.list.add(vocals);
 		FlxG.sound.list.add(new FlxSound().loadEmbedded(Paths.inst(PlayState.SONG.song, PlayState.SONG.audioPostfix)));
 
 		notes = new FlxTypedGroup<Note>();
@@ -2006,7 +2070,13 @@ class PlayState extends MusicBeatState
 			if (FlxG.sound.music != null)
 			{
 				FlxG.sound.music.pause();
-				vocals.pause();
+				if (splitVocals)
+				{
+					vocalsLeft.pause();
+					vocalsRight.pause();
+				}
+				else
+					vocals.pause();
 			}
 
 			if (startTimer != null && !startTimer.finished)
@@ -2127,15 +2197,34 @@ class PlayState extends MusicBeatState
 		if (finishTimer != null)
 			return;
 
-		vocals.pause();
+		if (splitVocals)
+		{
+			vocalsLeft.pause();
+			vocalsRight.pause();
+		}
+		else
+			vocals.pause();
 
 		FlxG.sound.music.play();
 		Conductor.songPosition = FlxG.sound.music.time;
-		if (Conductor.songPosition <= vocals.length)
+		if (splitVocals)
 		{
-			vocals.time = Conductor.songPosition;
+			if (Conductor.songPosition <= vocalsLeft.length)
+			{
+				vocalsLeft.time = Conductor.songPosition;
+				vocalsRight.time = Conductor.songPosition;
+			}
+			vocalsLeft.play();
+			vocalsRight.play();
 		}
-		vocals.play();
+		else
+		{
+			if (Conductor.songPosition <= vocals.length)
+			{
+				vocals.time = Conductor.songPosition;
+			}
+			vocals.play();
+		}
 	}
 
 	public var paused:Bool = false;
@@ -2540,8 +2629,13 @@ class PlayState extends MusicBeatState
 					- Conductor.songPosition
 					- ClientPrefs.noteOffset);
 			}
+			if (FlxG.keys.justPressed.G && SONG.song.toLowerCase() == "wrong house")
+				callOnLuas('gtg', []);
 		}
 		#end
+
+		if (whatInTheWorldLua && vocalsLeft.volume > 0)
+			vocalsLeft.volume = 0;
 
 		camHUD.visible = PauseSubState.parentalControls_vals[3] && !cpuControlled;
 		botplayTxt.visible = false;
@@ -2578,7 +2672,13 @@ class PlayState extends MusicBeatState
 		if (FlxG.sound.music != null)
 		{
 			FlxG.sound.music.pause();
-			vocals.pause();
+			if (splitVocals)
+			{
+				vocalsLeft.pause();
+				vocalsRight.pause();
+			}
+			else
+				vocals.pause();
 		}
 		openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 		// }
@@ -2663,7 +2763,13 @@ class PlayState extends MusicBeatState
 
 				paused = true;
 
-				vocals.stop();
+				if (splitVocals)
+				{
+					vocalsLeft.stop();
+					vocalsRight.stop();
+				}
+				else
+					vocals.stop();
 				FlxG.sound.music.stop();
 
 				persistentUpdate = false;
@@ -3093,8 +3199,19 @@ class PlayState extends MusicBeatState
 
 		updateTime = false;
 		FlxG.sound.music.volume = 0;
-		vocals.volume = 0;
-		vocals.pause();
+		if (splitVocals)
+		{
+			vocalsLeft.volume = 0;
+			vocalsRight.volume = 0;
+			vocalsLeft.pause();
+			vocalsRight.pause();
+		}
+		else
+		{
+			vocals.volume = 0;
+			vocals.pause();
+		}
+		
 		if (ClientPrefs.noteOffset <= 0 || ignoreNoteOffset)
 		{
 			finishCallback();
@@ -3351,7 +3468,12 @@ class PlayState extends MusicBeatState
 		// trace(noteDiff, ' ' + Math.abs(note.strumTime - Conductor.songPosition));
 
 		// boyfriend.playAnim('hey');
-		vocals.volume = 1;
+		if (splitVocals)
+		{
+			vocalsRight.volume = 1;
+		}
+		else
+			vocals.volume = 1;
 
 		var placement:String = Std.string(combo);
 
@@ -4089,7 +4211,13 @@ class PlayState extends MusicBeatState
 
 			if (instakillOnMiss)
 			{
-				vocals.volume = 0;
+				if (splitVocals)
+				{
+					vocalsLeft.volume = 0;
+					vocalsRight.volume = 0;
+				}
+				else
+					vocals.volume = 0;
 				doDeathCheck(true);
 			}
 
@@ -4097,7 +4225,15 @@ class PlayState extends MusicBeatState
 			// trace(daNote.missHealth);
 			songMisses++;
 			if (PauseSubState.parentalControls_vals[6])
-				vocals.volume = 0;
+			{
+				if (splitVocals)
+				{
+					vocalsLeft.volume = 0; //remove this line if this system is used outside of wrong house
+					vocalsRight.volume = 0;
+				}
+				else
+					vocals.volume = 0;
+			}
 			if (!practiceMode)
 				songScore -= 10;
 
@@ -4138,7 +4274,13 @@ class PlayState extends MusicBeatState
 			health -= 0.05 * healthLoss;
 			if (instakillOnMiss)
 			{
-				vocals.volume = 0;
+				if (splitVocals)
+				{
+					vocalsLeft.volume = 0;
+					vocalsRight.volume = 0;
+				}
+				else
+					vocals.volume = 0;
 				doDeathCheck(true);
 			}
 
@@ -4174,7 +4316,14 @@ class PlayState extends MusicBeatState
 				boyfriend.playAnim(singAnimations[Std.int(Math.abs(direction))] + 'miss', true);
 			}
 			if (PauseSubState.parentalControls_vals[6])
-				vocals.volume = 0;
+			{
+				if (splitVocals)
+				{
+					vocalsRight.volume = 0;
+				}
+				else
+					vocals.volume = 0;
+			}
 		}
 		callOnLuas('noteMissPress', [direction]);
 	}
@@ -4217,7 +4366,14 @@ class PlayState extends MusicBeatState
 		}
 
 		if (SONG.needsVoices)
-			vocals.volume = 1;
+		{
+			if (splitVocals)
+			{
+				vocalsLeft.volume = 1;
+			}
+			else
+				vocals.volume = 1;
+		}
 
 		var time:Float = 0.15;
 		if (note.isSustainNote && note.animation.curAnim != null && !note.animation.curAnim.name.endsWith('end'))
@@ -4425,7 +4581,12 @@ class PlayState extends MusicBeatState
 				});
 			}
 			note.wasGoodHit = true;
-			vocals.volume = 1;
+			if (splitVocals)
+			{
+				vocalsRight.volume = 1;
+			}
+			else
+				vocals.volume = 1;
 
 			var isSus:Bool = note.isSustainNote; // GET OUT OF MY HEAD, GET OUT OF MY HEAD, GET OUT OF MY HEAD
 			var leData:Int = Math.round(Math.abs(note.noteData));
@@ -4534,10 +4695,21 @@ class PlayState extends MusicBeatState
 	override function stepHit()
 	{
 		super.stepHit();
-		if (Math.abs(FlxG.sound.music.time - (Conductor.songPosition - Conductor.offset)) > 20
-			|| (SONG.needsVoices && Math.abs(vocals.time - (Conductor.songPosition - Conductor.offset)) > 20))
+		if (splitVocals)
 		{
-			resyncVocals();
+			if (Math.abs(FlxG.sound.music.time - (Conductor.songPosition - Conductor.offset)) > 20
+				|| (SONG.needsVoices && Math.abs(vocalsLeft.time - (Conductor.songPosition - Conductor.offset)) > 20))
+			{
+				resyncVocals();
+			}
+		}
+		else
+		{
+			if (Math.abs(FlxG.sound.music.time - (Conductor.songPosition - Conductor.offset)) > 20
+				|| (SONG.needsVoices && Math.abs(vocals.time - (Conductor.songPosition - Conductor.offset)) > 20))
+			{
+				resyncVocals();
+			}
 		}
 
 		if (curStep == lastStepHit)

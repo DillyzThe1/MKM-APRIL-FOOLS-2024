@@ -1,84 +1,95 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "Impostor Idle"
+			"fps": 24,
+			"name": "Impostor Idle",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				70,
 				10
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "Impostor Left"
+			"fps": 24,
+			"name": "Impostor Left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-170,
 				-40
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "Impostor Down"
+			"fps": 24,
+			"name": "Impostor Down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-49,
 				1
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "Impostor Up"
+			"fps": 24,
+			"name": "Impostor Up",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-222,
 				-1
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "Impostor Right"
-		},
-		{
-			"offsets": [
-				-10,
-				0
-			],
-			"indices": [],
 			"fps": 24,
-			"anim": "nah",
-			"loop": false,
-			"name": "Impostor Nah"
+			"name": "Impostor Right",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-10,
 				0
 			],
+			"anim": "nah",
+			"fps": 24,
+			"name": "Impostor Nah",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-10,
+				0
+			],
+			"anim": "nah-loop",
+			"fps": 24,
+			"name": "Impostor Nah",
 			"indices": [
 				72,
 				73
+			]
+		},
+		{
+			"offsets": [
+				-25,
+				0
 			],
+			"indices": [],
 			"fps": 24,
-			"anim": "nah-loop",
-			"loop": true,
-			"name": "Impostor Nah"
+			"anim": "gtg",
+			"loop": false,
+			"name": "Impostor gtg"
 		}
 	],
 	"no_antialiasing": false,
