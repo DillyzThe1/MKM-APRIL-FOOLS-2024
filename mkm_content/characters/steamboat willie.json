@@ -1,59 +1,59 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 24,
-			"name": "mIdle",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "mIdle"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-60,
 				73
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "mRight",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "mRight"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				23,
 				24
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "mLeft",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "mLeft"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-51,
 				1
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "mDown",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "mDown"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-42,
 				53
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "mUp",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "mUp"
 		}
 	],
 	"no_antialiasing": false,
@@ -62,12 +62,13 @@
 		-80,
 		270
 	],
+	"sing_param": "old",
 	"healthicon": "public domain",
 	"flip_x": true,
 	"healthbar_colors": [
 		24,
 		24,
-		24
+		4
 	],
 	"camera_position": [
 		-230,

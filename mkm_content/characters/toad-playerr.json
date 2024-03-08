@@ -1,136 +1,136 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "Toad Idle"
+			"fps": 24,
+			"name": "Toad Idle",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-100,
 				15
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "Toad Note Up"
+			"fps": 24,
+			"name": "Toad Note Up",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-104,
 				-2
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "Toad Note Left"
+			"fps": 24,
+			"name": "Toad Note Left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				69,
 				-36
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "Toad Note Down"
+			"fps": 24,
+			"name": "Toad Note Down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				127,
 				-26
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "Toad Note Right"
+			"fps": 24,
+			"name": "Toad Note Right",
+			"indices": []
 		},
 		{
+			"loop": true,
 			"offsets": [
 				38,
 				-22
 			],
-			"loop": true,
-			"fps": 24,
 			"anim": "idle-shock",
-			"indices": [],
-			"name": "Toad Shout Post"
+			"fps": 24,
+			"name": "Toad Shout Post",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				36,
 				0
 			],
-			"anim": "normal pills",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Becomes Normal",
-			"indices": []
+			"anim": "normal pills",
+			"indices": [],
+			"name": "Toad Becomes Normal"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-91,
 				18
 			],
-			"anim": "singUPmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Miss Up",
-			"indices": []
+			"anim": "singUPmiss",
+			"indices": [],
+			"name": "Toad Miss Up"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-102,
 				13
 			],
-			"anim": "singRIGHTmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Miss Left",
-			"indices": []
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "Toad Miss Left"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				70,
 				3
 			],
-			"anim": "singDOWNmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Miss Down",
-			"indices": []
+			"anim": "singDOWNmiss",
+			"indices": [],
+			"name": "Toad Miss Down"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				131,
 				8
 			],
-			"anim": "singLEFTmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Miss Right",
-			"indices": []
+			"anim": "singLEFTmiss",
+			"indices": [],
+			"name": "Toad Miss Right"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-20,
 				71
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "firstDeath",
-			"loop": false,
-			"name": "Toad Death"
+			"fps": 24,
+			"name": "Toad Death",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
@@ -139,6 +139,7 @@
 		130,
 		230
 	],
+	"sing_param": "toad",
 	"healthicon": "toad",
 	"flip_x": false,
 	"healthbar_colors": [

@@ -1,125 +1,125 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "idle",
-			"fps": 24,
-			"name": "Lazer Idle Normal0",
-			"indices": []
+			"indices": [],
+			"name": "Lazer Idle Normal0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "idle-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "Lazer Idle0",
-			"indices": []
+			"anim": "idle-alt",
+			"indices": [],
+			"name": "Lazer Idle0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				57,
 				-33
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "Lazer Left0",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Lazer Left0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				9,
 				-52
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "Lazer Down0",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Lazer Down0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				35,
 				37
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "Lazer Up0",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "Lazer Up0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				20,
 				2
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "Lazer Right0",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Lazer Right0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				10,
 				-81
 			],
-			"anim": "singDOWN-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "Lazer Button0",
-			"indices": []
+			"anim": "singDOWN-alt",
+			"indices": [],
+			"name": "Lazer Button0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				1,
 				-16
 			],
-			"anim": "singLEFT-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "Lazer Gun Reload0",
-			"indices": []
+			"anim": "singLEFT-alt",
+			"indices": [],
+			"name": "Lazer Gun Reload0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				10,
 				-1
 			],
-			"anim": "singUP-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "Lazer Gun Shoot10",
-			"indices": []
+			"anim": "singUP-alt",
+			"indices": [],
+			"name": "Lazer Gun Shoot10"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				60,
 				6
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "jolly",
-			"loop": false,
-			"name": "Lazer dont care"
+			"fps": 24,
+			"name": "Lazer dont care",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				18,
 				0
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "giftRecieve",
-			"loop": false,
-			"name": "Lazer Get Gift"
+			"fps": 24,
+			"name": "Lazer Get Gift",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
@@ -128,6 +128,7 @@
 		-10,
 		60
 	],
+	"sing_param": "lazer",
 	"healthicon": "lazer",
 	"flip_x": false,
 	"healthbar_colors": [

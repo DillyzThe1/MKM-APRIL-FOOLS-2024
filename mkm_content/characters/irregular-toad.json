@@ -1,81 +1,81 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "danceLeft",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Dance Left",
-			"indices": []
+			"anim": "danceLeft",
+			"indices": [],
+			"name": "Toad Dance Left"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-18,
 				0
 			],
-			"anim": "danceRight",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Dance Right",
-			"indices": []
+			"anim": "danceRight",
+			"indices": [],
+			"name": "Toad Dance Right"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-30,
 				-55
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Note Left",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Toad Note Left"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-19,
 				-120
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Note Down",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Toad Note Down"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-140,
 				60
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Note Up",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "Toad Note Up"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-160,
 				-80
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Note Right",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Toad Note Right"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-104,
 				57
 			],
-			"anim": "singMIDDLE",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Note Mid",
-			"indices": []
+			"anim": "singMIDDLE",
+			"indices": [],
+			"name": "Toad Note Mid"
 		}
 	],
 	"no_antialiasing": false,
@@ -84,6 +84,7 @@
 		35,
 		400
 	],
+	"sing_param": "toad",
 	"healthicon": "toad",
 	"flip_x": true,
 	"healthbar_colors": [

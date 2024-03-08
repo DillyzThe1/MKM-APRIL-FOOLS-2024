@@ -1,114 +1,114 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "idle",
-			"fps": 24,
-			"name": "Spongebob Original",
-			"indices": []
+			"indices": [],
+			"name": "Spongebob Original"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "idle-alt",
-			"fps": 24,
-			"name": "Spongebob Idle",
-			"indices": []
+			"indices": [],
+			"name": "Spongebob Idle"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singLEFT",
-			"fps": 24,
-			"name": "Spongebob Left",
-			"indices": []
+			"indices": [],
+			"name": "Spongebob Left"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singDOWN",
-			"fps": 24,
-			"name": "Spongebob Down",
-			"indices": []
+			"indices": [],
+			"name": "Spongebob Down"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singUP",
-			"fps": 24,
-			"name": "Spongebob Up",
-			"indices": []
+			"indices": [],
+			"name": "Spongebob Up"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "Spongebob Right",
-			"indices": []
+			"indices": [],
+			"name": "Spongebob Right"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singLEFTmiss",
-			"fps": 24,
-			"name": "Spongebob Dead",
-			"indices": []
+			"indices": [],
+			"name": "Spongebob Dead"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singUPmiss",
-			"fps": 24,
-			"name": "Spongebob Dead",
-			"indices": []
+			"indices": [],
+			"name": "Spongebob Dead"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singDOWNmiss",
-			"fps": 24,
-			"name": "Spongebob Dead",
-			"indices": []
+			"indices": [],
+			"name": "Spongebob Dead"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "singRIGHTmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "Spongebob Dead",
-			"indices": []
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "Spongebob Dead"
 		}
 	],
 	"no_antialiasing": false,
@@ -117,12 +117,13 @@
 		222,
 		40
 	],
+	"sing_param": "spongebob",
 	"healthicon": "hi-im-spongebob",
 	"flip_x": true,
 	"healthbar_colors": [
 		220,
 		215,
-		60
+		40
 	],
 	"camera_position": [
 		50,

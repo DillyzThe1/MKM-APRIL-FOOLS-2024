@@ -1,4 +1,3 @@
-luaDebugMode = true
 local deathTimer = 0
 local dead
 function onBeatHit()

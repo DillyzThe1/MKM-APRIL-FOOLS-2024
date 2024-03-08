@@ -1,59 +1,59 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Idle",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "Toad Idle"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				44,
 				-3
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Right",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Toad Right"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				30,
 				-3
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Down",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Toad Down"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				46
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Up",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "Toad Up"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				8,
 				1
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Left",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Toad Left"
 		}
 	],
 	"no_antialiasing": false,
@@ -62,6 +62,7 @@
 		-200,
 		20
 	],
+	"sing_param": "toad",
 	"healthicon": "toadcraft",
 	"flip_x": true,
 	"healthbar_colors": [

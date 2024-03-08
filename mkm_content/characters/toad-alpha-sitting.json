@@ -1,48 +1,48 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "danceLeft",
-			"loop": false,
-			"name": "toad danceleft"
+			"fps": 24,
+			"name": "toad danceleft",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "danceRight",
-			"loop": false,
-			"name": "toad danceright"
+			"fps": 24,
+			"name": "toad danceright",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singRIGHT",
-			"loop": false,
-			"name": "right"
+			"fps": 24,
+			"name": "right",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singLEFT",
-			"loop": false,
-			"name": "left"
+			"fps": 24,
+			"name": "left",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
@@ -51,6 +51,7 @@
 		0,
 		-200
 	],
+	"sing_param": "toad-alpha",
 	"healthicon": "toad-alpha",
 	"flip_x": false,
 	"healthbar_colors": [

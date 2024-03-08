@@ -416,6 +416,7 @@ class CharacterEditorState extends MusicBeatState
 				character.originalFlipX = parsedJson.flip_x;
 				character.healthIcon = parsedJson.healthicon;
 				character.healthColorArray = parsedJson.healthbar_colors;
+				character.singParam = parsedJson.sing_param;
 				character.setPosition(character.positionArray[0] + OFFSET_X + 100, character.positionArray[1]);
 			}
 
@@ -440,6 +441,7 @@ class CharacterEditorState extends MusicBeatState
 
 	var imageInputText:FlxUIInputText;
 	var healthIconInputText:FlxUIInputText;
+	var singParamInputText:FlxUIInputText;
 
 	var singDurationStepper:FlxUINumericStepper;
 	var scaleStepper:FlxUINumericStepper;
@@ -483,6 +485,8 @@ class CharacterEditorState extends MusicBeatState
 		});
 
 		healthIconInputText = new FlxUIInputText(15, imageInputText.y + 35, 75, leHealthIcon.getCharacter(), 8);
+
+		singParamInputText = new FlxUIInputText(109, healthIconInputText.y, 75, char.singParam, 8);
 
 		singDurationStepper = new FlxUINumericStepper(15, healthIconInputText.y + 45, 0.1, 4, 0, 999, 1);
 
@@ -532,6 +536,7 @@ class CharacterEditorState extends MusicBeatState
 
 		tab_group.add(new FlxText(15, imageInputText.y - 18, 0, 'Image file name:'));
 		tab_group.add(new FlxText(15, healthIconInputText.y - 18, 0, 'Health icon name:'));
+		tab_group.add(new FlxText(109, singParamInputText.y - 18, 0, 'Sing param:'));
 		tab_group.add(new FlxText(15, singDurationStepper.y - 18, 0, 'Sing Animation length:'));
 		tab_group.add(new FlxText(15, scaleStepper.y - 18, 0, 'Scale:'));
 		tab_group.add(new FlxText(positionXStepper.x, positionXStepper.y - 18, 0, 'Character X/Y:'));
@@ -541,6 +546,7 @@ class CharacterEditorState extends MusicBeatState
 		tab_group.add(reloadImage);
 		tab_group.add(decideIconColor);
 		tab_group.add(healthIconInputText);
+		tab_group.add(singParamInputText);
 		tab_group.add(singDurationStepper);
 		tab_group.add(scaleStepper);
 		tab_group.add(flipXCheckBox);
@@ -753,10 +759,10 @@ class CharacterEditorState extends MusicBeatState
 				char.healthIcon = healthIconInputText.text;
 				updatePresence();
 			}
+			else if (sender == singParamInputText)
+				char.singParam = singParamInputText.text;
 			else if (sender == imageInputText)
-			{
 				char.imageFile = imageInputText.text;
-			}
 		}
 		else if (id == FlxUINumericStepper.CHANGE_EVENT && (sender is FlxUINumericStepper))
 		{
@@ -1004,6 +1010,7 @@ class CharacterEditorState extends MusicBeatState
 		{
 			imageInputText.text = char.imageFile;
 			healthIconInputText.text = char.healthIcon;
+			singParamInputText.text = char.singParam;
 			singDurationStepper.value = char.singDuration;
 			scaleStepper.value = char.jsonScale;
 			flipXCheckBox.checked = char.originalFlipX;
@@ -1144,6 +1151,7 @@ class CharacterEditorState extends MusicBeatState
 			animationInputText,
 			imageInputText,
 			healthIconInputText,
+			singParamInputText,
 			animationNameInputText,
 			animationIndicesInputText
 		];
@@ -1367,7 +1375,8 @@ class CharacterEditorState extends MusicBeatState
 
 			"flip_x": char.originalFlipX,
 			"no_antialiasing": char.noAntialiasing,
-			"healthbar_colors": char.healthColorArray
+			"healthbar_colors": char.healthColorArray,
+			"sing_param": char.singParam
 		};
 
 		var data:String = Json.stringify(json, "\t");

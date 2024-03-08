@@ -1,13 +1,14 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				-9
 			],
-			"fps": 24,
+			"loop": false,
 			"anim": "danceLeft",
+			"fps": 24,
+			"name": "GF Dancing Beat",
 			"indices": [
 				30,
 				0,
@@ -25,17 +26,17 @@
 				12,
 				13,
 				14
-			],
-			"name": "GF Dancing Beat"
+			]
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				-9
 			],
-			"fps": 24,
+			"loop": false,
 			"anim": "danceRight",
+			"fps": 24,
+			"name": "GF Dancing Beat",
 			"indices": [
 				15,
 				16,
@@ -52,51 +53,49 @@
 				27,
 				28,
 				29
-			],
-			"name": "GF Dancing Beat"
+			]
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				130
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Note Right",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Toad Note Right"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				131
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Note Left",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Toad Note Left"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				569,
 				513
 			],
-			"anim": "transition",
+			"loop": false,
 			"fps": 24,
-			"name": "GF turns into Toad",
-			"indices": []
+			"anim": "transition",
+			"indices": [],
+			"name": "GF turns into Toad"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				128
 			],
-			"anim": "danceLeft-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Dancing Beat",
+			"anim": "danceLeft-alt",
 			"indices": [
 				0,
 				1,
@@ -112,17 +111,17 @@
 				11,
 				12,
 				13
-			]
+			],
+			"name": "Toad Dancing Beat"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				128
 			],
-			"anim": "danceRight-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "Toad Dancing Beat",
+			"anim": "danceRight-alt",
 			"indices": [
 				15,
 				16,
@@ -139,7 +138,8 @@
 				27,
 				28,
 				29
-			]
+			],
+			"name": "Toad Dancing Beat"
 		}
 	],
 	"no_antialiasing": false,
@@ -148,6 +148,7 @@
 		0,
 		0
 	],
+	"sing_param": "toad",
 	"healthicon": "gf",
 	"flip_x": false,
 	"healthbar_colors": [

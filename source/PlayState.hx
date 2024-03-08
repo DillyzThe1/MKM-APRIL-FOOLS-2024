@@ -1782,8 +1782,12 @@ class PlayState extends MusicBeatState
 		{
 			if (SONG.needsVoices)
 			{
-				vocalsLeft = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song, PlayState.SONG.audioPostfix, "-left", dad.curCharacter));
-				vocalsRight = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song, PlayState.SONG.audioPostfix, "-right", boyfriend.curCharacter));
+				if (dad.singParam == null)
+					trace("uh oh, left sing param's null! (using character's name instead)");
+				vocalsLeft = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song, PlayState.SONG.audioPostfix, "-left", dad.singParam != null ? dad.singParam : dad.curCharacter));
+				if (boyfriend.singParam == null)
+					trace("uh oh, right sing param's null! (using character's name instead)");
+				vocalsRight = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song, PlayState.SONG.audioPostfix, "-right", boyfriend.singParam != null ? boyfriend.singParam : boyfriend.curCharacter));
 			}
 			else
 			{
@@ -2733,6 +2737,8 @@ class PlayState extends MusicBeatState
 			persistentUpdate = false;
 			paused = true;
 			cancelMusicFadeTween();
+			ChartingState.leftSingParam = dad.singParam;
+			ChartingState.rightSingParam = boyfriend.singParam;
 			MusicBeatState.switchState(new ChartingState());
 			chartingMode = true;
 			DiscordClient.changePresence("Chart Editor", null, null, true);

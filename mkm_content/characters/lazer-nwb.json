@@ -1,114 +1,114 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 16,
 			"anim": "idle",
-			"fps": 16,
-			"name": "IDLE0",
-			"indices": []
+			"indices": [],
+			"name": "IDLE0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singUP",
-			"fps": 24,
-			"name": "UP0",
-			"indices": []
+			"indices": [],
+			"name": "UP0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singDOWN",
+			"indices": [],
+			"name": "DOWN0"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singRIGHT",
 			"fps": 24,
-			"name": "DOWN0",
+			"name": "RIGHT0",
 			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singRIGHT",
-			"indices": [],
-			"name": "RIGHT0"
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "LEFT0"
+			"fps": 24,
+			"name": "LEFT0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 16,
 			"anim": "idle-loop",
-			"indices": [],
-			"name": "IDLE LOOP0"
+			"fps": 16,
+			"name": "IDLE LOOP0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP-loop",
-			"indices": [],
-			"name": "UP LOOP0"
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"loop": false,
 			"fps": 24,
+			"name": "UP LOOP0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
 			"anim": "singDOWN-loop",
-			"indices": [],
-			"name": "DOWN LOOP0"
+			"fps": 24,
+			"name": "DOWN LOOP0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 16,
 			"anim": "singLEFT-loop",
-			"indices": [],
-			"name": "LEFT LOOP0"
+			"fps": 16,
+			"name": "LEFT LOOP0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 16,
 			"anim": "singRIGHT-loop",
-			"indices": [],
-			"name": "RIGHT LOOP0"
+			"fps": 16,
+			"name": "RIGHT LOOP0",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
@@ -117,6 +117,7 @@
 		-140,
 		0
 	],
+	"sing_param": "lazer",
 	"healthicon": "lazer-beta",
 	"flip_x": false,
 	"healthbar_colors": [
