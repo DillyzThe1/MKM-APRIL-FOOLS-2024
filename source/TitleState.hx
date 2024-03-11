@@ -221,6 +221,7 @@ class TitleState extends MusicBeatState
 	var swagShader:ColorSwap = null;
 
 	public static var forceIntro:Bool = false;
+	var peacefulMode:Bool = false;
 
 	function startIntro()
 	{
@@ -247,17 +248,25 @@ class TitleState extends MusicBeatState
 		// bg.updateHitbox();
 		add(bg);
 
+		peacefulMode = CoolUtil.peaceRestored();
 		logoBl = new FlxSprite(titleJSON.titlex, titleJSON.titley);
-		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
+		logoBl.frames = Paths.getSparrowAtlas(peacefulMode ? 'logoBumpin_postGame' : 'logoBumpin');
 
 		logoBl.antialiasing = ClientPrefs.globalAntialiasing;
-		logoBl.animation.addByPrefix('beat', 'logo bumpin', 24, false);
+		logoBl.animation.addByPrefix('beat', peacefulMode ? 'logo postgame bumpin' : 'logo bumpin', 24, false);
 		for (i in 0...4)
-			logoBl.animation.addByPrefix('intro$i', 'logo intro $i', 24, false);
+			logoBl.animation.addByPrefix('intro$i', peacefulMode ? 'logo postgame intro $i' : 'logo intro $i', 24, false);
 		logoBl.animation.play('intro0', true);
 		logoBl.updateHitbox();
+		
 		// logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
+
+		if (peacefulMode) {
+			logoBl.screenCenter();
+			logoBl.offset.x = 25;
+			logoBl.offset.y = 35;
+		}
 
 		swagShader = new ColorSwap();
 		gfDance = new FlxSprite(titleJSON.gfx, titleJSON.gfy);
@@ -280,8 +289,10 @@ class TitleState extends MusicBeatState
 		}
 		gfDance.antialiasing = ClientPrefs.globalAntialiasing;
 
-		add(gfDance);
-		gfDance.shader = swagShader.shader;
+		if (!peacefulMode) {
+			add(gfDance);
+			gfDance.shader = swagShader.shader;
+		}
 		add(logoBl);
 		logoBl.shader = swagShader.shader;
 
@@ -580,13 +591,15 @@ class TitleState extends MusicBeatState
 					addMoreText(curWacky[1]);
 				case 13:
 					deleteCoolText();
+					if (!CoolUtil.fredMode) {
+						logoBl.screenCenter();
+						logoBl.animation.play('intro0', true);
+					}
 				case 14:
 					if (CoolUtil.fredMode)
 						addMoreText('Karrd');
-					else {
-						logoBl.screenCenter();
+					else
 						logoBl.animation.play('intro1', true);
-					}
 				case 15:
 					if (CoolUtil.fredMode)
 						addMoreText('Kollision');
@@ -610,7 +623,8 @@ class TitleState extends MusicBeatState
 	{
 		if (!skippedIntro)
 		{
-			logoBl.setPosition(titleJSON.titlex, titleJSON.titley);
+			if (!peacefulMode)
+				logoBl.setPosition(titleJSON.titlex, titleJSON.titley);
 			logoBl.animation.play('beat', true);
 			if (playJingle) // Ignore deez
 			{
