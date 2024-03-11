@@ -270,23 +270,11 @@ class TitleState extends MusicBeatState
 
 		swagShader = new ColorSwap();
 		gfDance = new FlxSprite(titleJSON.gfx, titleJSON.gfy);
-
-		var easterEgg:String = FlxG.save.data.psychDevsEasterEgg;
-		if (easterEgg == null)
-			easterEgg = ''; // html5 fix
-
-		switch (easterEgg.toUpperCase())
-		{
-			default:
-				// EDIT THIS ONE IF YOU'RE MAKING A SOURCE CODE MOD!!!!
-				// EDIT THIS ONE IF YOU'RE MAKING A SOURCE CODE MOD!!!!
-				// EDIT THIS ONE IF YOU'RE MAKING A SOURCE CODE MOD!!!!
-				gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle');
-				gfDance.animation.addByIndices('danceLeft', CoolUtil.babyMode() ? 'gfDanceAlt' : 'gfDance',
-					[30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
-				gfDance.animation.addByIndices('danceRight', CoolUtil.babyMode() ? 'gfDanceAlt' : 'gfDance',
-					[15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
-		}
+		gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle');
+		gfDance.animation.addByIndices('danceLeft', CoolUtil.babyMode() ? 'gfDanceAlt' : 'gfDance',
+			[30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+		gfDance.animation.addByIndices('danceRight', CoolUtil.babyMode() ? 'gfDanceAlt' : 'gfDance',
+			[15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
 		gfDance.antialiasing = ClientPrefs.globalAntialiasing;
 
 		if (!peacefulMode) {
@@ -628,70 +616,20 @@ class TitleState extends MusicBeatState
 			logoBl.animation.play('beat', true);
 			if (playJingle) // Ignore deez
 			{
-				var easteregg:String = FlxG.save.data.psychDevsEasterEgg;
-				if (easteregg == null)
-					easteregg = '';
-				easteregg = easteregg.toUpperCase();
-
-				var sound:FlxSound = null;
-				switch (easteregg)
-				{
-					case 'RIVER':
-						sound = FlxG.sound.play(Paths.sound('JingleRiver'));
-					case 'SHUBS':
-						sound = FlxG.sound.play(Paths.sound('JingleShubs'));
-					case 'SHADOW':
-						FlxG.sound.play(Paths.sound('JingleShadow'));
-					case 'BBPANZU':
-						sound = FlxG.sound.play(Paths.sound('JingleBB'));
-
-					default: // Go back to normal ugly ass boring GF
-						remove(ngSpr);
-						remove(credGroup);
-						FlxG.camera.flash(FlxColor.WHITE, 2);
-						skippedIntro = true;
-						playJingle = false;
-
-						CoolUtil.playMenuTheme();
-						FlxG.sound.music.fadeIn(4, 0, 0.7);
-						return;
-				}
-
-				transitioning = true;
-				if (easteregg == 'SHADOW')
-				{
-					new FlxTimer().start(3.2, function(tmr:FlxTimer)
-					{
-						remove(ngSpr);
-						remove(credGroup);
-						FlxG.camera.flash(FlxColor.WHITE, 0.6);
-						transitioning = false;
-					});
-				}
-				else
-				{
-					remove(ngSpr);
-					remove(credGroup);
-					FlxG.camera.flash(FlxColor.WHITE, 3);
-					sound.onComplete = function()
-					{
-						CoolUtil.playMenuTheme();
-						FlxG.sound.music.fadeIn(4, 0, 0.7);
-						transitioning = false;
-					};
-				}
+				remove(ngSpr);
+				remove(credGroup);
+				FlxG.camera.flash(FlxColor.WHITE, 2);
+				skippedIntro = true;
 				playJingle = false;
+
+				CoolUtil.playMenuTheme();
+				FlxG.sound.music.fadeIn(4, 0, 0.7);
 			}
 			else // Default! Edit this one!!
 			{
 				remove(ngSpr);
 				remove(credGroup);
 				FlxG.camera.flash(FlxColor.WHITE, 4);
-
-				var easteregg:String = FlxG.save.data.psychDevsEasterEgg;
-				if (easteregg == null)
-					easteregg = '';
-				easteregg = easteregg.toUpperCase();
 
 				if (forceIntro)
 				{
