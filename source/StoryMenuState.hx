@@ -129,11 +129,11 @@ class StoryMenuState extends MusicBeatState
 					lock.frames = ui_tex;
 					lock.animation.addByPrefix('lock', 'lock');
 					lock.animation.play('lock');
-					lock.ID = i;
+					lock.ID = num;
 					lock.antialiasing = ClientPrefs.globalAntialiasing;
 					grpLocks.add(lock);
 
-					trace('lock made on $i, aka ${WeekData.weeksList[i]}');
+					trace('lock made on $num, aka ${WeekData.weeksList[i]}');
 				}
 				num++;
 			}
