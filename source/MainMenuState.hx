@@ -237,7 +237,7 @@ class MainMenuState extends MusicBeatState
 
 		super.create();
 
-		beatenToadWeekONE = StoryMenuState.weekCompleted.get('0weekToad') && !CoolUtil.squareWarning();
+		beatenToadWeekONE = CoolUtil.warningGot() && !CoolUtil.squareWarning();
 		// allow typing secrets
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, checkKeyDown);
 

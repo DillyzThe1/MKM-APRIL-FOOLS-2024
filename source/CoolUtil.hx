@@ -264,9 +264,17 @@ class CoolUtil
 		return FlxG.save.data.babymode;
 	}
 
+	public static function warningGot() {
+		return ClientPrefs.getKeyUnlocked("bup-end");
+	}
+
+	public static function peaceRestored() {
+		return ClientPrefs.getKeyUnlocked("square-vs-toad-end");
+	}
+
 	// i'm debating on making this bup-end & square-vs-toad-end or 0weekToad & 1weekToad-AF24
 	public static function squareWarning():Bool {
-		if (StoryMenuState.weekCompleted.get('0weekToad') && #if debug !ClientPrefs.getKeyUnlocked("square-vs-toad-end") #else !StoryMenuState.weekCompleted.get('1weekToad-AF24') #end)
+		if (warningGot() && !peaceRestored())
 			return true;
 		return false;
 	}
@@ -275,6 +283,14 @@ class CoolUtil
 		var menuThemeName:String = 'toadMenu';
 		var babyMode:Bool = FlxG.save.data.babymode;
 
+		if (peaceRestored()) {
+			trace('mkm if it used massive x');
+			FlxG.sound.playMusic(Paths.music('feels-at-home', 'preload'), volume, looped);
+			Conductor.changeBPM(105);
+			FlxG.sound.music.loopTime = 27420;
+			return;
+		}
+		
 		if (squareWarning()) {
 			menuThemeName = babyMode ? 'playtime-bup-ahead' : 'danger-bup-ahead';
 			Conductor.changeBPM(140);
@@ -283,6 +299,7 @@ class CoolUtil
 			menuThemeName = babyMode ? 'babyMenu' : 'toadMenu';
 			Conductor.changeBPM(babyMode ? 82 : 102);
 		}
+
 		trace('ok we gotta play the $menuThemeName at ${Conductor.bpm} BPM');
 		FlxG.sound.playMusic(Paths.music(menuThemeName, 'preload'), volume, looped);
 	}

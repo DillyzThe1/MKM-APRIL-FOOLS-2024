@@ -102,6 +102,8 @@ class StoryMenuState extends MusicBeatState
 		var num:Int = 0;
 		for (i in 0...WeekData.weeksList.length)
 		{
+			if (WeekData.weeksList[i] == "1weekToad-AF24" && !CoolUtil.warningGot())
+				continue;
 			var weekFile:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[i]);
 			var isLocked:Bool = CoolUtil.weekIsLocked(WeekData.weeksList[i]);
 			if (!isLocked || !weekFile.hiddenUntilUnlocked)
@@ -130,6 +132,8 @@ class StoryMenuState extends MusicBeatState
 					lock.ID = i;
 					lock.antialiasing = ClientPrefs.globalAntialiasing;
 					grpLocks.add(lock);
+
+					trace('lock made on $i, aka ${WeekData.weeksList[i]}');
 				}
 				num++;
 			}
