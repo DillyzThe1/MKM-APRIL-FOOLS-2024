@@ -345,6 +345,7 @@ class FreeplayState extends MusicBeatState
 					songs[curIndex].text.visible = false;
 					grpSongs.members.remove(songs[curIndex].text);
 					iconArray.remove(songs[curIndex].icon);
+					portraits.remove(songs[curIndex].portrait);
 					songs.remove(songs[curIndex]);
 					changeSelection();
 					return;
