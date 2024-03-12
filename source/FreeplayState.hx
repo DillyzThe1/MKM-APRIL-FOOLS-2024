@@ -213,6 +213,12 @@ class FreeplayState extends MusicBeatState
 			{
 				trace('ok, let\'s go');
 				var theSongEver:SongMetadata = songs[curIndex];
+
+				if (theSongEver.songName.toLowerCase() == "square" && !theSongEver.flag0) {
+					theSongEver.icon.visible = false;
+					theSongEver.portrait.loadGraphic(Paths.image('portraits/square-goaway', 'shared'));
+					theSongEver.flag0 = true;
+				}
 	
 				if (epicOverTween != null)
 					epicOverTween.cancel();
@@ -329,8 +335,27 @@ class FreeplayState extends MusicBeatState
 				FlxG.sound.play(Paths.sound('brrrrr'), 1, false);
 			else if (songs[curIndex].songName.toLowerCase() == "nether brrrrr")
 				FlxG.sound.play(Paths.sound("brrrrrn't"), 1, false);
-			
-			if (CoolUtil.fredMode || (ClientPrefs.getKeyUnlocked(songs[curIndex].unlockerKey)
+
+			if (songs[curIndex].flag0) {
+				if (songs[curIndex].flag1 > 3)
+					return;
+				if (songs[curIndex].flag1 == 3) {
+					songs[curIndex].icon.visible = false;
+					songs[curIndex].portrait.visible = false;
+					songs[curIndex].text.visible = false;
+					grpSongs.members.remove(songs[curIndex].text);
+					iconArray.remove(songs[curIndex].icon);
+					songs.remove(songs[curIndex]);
+					changeSelection();
+					return;
+				}
+				songs[curIndex].flag1++;
+				var newlevel:Float = ((FlxG.height / 2) - (songs[curIndex].portrait.height / 2) - 75) + (175 * songs[curIndex].flag1);
+				FlxTween.tween(songs[curIndex].portrait, {y: newlevel}, 0.75, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(songs[curIndex].text, {y: newlevel + songs[curIndex].portrait.height + 20}, 0.75, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(songs[curIndex].icon, {y: newlevel + songs[curIndex].portrait.height + 75}, 0.75, {ease: FlxEase.cubeInOut});
+			}
+			else if (CoolUtil.fredMode || (ClientPrefs.getKeyUnlocked(songs[curIndex].unlockerKey)
 				&& !FreeplayState.weekIsLocked(WeekData.weeksList[songs[curIndex].week])))
 			{
 				hasSelected = true;
@@ -553,6 +578,9 @@ class SongMetadata
 	public var hiddenFromStoryMode:Bool = false;
 	public var unlockerKey:String = '';
 	public var hint:String = "";
+
+	public var flag0:Bool = false;
+	public var flag1:Int = 0;
 
 	public function new(song:String, week:Int, songCharacter:String, color:Int, hideFromStoryMode:Bool, unlockerKey:String, hint:String)
 	{
