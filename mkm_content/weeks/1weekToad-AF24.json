@@ -17,6 +17,18 @@
 	],
 	"songs": [
 		[
+			"Merry Way",
+			"lazer",
+			[
+				255,
+				255,
+				51
+			],
+			true,
+			"merry-way-start",
+			"Someone's a bit jolly this evening..."
+		],
+		[
 			"Final Sweat",
 			"peter",
 			[

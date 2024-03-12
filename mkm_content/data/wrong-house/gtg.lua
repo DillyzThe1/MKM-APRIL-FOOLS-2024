@@ -2,7 +2,7 @@ local deathTimer = 0
 local dead
 function onBeatHit()
 	if not dead then
-		math.randomseed(math.random() * math.random())
+		math.randomseed(os.time() * math.random())
 		deathTimer = math.random(1, 1000)
 	
 		if deathTimer == 181 then
@@ -23,6 +23,8 @@ function onTimerCompleted(t)
 		doTweenY('icon death part 2', 'iconP2.scale', 0.8, 0.5, 'quartOut')
 		doTweenAlpha('icon death part 3', 'iconP2', 0, 0.5, 'quartOut')
 		--doTweenX('icon death part what in the world', 'iconP2', getProperty('iconP2.x') - 10, 0.5, 'quartOut') --i think getProperty is broken
+	elseif t == 'captionClear' then
+		triggerEvent('Closed Captions', '', '')
 	elseif t == 'failsafe' then
 		setProperty('dad.visible', false)
 	end
@@ -35,8 +37,10 @@ function gtg()
 	objectPlayAnimation('dad', 'gtg')
 	setProperty('dad.offset.x', -25)
 	setProperty('dad.offset.y', 0)
+	triggerEvent('Closed Captions', 'Oh, gotta go.', '')
 	runTimer('fail', 0.6)
 	runTimer('failsafe', 3)
+	runTimer('captionClear', 0.85)
 	--triggerEvent('Play Animation', 'gtg', 'dad')
 	--setProperty('dad.animation.curAnim.name', 'gtg') --why exactly do i have to do this??????
 	setProperty('whatInTheWorldLua', true) --lua why can't you set the volume of vocalsLeft without dying
