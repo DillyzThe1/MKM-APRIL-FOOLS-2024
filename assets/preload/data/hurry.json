@@ -1,0 +1,25 @@
+{
+	"warnings": [
+		{
+			"file": "square",
+			"result": "storymode",
+			"captions": [
+				{
+					"text": "You know what they say!",
+					"icon": "square",
+					"time": 0
+				},
+				{
+					"text": "You know what they say!\nAll squares square Square!",
+					"icon": "square",
+					"time": 1.71
+				},
+				{
+					"text": "playmyweek...",
+					"icon": "square",
+					"time": 5.21
+				}
+			]
+		}
+	]
+}
