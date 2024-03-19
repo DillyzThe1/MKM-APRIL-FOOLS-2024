@@ -55,6 +55,7 @@ class Character extends FlxSprite
 	public var debugMode:Bool = false;
 
 	public var isPlayer:Bool = false;
+	public var startedDeath:Bool = false;
 	public var curCharacter:String = DEFAULT_CHARACTER;
 
 	public var colorTween:FlxTween;
@@ -253,6 +254,25 @@ class Character extends FlxSprite
 	{
 		if (!debugMode && animation.curAnim != null)
 		{
+			if (isPlayer) {
+				if (animation.curAnim.name.startsWith('sing'))
+				{
+					holdTimer += elapsed;
+				}
+				else
+					holdTimer = 0;
+	
+				if (animation.curAnim.name.endsWith('miss') && animation.curAnim.finished && !debugMode)
+				{
+					playAnim('idle', true, false, 10);
+				}
+	
+				if (animation.curAnim.name == 'firstDeath' && animation.curAnim.finished && startedDeath)
+				{
+					playAnim('deathLoop');
+				}
+			}
+
 			if (heyTimer > 0)
 			{
 				heyTimer -= elapsed;

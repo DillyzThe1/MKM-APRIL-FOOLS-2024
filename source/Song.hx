@@ -29,7 +29,7 @@ typedef SwagSong =
 
 	var audioPostfix:String;
 	var soloMode:Bool;
-	var reverseHealth:Bool;
+	var leftMode:Bool;
 }
 
 class Song
@@ -50,7 +50,7 @@ class Song
 
 	public var audioPostfix:String;
 	public var soloMode:Bool;
-	public var reverseHealth:Bool;
+	public var leftMode:Bool;
 
 	private static function onLoadJson(songJson:Dynamic) // Convert old charts to newest format
 	{
@@ -93,8 +93,8 @@ class Song
 			songJson.audioPostfix = "";
 		if (songJson.soloMode == null)
 			songJson.soloMode = false;
-		if (songJson.reverseHealth == null)
-			songJson.reverseHealth = false;
+		if (songJson.leftMode == null)
+			songJson.leftMode = false;
 	}
 
 	public function new(song, notes, bpm)

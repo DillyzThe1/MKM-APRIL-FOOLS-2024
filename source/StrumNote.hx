@@ -81,16 +81,18 @@ class StrumNote extends FlxSprite
 		}
 	}
 
-	public function postAddedToGroup(?pos:Int = -10)
+	public function postAddedToGroup(?pos:Int = -10, ?playerr:Int = -1)
 	{
 		if (pos == -10)
 			pos = noteData;
+		if (playerr < 0)
+			playerr = player;
 		playAnim('static');
 		if (pos != -1)
 		{
 			x += Note.swagWidth * pos;
 			x += 50;
-			x += ((FlxG.width / 2) * player);
+			x += ((FlxG.width / 2) * playerr);
 			x += Note.noteOffset;
 		}
 		else

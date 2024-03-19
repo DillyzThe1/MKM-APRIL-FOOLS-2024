@@ -21,6 +21,7 @@ typedef EventNote =
 
 class Note extends FlxSprite
 {
+	public static var oppositeMode:Bool = false;
 	public var extraData:Map<String, Dynamic> = [];
 
 	public var strumTime:Float = 0;
@@ -371,6 +372,10 @@ class Note extends FlxSprite
 		return value;
 	}
 
+	function shouldPress() {
+		return (mustPress && !oppositeMode) || (!mustPress && oppositeMode);
+	}
+
 	private function set_noteType(value:String):String
 	{
 		noteSplashTexture = PlayState.SONG.splashSkin;
@@ -383,7 +388,7 @@ class Note extends FlxSprite
 			switch (value)
 			{
 				case 'Hurt Note':
-					ignoreNote = mustPress;
+					ignoreNote = shouldPress();
 					reloadNote('HURT');
 					noteSplashTexture = 'HURTnoteSplashes';
 					colorSwap.hue = 0;
@@ -583,7 +588,7 @@ class Note extends FlxSprite
 	{
 		super.update(elapsed);
 
-		if (mustPress)
+		if (shouldPress())
 		{
 			// ok river
 			if (strumTime > Conductor.songPosition - (Conductor.safeZoneOffset * lateHitMult)
