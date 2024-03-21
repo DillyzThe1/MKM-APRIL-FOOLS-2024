@@ -486,11 +486,12 @@ class PlayState extends MusicBeatState
 		for (player in 0...2)
 			for (i in 0...9)
 			{
+				var truePlayer:Int = isLeftMode ? 1 - player : player;
 				var babyArrow = (player == 1 ? playerStrums : opponentStrums).members[i];
 				babyArrow.x = doMiddleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X;
 				babyArrow.scale.x = babyArrow.scale.y = Note.noteScale;
 
-				if (player == 0)
+				if (truePlayer == 0)
 				{
 					if (doMiddleScroll)
 					{
