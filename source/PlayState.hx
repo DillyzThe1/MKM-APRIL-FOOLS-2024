@@ -1336,8 +1336,22 @@ class PlayState extends MusicBeatState
 			return;
 		}
 
-		video = new MP4Handler();
-		video.playVideo(filepath);
+		video = new MP4Handler(ClientPrefs.seenCutscene(name));
+		ClientPrefs.finishCutscene(name);
+		video.readyCallback = function() {
+			trace('the video\'s all loaded up!');
+			video.volume = 1;
+			@:privateAccess
+			video.libvlc.setVolume(1);
+			@:privateAccess
+			video.libvlc.setTime(0);
+			@:privateAccess
+			video.libvlc.setRepeat(0);
+		}
+
+		video.volume = 0;
+		video.playVideo(filepath, true);
+
 		video.finishCallback = function()
 		{
 			if (!chartEditorThroughBrrrrr)

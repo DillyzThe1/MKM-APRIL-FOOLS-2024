@@ -364,6 +364,16 @@ class ClientPrefs
 		saveSettings();
 	}
 
+	inline public static function seenCutscene(name:String)
+	{
+		return getKeyUnlocked("cutsceneKeys_" + name);
+	}
+
+	inline public static function finishCutscene(name:String)
+	{
+		return setKeyUnlocked("cutsceneKeys_" + name, true);
+	}
+
 	public static function reloadControls()
 	{
 		PlayerSettings.player1.controls.setKeyboardScheme(KeyboardScheme.Solo);
