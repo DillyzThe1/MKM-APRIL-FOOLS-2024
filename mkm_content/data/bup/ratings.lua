@@ -12,7 +12,7 @@ function onUpdatePost(e)
 	if string.lower(difficultyName) == "hard" or string.lower(difficultyName) == "old" then
 		local ratingpercent = rating * 100
 		if ratingpercent >= 100 then 
-			abortionLaws = 'ok blue hair liberal'
+			abortionLaws = 'ok orange hair annoyance'
 		elseif ratingpercent >= 90 then 
 			abortionLaws = 'get ur goofy ahh out of here'
 		elseif ratingpercent >= 75 then 

@@ -1,4 +1,3 @@
-local normalFemaleY = 0
 function onCreatePost()
 	if string.lower(difficultyName) == "hard" or string.lower(difficultyName) == "old" then
 		--addHaxeLibrary('Scanlie','shaders')
@@ -9,8 +8,8 @@ function onCreatePost()
 		--shaderByString("Blur")
 		runHaxeCode(getTextFromFile('data/bup/EffectDupe.hx',false))
 		--callOnLuas('toggleGfHovering',{false})
-		setProperty('gf.alpha',0.99)
-		normalFemaleY = getProperty('gf.y')
+		setProperty('gf.visible',false)
+		setProperty('gf.active',false)
 		setProperty('camHUD.alpha',0)
 		doTweenAlpha('camHUDAlpha','camHUD',1,1.25,'cubeInOut')
 	else
@@ -28,21 +27,27 @@ function onCreate()
 	end
 end
 
-local shownThing = false
-local shownThing26 = false
+local lastBeatEvent = -1
 
 function onBeatHit()
 	if string.lower(difficultyName) == "hard" or string.lower(difficultyName) == "old" then
-		if curBeat >= 16 and not shownThing then 
+		if curBeat >= 16 and lastBeatEvent < 16 then 
+			lastBeatEvent = 16
 			doTweenAlpha('camGameAlpha','camGame',1,0.75,'cubeInOut')
 			doTweenAlpha('iconP2Alpha','iconP2',1,0.75,'cubeInOut')
 			doTweenAlpha('healthBarAlpha','healthBar',1,0.75,'cubeInOut')
-			setProperty('gf.y',-1000)
 		end
-		if curBeat >= 26 and not shownThing26 then 
-			shownThing26 = true
-			--callOnLuas('toggleGfHovering',{true})
-			doTweenY('gfY','gf',normalFemaleY,2.75,'cubeInOut')
+		if curBeat >= 24 and lastBeatEvent < 24 then 
+			lastBeatEvent = 32
+			playAnim('mspaint', 'load up', true)
+		end
+		if curBeat >= 30 and lastBeatEvent < 30 then 
+			lastBeatEvent = 30
+			playAnim('mspaint', 'selection', true)
+		end
+		if curBeat >= 32 and lastBeatEvent < 32 then 
+			lastBeatEvent = 32
+			playAnim('mspaint', 'close', true)
 		end
 	end
 end
