@@ -3,7 +3,7 @@ local dillyzStupid = false
 
 local creditsMatch = {
 	{'academic failure', 'Composed by Zarzok'},
-	{'bup', 'Composed By That1LazerBoi & DillyzThe1'},
+	{'bup', 'Composed By That1LazerBoi & DillyzThe1, Remixed by Zarzok'},
 	{'chaotically stupid', 'Composed By That1LazerBoi & DillyzThe1'},
 	{'extra screwed', 'Composed By DillyzThe1'},
 	{'hell shrooms', 'Composed by DillyzThe1'},
@@ -19,7 +19,8 @@ local creditsMatch = {
 	{'welcom toad', 'Original Song By Novatos Team, Cover by DillyzThe1'},
 	{'wrong house', 'Composed by Impostor5875'},
 	{'yeah', 'Composed by DillyzThe1'},
-	{'no way', 'Composed by That1LazerBoi'}
+	{'no way', 'Composed by That1LazerBoi'},
+	{'bup blaster', 'Guys? I have a theory.'}
 }
 
 function onCreatePost()

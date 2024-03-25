@@ -180,6 +180,7 @@ class ChartingState extends MusicBeatState
 	var tempBpm:Float = 0;
 
 	var vocals:FlxSound = null;
+	var songExtra:FlxSound = null;
 	var vocalsLeft:FlxSound = null;
 	var vocalsRight:FlxSound = null;
 
@@ -686,6 +687,32 @@ class ChartingState extends MusicBeatState
 		leftMode_check.checked = _song.leftMode;
 		leftMode_check.callback = function() { _song.leftMode = leftMode_check.checked; };
 
+		
+		var shiftSongUp:FlxButton = new FlxButton(reloadSong.x, noteSkinInputText.y, "Shift Up", function()
+		{
+			trace('hi go up');
+
+			for (section in curSec..._song.notes.length)
+				for (i in _song.notes[section].sectionNotes)
+					i[0] -= (1000 * 60 / getSectionBPM());
+			updateGrid(false);
+		});
+
+		var shiftSongDown:FlxButton = new FlxButton(reloadSong.x, noteSplashesInputText.y, "Shift Down", function()
+		{
+			trace('hi go down');
+
+			for (section in curSec..._song.notes.length)
+				for (i in _song.notes[section].sectionNotes)
+					i[0] += (1000 * 60 / getSectionBPM());
+			updateGrid(false);
+		});
+
+		var regroupNotes:FlxButton = new FlxButton(reloadSong.x, reloadNotesButton.y, "Regroup Notes", function()
+		{
+			regroupNotes();
+		});
+
 		tab_group_song.add(check_voices);
 		tab_group_song.add(clear_events);
 		tab_group_song.add(clear_notes);
@@ -706,7 +733,7 @@ class ChartingState extends MusicBeatState
 		tab_group_song.add(leftMode_check);
 
 		tab_group_song.add(new FlxText(stepperBPM.x, stepperBPM.y - 15, 0, 'Song BPM:'));
-		tab_group_song.add(new FlxText(stepperBPM.x + 100, stepperBPM.y - 15, 0, 'Song Offset:'));
+		//tab_group_song.add(new FlxText(stepperBPM.x + 100, stepperBPM.y - 15, 0, 'Song Offset:'));
 		tab_group_song.add(new FlxText(stepperSpeed.x, stepperSpeed.y - 15, 0, 'Song Speed:'));
 		tab_group_song.add(new FlxText(keyCountThing.x, keyCountThing.y - 15, 0, 'Key Count:'));
 		tab_group_song.add(new FlxText(player2DropDown.x, player2DropDown.y - 15, 0, 'Opponent:'));
@@ -720,9 +747,33 @@ class ChartingState extends MusicBeatState
 		tab_group_song.add(player1DropDown);
 		tab_group_song.add(stageDropDown);
 
+		tab_group_song.add(shiftSongUp);
+		tab_group_song.add(shiftSongDown);
+		tab_group_song.add(regroupNotes);
+
 		UI_box.addGroup(tab_group_song);
 
 		FlxG.camera.follow(camPos);
+	}
+
+	function regroupNotes() {
+		var oldCurSec:Int = curSec;
+		var allNotes:Array<Dynamic> = [];
+
+		for (section in 0..._song.notes.length)
+			for (i in 0..._song.notes[section].sectionNotes.length)
+				allNotes.push(_song.notes[section].sectionNotes.pop());
+
+		
+		for (section in 0..._song.notes.length) {
+			curSec = section;
+			for (epicnote in 0...allNotes.length) {
+				if (allNotes[epicnote][0] > sectionStartTime() && allNotes[epicnote][0] - 1 <= sectionStartTime(1))
+					_song.notes[curSec].sectionNotes.push(allNotes[epicnote]);
+			}
+			sectionStartTime();
+		}
+		curSec = oldCurSec;
 	}
 
 	function flippedData(ogData:Int)
@@ -1350,6 +1401,7 @@ class ChartingState extends MusicBeatState
 	var voicesVolume:FlxUINumericStepper;
 	var voicesLeftVolume:FlxUINumericStepper;
 	var voicesRightVolume:FlxUINumericStepper;
+	var extraVolume:FlxUINumericStepper;
 
 	function addChartingUI()
 	{
@@ -1474,29 +1526,19 @@ class ChartingState extends MusicBeatState
 		{
 			if (splitVocals)
 			{
-				if (vocalsLeft != null && vocalsRight != null)
-					{
-						var vol:Float = 1;
-			
-						if (check_mute_vocals.checked)
-							vol = 0;
-			
-						vocalsLeft.volume = vol;
-						vocalsRight.volume = vol;
-					}
+				if (vocalsLeft != null)
+					vocalsLeft.volume = check_mute_vocals.checked ? 0 : 1;
+				if (vocalsRight != null)
+					vocalsRight.volume = check_mute_vocals.checked ? 0 : 1;
 			}
 			else
 			{
 				if (vocals != null)
-				{
-					var vol:Float = 1;
-		
-					if (check_mute_vocals.checked)
-						vol = 0;
-		
-					vocals.volume = vol;
-				}
+					vocals.volume = check_mute_vocals.checked ? 0 : 1;
 			}
+
+			if (songExtra != null) 
+				songExtra.volume = check_mute_vocals.checked ? 0 : 1;
 		};
 
 		playSoundBf = new FlxUICheckBox(check_mute_inst.x, check_mute_vocals.y + 30, null, null, 'Play Sound (Boyfriend notes)', 100, function()
@@ -1536,41 +1578,50 @@ class ChartingState extends MusicBeatState
 			FlxG.save.data.chart_noAutoScroll = false;
 		disableAutoScrolling.checked = FlxG.save.data.chart_noAutoScroll;
 
-		instVolume = new FlxUINumericStepper(metronomeStepper.x, 270, 0.1, 1, 0, 1, 1);
+		instVolume = new FlxUINumericStepper(metronomeStepper.x, 220, 0.1, 1, 0, 1, 1);
 		instVolume.value = FlxG.sound.music.volume;
 		instVolume.name = 'inst_volume';
 		blockPressWhileTypingOnStepper.push(instVolume);
 
+		var lois:Float = instVolume.y + 20;
 		if (splitVocals)
 		{
-			voicesLeftVolume = new FlxUINumericStepper(instVolume.x + 100, instVolume.y, 0.1, 1, 0, 1, 1);
+			voicesLeftVolume = new FlxUINumericStepper(instVolume.x, instVolume.y + 20, 0.1, 1, 0, 1, 1);
 			voicesLeftVolume.value = vocalsLeft.volume;
 			voicesLeftVolume.name = 'voices_left_volume';
 			blockPressWhileTypingOnStepper.push(voicesLeftVolume);
 
-			voicesRightVolume = new FlxUINumericStepper(voicesLeftVolume.x + 100, instVolume.y, 0.1, 1, 0, 1, 1);
+			voicesRightVolume = new FlxUINumericStepper(voicesLeftVolume.x, voicesLeftVolume.y + 20, 0.1, 1, 0, 1, 1);
 			voicesRightVolume.value = vocalsRight.volume;
 			voicesRightVolume.name = 'voices_right_volume';
 			blockPressWhileTypingOnStepper.push(voicesLeftVolume);
+
+			lois = voicesRightVolume.y;
 		}
 		else
 		{
-			voicesVolume = new FlxUINumericStepper(instVolume.x + 100, instVolume.y, 0.1, 1, 0, 1, 1);
+			voicesVolume = new FlxUINumericStepper(instVolume.x, instVolume.y + 20, 0.1, 1, 0, 1, 1);
 			voicesVolume.value = vocals.volume;
 			voicesVolume.name = 'voices_volume';
 			blockPressWhileTypingOnStepper.push(voicesVolume);
 		}
 
+		extraVolume = new FlxUINumericStepper(instVolume.x, lois + 20, 0.1, 1, 0, 1, 1);
+		extraVolume.value = songExtra.volume;
+		extraVolume.name = 'extras_volume';
+		blockPressWhileTypingOnStepper.push(extraVolume);
+
 		tab_group_chart.add(new FlxText(metronomeStepper.x, metronomeStepper.y - 15, 0, 'BPM:'));
 		tab_group_chart.add(new FlxText(metronomeOffsetStepper.x, metronomeOffsetStepper.y - 15, 0, 'Offset (ms):'));
-		tab_group_chart.add(new FlxText(instVolume.x, instVolume.y - 15, 0, 'Inst Volume'));
+		tab_group_chart.add(new FlxText(instVolume.x + instVolume.width + 10, instVolume.y, 0, 'Inst Volume'));
 		if(splitVocals)
 		{
-			tab_group_chart.add(new FlxText(voicesLeftVolume.x - 24, voicesLeftVolume.y - 15, 0, 'Voices Volume (Left)'));
-			tab_group_chart.add(new FlxText(voicesRightVolume.x - 20, voicesRightVolume.y - 15, 0, 'Voices Volume (Right)'));
+			tab_group_chart.add(new FlxText(voicesLeftVolume.x + voicesLeftVolume.width + 10, voicesLeftVolume.y, 0, 'Voices Volume (Left)'));
+			tab_group_chart.add(new FlxText(voicesRightVolume.x + voicesRightVolume.width + 10, voicesRightVolume.y, 0, 'Voices Volume (Right)'));
 		}
 		else
-			tab_group_chart.add(new FlxText(voicesVolume.x, voicesVolume.y - 15, 0, 'Voices Volume'));
+			tab_group_chart.add(new FlxText(voicesVolume.x + voicesVolume.width + 10, voicesVolume.y, 0, 'Voices Volume'));
+		tab_group_chart.add(new FlxText(extraVolume.x + extraVolume.width + 10, extraVolume.y, 0, 'Extra Volume'));
 		tab_group_chart.add(metronome);
 		tab_group_chart.add(disableAutoScrolling);
 		tab_group_chart.add(metronomeStepper);
@@ -1591,6 +1642,7 @@ class ChartingState extends MusicBeatState
 		}
 		else
 			tab_group_chart.add(voicesVolume);
+		tab_group_chart.add(extraVolume);
 		tab_group_chart.add(check_mute_inst);
 		tab_group_chart.add(check_mute_vocals);
 		tab_group_chart.add(check_vortex);
@@ -1643,6 +1695,14 @@ class ChartingState extends MusicBeatState
 				FlxG.sound.list.add(vocals);
 			}
 		}
+		var file:Dynamic = Paths.songExtra(currentSongName, _song.audioPostfix);
+		songExtra = new FlxSound();
+		if (Std.isOfType(file, Sound) || OpenFlAssets.exists(file))
+		{
+			songExtra.loadEmbedded(file);
+			FlxG.sound.list.add(songExtra);
+		}
+
 		generateSong();
 		FlxG.sound.music.pause();
 		Conductor.songPosition = sectionStartTime();
@@ -1679,6 +1739,11 @@ class ChartingState extends MusicBeatState
 					vocals.time = 0;
 				}
 			}
+			if (songExtra != null)
+			{
+				songExtra.pause();
+				songExtra.time = 0;
+			}
 			changeSection();
 			curSec = 0;
 			updateGrid();
@@ -1690,6 +1755,7 @@ class ChartingState extends MusicBeatState
 			}
 			else
 				vocals.play();
+			songExtra.play();
 		};
 	}
 
@@ -1789,6 +1855,10 @@ class ChartingState extends MusicBeatState
 			else if (wname == 'voices_right_volume')
 			{
 				vocalsRight.volume = nums.value;
+			}
+			else if (wname == 'extra_volume')
+			{
+				songExtra.volume = nums.value;
 			}
 		}
 		else if (id == FlxUIInputText.CHANGE_EVENT && (sender is FlxUIInputText))
@@ -2030,6 +2100,9 @@ class ChartingState extends MusicBeatState
 						vocals.stop();
 				}
 
+				if (songExtra != null)
+					songExtra.stop();
+
 				// if(_song.stage == null) _song.stage = stageDropDown.selectedLabel;
 				StageData.loadDirectory(_song);
 				LoadingState.loadAndSwitchState(new PlayState());
@@ -2107,6 +2180,8 @@ class ChartingState extends MusicBeatState
 						if (vocals != null)
 							vocals.pause();
 					}
+					if (songExtra != null)
+						songExtra.pause();
 				}
 				else
 				{
@@ -2131,6 +2206,11 @@ class ChartingState extends MusicBeatState
 								vocals.time = FlxG.sound.music.time;
 								vocals.play();
 							}
+					}
+					if (songExtra != null)
+					{
+						songExtra.time = FlxG.sound.music.time;
+						songExtra.play();
 					}
 					FlxG.sound.music.play();
 				}
@@ -2184,6 +2264,11 @@ class ChartingState extends MusicBeatState
 						vocals.time = FlxG.sound.music.time;
 					}
 				}
+				if (songExtra != null)
+				{
+					songExtra.pause();
+					songExtra.time = FlxG.sound.music.time;
+				}
 			}
 
 			// ARROW VORTEX SHIT NO DEADASS
@@ -2224,6 +2309,11 @@ class ChartingState extends MusicBeatState
 							vocals.pause();
 							vocals.time = FlxG.sound.music.time;
 						}
+				}
+				if (songExtra != null)
+				{
+					songExtra.pause();
+					songExtra.time = FlxG.sound.music.time;
 				}
 			}
 
@@ -2342,6 +2432,11 @@ class ChartingState extends MusicBeatState
 							vocals.pause();
 							vocals.time = FlxG.sound.music.time;
 						}
+					}
+					if (songExtra != null)
+					{
+						songExtra.pause();
+						songExtra.time = FlxG.sound.music.time;
 					}
 
 					var dastrum = 0;
@@ -3015,6 +3110,11 @@ class ChartingState extends MusicBeatState
 				vocals.time = FlxG.sound.music.time;
 			}
 		}
+		if (songExtra != null)
+		{
+			songExtra.pause();
+			songExtra.time = FlxG.sound.music.time;
+		}
 		updateCurStep();
 
 		updateGrid();
@@ -3048,6 +3148,11 @@ class ChartingState extends MusicBeatState
 					{
 						vocals.pause();
 						vocals.time = FlxG.sound.music.time;
+					}
+					if (songExtra != null)
+					{
+						songExtra.pause();
+						songExtra.time = FlxG.sound.music.time;
 					}
 				}
 				updateCurStep();

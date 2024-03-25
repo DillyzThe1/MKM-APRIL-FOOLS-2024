@@ -237,6 +237,7 @@ class PlayState extends MusicBeatState
 
 	public var vocals:FlxSound;
 
+	var hasExtra:Bool = false;
 	public var songExtra:FlxSound;
 	public var vocalsLeft:FlxSound;
 	public var vocalsRight:FlxSound;
@@ -1738,7 +1739,8 @@ class PlayState extends MusicBeatState
 		}
 		else
 			vocals.play();
-		songExtra.time = time;
+		if (Conductor.songPosition <= songExtra.length)
+			songExtra.time = time;
 		songExtra.play();
 		Conductor.songPosition = time;
 		songTime = time;
@@ -1778,6 +1780,7 @@ class PlayState extends MusicBeatState
 		}
 		else
 			vocals.play();
+		songExtra.volume = 1;
 		songExtra.play();
 
 		if (startOnTime > 0)
@@ -1799,7 +1802,6 @@ class PlayState extends MusicBeatState
 				vocals.pause();
 			songExtra.pause();
 		}
-		songExtra.volume = 1;
 
 		// Song duration in a float, useful for the time left feature
 		songDisplayLength = songLength = FlxG.sound.music.length;
@@ -1868,10 +1870,13 @@ class PlayState extends MusicBeatState
 		else
 			FlxG.sound.list.add(vocals);
 
-		if (Paths.fileExists('songs/${Paths.formatToSongPath(PlayState.SONG.song)}/Extra${PlayState.SONG.audioPostfix}.ogg', AssetType.SOUND))
+		if (Paths.fileExists('songs/${Paths.formatToSongPath(PlayState.SONG.song)}/Extra${PlayState.SONG.audioPostfix}.ogg', AssetType.SOUND)) {
+			hasExtra = true;
 			songExtra = new FlxSound().loadEmbedded(Paths.songExtra(PlayState.SONG.song, PlayState.SONG.audioPostfix));
+		}
 		else
 			songExtra = new FlxSound();
+		FlxG.sound.list.add(songExtra);
 		FlxG.sound.music.loadEmbedded(Paths.inst(PlayState.SONG.song, PlayState.SONG.audioPostfix));
 
 		notes = new FlxTypedGroup<Note>();
@@ -4835,6 +4840,7 @@ class PlayState extends MusicBeatState
 			if (Math.abs(FlxG.sound.music.time - (Conductor.songPosition - Conductor.offset)) > 20
 				|| (SONG.needsVoices && Math.abs(vocalsLeft.time - (Conductor.songPosition - Conductor.offset)) > 20))
 			{
+				trace('RESYNCING BECAUSE THE VOCALS ARE OUT OF SYNC');
 				resyncVocals();
 			}
 		}
@@ -4843,8 +4849,13 @@ class PlayState extends MusicBeatState
 			if (Math.abs(FlxG.sound.music.time - (Conductor.songPosition - Conductor.offset)) > 20
 				|| (SONG.needsVoices && Math.abs(vocals.time - (Conductor.songPosition - Conductor.offset)) > 20))
 			{
+				trace('RESYNCING BECAUSE THE VOCAL TRACK IS OUT OF SYNC');
 				resyncVocals();
 			}
+		}
+		if (hasExtra && Math.abs(songExtra.time - (Conductor.songPosition - Conductor.offset)) > 20) {
+			trace('RESYNCING BECAUSE SONGEXTRA IS OUT OF SYNC');
+			resyncVocals();
 		}
 
 		if (curStep == lastStepHit)
