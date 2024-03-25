@@ -4334,7 +4334,7 @@ class PlayState extends MusicBeatState
 		var animToPlay:String = singAnimations[Std.int(Math.abs(daNote.noteData))] + 'miss' + daNote.animSuffix;
 		if (daNote.characterController != null) {
 			for (control in modchartCharacterControllers) {
-				if (control.name.toLowerCase().trim() == daNote.characterController.toLowerCase().trim())
+				if (control.sprite.singParam.toLowerCase().trim() == daNote.characterController.toLowerCase().trim())
 					control.playAnim(animToPlay, true);
 			}
 		}
@@ -4428,7 +4428,7 @@ class PlayState extends MusicBeatState
 		{
 			if (note.characterController != null) {
 				for (control in modchartCharacterControllers) {
-					if (control.name.toLowerCase().trim() == note.characterController.toLowerCase().trim()) {
+					if (control.sprite.singParam.toLowerCase().trim() == note.characterController.toLowerCase().trim()) {
 						control.playAnim('hey', true);
 						control.specialAnim = true;
 					}
@@ -4457,7 +4457,7 @@ class PlayState extends MusicBeatState
 
 			if (note.characterController != null) {
 				for (control in modchartCharacterControllers) {
-					if (control.name.toLowerCase().trim() == note.characterController.toLowerCase().trim()) {
+					if (control.sprite.singParam.toLowerCase().trim() == note.characterController.toLowerCase().trim()) {
 						control.playAnim(animToPlay, true);
 						control.holdTimer = 0;
 					}
@@ -4606,7 +4606,7 @@ class PlayState extends MusicBeatState
 						case 'Hurt Note': // Hurt note
 							if (note.characterController != null) {
 								for (control in modchartCharacterControllers) {
-									if (control.name.toLowerCase().trim() == note.characterController.toLowerCase().trim()
+									if (control.sprite.singParam.toLowerCase().trim() == note.characterController.toLowerCase().trim()
 										&& control.sprite.animation.getByName('hurt') != null) {
 										control.playAnim('hurt', true);
 										control.specialAnim = true;
@@ -4649,7 +4649,7 @@ class PlayState extends MusicBeatState
 
 				if (note.characterController != null) {
 					for (control in modchartCharacterControllers) {
-						if (control.name.toLowerCase().trim() == note.characterController.toLowerCase().trim()) {
+						if (control.sprite.singParam.toLowerCase().trim() == note.characterController.toLowerCase().trim()) {
 							control.playAnim(animToPlay + note.animSuffix, true);
 							control.holdTimer = 0;
 							control.lastPlayerHit = true;
@@ -4676,7 +4676,7 @@ class PlayState extends MusicBeatState
 				{
 					if (note.characterController != null) {
 						for (control in modchartCharacterControllers) {
-							if (control.name.toLowerCase().trim() == note.characterController.toLowerCase().trim()
+							if (control.sprite.singParam.toLowerCase().trim() == note.characterController.toLowerCase().trim()
 								&& control.sprite.animOffsets.exists('hey')) {
 								control.playAnim('hey', true);
 								control.specialAnim = true;
