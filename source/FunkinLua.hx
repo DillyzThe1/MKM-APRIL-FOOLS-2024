@@ -2279,6 +2279,54 @@ class FunkinLua
 			return PlayState.instance.modchartSounds.exists(tag);
 		});
 
+		/*Lua_helper.add_callback(lua, "characterController_add", function(tag:String)
+		{
+			if (PlayState.instance.modchartSprites.exists(tag)) {
+				var controller:CharacterController = new CharacterController(tag, PlayState.instance.modchartSprites.get(tag));
+				PlayState.instance.modchartCharacterControllers.set(tag, controller);
+			}
+		});
+
+		Lua_helper.add_callback(lua, "characterController_remove", function(tag:String)
+		{
+			PlayState.instance.modchartCharacterControllers.remove(tag);
+		});*/
+
+		Lua_helper.add_callback(lua, "characterController_summon", function(x:Float, y:Float, characterName:String, playerChar:Bool, ?front:Bool = false)
+		{
+			if (PlayState.instance.modchartSprites.exists(characterName))
+				return;
+			var brandNewCharacter:Character = new Character(x, y, characterName, playerChar);
+			brandNewCharacter.debugMode = true;
+			brandNewCharacter.x += brandNewCharacter.positionArray[0];
+			brandNewCharacter.y += brandNewCharacter.positionArray[1];
+			var controller:CharacterController = new CharacterController(characterName, brandNewCharacter);
+			PlayState.instance.modchartCharacterControllers.set(characterName, controller);
+			PlayState.instance.startCharacterLua(characterName);
+
+			if (front)
+			{
+				getInstance().add(brandNewCharacter);
+			}
+			else
+			{
+				if (PlayState.instance.isDead)
+				{
+					GameOverSubstate.instance.insert(GameOverSubstate.instance.members.indexOf(GameOverSubstate.instance.boyfriend), brandNewCharacter);
+				}
+				else
+				{
+					var position:Int = PlayState.instance.members.indexOf(PlayState.instance.gfGroup);
+					if (PlayState.instance.members.indexOf(PlayState.instance.boyfriendGroup) < position)
+						position = PlayState.instance.members.indexOf(PlayState.instance.boyfriendGroup);
+					else if (PlayState.instance.members.indexOf(PlayState.instance.dadGroup) < position)
+						position = PlayState.instance.members.indexOf(PlayState.instance.dadGroup);
+					PlayState.instance.insert(position, brandNewCharacter);
+				}
+			}
+		});
+
+
 		Lua_helper.add_callback(lua, "setHealthBarColors", function(leftHex:String, rightHex:String)
 		{
 			var left:FlxColor = Std.parseInt(leftHex);
@@ -3753,6 +3801,11 @@ class FunkinLua
 	public static function getObjectDirectly(objectName:String, ?checkForTextsToo:Bool = true):Dynamic
 	{
 		var coverMeInPiss:Dynamic = PlayState.instance.getLuaObject(objectName, checkForTextsToo);
+		if (objectName.endsWith("_controller")) {
+			var splitName:String = objectName.split("_")[0];
+			if (PlayState.instance.modchartCharacterControllers.exists(splitName))
+				return PlayState.instance.modchartCharacterControllers.get(splitName);
+		}
 		if (coverMeInPiss == null)
 			coverMeInPiss = getVarInArray(getInstance(), objectName);
 

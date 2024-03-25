@@ -24,6 +24,7 @@ class Note extends FlxSprite
 	public static var oppositeMode:Bool = false;
 	public var extraData:Map<String, Dynamic> = [];
 
+	public var characterController:String;
 	public var strumTime:Float = 0;
 	public var mustPress:Bool = false;
 	public var noteData:Int = 0;

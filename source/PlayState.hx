@@ -192,17 +192,18 @@ class PlayState extends MusicBeatState
 	public var modchartSounds:Map<String, FlxSound> = new Map<String, FlxSound>();
 	public var modchartTexts:Map<String, ModchartText> = new Map<String, ModchartText>();
 	public var modchartSaves:Map<String, FlxSave> = new Map<String, FlxSave>();
+	public var modchartCharacterControllers:Map<String, CharacterController> = new Map<String, CharacterController>();
 
 	// event variables
 	private var isCameraOnForcedPos:Bool = false;
 
 	#if (haxe >= "4.0.0")
-	public var boyfriendMap:Map<String, Boyfriend> = new Map();
+	public var boyfriendMap:Map<String, Character> = new Map();
 	public var dadMap:Map<String, Character> = new Map();
 	public var gfMap:Map<String, Character> = new Map();
 	public var variables:Map<String, Dynamic> = new Map();
 	#else
-	public var boyfriendMap:Map<String, Boyfriend> = new Map<String, Boyfriend>();
+	public var boyfriendMap:Map<String, Character> = new Map<String, Character>();
 	public var dadMap:Map<String, Character> = new Map<String, Character>();
 	public var gfMap:Map<String, Character> = new Map<String, Character>();
 	public var variables:Map<String, Dynamic> = new Map<String, Dynamic>();
@@ -244,7 +245,7 @@ class PlayState extends MusicBeatState
 
 	public var dad:Character = null;
 	public var gf:Character = null;
-	public var boyfriend:Boyfriend = null;
+	public var boyfriend:Character = null;
 
 	public var notes:FlxTypedGroup<Note>;
 	public var unspawnNotes:Array<Note> = [];
@@ -413,6 +414,11 @@ class PlayState extends MusicBeatState
 						ClientPrefs.copyKey(ClientPrefs.keyBinds.get('note_right'))
 					];
 		}*/
+	}
+
+	public function resetLastPlayer() {
+		for (control in modchartCharacterControllers)
+			control.lastPlayerHit = false;
 	}
 
 	public var isSoloMode:Bool = false;
@@ -834,7 +840,7 @@ class PlayState extends MusicBeatState
 		dadGroup.add(dad);
 		startCharacterLua(dad.curCharacter);
 
-		boyfriend = new Boyfriend(0, 0, SONG.player1);
+		boyfriend = new Character(0, 0, SONG.player1, true);
 		startCharacterPos(boyfriend);
 		boyfriendGroup.add(boyfriend);
 		startCharacterLua(boyfriend.curCharacter);
@@ -1237,7 +1243,7 @@ class PlayState extends MusicBeatState
 			case 0:
 				if (!boyfriendMap.exists(newCharacter))
 				{
-					var newBoyfriend:Boyfriend = new Boyfriend(0, 0, newCharacter);
+					var newBoyfriend:Character = new Character(0, 0, newCharacter, true);
 					boyfriendMap.set(newCharacter, newBoyfriend);
 					boyfriendGroup.add(newBoyfriend);
 					startCharacterPos(newBoyfriend);
@@ -1270,7 +1276,7 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-	function startCharacterLua(name:String)
+	public function startCharacterLua(name:String)
 	{
 		#if LUA_ALLOWED
 		var doPush:Bool = false;
@@ -1586,6 +1592,16 @@ class PlayState extends MusicBeatState
 					&& !dad.stunned)
 				{
 					dad.dance();
+				}
+
+				for (control in modchartCharacterControllers) {
+					if (tmr.loopsLeft % control.danceNumBeats == 0
+						&& control.sprite.animation.curAnim != null
+						&& !control.sprite.animation.curAnim.name.startsWith('sing')
+						&& !control.stunned)
+					{
+						control.dance();
+					}
 				}
 
 				showCountdownPiece(swagCounter, true, true);
@@ -2256,6 +2272,7 @@ class PlayState extends MusicBeatState
 		}
 		else
 			vocals.pause();
+		songExtra.pause();
 
 		FlxG.sound.music.play();
 		Conductor.songPosition = FlxG.sound.music.time;
@@ -2315,6 +2332,9 @@ class PlayState extends MusicBeatState
 		}
 
 		super.update(elapsed);
+
+		for (control in modchartCharacterControllers)
+			control.update(elapsed);
 
 		if (PauseSubState.parentalControls_vals[1])
 		{
@@ -2512,6 +2532,15 @@ class PlayState extends MusicBeatState
 				{
 					(isLeftMode ? dad : boyfriend).dance();
 					// boyfriend.animation.curAnim.finish();
+				}
+
+				for (control in modchartCharacterControllers) {
+					if (control.holdTimer > Conductor.stepCrochet * 0.0011 * control.singDuration
+						&& control.sprite.animation.curAnim.name.startsWith('sing')
+						&& !control.sprite.animation.curAnim.name.endsWith('miss'))
+					{
+						control.dance();
+					}
 				}
 			}
 
@@ -2742,7 +2771,7 @@ class PlayState extends MusicBeatState
 		DiscordClient.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 	}
 
-	var squareChecks:Array<String> = ['house', 'no-shrooms', 'chaotically-stupid', 'bup'];
+	var squareChecks:Array<String> = ['house', 'brrrrr', 'chaotically-stupid', 'bup'];
 
 	function chartKeyFormat(songName:String)
 		return songName.toLowerCase().replace(" ", "-") + "-chart";
@@ -2952,6 +2981,14 @@ class PlayState extends MusicBeatState
 
 			case 'Play Animation':
 				// trace('Anim to play: ' + value1);
+				for (control in modchartCharacterControllers) {
+					if (control.name.toLowerCase().trim() == value2.toLowerCase().trim()) {
+						control.playAnim(value1, true);
+						control.specialAnim = true;
+						break;
+					}
+				}
+
 				var char:Character = dad;
 				switch (value2.toLowerCase().trim())
 				{
@@ -4293,14 +4330,21 @@ class PlayState extends MusicBeatState
 			RecalculateRating(true);
 		}
 
-		var char:Character = isLeftMode ? dad : boyfriend;
-		if (daNote.gfNote)
-			char = gf;
+		resetLastPlayer();
+		var animToPlay:String = singAnimations[Std.int(Math.abs(daNote.noteData))] + 'miss' + daNote.animSuffix;
+		if (daNote.characterController != null) {
+			for (control in modchartCharacterControllers) {
+				if (control.name.toLowerCase().trim() == daNote.characterController.toLowerCase().trim())
+					control.playAnim(animToPlay, true);
+			}
+		}
+		else {
+			var char:Character = isLeftMode ? dad : boyfriend;
+			if (daNote.gfNote)
+				char = gf;
 
-		if (char != null && !daNote.noMissAnimation && char.hasMissAnimations)
-		{
-			var animToPlay:String = singAnimations[Std.int(Math.abs(daNote.noteData))] + 'miss' + daNote.animSuffix;
-			char.playAnim(animToPlay, true);
+			if (char != null && !daNote.noMissAnimation && char.hasMissAnimations)
+				char.playAnim(animToPlay, true);
 		}
 
 		if (daNote.missPenalty) {
@@ -4380,11 +4424,21 @@ class PlayState extends MusicBeatState
 		if (Paths.formatToSongPath(SONG.song) != 'tutorial')
 			camZooming = true;
 
-		if (note.noteType == 'Hey!' && dad.animOffsets.exists('hey'))
+		if (note.noteType == 'Hey!')
 		{
-			dad.playAnim('hey', true);
-			dad.specialAnim = true;
-			dad.heyTimer = 0.6;
+			if (note.characterController != null) {
+				for (control in modchartCharacterControllers) {
+					if (control.name.toLowerCase().trim() == note.characterController.toLowerCase().trim()) {
+						control.playAnim('hey', true);
+						control.specialAnim = true;
+					}
+				}
+			}
+			else if (dad.animOffsets.exists('hey')) {
+				dad.playAnim('hey', true);
+				dad.specialAnim = true;
+				dad.heyTimer = 0.6;
+			}
 		}
 		else if (!note.noAnimation)
 		{
@@ -4400,15 +4454,24 @@ class PlayState extends MusicBeatState
 
 			var char:Character = isLeftMode ? boyfriend : dad;
 			var animToPlay:String = singAnimations[Std.int(Math.abs(note.noteData))] + altAnim;
-			if (note.gfNote)
-			{
-				char = gf;
-			}
 
-			if (char != null)
-			{
-				char.playAnim(animToPlay, true);
-				char.holdTimer = 0;
+			if (note.characterController != null) {
+				for (control in modchartCharacterControllers) {
+					if (control.name.toLowerCase().trim() == note.characterController.toLowerCase().trim()) {
+						control.playAnim(animToPlay, true);
+						control.holdTimer = 0;
+					}
+				}
+			}
+			else {
+				if (note.gfNote)
+					char = gf;
+
+				if (char != null)
+				{
+					char.playAnim(animToPlay, true);
+					char.holdTimer = 0;
+				}
 			}
 		}
 
@@ -4517,6 +4580,7 @@ class PlayState extends MusicBeatState
 		if (!PauseSubState.parentalControls_vals[0])
 			return;
 
+		resetLastPlayer();
 		if (!note.wasGoodHit)
 		{
 			if (cpuControlled && (note.ignoreNote || note.hitCausesMiss))
@@ -4540,10 +4604,22 @@ class PlayState extends MusicBeatState
 					switch (note.noteType)
 					{
 						case 'Hurt Note': // Hurt note
-							if ((isLeftMode ? dad : boyfriend).animation.getByName('hurt') != null)
-							{
-								(isLeftMode ? dad : boyfriend).playAnim('hurt', true);
-								(isLeftMode ? dad : boyfriend).specialAnim = true;
+							if (note.characterController != null) {
+								for (control in modchartCharacterControllers) {
+									if (control.name.toLowerCase().trim() == note.characterController.toLowerCase().trim()
+										&& control.sprite.animation.getByName('hurt') != null) {
+										control.playAnim('hurt', true);
+										control.specialAnim = true;
+										control.lastPlayerHit = true;
+									}
+								}
+							}
+							else {
+								if ((isLeftMode ? dad : boyfriend).animation.getByName('hurt') != null)
+								{
+									(isLeftMode ? dad : boyfriend).playAnim('hurt', true);
+									(isLeftMode ? dad : boyfriend).specialAnim = true;
+								}
 							}
 					}
 				}
@@ -4571,30 +4647,52 @@ class PlayState extends MusicBeatState
 			{
 				var animToPlay:String = singAnimations[Std.int(Math.abs(note.noteData))];
 
-				if (note.gfNote)
-				{
-					if (gf != null)
-					{
-						gf.playAnim(animToPlay + note.animSuffix, true);
-						gf.holdTimer = 0;
+				if (note.characterController != null) {
+					for (control in modchartCharacterControllers) {
+						if (control.name.toLowerCase().trim() == note.characterController.toLowerCase().trim()) {
+							control.playAnim(animToPlay + note.animSuffix, true);
+							control.holdTimer = 0;
+							control.lastPlayerHit = true;
+						}
 					}
 				}
-				else
-				{
-					(isLeftMode ? dad : boyfriend).playAnim(animToPlay + note.animSuffix, true);
-					(isLeftMode ? dad : boyfriend).holdTimer = 0;
+				else {
+					if (note.gfNote)
+					{
+						if (gf != null)
+						{
+							gf.playAnim(animToPlay + note.animSuffix, true);
+							gf.holdTimer = 0;
+						}
+					}
+					else
+					{
+						(isLeftMode ? dad : boyfriend).playAnim(animToPlay + note.animSuffix, true);
+						(isLeftMode ? dad : boyfriend).holdTimer = 0;
+					}
 				}
 
 				if (note.noteType == 'Hey!')
 				{
-					if ((isLeftMode ? dad : boyfriend).animOffsets.exists('hey'))
-					{
-						(isLeftMode ? dad : boyfriend).playAnim('hey', true);
-						(isLeftMode ? dad : boyfriend).specialAnim = true;
-						(isLeftMode ? dad : boyfriend).heyTimer = 0.6;
+					if (note.characterController != null) {
+						for (control in modchartCharacterControllers) {
+							if (control.name.toLowerCase().trim() == note.characterController.toLowerCase().trim()
+								&& control.sprite.animOffsets.exists('hey')) {
+								control.playAnim('hey', true);
+								control.specialAnim = true;
+							}
+						}
+					}
+					else {
+						if ((isLeftMode ? dad : boyfriend).animOffsets.exists('hey'))
+						{
+							(isLeftMode ? dad : boyfriend).playAnim('hey', true);
+							(isLeftMode ? dad : boyfriend).specialAnim = true;
+							(isLeftMode ? dad : boyfriend).heyTimer = 0.6;
+						}
 					}
 
-					if (gf != null && gf.animOffsets.exists('cheer'))
+					if (!isLeftMode && gf != null && gf.animOffsets.exists('cheer'))
 					{
 						gf.playAnim('cheer', true);
 						gf.specialAnim = true;
@@ -4806,6 +4904,17 @@ class PlayState extends MusicBeatState
 		{
 			dad.dance();
 		}
+
+		for (control in modchartCharacterControllers) {
+			if (curBeat % control.danceNumBeats == 0
+				&& control.sprite.animation.curAnim != null
+				&& !control.sprite.animation.curAnim.name.startsWith('sing')
+				&& !control.stunned)
+			{
+				control.dance();
+			}
+		}
+
 		lastBeatHit = curBeat;
 
 		setOnLuas('curBeat', curBeat); // DAWGG?????

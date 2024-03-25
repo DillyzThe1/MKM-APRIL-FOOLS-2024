@@ -475,7 +475,7 @@ class MainMenuState extends MusicBeatState
 
 	// mario teaches typing
 	var typingGoals:Array<String> = ['fred', 'uncle fred', 'impostor top 10', 'wrong house', 'crossover', 'fnf vs uncle fred full week mod', 'top 10', 'karrd kollision',
-									'leak', 'vs uncle fred', 'secret', 'hello chat', 'source code', 'github', 'yeah'];
+									'leak', 'vs uncle fred', 'secret', 'hello chat', 'source code', 'github', 'yeah', #if debug 'bug blaster', 'theory' #end];
 	var typingBuffer:String = '';
 	var keyBlacklist:Array<String> = ['left', 'down', 'up', 'right'];
 	var numberNames:Array<String> = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
@@ -565,6 +565,14 @@ class MainMenuState extends MusicBeatState
 							FlxG.resetState();
 							break;
 						}
+					#if debug
+					case 'bug blaster' | 'theory':
+						if (!CoolUtil.loadFreeplaySong("", "Bug Blaster")) {
+							trace("WARNING! Cannot load Bug Blaster!");
+							FlxG.resetState();
+							break;
+						}
+					#end
 					default:
 						trace("WARNING! Key " + goal + " is missing a reward!");
 						typingDisplay.text = typingBuffer = '';
