@@ -67,8 +67,14 @@
 			"parent": "images/bgs/bupground/",
 			"zstd": false,
 			"key": "",
-			"add": [ "bg_bupground" ],
-			"remove": [ "bg_bupground_remove" ]
+			"add": [ 
+				"bg_bupground",
+				"bg_bupground-minimal"
+			],
+			"remove": [
+				"bg_bupground_remove",
+				"bg_bupground-minimal_remove"
+			]
 		},
 		{
 			"data": "bgBupground-alpha.mhat",
