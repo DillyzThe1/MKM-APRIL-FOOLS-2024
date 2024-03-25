@@ -60,6 +60,7 @@ import openfl.filters.BitmapFilter;
 import openfl.filters.BitmapFilter;
 import openfl.filters.BlurFilter;
 import openfl.filters.ShaderFilter;
+import openfl.utils.AssetType;
 import openfl.utils.Assets as OpenFlAssets;
 import shaders.Grain;
 import shaders.Hq2x;
@@ -235,6 +236,7 @@ class PlayState extends MusicBeatState
 
 	public var vocals:FlxSound;
 
+	public var songExtra:FlxSound;
 	public var vocalsLeft:FlxSound;
 	public var vocalsRight:FlxSound;
 
@@ -1700,6 +1702,7 @@ class PlayState extends MusicBeatState
 		}
 		else
 			vocals.pause();
+		songExtra.pause();
 
 
 		FlxG.sound.music.time = time;
@@ -1719,6 +1722,8 @@ class PlayState extends MusicBeatState
 		}
 		else
 			vocals.play();
+		songExtra.time = time;
+		songExtra.play();
 		Conductor.songPosition = time;
 		songTime = time;
 	}
@@ -1745,7 +1750,10 @@ class PlayState extends MusicBeatState
 		previousFrameTime = FlxG.game.ticks;
 		lastReportedPlayheadPosition = 0;
 
-		FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song, PlayState.SONG.audioPostfix), 1, false);
+		//FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song, PlayState.SONG.audioPostfix), 1, false);
+		
+		FlxG.sound.music.play(true, 0);
+		FlxG.sound.music.volume = 1;
 		FlxG.sound.music.onComplete = onSongComplete;
 		if (splitVocals)
 		{
@@ -1754,6 +1762,7 @@ class PlayState extends MusicBeatState
 		}
 		else
 			vocals.play();
+		songExtra.play();
 
 		if (startOnTime > 0)
 		{
@@ -1772,7 +1781,9 @@ class PlayState extends MusicBeatState
 			}
 			else
 				vocals.pause();
+			songExtra.pause();
 		}
+		songExtra.volume = 1;
 
 		// Song duration in a float, useful for the time left feature
 		songDisplayLength = songLength = FlxG.sound.music.length;
@@ -1840,7 +1851,12 @@ class PlayState extends MusicBeatState
 		}
 		else
 			FlxG.sound.list.add(vocals);
-		FlxG.sound.list.add(new FlxSound().loadEmbedded(Paths.inst(PlayState.SONG.song, PlayState.SONG.audioPostfix)));
+
+		if (Paths.fileExists('songs/${Paths.formatToSongPath(PlayState.SONG.song)}/Extra${PlayState.SONG.audioPostfix}.ogg', AssetType.SOUND))
+			songExtra = new FlxSound().loadEmbedded(Paths.songExtra(PlayState.SONG.song, PlayState.SONG.audioPostfix));
+		else
+			songExtra = new FlxSound();
+		FlxG.sound.music.loadEmbedded(Paths.inst(PlayState.SONG.song, PlayState.SONG.audioPostfix));
 
 		notes = new FlxTypedGroup<Note>();
 		add(notes);
@@ -2112,6 +2128,7 @@ class PlayState extends MusicBeatState
 				}
 				else
 					vocals.pause();
+				songExtra.pause();
 			}
 
 			if (startTimer != null && !startTimer.finished)
@@ -2260,6 +2277,9 @@ class PlayState extends MusicBeatState
 			}
 			vocals.play();
 		}
+		if (Conductor.songPosition <= songExtra.length)
+			songExtra.time = Conductor.songPosition;
+		songExtra.play();
 	}
 
 	public var paused:Bool = false;
@@ -2714,6 +2734,7 @@ class PlayState extends MusicBeatState
 			}
 			else
 				vocals.pause();
+			songExtra.pause();
 		}
 		openSubState(new PauseSubState((isLeftMode ? dad : boyfriend).getScreenPosition().x, (isLeftMode ? dad : boyfriend).getScreenPosition().y));
 		// }
@@ -2808,6 +2829,7 @@ class PlayState extends MusicBeatState
 				else
 					vocals.stop();
 				FlxG.sound.music.stop();
+				songExtra.stop();
 
 				persistentUpdate = false;
 				persistentDraw = false;
@@ -3250,6 +3272,8 @@ class PlayState extends MusicBeatState
 			vocals.volume = 0;
 			vocals.pause();
 		}
+		songExtra.volume = 0;
+		songExtra.pause();
 		
 		if (ClientPrefs.noteOffset <= 0 || ignoreNoteOffset)
 		{

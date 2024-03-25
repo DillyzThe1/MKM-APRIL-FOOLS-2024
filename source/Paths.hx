@@ -242,6 +242,13 @@ class Paths
 		return inst;
 	}
 
+	inline static public function songExtra(song:String, ?postfix:String = ""):Any
+	{
+		var songKey:String = '${formatToSongPath(song)}/Extra' + postfix;
+		var extra = returnSound('songs', songKey);
+		return extra;
+	}
+
 	inline static public function image(key:String, ?library:String):FlxGraphic
 	{
 		// streamlined the assets process more
