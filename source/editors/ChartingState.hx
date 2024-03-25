@@ -1541,7 +1541,7 @@ class ChartingState extends MusicBeatState
 				songExtra.volume = check_mute_vocals.checked ? 0 : 1;
 		};
 
-		playSoundBf = new FlxUICheckBox(check_mute_inst.x, check_mute_vocals.y + 30, null, null, 'Play Sound (Boyfriend notes)', 100, function()
+		playSoundBf = new FlxUICheckBox(check_mute_inst.x, check_mute_vocals.y + 30, null, null, 'Play Sound (Who\'s notes?)', 100, function()
 		{
 			FlxG.save.data.chart_playSoundBf = playSoundBf.checked;
 		});
@@ -1578,7 +1578,7 @@ class ChartingState extends MusicBeatState
 			FlxG.save.data.chart_noAutoScroll = false;
 		disableAutoScrolling.checked = FlxG.save.data.chart_noAutoScroll;
 
-		instVolume = new FlxUINumericStepper(metronomeStepper.x, 220, 0.1, 1, 0, 1, 1);
+		instVolume = new FlxUINumericStepper(metronomeStepper.x, 230, 0.1, 1, 0, 1, 1);
 		instVolume.value = FlxG.sound.music.volume;
 		instVolume.name = 'inst_volume';
 		blockPressWhileTypingOnStepper.push(instVolume);
