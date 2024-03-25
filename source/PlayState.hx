@@ -3507,12 +3507,7 @@ class PlayState extends MusicBeatState
 		// trace(noteDiff, ' ' + Math.abs(note.strumTime - Conductor.songPosition));
 
 		// boyfriend.playAnim('hey');
-		if (splitVocals)
-		{
-			vocalsRight.volume = 1;
-		}
-		else
-			vocals.volume = 1;
+		(splitVocals ? (isLeftMode ? vocalsLeft : vocalsRight) : vocals).volume = 1;
 
 		var placement:String = Std.string(combo);
 
@@ -4265,12 +4260,7 @@ class PlayState extends MusicBeatState
 			songMisses++;
 			if (PauseSubState.parentalControls_vals[6])
 			{
-				if (splitVocals)
-				{
-					vocalsRight.volume = 0;
-				}
-				else
-					vocals.volume = 0;
+				(splitVocals ? (isLeftMode ? vocalsLeft : vocalsRight) : vocals).volume = 0;
 			}
 			if (!practiceMode)
 				songScore -= 10;
@@ -4355,12 +4345,7 @@ class PlayState extends MusicBeatState
 			}
 			if (PauseSubState.parentalControls_vals[6])
 			{
-				if (splitVocals)
-				{
-					vocalsRight.volume = 0;
-				}
-				else
-					vocals.volume = 0;
+				(splitVocals ? (isLeftMode ? vocalsLeft : vocalsRight) : vocals).volume = 0;
 			}
 		}
 		callOnLuas('noteMissPress', [direction]);
@@ -4405,12 +4390,7 @@ class PlayState extends MusicBeatState
 
 		if (SONG.needsVoices)
 		{
-			if (splitVocals)
-			{
-				vocalsLeft.volume = 1;
-			}
-			else
-				vocals.volume = 1;
+			(splitVocals ? (!isLeftMode ? vocalsLeft : vocalsRight) : vocals).volume = 1;
 		}
 
 		var time:Float = 0.15;
@@ -4619,12 +4599,7 @@ class PlayState extends MusicBeatState
 				});
 			}
 			note.wasGoodHit = true;
-			if (splitVocals)
-			{
-				vocalsRight.volume = 1;
-			}
-			else
-				vocals.volume = 1;
+			(splitVocals ? (!isLeftMode ? vocalsLeft : vocalsRight) : vocals).volume = 1;
 
 			var isSus:Bool = note.isSustainNote; // GET OUT OF MY HEAD, GET OUT OF MY HEAD, GET OUT OF MY HEAD
 			var leData:Int = Math.round(Math.abs(note.noteData));
