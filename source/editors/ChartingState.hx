@@ -3275,6 +3275,8 @@ class ChartingState extends MusicBeatState
 	// will not reload next renders, use updateGrid() to fully reset instead
 	function lazyUpdateGrid(?beatt:Int = -1, ?hPlace:Int = -2)
 	{
+		beatt = -1;
+		hPlace = -2;
 		if (beatt == -1 && hPlace == -2)
 		{
 			updateGrid(false);
