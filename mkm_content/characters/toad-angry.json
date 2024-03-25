@@ -5,59 +5,103 @@
 				0,
 				0
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "idle",
-			"loop": false,
+			"indices": [],
 			"name": "Toad Idle"
 		},
 		{
 			"offsets": [
-				49,
-				12
+				48,
+				11
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singLEFT",
-			"loop": false,
+			"indices": [],
 			"name": "Toad Sing Left"
 		},
 		{
 			"offsets": [
-				90,
-				-23
+				91,
+				-22
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singRIGHT",
-			"loop": false,
+			"indices": [],
 			"name": "Toad Sing Right"
 		},
 		{
 			"offsets": [
-				0,
+				27,
+				27
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Toad Sing Up"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-1,
 				-19
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singDOWN",
-			"loop": false,
-			"name": "Toad Down"
+			"fps": 24,
+			"name": "Toad Sing Down",
+			"indices": []
 		},
 		{
 			"offsets": [
-				27,
-				28
+				0,
+				31
 			],
 			"indices": [],
 			"fps": 24,
-			"anim": "singUP",
+			"anim": "singDOWNmiss",
 			"loop": false,
-			"name": "Toad Sing Up"
+			"name": "Toad Miss Down"
+		},
+		{
+			"offsets": [
+				51,
+				30
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFTmiss",
+			"loop": false,
+			"name": "Toad Miss Left"
+		},
+		{
+			"offsets": [
+				100,
+				16
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHTmiss",
+			"loop": false,
+			"name": "Toad Miss Right"
+		},
+		{
+			"offsets": [
+				30,
+				59
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUPmiss",
+			"loop": false,
+			"name": "Toad Miss Up"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/toadvssquare-WIP",
+	"image": "characters/toadinsquarevstoad",
 	"position": [
 		30,
 		180

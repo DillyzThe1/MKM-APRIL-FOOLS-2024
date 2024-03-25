@@ -1,0 +1,79 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "Square Idle Dance"
+		},
+		{
+			"offsets": [
+				-1,
+				-58
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Square Sing Left"
+		},
+		{
+			"offsets": [
+				-130,
+				7
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Square Sing Right"
+		},
+		{
+			"offsets": [
+				-50,
+				-80
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Square Sing Down"
+		},
+		{
+			"offsets": [
+				-63,
+				-2
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Square Sing Up"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/squrevtoadsquareee",
+	"position": [
+		30,
+		320
+	],
+	"sing_param": "square",
+	"healthicon": "square",
+	"flip_x": true,
+	"healthbar_colors": [
+		39,
+		28,
+		65
+	],
+	"camera_position": [
+		20,
+		0
+	],
+	"sing_duration": 4,
+	"scale": 1
+}
