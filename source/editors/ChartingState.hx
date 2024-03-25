@@ -3149,11 +3149,11 @@ class ChartingState extends MusicBeatState
 						vocals.pause();
 						vocals.time = FlxG.sound.music.time;
 					}
-					if (songExtra != null)
-					{
-						songExtra.pause();
-						songExtra.time = FlxG.sound.music.time;
-					}
+				}
+				if (songExtra != null)
+				{
+					songExtra.pause();
+					songExtra.time = FlxG.sound.music.time;
 				}
 				updateCurStep();
 			}
