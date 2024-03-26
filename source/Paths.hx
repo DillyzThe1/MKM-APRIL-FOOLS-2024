@@ -349,13 +349,11 @@ class Paths
 	}
 
 	public static function graphicFromLoosePath(pathhhhh:String, ?library:String) {
-		var mhatKey:String = "mhat:" + pathhhhh;
-		if (currentTrackedAssets.exists(mhatKey))
-			return currentTrackedAssets.get(mhatKey);
-
 		var mhatBytes:Bytes = Mhat.getFile(pathhhhh);
 		if (mhatBytes != null && mhatBytes.length != 0) {
 			//trace('MHAT bytes detected!');
+			var mhatKey:String = "mhat:" + pathhhhh;
+
 			if (!currentTrackedAssets.exists(mhatKey))
 			{
 				var newGraphic:FlxGraphic = FlxGraphic.fromBitmapData(BitmapData.fromBytes(mhatBytes), false, mhatKey);
@@ -401,12 +399,9 @@ class Paths
 
 	public static function returnSound(path:String, key:String, ?library:String)
 	{
-		var mhatKey:String = 'mhat:$path/$key.ogg';
-		if (currentTrackedSounds.exists(mhatKey))
-			return currentTrackedSounds.get(mhatKey);
-		
 		var mhatBytes:Bytes = Mhat.getFile('$path/$key.ogg');
 		if (mhatBytes != null && mhatBytes.length != 0) {
+			var mhatKey:String = 'mhat:$path/$key.ogg';
 			if (!currentTrackedSounds.exists(mhatKey))
 				currentTrackedSounds.set(mhatKey, Sound.fromAudioBuffer(AudioBuffer.fromBytes(mhatBytes)));
 			localTrackedAssets.push(key);

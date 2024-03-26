@@ -2,12 +2,6 @@
 import cpp.UInt16;
 import haxe.Json;
 import haxe.io.Bytes;
-import haxe.io.BytesData;
-import lime.system.Endian;
-import openfl.filesystem.File as OpenFLFile;
-import openfl.filesystem.FileMode;
-import openfl.filesystem.FileStream;
-import openfl.utils.ByteArray;
 import sys.FileSystem;
 import sys.io.File;
 
@@ -16,14 +10,12 @@ using StringTools;
 class MhatData {
     public var fileName:String;
     public var hostPath:String;
-    //public var data:Bytes;
-    public var stream:FileStream;
-    public var version:UInt16;
-    public var heapSize:UInt;
+    public var data:Bytes;
+    public var version:Int;
+    public var heapSize:Int;
     public var indexCache:Array<String>;
     public var count(get, never):Int;
     public var mounted(get, set):Bool;
-    private var __mounted:Bool = false;
     public var add:Array<String>;
     public var remove:Array<String>;
 
@@ -32,19 +24,15 @@ class MhatData {
     var key:String;
 
     // Read "Null Terminated String"
-    public function readNTS(pos:UInt):String {
-        if (pos < 0 || pos >= heapSize) {
-            trace('MHAT ERROR: Null-Terminated String call in $fileName caused an overflow!');
+    public function readNTS(pos:Int):String {
+        if (pos < 0 || pos >= data.length)
             return "";
-        }
         var builtString:String = "";
 
-        for (i in 0...(heapSize - pos)) {
-            stream.position = pos + i;
-            if (stream.readUnsignedByte() == 0x00)
+        for (i in 0...(data.length - pos)) {
+            if (data.get(pos + i) == 0x00)
                 return builtString;
-            stream.position--;
-            builtString += stream.readUTFBytes(1);
+            builtString += data.getString(pos + i, 1);
         }
         return builtString;
     }
@@ -57,41 +45,31 @@ class MhatData {
         this.key = key;
         this.zstd = zstd;
 
-        trace("MHAT CONSTRUCTOR: " + hostPath + " | " + Main.hostFolder + "/mounted/" + fileName);
-        var epicFile:OpenFLFile = new OpenFLFile(Main.hostFolder + '/mounted/' + fileName);
-        if (epicFile == null || !epicFile.exists)
+        this.data = getFileBytes();
+
+        if (this.data == null)
             return;
 
-        this.stream = new FileStream();
-        stream.open(epicFile, FileMode.READ);
-        heapSize = stream.bytesAvailable;
-        __mounted = true;
-
-        // get header data
-        stream.endian = Endian.LITTLE_ENDIAN;
-        stream.position = 0x06;
-        version = stream.readUnsignedShort();
-        fileCount = stream.readUnsignedShort();
-        trace('MHAT MANAGER: $fileName has $fileCount files on verison $version.');
-
         // debug the file
-        stream.position = 0x20;
+        var pos:Int = 0x20;
         indexCache = new Array<String>();
 
         for (i in 0...fileCount) {
-            //var aaaa:String = StringTools.hex(stream.position);
-            var awesomeFileName:String = readNTS(stream.position);
-            //pos += awesomeFileName.length + 1;
-            var awesomeFileSize:UInt = stream.readUnsignedInt();
-
-            //trace('MHAT ($fileName): $awesomeFileName @ ' + aaaa + ' ($awesomeFileSize @ ${StringTools.hex(stream.position)})');
+            var awesomeFileName:String = readNTS(pos);
+            pos += awesomeFileName.length + 1;
+            var awesomeFileSize:Int = data.getInt32(pos);
+            pos += 4;
+            //trace('MHAT MANAGER: $fileName has a file called "${awesomeFileName}" with the heap size of ${awesomeFileSize}.');
+    
+            //File.saveBytes('debug/$fileName/$awesomeFileName.png', data.sub(pos, awesomeFileSize));
             indexCache.push(awesomeFileName);
-            stream.position += awesomeFileSize;
+            pos += awesomeFileSize;
         }
         //
 
-        stream.close();
-        __mounted = false;
+        for (i in 0...data.length)
+            data.getData().pop();
+        data = null;
 
         trace('MHAT MANAGER: $fileName\'s constructor is done.');
     }
@@ -101,7 +79,48 @@ class MhatData {
     }
 
     function get_mounted():Bool {
-        return __mounted;
+        return data != null && data.length > 0;
+    }
+
+    function getFileBytes():Bytes {
+        var filePath:String = 'mounted/' + fileName;
+        if (!FileSystem.exists(filePath)) {
+            trace('Content $filePath doesn\'t exist!');
+            return null;
+        }
+
+        var data_local:Bytes = File.getBytes(filePath);
+
+        if (zstd) {
+            trace('We don\'t know how to deal with zstandard compression yet!');
+            for (i in 0...data_local.length)
+                data_local.getData().pop();
+            return null;
+        }
+
+        if (key != null && key != "") {
+            trace('We don\'t know how to decrypt $fileName with key $key!');
+            for (i in 0...data_local.length)
+                data_local.getData().pop();
+            return null;
+        }
+
+        heapSize = data_local.length;
+
+        // real reading
+        var magic:String = data_local.getString(0, 4);
+        if (magic != "MHAT") {
+            trace('$fileName has the wrong magic! (Expected MHAT, got $magic)');
+            for (i in 0...data_local.length)
+                data_local.getData().pop();
+            return null;
+        }
+
+        var version:UInt16 = data_local.getUInt16(6);
+        fileCount = data_local.getUInt16(8);
+        trace('MHAT $fileName loaded on v$version with $fileCount files.');
+
+        return data_local;
     }
 
     function set_mounted(value:Bool):Bool {
@@ -111,33 +130,16 @@ class MhatData {
         }
         if (mounted) {
             trace('MHAT MANAGER: Unmounting $fileName.');
-            stream.close();
-            __mounted = false;
-            return false;
-        }
-        var epicFile:OpenFLFile = new OpenFLFile(Main.hostFolder + '/mounted/' + fileName);
-        if (epicFile == null || !epicFile.exists) {
-            trace('MHAT MANAGER: Failed to mount $fileName!');
-            __mounted = false;
+            for (i in 0...data.length)
+                data.getData().pop();
+            data = null;
             return false;
         }
         trace('MHAT MANAGER: Mounting $fileName.');
-        stream.openAsync(epicFile, FileMode.READ);
-        __mounted = true;
+        data = getFileBytes();
+        if (data == null)
+            return false;
         return true;
-    }
-
-    public function getBytes(pos:UInt, length:UInt):Bytes {
-        if (pos < 0 || pos + length > heapSize) {
-            trace('MHAT MANAGER: $fileName getBytes() call goes OVER the file\'s size!\n(${pos + length} > ${heapSize})');
-            return null;
-        }
-        var bestOutput:Bytes = Bytes.alloc(length);
-        for (i in 0...length) {
-            stream.position = pos + i;
-            bestOutput.set(i, stream.readUnsignedByte());
-        }
-        return bestOutput;
     }
 }
 
@@ -168,16 +170,6 @@ class Mhat {
             trace('MHAT MANAGER: File ${i.data} detected.');
             mhats.push(new MhatData(i.data, i.parent, i.zstd, i.add, i.remove, i.key));
         }
-
-        /*#if debug
-        for (i in mhats)
-            i.mounted = true;
-
-        getFile("images/NOTE_assets.png", true);
-
-        for (i in mhats)
-            i.mounted = false;
-        #end*/
     }
 
     public static function call(key:String) {
@@ -193,29 +185,20 @@ class Mhat {
         }
     }
 
-    public static function getFile(path:String, ?verboseLogs:Bool = false):Bytes {
-        if (verboseLogs)
-            trace('MHAT MANAGER: getFile() with verboseLogs called!');
+    public static function getFile(path:String):Bytes {
         for (mhat in mhats) {
             if (!mhat.mounted)
                 continue;
 
-            mhat.stream.position = 0x20;
-            mhat.stream.endian = Endian.LITTLE_ENDIAN;
-            if (verboseLogs)
-                trace('MHAT (${mhat.fileName}): file count ${mhat.fileCount}');
+            var pos:Int = 0x20;
             for (i in 0...mhat.fileCount) {
-                var aaaa:String = StringTools.hex(mhat.stream.position);
-
-                var awesomeFileName:String = mhat.readNTS(mhat.stream.position);
-                //pos += awesomeFileName.length + 1;
-                var awesomeFileSize:UInt = mhat.stream.readUnsignedInt();
-                
+                var awesomeFileName:String = mhat.readNTS(pos);
+                pos += awesomeFileName.length + 1;
+                var awesomeFileSize:Int = mhat.data.getInt32(pos);
+                pos += 4;
                 if (mhat.hostPath + awesomeFileName == path)
-                    return mhat.getBytes(mhat.stream.position, awesomeFileSize);
-                if (verboseLogs)
-                    trace('MHAT (${mhat.fileName}): $awesomeFileName @ ' + aaaa + ' ($awesomeFileSize @ ${StringTools.hex(mhat.stream.position)})');
-                mhat.stream.position += awesomeFileSize;
+                    return mhat.data.sub(pos, awesomeFileSize);
+                pos += awesomeFileSize;
             }
         }
         return null;
