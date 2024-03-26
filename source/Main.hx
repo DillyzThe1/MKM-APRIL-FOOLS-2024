@@ -33,6 +33,7 @@ class Main extends Sprite
 	var framerate:Int = 60; // How many frames per second the game should run at.
 	var skipSplash:Bool = true; // Whether to skip the flixel splash screen that appears in release mode.
 	var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets
+	public static var hostFolder:String;
 
 	public static var fpsVar:FPS;
 
@@ -46,6 +47,8 @@ class Main extends Sprite
 	public function new()
 	{
 		super();
+
+		hostFolder = Sys.programPath().substr(0, Sys.programPath().lastIndexOf("\\"));
 
 		if (stage != null)
 		{
