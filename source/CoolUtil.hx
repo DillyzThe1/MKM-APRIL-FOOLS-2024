@@ -9,6 +9,7 @@ import lime.utils.AssetManifest;
 import lime.utils.Assets as LimeAssets;
 import openfl.utils.AssetType;
 import openfl.utils.Assets;
+import options.MKMExtraSettingsSubState;
 import sys.FileSystem;
 import sys.io.File;
 
@@ -284,24 +285,21 @@ class CoolUtil
 		var babyMode:Bool = FlxG.save.data.babymode;
 
 		if (peaceRestored()) {
-			trace('mkm if it used massive x');
-			FlxG.sound.playMusic(Paths.music('feels-at-home', 'preload'), volume, looped);
-			Conductor.changeBPM(105);
-			FlxG.sound.music.loopTime = 27420;
-			return;
+			if (ClientPrefs.menuBgmType == "Feels at Home")
+				trace('mkm if it used massive x');
+			menuThemeName = ClientPrefs.menuBgmType;
 		}
-		
-		if (squareWarning()) {
-			menuThemeName = babyMode ? 'playtime-bup-ahead' : 'danger-bup-ahead';
-			Conductor.changeBPM(140);
-		}
-		else {
-			menuThemeName = babyMode ? 'babyMenu' : 'toadMenu';
-			Conductor.changeBPM(babyMode ? 82 : 102);
-		}
+		else if (squareWarning())
+			menuThemeName = babyMode ? 'Playtime Bup Ahead!' : 'Danger Bup Ahead!';
+		else
+			menuThemeName = babyMode ? "Baby Menu Theme (Forgotten)" : "MKM Menu Theme (Forgotten)";
 
+		var songInfo:MenuSongInfo = MKMExtraSettingsSubState.menuThemes.get(MKMExtraSettingsSubState.menuThemes.exists(menuThemeName) ? menuThemeName : "MKM Menu Theme (Forgotten)");
+
+		FlxG.sound.playMusic(Paths.music(songInfo.file, 'preload'), volume, looped);
+		Conductor.changeBPM(songInfo.bpm);
+		FlxG.sound.music.loopTime = songInfo.loopTime;
 		trace('ok we gotta play the $menuThemeName at ${Conductor.bpm} BPM');
-		FlxG.sound.playMusic(Paths.music(menuThemeName, 'preload'), volume, looped);
 	}
 
 	public static function weekIsLocked(name:String):Bool

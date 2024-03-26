@@ -96,6 +96,9 @@ class BaseOptionsMenu extends MusicBeatSubstate
 			optionText.targetY = i;
 			grpOptions.add(optionText);
 
+			if (!optionsArray[i].canChange)
+				optionText.alpha = 0.4;
+
 			if (optionsArray[i].type == 'bool')
 			{
 				var checkbox:CheckboxThingie = new CheckboxThingie(optionText.x - 105, optionText.y, optionsArray[i].getValue() == true);
@@ -107,10 +110,12 @@ class BaseOptionsMenu extends MusicBeatSubstate
 			{
 				optionText.x -= 80;
 				optionText.xAdd -= 80;
-				var valueText:AttachedText = new AttachedText('' + optionsArray[i].getValue(), optionText.width + 80);
+				var valueText:AttachedText = new AttachedText(optionsArray[i].canChange ? ('' + optionsArray[i].getValue()) : 'LOCKED', optionText.width + 80);
 				valueText.sprTracker = optionText;
 				valueText.copyAlpha = true;
 				valueText.ID = i;
+				if (!optionsArray[i].canChange)
+					valueText.alpha = 0.4;
 				grpTexts.add(valueText);
 				optionsArray[i].setChild(valueText);
 			}
@@ -154,7 +159,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 		}
 
-		if (nextAccept <= 0)
+		if (nextAccept <= 0 && curOption.canChange)
 		{
 			var usesCheckbox = true;
 			if (curOption.type != 'bool')

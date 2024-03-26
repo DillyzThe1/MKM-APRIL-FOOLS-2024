@@ -33,7 +33,8 @@ class OptionsState extends MusicBeatState
 		'Adjust Delay and Combo',
 		'Graphics',
 		'Visuals and UI',
-		'Gameplay'
+		'Gameplay',
+		'MKM Extras'
 	];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 
@@ -56,6 +57,8 @@ class OptionsState extends MusicBeatState
 				openSubState(new options.GameplaySettingsSubState());
 			case 'Adjust Delay and Combo':
 				LoadingState.loadAndSwitchState(new options.NoteOffsetState());
+			case 'MKM Extras':
+				openSubState(new options.MKMExtraSettingsSubState());
 		}
 	}
 
