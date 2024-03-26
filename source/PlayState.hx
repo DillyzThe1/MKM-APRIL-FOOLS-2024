@@ -4759,24 +4759,16 @@ class PlayState extends MusicBeatState
 		{
 			if (Math.abs(FlxG.sound.music.time - (Conductor.songPosition - Conductor.offset)) > 20
 				|| (SONG.needsVoices && Math.abs(vocalsLeft.time - (Conductor.songPosition - Conductor.offset)) > 20))
-			{
-				trace('RESYNCING BECAUSE THE VOCALS ARE OUT OF SYNC');
 				resyncVocals();
-			}
 		}
 		else
 		{
 			if (Math.abs(FlxG.sound.music.time - (Conductor.songPosition - Conductor.offset)) > 20
 				|| (SONG.needsVoices && Math.abs(vocals.time - (Conductor.songPosition - Conductor.offset)) > 20))
-			{
-				trace('RESYNCING BECAUSE THE VOCAL TRACK IS OUT OF SYNC');
 				resyncVocals();
-			}
 		}
-		if (hasExtra && Math.abs(songExtra.time - (Conductor.songPosition - Conductor.offset)) > 20) {
-			trace('RESYNCING BECAUSE SONGEXTRA IS OUT OF SYNC');
+		if (hasExtra && Math.abs(songExtra.time - (Conductor.songPosition - Conductor.offset)) > 20)
 			resyncVocals();
-		}
 
 		if (curStep == lastStepHit)
 		{
