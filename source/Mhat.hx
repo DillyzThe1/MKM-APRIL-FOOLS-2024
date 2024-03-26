@@ -13,6 +13,13 @@ import sys.io.File;
 
 using StringTools;
 
+typedef CachedIndex = {
+    var fullPath:String;
+    var path:String;
+    var pos:UInt;
+    var heap:UInt;
+}
+
 class MhatData {
     public var fileName:String;
     public var hostPath:String;
@@ -26,6 +33,8 @@ class MhatData {
     private var __mounted:Bool = false;
     public var add:Array<String>;
     public var remove:Array<String>;
+
+    public var indexCache_mapped:Map<String, CachedIndex> = [];
 
     public var fileCount:UInt16 = 0;
     var zstd:Bool;
@@ -84,8 +93,10 @@ class MhatData {
             //pos += awesomeFileName.length + 1;
             var awesomeFileSize:UInt = stream.readUnsignedInt();
 
+
             //trace('MHAT ($fileName): $awesomeFileName @ ' + aaaa + ' ($awesomeFileSize @ ${StringTools.hex(stream.position)})');
             indexCache.push(awesomeFileName);
+            indexCache_mapped[hostPath + awesomeFileName] = {fullPath: hostPath + awesomeFileName, path: awesomeFileName, pos: stream.position, heap: awesomeFileSize};
             stream.position += awesomeFileSize;
         }
         //
@@ -122,7 +133,7 @@ class MhatData {
             return false;
         }
         trace('MHAT MANAGER: Mounting $fileName.');
-        stream.openAsync(epicFile, FileMode.READ);
+        stream.open(epicFile, FileMode.READ);
         __mounted = true;
         return true;
     }
@@ -132,6 +143,7 @@ class MhatData {
             trace('MHAT MANAGER: $fileName getBytes() call goes OVER the file\'s size!\n(${pos + length} > ${heapSize})');
             return null;
         }
+        //trace('MHAT MANAGER: $fileName getBytes() called at ' + StringTools.hex(pos));
         var bestOutput:Bytes = Bytes.alloc(length);
         for (i in 0...length) {
             stream.position = pos + i;
@@ -168,16 +180,6 @@ class Mhat {
             trace('MHAT MANAGER: File ${i.data} detected.');
             mhats.push(new MhatData(i.data, i.parent, i.zstd, i.add, i.remove, i.key));
         }
-
-        /*#if debug
-        for (i in mhats)
-            i.mounted = true;
-
-        getFile("images/NOTE_assets.png", true);
-
-        for (i in mhats)
-            i.mounted = false;
-        #end*/
     }
 
     public static function call(key:String) {
@@ -193,29 +195,26 @@ class Mhat {
         }
     }
 
-    public static function getFile(path:String, ?verboseLogs:Bool = false):Bytes {
-        if (verboseLogs)
-            trace('MHAT MANAGER: getFile() with verboseLogs called!');
+    public static function exists(path:String):Bool {
+        for (mhat in mhats) {
+            if (!mhat.mounted)
+                continue;
+            if (mhat.indexCache_mapped.exists(path))
+                return true;
+        }
+        return false;
+    }
+
+    public static function getFile(path:String):Bytes {
         for (mhat in mhats) {
             if (!mhat.mounted)
                 continue;
 
-            mhat.stream.position = 0x20;
             mhat.stream.endian = Endian.LITTLE_ENDIAN;
-            if (verboseLogs)
-                trace('MHAT (${mhat.fileName}): file count ${mhat.fileCount}');
-            for (i in 0...mhat.fileCount) {
-                var aaaa:String = StringTools.hex(mhat.stream.position);
-
-                var awesomeFileName:String = mhat.readNTS(mhat.stream.position);
-                //pos += awesomeFileName.length + 1;
-                var awesomeFileSize:UInt = mhat.stream.readUnsignedInt();
-                
-                if (mhat.hostPath + awesomeFileName == path)
-                    return mhat.getBytes(mhat.stream.position, awesomeFileSize);
-                if (verboseLogs)
-                    trace('MHAT (${mhat.fileName}): $awesomeFileName @ ' + aaaa + ' ($awesomeFileSize @ ${StringTools.hex(mhat.stream.position)})');
-                mhat.stream.position += awesomeFileSize;
+            if (mhat.indexCache_mapped.exists(path)) {
+                //trace('MHAT MANAGER: ${mhat.fileName} - $path');
+                var ci:CachedIndex = mhat.indexCache_mapped.get(path);
+                return mhat.getBytes(ci.pos, ci.heap);
             }
         }
         return null;

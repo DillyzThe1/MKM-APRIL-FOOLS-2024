@@ -350,17 +350,19 @@ class Paths
 
 	public static function graphicFromLoosePath(pathhhhh:String, ?library:String) {
 		var mhatKey:String = "mhat:" + pathhhhh;
-		if (currentTrackedAssets.exists(mhatKey))
+		if (currentTrackedAssets.exists(mhatKey)) {
+			//trace("got cache: " + mhatKey);
 			return currentTrackedAssets.get(mhatKey);
+		}
 
-		var mhatBytes:Bytes = Mhat.getFile(pathhhhh);
-		if (mhatBytes != null && mhatBytes.length != 0) {
+		if (Mhat.exists(pathhhhh)) {
 			//trace('MHAT bytes detected!');
 			if (!currentTrackedAssets.exists(mhatKey))
 			{
-				var newGraphic:FlxGraphic = FlxGraphic.fromBitmapData(BitmapData.fromBytes(mhatBytes), false, mhatKey);
+				var newGraphic:FlxGraphic = FlxGraphic.fromBitmapData(BitmapData.fromBytes(Mhat.getFile(pathhhhh)), false, mhatKey);
 				newGraphic.persist = true;
 				currentTrackedAssets.set(mhatKey, newGraphic);
+				//trace("set cache: " + mhatKey);
 			}
 			localTrackedAssets.push(mhatKey);
 			return currentTrackedAssets.get(mhatKey);
@@ -404,7 +406,7 @@ class Paths
 		var mhatKey:String = 'mhat:$path/$key.ogg';
 		if (currentTrackedSounds.exists(mhatKey))
 			return currentTrackedSounds.get(mhatKey);
-		
+
 		var mhatBytes:Bytes = Mhat.getFile('$path/$key.ogg');
 		if (mhatBytes != null && mhatBytes.length != 0) {
 			if (!currentTrackedSounds.exists(mhatKey))
