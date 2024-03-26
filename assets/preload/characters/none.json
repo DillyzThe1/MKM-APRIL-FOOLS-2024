@@ -1,58 +1,69 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "nothing"
+			"fps": 24,
+			"name": "nothing",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "nothing"
+			"fps": 24,
+			"name": "nothing",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "nothing"
+			"fps": 24,
+			"name": "nothing",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "nothing",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "nothing",
+			"indices": []
 		},
 		{
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singUP",
 			"indices": [],
-			"name": "nothing"
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"loop": false,
 			"fps": 24,
-			"anim": "singUP",
-			"indices": [],
+			"anim": "singDOWN",
+			"loop": false,
 			"name": "nothing"
 		}
 	],
@@ -62,6 +73,7 @@
 		0,
 		350
 	],
+	"sing_param": null,
 	"healthicon": "none",
 	"flip_x": true,
 	"healthbar_colors": [
