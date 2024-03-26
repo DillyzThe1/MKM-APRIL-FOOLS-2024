@@ -1,0 +1,134 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				20,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "vort_toad_idle"
+		},
+		{
+			"offsets": [
+				97,
+				5
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "vort_toad_sLeft"
+		},
+		{
+			"offsets": [
+				23,
+				-55
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "vort_toad_sDown"
+		},
+		{
+			"offsets": [
+				94,
+				32
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "vort_toad_sUp"
+		},
+		{
+			"offsets": [
+				6,
+				-21
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "vort_toad_sRight"
+		},
+		{
+			"offsets": [
+				97,
+				5
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFTmiss",
+			"indices": [],
+			"name": "vort_toad_mLeft"
+		},
+		{
+			"offsets": [
+				23,
+				-56
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWNmiss",
+			"indices": [],
+			"name": "vort_toad_mDown"
+		},
+		{
+			"offsets": [
+				93,
+				32
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUPmiss",
+			"indices": [],
+			"name": "vort_toad_mUp"
+		},
+		{
+			"offsets": [
+				6,
+				-21
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "vort_toad_mRight"
+		},
+		{
+			"offsets": [
+				44,
+				79
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "redraw",
+			"indices": [],
+			"name": "vort_toad_redraw"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/vortex/vortex_toadAlpha",
+	"position": [
+		60,
+		230
+	],
+	"sing_param": "toad",
+	"healthicon": "toad-alpha",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		0,
+		51
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

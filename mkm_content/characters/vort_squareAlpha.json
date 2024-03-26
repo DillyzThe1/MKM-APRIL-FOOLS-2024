@@ -1,0 +1,90 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "vort_square_idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				237,
+				-179
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "vort_square_sLeft",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				61,
+				-294
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "vort_square_sDown",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				10,
+				50
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "vort_square_sUp",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-61,
+				-72
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "vort_square_sRight",
+			"indices": []
+		},
+		{
+			"offsets": [
+				70,
+				16
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "redraw",
+			"loop": false,
+			"name": "vort_square_redraw"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/vortex/vortex_squareAlpha",
+	"position": [
+		10,
+		470
+	],
+	"sing_param": "square",
+	"healthicon": "square-alpha",
+	"flip_x": false,
+	"healthbar_colors": [
+		39,
+		28,
+		65
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}
