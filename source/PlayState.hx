@@ -2,7 +2,6 @@ package;
 
 import Achievements;
 import Conductor.Rating;
-import DialogueBoxPsych;
 import Discord.DiscordClient;
 import FunkinLua;
 import Note.EventNote;
@@ -320,9 +319,6 @@ class PlayState extends MusicBeatState
 	public var camOther:FlxCamera;
 	public var camCaptions:FlxCamera;
 	public var cameraSpeed:Float = 1;
-
-	var dialogue:Array<String> = ['blah blah blah', 'coolswag'];
-	var dialogueJson:DialogueFile = null;
 
 	var heyTimer:Float;
 
@@ -880,18 +876,6 @@ class PlayState extends MusicBeatState
 				gf.visible = false;
 		}
 
-		var file:String = Paths.json(songName + '/dialogue'); // Checks for json/Psych Engine dialogue
-		if (OpenFlAssets.exists(file))
-		{
-			dialogueJson = DialogueBoxPsych.parseDialogue(file);
-		}
-
-		var file:String = Paths.txt(songName + '/' + songName + 'Dialogue'); // Checks for vanilla/Senpai dialogue
-		if (OpenFlAssets.exists(file))
-		{
-			dialogue = CoolUtil.coolTextFile(file);
-		}
-
 		Conductor.songPosition = -5000;
 
 		strumLine = new FlxSprite(doMiddleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, 50).makeGraphic(FlxG.width, 10);
@@ -1383,59 +1367,6 @@ class PlayState extends MusicBeatState
 			startCountdown();
 	}
 
-	var dialogueCount:Int = 0;
-
-	public var psychDialogue:DialogueBoxPsych;
-
-	// You don't have to add a song, just saying. You can just do "startDialogue(dialogueJson);" and it should work
-	public function startDialogue(dialogueFile:DialogueFile, ?song:String = null):Void
-	{
-		// TO DO: Make this more flexible, maybe?
-		if (psychDialogue != null)
-			return;
-
-		if (dialogueFile.dialogue.length > 0)
-		{
-			inCutscene = true;
-			precacheList.set('dialogue', 'sound');
-			precacheList.set('dialogueClose', 'sound');
-			psychDialogue = new DialogueBoxPsych(dialogueFile, song);
-			psychDialogue.scrollFactor.set();
-			if (endingSong)
-			{
-				psychDialogue.finishThing = function()
-				{
-					psychDialogue = null;
-					endSong();
-				}
-			}
-			else
-			{
-				psychDialogue.finishThing = function()
-				{
-					psychDialogue = null;
-					startCountdown();
-				}
-			}
-			psychDialogue.nextDialogueThing = startNextDialogue;
-			psychDialogue.skipDialogueThing = skipDialogue;
-			psychDialogue.cameras = [camHUD];
-			add(psychDialogue);
-		}
-		else
-		{
-			FlxG.log.warn('Your dialogue file is badly formatted!');
-			if (endingSong)
-			{
-				endSong();
-			}
-			else
-			{
-				startCountdown();
-			}
-		}
-	}
-
 	var startTimer:FlxTimer;
 	var finishTimer:FlxTimer = null;
 
@@ -1744,17 +1675,6 @@ class PlayState extends MusicBeatState
 		songExtra.play();
 		Conductor.songPosition = time;
 		songTime = time;
-	}
-
-	function startNextDialogue()
-	{
-		dialogueCount++;
-		callOnLuas('onNextDialogue', [dialogueCount]);
-	}
-
-	function skipDialogue()
-	{
-		callOnLuas('onSkipDialogue', [dialogueCount]);
 	}
 
 	var previousFrameTime:Int = 0;

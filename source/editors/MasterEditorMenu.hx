@@ -19,8 +19,6 @@ class MasterEditorMenu extends MusicBeatState
 	var options:Array<String> = [
 		'Week Editor',
 		'Menu Character Editor',
-		'Dialogue Editor',
-		'Dialogue Portrait Editor',
 		'Character Editor',
 		'Chart Editor'
 	];
@@ -93,11 +91,7 @@ class MasterEditorMenu extends MusicBeatState
 					MusicBeatState.switchState(new WeekEditorState());
 				case 'Menu Character Editor':
 					MusicBeatState.switchState(new MenuCharacterEditorState());
-				case 'Dialogue Portrait Editor':
-					LoadingState.loadAndSwitchState(new DialogueCharacterEditorState(), false);
-				case 'Dialogue Editor':
-					LoadingState.loadAndSwitchState(new DialogueEditorState(), false);
-				case 'Chart Editor': // felt it would be cool maybe
+				case 'Chart Editor': // felt it would be BURNING BURNING SCORCHING HOT ABSOLUTELY ON FIRE BURNING BURNING FIRE FIRE old FIRE SCORCHING maybe
 					LoadingState.loadAndSwitchState(new ChartingState(), false);
 			}
 			FlxG.sound.music.volume = 0;

@@ -1,5 +1,4 @@
 import Controls;
-import DialogueBoxPsych;
 import Discord;
 import Type.ValueType;
 import animateatlas.AtlasFrameMaker;
@@ -2502,43 +2501,6 @@ class FunkinLua
 		Lua_helper.add_callback(lua, "getRandomBool", function(chance:Float = 50)
 		{
 			return FlxG.random.bool(chance);
-		});
-		Lua_helper.add_callback(lua, "startDialogue", function(dialogueFile:String, music:String = null)
-		{
-			var path:String;
-			path = Paths.modsJson(Paths.formatToSongPath(PlayState.SONG.song) + '/' + dialogueFile);
-			if (!FileSystem.exists(path))
-				path = Paths.json(Paths.formatToSongPath(PlayState.SONG.song) + '/' + dialogueFile);
-
-			luaTrace('Trying to load dialogue: ' + path);
-
-			if (FileSystem.exists(path))
-			{
-				var shit:DialogueFile = DialogueBoxPsych.parseDialogue(path);
-				if (shit.dialogue.length > 0)
-				{
-					PlayState.instance.startDialogue(shit, music);
-					luaTrace('Successfully loaded dialogue', false, false, FlxColor.GREEN);
-					return true;
-				}
-				else
-				{
-					luaTrace('Your dialogue file is badly formatted!', false, false, FlxColor.RED);
-				}
-			}
-		else
-		{
-			luaTrace('Dialogue file not found', false, false, FlxColor.RED);
-			if (PlayState.instance.endingSong)
-			{
-				PlayState.instance.endSong();
-			}
-			else
-			{
-				PlayState.instance.startCountdown();
-			}
-		}
-			return false;
 		});
 		Lua_helper.add_callback(lua, "startVideo", function(videoFile:String)
 		{
