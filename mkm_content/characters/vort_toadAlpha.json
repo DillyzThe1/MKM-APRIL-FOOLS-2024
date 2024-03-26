@@ -1,113 +1,113 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				20,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "vort_toad_idle"
+			"fps": 24,
+			"name": "vort_toad_idle",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				97,
 				5
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "vort_toad_sLeft"
+			"fps": 24,
+			"name": "vort_toad_sLeft",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				23,
 				-55
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "vort_toad_sDown"
+			"fps": 24,
+			"name": "vort_toad_sDown",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				94,
 				32
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "vort_toad_sUp"
+			"fps": 24,
+			"name": "vort_toad_sUp",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				6,
 				-21
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "vort_toad_sRight"
+			"fps": 24,
+			"name": "vort_toad_sRight",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				97,
 				5
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFTmiss",
-			"indices": [],
-			"name": "vort_toad_mLeft"
+			"fps": 24,
+			"name": "vort_toad_mLeft",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				23,
 				-56
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWNmiss",
-			"indices": [],
-			"name": "vort_toad_mDown"
+			"fps": 24,
+			"name": "vort_toad_mDown",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				93,
 				32
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUPmiss",
-			"indices": [],
-			"name": "vort_toad_mUp"
+			"fps": 24,
+			"name": "vort_toad_mUp",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				6,
 				-21
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHTmiss",
-			"indices": [],
-			"name": "vort_toad_mRight"
+			"fps": 24,
+			"name": "vort_toad_mRight",
+			"indices": []
 		},
 		{
 			"offsets": [
 				44,
-				79
+				80
 			],
-			"loop": false,
-			"fps": 24,
-			"anim": "redraw",
 			"indices": [],
+			"fps": 64,
+			"anim": "redraw",
+			"loop": false,
 			"name": "vort_toad_redraw"
 		}
 	],

@@ -2293,7 +2293,7 @@ class FunkinLua
 
 		Lua_helper.add_callback(lua, "characterController_summon", function(x:Float, y:Float, characterName:String, playerChar:Bool, ?front:Bool = false)
 		{
-			if (PlayState.instance.modchartSprites.exists(characterName))
+			if (PlayState.instance.modchartSprites.exists(characterName) || PlayState.instance.modchartCharacterControllers.exists(characterName))
 				return;
 			var brandNewCharacter:Character = new Character(x, y, characterName, playerChar);
 			brandNewCharacter.debugMode = true;
@@ -3764,7 +3764,11 @@ class FunkinLua
 	{
 		var coverMeInPiss:Dynamic = PlayState.instance.getLuaObject(objectName, checkForTextsToo);
 		if (objectName.endsWith("_controller")) {
-			var splitName:String = objectName.split("_")[0];
+			var splitNames:Array<String> = objectName.split("_");
+			var splitName:String = "";
+			for (i in 0...(splitNames.length - 1))
+				splitName += (i >= 1 ? "_" : "") + splitNames[i];
+			trace('epicly get controller for ' + splitName);
 			if (PlayState.instance.modchartCharacterControllers.exists(splitName))
 				return PlayState.instance.modchartCharacterControllers.get(splitName);
 		}
