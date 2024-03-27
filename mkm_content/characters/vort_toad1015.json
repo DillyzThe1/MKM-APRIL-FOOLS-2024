@@ -1,0 +1,211 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "vort10_toad_idle"
+		},
+		{
+			"offsets": [
+				37,
+				5
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "vort10_toad_sLeft"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-27,
+				-45
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "vort10_toad_sDown",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				123,
+				42
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "vort10_toad_sUp",
+			"indices": []
+		},
+		{
+			"offsets": [
+				97,
+				5
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFTmiss",
+			"indices": [],
+			"name": "vort10_toad_mLeft"
+		},
+		{
+			"offsets": [
+				93,
+				32
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUPmiss",
+			"indices": [],
+			"name": "vort10_toad_mUp"
+		},
+		{
+			"offsets": [
+				6,
+				-21
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "vort15_toad_mRight"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				37,
+				5
+			],
+			"anim": "singLEFT-alt",
+			"fps": 24,
+			"name": "vort15_toad_sLeft",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-45,
+				-10
+			],
+			"anim": "singRIGHT-alt",
+			"fps": 24,
+			"name": "vort15_toad_sRight",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-27,
+				-45
+			],
+			"anim": "singDOWN-alt",
+			"fps": 24,
+			"name": "vort15_toad_sDown",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				123,
+				42
+			],
+			"anim": "singUP-alt",
+			"fps": 24,
+			"name": "vort15_toad_sUp",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				120,
+				-120
+			],
+			"anim": "singLEFTmiss-alt",
+			"fps": 24,
+			"name": "missed?",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				21,
+				-180
+			],
+			"anim": "singDOWNmiss-alt",
+			"fps": 24,
+			"name": "missed?",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				23,
+				-56
+			],
+			"anim": "singDOWNmiss",
+			"fps": 24,
+			"name": "vort10_toad_mDown",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-45,
+				-10
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "vort10_toad_sRight",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				-130
+			],
+			"anim": "singRIGHTmiss-alt",
+			"fps": 24,
+			"name": "missed?",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				93,
+				-80
+			],
+			"anim": "singUPmiss-alt",
+			"fps": 24,
+			"name": "missed?",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/vortex/svstToad_1015",
+	"position": [
+		60,
+		280
+	],
+	"sing_param": "toad",
+	"healthicon": "toad-up-in-3d",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		0,
+		51
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}
