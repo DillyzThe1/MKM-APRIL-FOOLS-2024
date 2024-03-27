@@ -16,7 +16,7 @@ function onCreatePost()
 		triggerEvent("Change Credits", "Composed by That1LazerBoi")
 	end
 	
-	characterController_summon(300, 0, 'circle-2022-player', true, false)
+	characterController_summon(300, 0, 'circle-player', true, false)
 end
 
 function onCreate()

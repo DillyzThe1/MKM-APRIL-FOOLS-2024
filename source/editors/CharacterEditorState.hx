@@ -640,8 +640,10 @@ class CharacterEditorState extends MusicBeatState
 					if (char.animation.getByName(animationInputText.text) != null)
 					{
 						char.animation.remove(animationInputText.text);
+						ghostChar.animation.remove(animationInputText.text);
 					}
 					char.animationsArray.remove(anim);
+					ghostChar.animationsArray.remove(anim);
 				}
 			}
 
@@ -656,17 +658,21 @@ class CharacterEditorState extends MusicBeatState
 			if (indices != null && indices.length > 0)
 			{
 				char.animation.addByIndices(newAnim.anim, newAnim.name, newAnim.indices, "", newAnim.fps, newAnim.loop);
+				ghostChar.animation.addByIndices(newAnim.anim, newAnim.name, newAnim.indices, "", newAnim.fps, newAnim.loop);
 			}
 			else
 			{
 				char.animation.addByPrefix(newAnim.anim, newAnim.name, newAnim.fps, newAnim.loop);
+				ghostChar.animation.addByPrefix(newAnim.anim, newAnim.name, newAnim.fps, newAnim.loop);
 			}
 
 			if (!char.animOffsets.exists(newAnim.anim))
 			{
 				char.addOffset(newAnim.anim, 0, 0);
+				ghostChar.addOffset(newAnim.anim, 0, 0);
 			}
 			char.animationsArray.push(newAnim);
+			ghostChar.animationsArray.push(newAnim);
 
 			if (lastAnim == animationInputText.text)
 			{

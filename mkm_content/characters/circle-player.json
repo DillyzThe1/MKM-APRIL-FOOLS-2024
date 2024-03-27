@@ -1,0 +1,79 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "Circle Idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-74,
+				0
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Circle Left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				43,
+				-57
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "Circle Down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-199,
+				168
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "Circle Up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-190,
+				0
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Circle Right",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/circle",
+	"position": [
+		0,
+		350
+	],
+	"sing_param": "circle",
+	"healthicon": "circle",
+	"flip_x": true,
+	"healthbar_colors": [
+		0,
+		0,
+		0
+	],
+	"camera_position": [
+		-190,
+		0
+	],
+	"sing_duration": 4,
+	"scale": 1
+}
