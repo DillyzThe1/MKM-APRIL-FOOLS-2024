@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="epicVortex.png">
+	<!-- Created with Adobe Animate version 24.0.1.329 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="vortexBg_10000" x="0" y="2860" width="1683" height="949" frameX="-129" frameY="-142" frameWidth="2046" frameHeight="1098"/>
+	<SubTexture name="vortexBg_10001" x="1643" y="912" width="1844" height="899" frameX="0" frameY="-142" frameWidth="2046" frameHeight="1098"/>
+	<SubTexture name="vortexBg_10002" x="0" y="1957" width="1892" height="899" frameX="-69" frameY="-142" frameWidth="2046" frameHeight="1098"/>
+	<SubTexture name="vortexBg_10003" x="1896" y="2775" width="1639" height="1000" frameX="-129" frameY="-41" frameWidth="2046" frameHeight="1098"/>
+	<SubTexture name="vortexBg_10004" x="0" y="0" width="2024" height="908" frameX="-22" frameY="-142" frameWidth="2046" frameHeight="1098"/>
+	<SubTexture name="vortexBg_10005" x="0" y="912" width="1639" height="1041" frameX="-129" frameY="0" frameWidth="2046" frameHeight="1098"/>
+	<SubTexture name="vortexBg_10006" x="1896" y="1815" width="1721" height="956" frameX="-129" frameY="-142" frameWidth="2046" frameHeight="1098"/>
+	<SubTexture name="vortexBg_10007" x="1896" y="2775" width="1639" height="1000" frameX="-129" frameY="-41" frameWidth="2046" frameHeight="1098"/>
+</TextureAtlas>

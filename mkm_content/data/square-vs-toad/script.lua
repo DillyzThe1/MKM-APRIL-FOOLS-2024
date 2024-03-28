@@ -1,14 +1,31 @@
 function onCreatePost()
+	-- vortex itself
+	makeAnimatedLuaSprite('bigVortex', 'epicVortex2', -170, 0)
+	addAnimationByPrefix('bigVortex', 'static', 'vortexBg_1', 25, true)
+	playAnim('bigVortex', 'static', true)
+	addLuaSprite('bigVortex', false)
+	scaleObject('bigVortex', 2, 2.5, false)
+	
+	-- vortex alpha
 	characterController_summon(0, 150, 'vort_toadAlpha', false, true)
 	characterController_summon(800, 100, 'vort_squareAlpha', false, true)
 	
 	setProperty('vort_toadAlpha_controller.sprite.singParam', 'left')
 	setProperty('vort_squareAlpha_controller.sprite.singParam', 'right')
 	
+	-- vertex 1.0/1.5
+	characterController_summon(0, 150, 'vort_toad1015', false, true)
+	characterController_summon(800, 100, 'vort_square1015', false, true)
+	
+	setProperty('vort_toad1015_controller.sprite.singParam', 'left')
+	setProperty('vort_square1015_controller.sprite.singParam', 'right')
+	
+	-- finalize setup
 	addLuaScript('custom_events/Change IconP1')
 	addLuaScript('custom_events/Change IconP2')
 	
 	scene_Vortex(false)
+	scene_Platforms(false)
 	scene_Outside(true)
 	
 	--runHaxeCode('camGameFilters = [makeShader("squaretoadglitch")];')
@@ -16,10 +33,25 @@ function onCreatePost()
 	--runHaxeCode('getMadeShader("squaretoadglitch").setFloat("x", ' .. tostring(0.01) .. ');')
 end
 
+local killIt = false
+function onSongStart()
+	killIt = true
+	scene_Vortex(false)
+	scene_Platforms(false)
+	scene_Outside(true)
+end
+
 function sceneObj_toggle(name, isOn)
 	if isOn then
 		setProperty(name .. '.alpha', 1)
+		setProperty(name .. '.visible', true)
 		setProperty(name .. '.active', true)
+		return
+	end
+	if killIt then
+		setProperty(name .. '.alpha', 0)
+		setProperty(name .. '.visible', false)
+		setProperty(name .. '.active', false)
 		return
 	end
 	setProperty(name .. '.alpha', 0.001)
@@ -35,6 +67,7 @@ function scene_Outside(isLoading)
 	sceneObj_toggle('floor line', isLoading)
 	
 	if isLoading then
+		setProperty('defaultCamZoom', 0.9)
 		triggerEvent('Camera Follow Pos', '', '')
 		triggerEvent('Change IconP1', 'square', '271C41')
 		triggerEvent('Change IconP2', 'toad-up-in-3d', 'FF0033')
@@ -44,14 +77,44 @@ end
 function scene_Vortex(isLoading, sceneType)
 	sceneObj_toggle('vort_toadAlpha_controller.sprite', isLoading and sceneType == 0)
 	sceneObj_toggle('vort_squareAlpha_controller.sprite', isLoading and sceneType == 0)
-	
-	sceneObj_toggle('dad', isLoading and sceneType == 3)
-	sceneObj_toggle('boyfriend', isLoading and sceneType == 3)
+	sceneObj_toggle('vort_toad1015_controller.sprite', isLoading and (sceneType == 1 or sceneType == 2))
+	sceneObj_toggle('vort_square1015_controller.sprite', isLoading and (sceneType == 1 or sceneType == 2))
+	sceneObj_toggle('bigVortex', isLoading)
 	
 	if isLoading then
+		setProperty('bigVortex.alpha', 0.35)
+		setProperty('defaultCamZoom', 0.9)
 		triggerEvent('Camera Follow Pos', 700, 600)
-		triggerEvent('Change IconP1', 'square-alpha', 'FF0000')
-		triggerEvent('Change IconP2', 'toad-alpha', '66FF33')
+	
+		local epicSuffix = ''
+		if sceneType == 2 then
+			epicSuffix = '-alt'
+			triggerEvent('Change IconP1', 'square', '271C41')
+			triggerEvent('Change IconP2', 'toad-up-in-3d', 'FF0033')
+		elseif sceneType == 1 then
+			triggerEvent('Change IconP1', 'flixel', '00CC33')
+			triggerEvent('Change IconP2', 'toad-up-in-3d', 'FF0033')
+		else
+			triggerEvent('Change IconP1', 'square-alpha', 'FF0000')
+			triggerEvent('Change IconP2', 'toad-alpha', '66FF33')
+		end
+		--debugPrint('KILL YOUR ' .. epicSuffix .. ' KILL YOUR ' .. epicSuffix .. ' KILL YOUR ' .. epicSuffix .. ' KILL YOUR ' .. epicSuffix .. ' KILL YOUR ' .. epicSuffix .. ' KILL YOUR ' .. epicSuffix)
+		setProperty('vort_toad1015_controller.idleSuffix', epicSuffix)
+		setProperty('vort_square1015_controller.idleSuffix', epicSuffix)
+	end
+end
+
+function scene_Platforms(isLoading)
+	sceneObj_toggle('dad', isLoading)
+	sceneObj_toggle('boyfriend', isLoading)
+	sceneObj_toggle('bigVortex', isLoading)
+	
+	if isLoading then
+		setProperty('bigVortex.alpha', 0.35)
+		setProperty('defaultCamZoom', 0.65)
+		triggerEvent('Camera Follow Pos', '', '')
+		triggerEvent('Change IconP1', 'square', '271C41')
+		triggerEvent('Change IconP2', 'toad-up-in-3d', 'FF0033')
 	end
 end
 
@@ -85,12 +148,17 @@ function onBeatHit()
 		debugPrint('now 1.0')
 		scene_Vortex(true, 1)
 	end
+	if beatEventCheck(419) then
+		doTweenAlpha('camhud', 'camHUD', 0.25, 0.75, 'cubeInOut')
+	end
 	if beatEventCheck(420) then
 		debugPrint('turn 1.5')
+		setProperty('defaultCamZoom', 5)
 	end
 	if beatEventCheck(424) then -- 1.5
 		debugPrint('now 1.5')
 		scene_Vortex(true, 2)
+		doTweenAlpha('camhud', 'camHUD', 1, 0.5, 'cubeInOut')
 	end
 	
 	if beatEventCheck(488) then -- enough!
@@ -99,7 +167,7 @@ function onBeatHit()
 	end
 	if beatEventCheck(492) then -- modern
 		debugPrint('modernized new waluigi song')
-		scene_Vortex(true, 3)
+		scene_Platforms(true)
 	end
 	
 	if beatEventCheck(622) then

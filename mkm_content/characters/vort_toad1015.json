@@ -186,6 +186,17 @@
 			"fps": 24,
 			"name": "missed?",
 			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle-alt",
+			"indices": [],
+			"name": "vort15_toad_idle"
 		}
 	],
 	"no_antialiasing": false,
