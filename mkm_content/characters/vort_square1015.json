@@ -1,0 +1,134 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "vort0_flixel_idle"
+		},
+		{
+			"offsets": [
+				77,
+				1
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "vort0_flixel_sLeft"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-131,
+				8
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "vort0_flixel_sRight",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-29,
+				-94
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "vort0_flixel_sDown",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-30,
+				150
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "vort0_flixel_sUp",
+			"indices": []
+		},
+		{
+			"offsets": [
+				330,
+				190
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle-alt",
+			"loop": false,
+			"name": "vort15_square_idle"
+		},
+		{
+			"offsets": [
+				350,
+				170
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT-alt",
+			"loop": false,
+			"name": "vort15_square_sLeft"
+		},
+		{
+			"offsets": [
+				110,
+				150
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT-alt",
+			"loop": false,
+			"name": "vort15_square_sRight"
+		},
+		{
+			"offsets": [
+				280,
+				220
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP-alt",
+			"loop": false,
+			"name": "vort15_square_sUp"
+		},
+		{
+			"offsets": [
+				220,
+				80
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN-alt",
+			"loop": false,
+			"name": "vort15_square_sDown"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/vortex/svstFlixelSquare",
+	"position": [
+		180,
+		610
+	],
+	"sing_param": "square",
+	"healthicon": "flixel",
+	"flip_x": false,
+	"healthbar_colors": [
+		0,
+		204,
+		51
+	],
+	"camera_position": [
+		-280,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}
