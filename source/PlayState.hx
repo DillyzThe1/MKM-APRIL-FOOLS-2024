@@ -1763,12 +1763,8 @@ class PlayState extends MusicBeatState
 		{
 			if (SONG.needsVoices)
 			{
-				if (dad.singParam == null)
-					trace("uh oh, left sing param's null! (using character's name instead)");
-				vocalsLeft = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song, PlayState.SONG.audioPostfix, "-left", dad.singParam != null ? dad.singParam : dad.curCharacter));
-				if (boyfriend.singParam == null)
-					trace("uh oh, right sing param's null! (using character's name instead)");
-				vocalsRight = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song, PlayState.SONG.audioPostfix, "-right", boyfriend.singParam != null ? boyfriend.singParam : boyfriend.curCharacter));
+				vocalsLeft = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song, PlayState.SONG.audioPostfix, "-left", dad.singParam));
+				vocalsRight = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song, PlayState.SONG.audioPostfix, "-right", boyfriend.singParam));
 			}
 			else
 			{

@@ -3768,7 +3768,7 @@ class FunkinLua
 			var splitName:String = "";
 			for (i in 0...(splitNames.length - 1))
 				splitName += (i >= 1 ? "_" : "") + splitNames[i];
-			trace('epicly get controller for ' + splitName);
+			//trace('epicly get controller for ' + splitName);
 			if (PlayState.instance.modchartCharacterControllers.exists(splitName))
 				return PlayState.instance.modchartCharacterControllers.get(splitName);
 		}

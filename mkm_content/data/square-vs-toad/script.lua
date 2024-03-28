@@ -1,3 +1,5 @@
+local wrongSet = -2250
+
 function onCreatePost()
 	-- vortex itself
 	makeAnimatedLuaSprite('bigVortex', 'epicVortex2', -170, 0)
@@ -5,6 +7,10 @@ function onCreatePost()
 	playAnim('bigVortex', 'static', true)
 	addLuaSprite('bigVortex', false)
 	scaleObject('bigVortex', 2, 2.5, false)
+	setScrollFactor('bigVortex', 0.325, 0.225)
+	
+	makeLuaSprite('finalDestination', 'smashstage', -625, -650)
+	addLuaSprite('finalDestination')
 	
 	-- vortex alpha
 	characterController_summon(0, 150, 'vort_toadAlpha', false, true)
@@ -19,6 +25,13 @@ function onCreatePost()
 	
 	setProperty('vort_toad1015_controller.sprite.singParam', 'left')
 	setProperty('vort_square1015_controller.sprite.singParam', 'right')
+	
+	-- platforms
+	makeLuaSprite('finalDestination_higher', 'smashstage', -625, -650 + wrongSet)
+	addLuaSprite('finalDestination_higher')
+	
+	characterController_summon(450, -100 + wrongSet, 'impostor', false, true)
+	characterController_summon(975, -50 + wrongSet, 'uncle-fred-player', true, true)
 	
 	-- finalize setup
 	addLuaScript('custom_events/Change IconP1')
@@ -108,6 +121,10 @@ function scene_Platforms(isLoading)
 	sceneObj_toggle('dad', isLoading)
 	sceneObj_toggle('boyfriend', isLoading)
 	sceneObj_toggle('bigVortex', isLoading)
+	sceneObj_toggle('impostor_controller.sprite', isLoading)
+	sceneObj_toggle('uncle-fred-player_controller.sprite', isLoading)
+	sceneObj_toggle('finalDestination', isLoading)
+	sceneObj_toggle('finalDestination_higher', isLoading)
 	
 	if isLoading then
 		setProperty('bigVortex.alpha', 0.35)
@@ -178,10 +195,12 @@ function onBeatHit()
 	end
 	
 	if beatEventCheck(692) then -- back to "modern" scene
-		scene_Vortex(true, 3)
+		scene_Platforms(true)
 	end
 	
 	if beatEventCheck(914) then
+		setProperty('defaultCamZoom', 0.2)
+		triggerEvent('Camera Follow Pos', 1000, -650)
 		debugPrint('WRONG TIME DILEMMA')
 	end
 	if beatEventCheck(948) then
@@ -189,11 +208,17 @@ function onBeatHit()
 	end
 	
 	if beatEventCheck(969) then
+		cameraFlash('camGame', 'FFFFFF', 0.5, true)
+		sceneObj_toggle('impostor_controller.sprite', false)
+		sceneObj_toggle('uncle-fred-player_controller.sprite', false)
+		sceneObj_toggle('finalDestination_higher', false)
 		debugPrint('zip!')
 	end
 	
 	if beatEventCheck(980) then
 		debugPrint('epic argument')
+		setProperty('defaultCamZoom', 0.65)
+		triggerEvent('Camera Follow Pos', '', '')
 	end
 	
 	--if curBeat % 4 == 0 then

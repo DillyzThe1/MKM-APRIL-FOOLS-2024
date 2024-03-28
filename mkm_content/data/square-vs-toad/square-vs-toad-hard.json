@@ -8644,6 +8644,783 @@
 						293582.887700534,
 						7,
 						240.641711229947
+					],
+					[
+						293582.887700534,
+						4,
+						0,
+						"Botplay Fred Note"
+					],
+					[
+						293743.315508021,
+						5,
+						0,
+						"Botplay Fred Note"
+					]
+				],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 187,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"typeOfSection": 0,
+				"sectionNotes": [
+					[
+						293903.743315507,
+						3,
+						240.641711229947,
+						"Botplay Impostor Note"
+					],
+					[
+						294224.598930481,
+						2,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						294385.026737967,
+						1,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						294705.882352941,
+						1,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						295026.737967914,
+						0,
+						240.641711229947,
+						"Botplay Impostor Note"
+					],
+					[
+						293903.743315507,
+						4,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						294064.171122994,
+						5,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						294224.598930481,
+						7,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						294385.026737967,
+						6,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						294545.454545454,
+						4,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						294705.882352941,
+						5,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						294866.310160427,
+						7,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						295026.737967914,
+						5,
+						0,
+						"Botplay Impostor Note"
+					]
+				],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 187,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"typeOfSection": 0,
+				"sectionNotes": [
+					[
+						295347.593582887,
+						1,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						295508.021390374,
+						1,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						295427.80748663,
+						2,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						295668.44919786,
+						1,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						295828.877005347,
+						0,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						295989.304812834,
+						2,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						296149.73262032,
+						3,
+						240.641711229947,
+						"Botplay Impostor Note"
+					],
+					[
+						295187.1657754,
+						4,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						295347.593582887,
+						5,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						295508.021390374,
+						7,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						295828.877005347,
+						4,
+						240.641711229947,
+						"Botplay Impostor Note"
+					],
+					[
+						296149.73262032,
+						5,
+						240.641711229947,
+						"Botplay Impostor Note"
+					],
+					[
+						295668.44919786,
+						6,
+						0,
+						"Botplay Impostor Note"
+					]
+				],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 187,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"typeOfSection": 0,
+				"sectionNotes": [
+					[
+						296470.588235294,
+						1,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						296631.01604278,
+						3,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						296791.443850267,
+						1,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						296951.871657753,
+						0,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						297272.727272727,
+						2,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						297593.5828877,
+						3,
+						240.641711229947,
+						"Botplay Impostor Note"
+					],
+					[
+						296470.588235294,
+						7,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						296791.443850267,
+						5,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						296951.871657753,
+						4,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						297112.29946524,
+						6,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						297272.727272727,
+						7,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						297433.155080213,
+						6,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						297593.5828877,
+						5,
+						0,
+						"Botplay Impostor Note"
+					]
+				],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 187,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"typeOfSection": 0,
+				"sectionNotes": [
+					[
+						297914.438502673,
+						2,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						298074.86631016,
+						0,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						298235.294117646,
+						1,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						298315.50802139,
+						1,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						298395.721925133,
+						0,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						298556.14973262,
+						0,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						298716.577540106,
+						3,
+						240.641711229947,
+						"Botplay Impostor Note"
+					],
+					[
+						297754.010695187,
+						4,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						297914.438502673,
+						5,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						298074.86631016,
+						4,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						298235.294117646,
+						7,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						298395.721925133,
+						6,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						298556.14973262,
+						7,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						298716.577540106,
+						6,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						298877.005347593,
+						4,
+						0,
+						"Botplay Impostor Note"
+					]
+				],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 187,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"typeOfSection": 0,
+				"sectionNotes": [
+					[
+						299037.43315508,
+						7,
+						240.641711229947,
+						"Botplay Fred Note"
+					],
+					[
+						299518.71657754,
+						5,
+						0,
+						"Botplay Fred Note"
+					],
+					[
+						299839.572192513,
+						5,
+						0,
+						"Botplay Fred Note"
+					],
+					[
+						300160.427807486,
+						4,
+						240.641711229947,
+						"Botplay Fred Note"
+					],
+					[
+						299358.288770053,
+						6,
+						0,
+						"Botplay Fred Note"
+					],
+					[
+						299037.43315508,
+						0,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						299197.860962566,
+						1,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						299358.288770053,
+						3,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						299518.71657754,
+						2,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						299679.144385026,
+						0,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						299839.572192513,
+						1,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						299999.999999999,
+						3,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						300160.427807486,
+						1,
+						0,
+						"Botplay Impostor Note"
+					]
+				],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 187,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"typeOfSection": 0,
+				"sectionNotes": [
+					[
+						300481.283422459,
+						5,
+						0,
+						"Botplay Fred Note"
+					],
+					[
+						300641.711229946,
+						5,
+						0,
+						"Botplay Fred Note"
+					],
+					[
+						300561.497326203,
+						6,
+						0,
+						"Botplay Fred Note"
+					],
+					[
+						300802.139037433,
+						5,
+						0,
+						"Botplay Fred Note"
+					],
+					[
+						300962.566844919,
+						4,
+						0,
+						"Botplay Fred Note"
+					],
+					[
+						301122.994652406,
+						6,
+						0,
+						"Botplay Fred Note"
+					],
+					[
+						301283.422459892,
+						7,
+						240.641711229947,
+						"Botplay Fred Note"
+					],
+					[
+						300320.855614973,
+						0,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						300481.283422459,
+						1,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						300641.711229946,
+						3,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						300802.139037433,
+						2,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						300962.566844919,
+						0,
+						240.641711229947,
+						"Botplay Impostor Note"
+					],
+					[
+						301283.422459892,
+						1,
+						240.641711229947,
+						"Botplay Impostor Note"
+					]
+				],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 187,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"typeOfSection": 0,
+				"sectionNotes": [
+					[
+						301604.278074866,
+						5,
+						0,
+						"Botplay Fred Note"
+					],
+					[
+						301764.705882352,
+						7,
+						0,
+						"Botplay Fred Note"
+					],
+					[
+						301925.133689839,
+						5,
+						0,
+						"Botplay Fred Note"
+					],
+					[
+						302085.561497326,
+						4,
+						0,
+						"Botplay Fred Note"
+					],
+					[
+						302406.417112299,
+						6,
+						0,
+						"Botplay Fred Note"
+					],
+					[
+						302727.272727272,
+						7,
+						240.641711229947,
+						"Botplay Fred Note"
+					],
+					[
+						301604.278074866,
+						3,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						301764.705882352,
+						2,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						301925.133689839,
+						0,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						302085.561497326,
+						1,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						302245.989304812,
+						3,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						302406.417112299,
+						0,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						302566.844919786,
+						2,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						302727.272727272,
+						3,
+						0,
+						"Botplay Impostor Note"
+					]
+				],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 187,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"typeOfSection": 0,
+				"sectionNotes": [
+					[
+						303048.128342245,
+						6,
+						0,
+						"Botplay Fred Note"
+					],
+					[
+						303208.556149732,
+						4,
+						0,
+						"Botplay Fred Note"
+					],
+					[
+						303368.983957219,
+						5,
+						0,
+						"Botplay Fred Note"
+					],
+					[
+						303449.197860962,
+						5,
+						0,
+						"Botplay Fred Note"
+					],
+					[
+						303529.411764705,
+						4,
+						0,
+						"Botplay Fred Note"
+					],
+					[
+						303689.839572192,
+						4,
+						0,
+						"Botplay Fred Note"
+					],
+					[
+						303850.267379679,
+						7,
+						160.427807486631,
+						"Botplay Fred Note"
+					],
+					[
+						302887.700534759,
+						0,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						303048.128342245,
+						1,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						303208.556149732,
+						0,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						303368.983957219,
+						2,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						303529.411764705,
+						3,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						303689.839572192,
+						2,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						303850.267379679,
+						0,
+						0,
+						"Botplay Impostor Note"
+					],
+					[
+						304010.695187165,
+						2,
+						0,
+						"Botplay Impostor Note"
+					]
+				],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 187,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"typeOfSection": 0,
+				"sectionNotes": [
+					[
+						304171.122994652,
+						7,
+						882.352941176471,
+						"Botplay Fred Note"
+					],
+					[
+						304171.122994652,
+						3,
+						1203.20855614973,
+						"Botplay Impostor Note"
 					]
 				],
 				"sectionBeats": 4,
@@ -8824,96 +9601,6 @@
 				"mustHitSection": true
 			},
 			{
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"sectionBeats": 4,
-				"altAnim": false,
-				"gfSection": false,
-				"bpm": 187,
-				"changeBPM": false,
-				"mustHitSection": true
-			},
-			{
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"sectionBeats": 4,
-				"altAnim": false,
-				"gfSection": false,
-				"bpm": 187,
-				"changeBPM": false,
-				"mustHitSection": true
-			},
-			{
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"sectionBeats": 4,
-				"altAnim": false,
-				"gfSection": false,
-				"bpm": 187,
-				"changeBPM": false,
-				"mustHitSection": true
-			},
-			{
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"sectionBeats": 4,
-				"altAnim": false,
-				"gfSection": false,
-				"bpm": 187,
-				"changeBPM": false,
-				"mustHitSection": true
-			},
-			{
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"sectionBeats": 4,
-				"altAnim": false,
-				"gfSection": false,
-				"bpm": 187,
-				"changeBPM": false,
-				"mustHitSection": true
-			},
-			{
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"sectionBeats": 4,
-				"altAnim": false,
-				"gfSection": false,
-				"bpm": 187,
-				"changeBPM": false,
-				"mustHitSection": true
-			},
-			{
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"sectionBeats": 4,
-				"altAnim": false,
-				"gfSection": false,
-				"bpm": 187,
-				"changeBPM": false,
-				"mustHitSection": true
-			},
-			{
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"sectionBeats": 4,
-				"altAnim": false,
-				"gfSection": false,
-				"bpm": 187,
-				"changeBPM": false,
-				"mustHitSection": true
-			},
-			{
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"sectionBeats": 4,
-				"altAnim": false,
-				"gfSection": false,
-				"bpm": 187,
-				"changeBPM": false,
-				"mustHitSection": true
-			},
-			{
 				"sectionBeats": 4,
 				"sectionNotes": [],
 				"typeOfSection": 0,
@@ -8952,6 +9639,16 @@
 				"mustHitSection": true,
 				"changeBPM": false,
 				"bpm": 187
+			},
+			{
+				"gfSection": false,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 187,
+				"sectionBeats": 4,
+				"changeBPM": false,
+				"mustHitSection": true
 			},
 			{
 				"gfSection": false,

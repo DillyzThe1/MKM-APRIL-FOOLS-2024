@@ -241,6 +241,9 @@ class Character extends FlxSprite
 		}
 		originalFlipX = flipX;
 
+		if (singParam == null)
+			singParam = curCharacter;
+
 		if (animOffsets.exists('singLEFTmiss') || animOffsets.exists('singDOWNmiss') || animOffsets.exists('singUPmiss') || animOffsets.exists('singRIGHTmiss'))
 			hasMissAnimations = true;
 		recalculateDanceIdle();
