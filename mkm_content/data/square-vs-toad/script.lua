@@ -199,15 +199,16 @@ function onBeatHit()
 	end
 	
 	if beatEventCheck(914) then
-		setProperty('defaultCamZoom', 0.2)
-		triggerEvent('Camera Follow Pos', 1000, -650)
+		scaleObject('bigVortex', 10, 15, false)
+		setProperty('defaultCamZoom', 0.175)
+		triggerEvent('Camera Follow Pos', 1000, -900)
 		debugPrint('WRONG TIME DILEMMA')
 	end
 	if beatEventCheck(948) then
 		debugPrint('slight zoom out and realization')
 	end
 	
-	if beatEventCheck(969) then
+	if beatEventCheck(970) then
 		cameraFlash('camGame', 'FFFFFF', 0.5, true)
 		sceneObj_toggle('impostor_controller.sprite', false)
 		sceneObj_toggle('uncle-fred-player_controller.sprite', false)
