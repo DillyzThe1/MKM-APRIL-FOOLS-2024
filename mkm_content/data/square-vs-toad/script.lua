@@ -1,4 +1,13 @@
 local wrongSet = -2250
+local destination = -550
+
+local curScene = 'outside'
+
+local iX = 0
+local fX = 0
+local iY = 0
+local fY = 0
+local awesomeElapsed = 0
 
 function onCreatePost()
 	-- vortex itself
@@ -9,7 +18,7 @@ function onCreatePost()
 	scaleObject('bigVortex', 2, 2.5, false)
 	setScrollFactor('bigVortex', 0.325, 0.225)
 	
-	makeLuaSprite('finalDestination', 'smashstage', -625, -650)
+	makeLuaSprite('finalDestination', 'smashstage', destination, -650)
 	addLuaSprite('finalDestination')
 	
 	-- vortex alpha
@@ -27,11 +36,15 @@ function onCreatePost()
 	setProperty('vort_square1015_controller.sprite.singParam', 'right')
 	
 	-- platforms
-	makeLuaSprite('finalDestination_higher', 'smashstage', -625, -650 + wrongSet)
+	makeLuaSprite('finalDestination_higher', 'smashstage', destination, -650 + wrongSet)
 	addLuaSprite('finalDestination_higher')
 	
 	characterController_summon(450, -100 + wrongSet, 'impostor', false, true)
 	characterController_summon(975, -50 + wrongSet, 'uncle-fred-player', true, true)
+	iX = getProperty('impostor_controller.sprite.x')
+	fX = getProperty('uncle-fred-player_controller.sprite.x')
+	iY = getProperty('impostor_controller.sprite.y')
+	fY = getProperty('uncle-fred-player_controller.sprite.y')
 	
 	-- finalize setup
 	addLuaScript('custom_events/Change IconP1')
@@ -80,6 +93,7 @@ function scene_Outside(isLoading)
 	sceneObj_toggle('floor line', isLoading)
 	
 	if isLoading then
+		curScene = 'outside'
 		setProperty('defaultCamZoom', 0.9)
 		triggerEvent('Camera Follow Pos', '', '')
 		triggerEvent('Change IconP1', 'square', '271C41')
@@ -95,6 +109,7 @@ function scene_Vortex(isLoading, sceneType)
 	sceneObj_toggle('bigVortex', isLoading)
 	
 	if isLoading then
+		curScene = 'vortex-' .. tostring(sceneType)
 		setProperty('bigVortex.alpha', 0.35)
 		setProperty('defaultCamZoom', 0.9)
 		triggerEvent('Camera Follow Pos', 700, 600)
@@ -127,11 +142,28 @@ function scene_Platforms(isLoading)
 	sceneObj_toggle('finalDestination_higher', isLoading)
 	
 	if isLoading then
+		curScene = 'platforms'
 		setProperty('bigVortex.alpha', 0.35)
 		setProperty('defaultCamZoom', 0.65)
 		triggerEvent('Camera Follow Pos', '', '')
 		triggerEvent('Change IconP1', 'square', '271C41')
 		triggerEvent('Change IconP2', 'toad-up-in-3d', 'FF0033')
+	end
+end
+
+function onUpdatePost(e)
+	awesomeElapsed = awesomeElapsed + e
+	
+	if curScene == 'platforms' then
+		local amazingOffset = math.sin(awesomeElapsed * 2.875) * 50
+		setProperty('impostor_controller.sprite.y', iY + amazingOffset)
+		setProperty('uncle-fred-player_controller.sprite.y', fY + amazingOffset)
+		setProperty('finalDestination_higher.y', -650 + wrongSet + amazingOffset)
+		
+		amazingOffset = math.cos(awesomeElapsed * 1.125) * 125
+		setProperty('impostor_controller.sprite.x', iX + amazingOffset)
+		setProperty('uncle-fred-player_controller.sprite.x', fX + amazingOffset)
+		setProperty('finalDestination_higher.x', destination + amazingOffset)
 	end
 end
 

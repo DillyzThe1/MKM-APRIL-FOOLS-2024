@@ -341,7 +341,6 @@ class Character extends FlxSprite
 			}
 		}
 	}
-
 	public var onPlayAnim:(String, Bool, Bool, Int) -> Void;
 	public function playAnim(AnimName:String, Force:Bool = false, Reversed:Bool = false, Frame:Int = 0):Void
 	{
