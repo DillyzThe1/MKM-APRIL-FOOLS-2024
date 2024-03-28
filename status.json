@@ -1,0 +1,33 @@
+{
+	"assets": [
+		{
+			"path": "mounted/status.mhat",
+			"version": 1,
+			"mhat": true
+		},
+		{
+			"path": "mkm_content/scripts/autodestroyallrollercoastersina12kmradiusinator.lua",
+			"version": 1,
+			"mhat": false
+		}
+	],
+	"announcement": {
+		"version": 1,
+		"text": "KILL\nNOW!!!!",
+		"date": "March 26th, 2024"
+	},
+	"timeMachine": {
+		"version": 1,
+		"codes": [
+			{
+				"month": 9,
+				"day": 23,
+				"year": 2021,
+				"reward": {
+					"type": "link",
+					"result": "https://www.youtube.com/watch?v=L8cTVaLB7nk"
+				}
+			}
+		]
+	}
+}
