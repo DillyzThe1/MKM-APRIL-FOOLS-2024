@@ -1,0 +1,134 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-210,
+				-205
+			],
+			"loop": false,
+			"fps": 30,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "uncle fred down"
+		},
+		{
+			"offsets": [
+				-204,
+				-202
+			],
+			"loop": false,
+			"fps": 30,
+			"anim": "idle",
+			"indices": [],
+			"name": "uncle fred idle"
+		},
+		{
+			"offsets": [
+				-234,
+				-179
+			],
+			"loop": false,
+			"fps": 30,
+			"anim": "singUP",
+			"indices": [],
+			"name": "uncle fred up"
+		},
+		{
+			"offsets": [
+				-129,
+				-202
+			],
+			"loop": false,
+			"fps": 30,
+			"anim": "backBreak",
+			"indices": [],
+			"name": "uncle fred breaks his back"
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-88,
+				-130
+			],
+			"anim": "scream",
+			"fps": 30,
+			"name": "uncle fred screams",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-50,
+				-203
+			],
+			"anim": "death",
+			"fps": 30,
+			"name": "fred dies",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-123,
+				-202
+			],
+			"anim": "backBreak-loop",
+			"fps": 30,
+			"name": "uncle fred breaks his back0004",
+			"indices": []
+		},
+		{
+			"offsets": [
+				-48,
+				-203
+			],
+			"loop": true,
+			"fps": 30,
+			"anim": "death-loop",
+			"indices": [],
+			"name": "fred dies0014"
+		},
+		{
+			"offsets": [
+				-232,
+				-203
+			],
+			"indices": [],
+			"fps": 30,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "uncle fred left"
+		},
+		{
+			"offsets": [
+				-147,
+				-202
+			],
+			"indices": [],
+			"fps": 30,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "uncle fred right"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/uncle_fred",
+	"position": [
+		-65,
+		170
+	],
+	"sing_param": "fred",
+	"healthicon": "uncle-fred",
+	"flip_x": false,
+	"healthbar_colors": [
+		235,
+		126,
+		0
+	],
+	"camera_position": [
+		110,
+		120
+	],
+	"sing_duration": 4,
+	"scale": 1.4
+}
