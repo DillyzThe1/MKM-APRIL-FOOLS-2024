@@ -16,11 +16,7 @@ end
 
 function onStartCountdown()
 	if goingToDoCutscene() then --Block the first countdown
-		if string.lower(difficultyName) == "alpha" then
-			startVideo('pre-house-alpha');
-		else
-			startVideo('pre-' .. string.lower(songName));
-		end
+		startVideo('pre-' .. string.lower(songName));
 		allowCountdown = true;
 		return Function_Stop;
 	end
@@ -30,7 +26,7 @@ end
 
 function isInANormalMode()
 	local diffff = string.lower(difficultyName)
-	if diffff == "hard" or diffff == "old" or diffff == "alpha" then
+	if diffff == "hard" or diffff == "old" then
 		return true
 	end
 	return false
