@@ -58,56 +58,56 @@
 		{
 			"offsets": [
 				330,
-				190
+				70
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "idle-alt",
-			"loop": false,
+			"indices": [],
 			"name": "vort15_square_idle"
 		},
 		{
 			"offsets": [
 				350,
-				170
+				50
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singLEFT-alt",
-			"loop": false,
+			"indices": [],
 			"name": "vort15_square_sLeft"
 		},
 		{
 			"offsets": [
 				110,
-				150
+				30
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singRIGHT-alt",
-			"loop": false,
+			"indices": [],
 			"name": "vort15_square_sRight"
 		},
 		{
 			"offsets": [
 				280,
-				220
+				100
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singUP-alt",
-			"loop": false,
+			"indices": [],
 			"name": "vort15_square_sUp"
 		},
 		{
 			"offsets": [
 				220,
-				80
+				0
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singDOWN-alt",
-			"loop": false,
+			"indices": [],
 			"name": "vort15_square_sDown"
 		}
 	],
