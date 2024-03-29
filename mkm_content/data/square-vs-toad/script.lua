@@ -15,7 +15,7 @@ function onCreatePost()
 	addAnimationByPrefix('bigVortex', 'static', 'vortexBg_1', 25, true)
 	playAnim('bigVortex', 'static', true)
 	addLuaSprite('bigVortex', false)
-	scaleObject('bigVortex', 2, 2.5, false)
+	scaleObject('bigVortex', 2, 3.25, false)
 	setScrollFactor('bigVortex', 0.325, 0.225)
 	
 	makeLuaSprite('finalDestination', 'smashstage', destination, -650)
@@ -46,10 +46,31 @@ function onCreatePost()
 	iY = getProperty('impostor_controller.sprite.y')
 	fY = getProperty('uncle-fred-player_controller.sprite.y')
 	
+	-- house
+	local houseOff_X = 350
+	local houseOff_Y = -200
+	
+	makeLuaSprite('house_wall','bgs/house/wall lmao',-750 + houseOff_X,-150 + houseOff_Y)
+	addLuaSprite('house_wall',false)
+	setProperty('house_wall.active',false)
+	
+	makeLuaSprite('house_floor','bgs/house/floor wood',-600 + houseOff_X,650 + houseOff_Y)
+	addLuaSprite('house_floor',false)
+	setProperty('house_floor.active',false)
+	
+	makeLuaSprite('house_carpte','bgs/house/Carpet',320 + houseOff_X,725 + houseOff_Y)
+	addLuaSprite('house_carpte',false)
+	setProperty('house_carpte.active',false)
+	
+	makeLuaSprite('house_floor line','bgs/house/floor line thing',-1050 + houseOff_X,650 + houseOff_Y)
+	addLuaSprite('house_floor line',false)
+	setProperty('house_floor line.active',false)
+	
 	-- finalize setup
 	addLuaScript('custom_events/Change IconP1')
 	addLuaScript('custom_events/Change IconP2')
 	
+	scene_House(false)
 	scene_Vortex(false)
 	scene_Platforms(false)
 	scene_Outside(true)
@@ -151,11 +172,36 @@ function scene_Platforms(isLoading)
 	end
 end
 
+function scene_House(isLoading)
+	sceneObj_toggle('dad', isLoading)
+	sceneObj_toggle('boyfriend', isLoading)
+	sceneObj_toggle('house_wall', isLoading)
+	sceneObj_toggle('house_carpte', isLoading)
+	sceneObj_toggle('house_floor', isLoading)
+	sceneObj_toggle('house_floor line', isLoading)
+	
+	if isLoading then
+		curScene = 'house'
+		setProperty('defaultCamZoom', 0.85)
+		triggerEvent('Camera Follow Pos', '', '')
+		triggerEvent('Change IconP1', 'square', '271C41')
+		triggerEvent('Change IconP2', 'toad-up-in-3d', 'FF0033')
+	end
+end
+
 function onUpdatePost(e)
 	awesomeElapsed = awesomeElapsed + e
 	
+	local amazingOffset = 0
+	if curScene == 'platforms' or string.find(curScene, 'vortex') ~= nil then
+		amazingOffset = math.sin(awesomeElapsed) * 100 
+		setProperty('bigVortex.offset.y', amazingOffset)
+		amazingOffset = math.cos(awesomeElapsed * 1.5) * 10 
+		setProperty('bigVortex.angle', amazingOffset)
+	end
+	
 	if curScene == 'platforms' then
-		local amazingOffset = math.sin(awesomeElapsed * 2.875) * 50
+		amazingOffset = math.sin(awesomeElapsed * 2.875) * 50
 		setProperty('impostor_controller.sprite.y', iY + amazingOffset)
 		setProperty('uncle-fred-player_controller.sprite.y', fY + amazingOffset)
 		setProperty('finalDestination_higher.y', -650 + wrongSet + amazingOffset)
@@ -254,7 +300,59 @@ function onBeatHit()
 		triggerEvent('Camera Follow Pos', '', '')
 	end
 	
-	--if curBeat % 4 == 0 then
-	--	debugPrint('beatcheck ' .. tostring(curBeat))
-	--end
+	if beatEventCheck(984) then
+		scaleObject('bigVortex', 2, 3.25, false)
+		--scene_Platforms(false)
+		--scene_House(true)
+	end
+	
+	if beatEventCheck(1112) then
+		doTweenAlpha('camhuda', 'camHUD', 0, 1.25, 'cubeInOut')
+		doTweenAlpha('camgamea', 'camGame', 0, 1.25, 'cubeInOut')
+	end
+	
+	if beatEventCheck(1124) then
+		doTweenAlpha('camhuda', 'camHUD', 0.25, 0.75, 'cubeInOut')
+		scene_Platforms(false)
+	end
+	
+	if beatEventCheck(1136) then
+		doTweenAlpha('camhud', 'camHUD', 1, 0.75, 'cubeInOut')
+		doTweenAlpha('camgamea', 'camGame', 1, 1.25, 'cubeInOut')
+		scene_Platforms(false)
+		setProperty('dad.alpha', 1)
+	end
+	
+	if beatEventCheck(1148) then
+		setProperty('camGame.alpha', 0)
+		scene_Platforms(false)
+		scene_House(true)
+		doTweenAlpha('camgamea', 'camGame', 1, 2.5, 'cubeInOut')
+	end
+	
+	if beatEventCheck(1172) then
+		setProperty('defaultCamZoom', 0.9)
+	end
+	
+	if beatEventCheck(1176) then
+		setProperty('defaultCamZoom', 1.1)
+	end
+	
+	if beatEventCheck(1180) then
+		setProperty('defaultCamZoom', 1.25)
+	end
+	
+	if beatEventCheck(1184) then
+		setProperty('defaultCamZoom', 1.1)
+	end
+	
+	if beatEventCheck(1188) then
+		setProperty('defaultCamZoom', 1.55)
+	end
+	
+	if beatEventCheck(1220) then
+		doTweenAlpha('camhud', 'camHUD', 0.25, 5, 'cubeInOut')
+		triggerEvent('Camera Follow Pos', 1000, 300)
+		setProperty('defaultCamZoom', 0.7)
+	end
 end

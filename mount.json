@@ -31,11 +31,13 @@
 			"key": "",
 			"add": [
 				"bg_toadHouse",
-				"bg_toadHouse camfix"
+				"bg_toadHouse camfix",
+				"bg_squarevstoad"
 			],
 			"remove": [
 				"bg_toadHouse_remove",
-				"bg_toadHouse camfix_remove"
+				"bg_toadHouse camfix_remove",
+				"bg_squarevstoad_remove"
 			]
 		},
 		{
