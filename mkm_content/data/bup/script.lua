@@ -17,6 +17,11 @@ function onCreatePost()
 	end
 	
 	characterController_summon(300, 0, 'circle-player', true, false)
+	characterController_summon(1050, -430, 'pico-sketch', false, false)
+	setProperty('pico-sketch_controller.sprite.singParam', 'right')
+	setProperty('pico-sketch_controller.sprite.visible', false)
+	setProperty('circle-player_controller.sprite.visible', false)
+	setProperty('boyfriend.visible', false)
 end
 
 function onCreate()
@@ -27,26 +32,33 @@ function onCreate()
 	end
 end
 
-local lastBeatEvent = -1
-
 function onBeatHit()
 	if string.lower(difficultyName) == "hard" or string.lower(difficultyName) == "old" then
-		if curBeat >= 16 and lastBeatEvent < 16 then 
-			lastBeatEvent = 16
+		if beatEventCheck(30) then 
+			setProperty('pico-sketch_controller.sprite.visible', true)
+			playAnim('pico-sketch', 'drawing')
+		end
+		if beatEventCheck(16) then 
 			doTweenAlpha('camGameAlpha','camGame',1,0.75,'cubeInOut')
 			doTweenAlpha('iconP2Alpha','iconP2',1,0.75,'cubeInOut')
 			doTweenAlpha('healthBarAlpha','healthBar',1,0.75,'cubeInOut')
 		end
-		if curBeat >= 24 and lastBeatEvent < 24 then 
-			lastBeatEvent = 32
+		if beatEventCheck(24) then 
 			playAnim('mspaint', 'load up', true)
 		end
-		if curBeat >= 30 and lastBeatEvent < 30 then 
-			lastBeatEvent = 30
+		if beatEventCheck(30) then 
 			playAnim('mspaint', 'selection', true)
 		end
-		if curBeat >= 32 and lastBeatEvent < 32 then 
-			lastBeatEvent = 32
+		if beatEventCheck(82) then 
+			setProperty('circle-player_controller.sprite.visible', true)
+			playAnim('circle-player', "bup don't leave me here")
+		end
+		if beatEventCheck(149) then 
+			setProperty('pico-sketch_controller.sprite.visible', false)
+			setProperty('boyfriend.visible', true)
+			cameraFlash('camGame', 'FFFFFF', 0.5, true)
+		end
+		if beatEventCheck(150) then 
 			playAnim('mspaint', 'close', true)
 		end
 	end
@@ -62,4 +74,13 @@ function onTweenCompleted(tag)
 			setProperty('gf.alpha',1)
 		end
 	end
+end
+
+local lowestEventBeat = -1
+function beatEventCheck(beat)
+    if curBeat >= beat and lowestEventBeat < beat then
+        lowestEventBeat = beat
+        return true
+    end
+    return false
 end
