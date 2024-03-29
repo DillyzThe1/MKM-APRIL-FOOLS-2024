@@ -140,15 +140,14 @@ local guncount = 0
 
 function onChartAccessed()
 	if guncount < 6 then
-		playAnim('dad','singUP-alt',true)
+		playAnim('dad','shoot',true)
 		playSound('no-way/gun', 1)
 		addHealth(-0.2)
 		guncount = guncount + 1
 	else
-		playAnim('dad','singLEFT-alt',true)
+		playAnim('dad','reload',true)
 		playSound('no-way/reload', 1)
 		guncount = 0
 	end
 	return Function_Stop
 end
-	

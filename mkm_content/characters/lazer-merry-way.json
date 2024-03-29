@@ -73,7 +73,7 @@
 			],
 			"loop": false,
 			"fps": 24,
-			"anim": "singDOWN-alt",
+			"anim": "button",
 			"indices": [],
 			"name": "Lazer Button0"
 		},
@@ -84,7 +84,7 @@
 			],
 			"loop": false,
 			"fps": 24,
-			"anim": "singLEFT-alt",
+			"anim": "reload",
 			"indices": [],
 			"name": "Lazer Gun Reload0"
 		},
@@ -95,7 +95,7 @@
 			],
 			"loop": false,
 			"fps": 24,
-			"anim": "singUP-alt",
+			"anim": "shoot",
 			"indices": [],
 			"name": "Lazer Gun Shoot10"
 		},
@@ -120,6 +120,50 @@
 			"fps": 24,
 			"name": "Lazer Get Gift",
 			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singUP-alt",
+			"fps": 24,
+			"name": "Lazer Rip Gift",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				28,
+				0
+			],
+			"anim": "singLEFT-alt",
+			"fps": 24,
+			"name": "Lazer Rip Alt Gift",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				70,
+				0
+			],
+			"anim": "giftOmNomNomNomHeavyTF2",
+			"fps": 24,
+			"name": "Lazer Bite Gift",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle-gift",
+			"loop": false,
+			"name": "Lazer Idle Gift0"
 		}
 	],
 	"no_antialiasing": false,

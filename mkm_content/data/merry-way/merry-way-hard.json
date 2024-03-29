@@ -1060,12 +1060,6 @@
 						"Alt Animation"
 					],
 					[
-						56823.5294117646,
-						2,
-						0,
-						"Alt Animation"
-					],
-					[
 						56999.9999999999,
 						2,
 						0,
@@ -1080,6 +1074,12 @@
 					[
 						57529.4117647058,
 						2,
+						0,
+						"Alt Animation"
+					],
+					[
+						56823.5294117646,
+						0,
 						0,
 						"Alt Animation"
 					],
@@ -1101,25 +1101,7 @@
 				"sectionBeats": 4,
 				"sectionNotes": [
 					[
-						57882.3529411764,
-						2,
-						0,
-						"Alt Animation"
-					],
-					[
 						58058.8235294117,
-						2,
-						0,
-						"Alt Animation"
-					],
-					[
-						58235.294117647,
-						2,
-						0,
-						"Alt Animation"
-					],
-					[
-						58588.2352941176,
 						2,
 						0,
 						"Alt Animation"
@@ -1141,6 +1123,24 @@
 						0,
 						0,
 						"Alt Animation"
+					],
+					[
+						57882.3529411764,
+						0,
+						0,
+						"Alt Animation"
+					],
+					[
+						58235.294117647,
+						0,
+						0,
+						"Alt Animation"
+					],
+					[
+						58588.2352941176,
+						0,
+						0,
+						"Alt Animation"
 					]
 				],
 				"typeOfSection": 0,
@@ -1155,12 +1155,6 @@
 				"sectionNotes": [
 					[
 						59294.1176470588,
-						2,
-						0,
-						"Alt Animation"
-					],
-					[
-						59470.5882352941,
 						2,
 						0,
 						"Alt Animation"
@@ -1184,25 +1178,31 @@
 						"Alt Animation"
 					],
 					[
-						60264.7058823529,
-						2,
-						0,
-						"Alt Animation"
-					],
-					[
-						60352.9411764705,
-						2,
-						0,
-						"Alt Animation"
-					],
-					[
 						60529.4117647058,
 						2,
 						0,
 						"Alt Animation"
 					],
 					[
+						59470.5882352941,
+						0,
+						0,
+						"Alt Animation"
+					],
+					[
 						60088.2352941176,
+						0,
+						0,
+						"Alt Animation"
+					],
+					[
+						60264.7058823529,
+						0,
+						0,
+						"Alt Animation"
+					],
+					[
+						60352.9411764705,
 						2,
 						0,
 						"Alt Animation"
@@ -1219,18 +1219,6 @@
 				"sectionBeats": 4,
 				"sectionNotes": [
 					[
-						60705.8823529411,
-						2,
-						0,
-						"Alt Animation"
-					],
-					[
-						60882.3529411764,
-						2,
-						0,
-						"Alt Animation"
-					],
-					[
 						61058.8235294117,
 						2,
 						0,
@@ -1244,6 +1232,18 @@
 					],
 					[
 						61411.7647058823,
+						2,
+						0,
+						"Alt Animation"
+					],
+					[
+						60705.8823529411,
+						0,
+						0,
+						"Alt Animation"
+					],
+					[
+						60882.3529411764,
 						2,
 						0,
 						"Alt Animation"
@@ -1301,43 +1301,43 @@
 				"sectionNotes": [
 					[
 						67764.7058823529,
-						1,
+						2,
 						0,
 						"Alt Animation"
 					],
 					[
 						68029.4117647058,
-						1,
-						0,
-						"Alt Animation"
-					],
-					[
-						68470.588235294,
-						1,
-						0,
-						"Alt Animation"
-					],
-					[
-						68735.294117647,
-						1,
-						0,
-						"Alt Animation"
-					],
-					[
-						68999.9999999999,
-						1,
-						0,
-						"Alt Animation"
-					],
-					[
-						68294.1176470588,
-						1,
+						2,
 						0,
 						"Alt Animation"
 					],
 					[
 						68205.8823529411,
-						1,
+						2,
+						0,
+						"Alt Animation"
+					],
+					[
+						68294.1176470588,
+						0,
+						0,
+						"Alt Animation"
+					],
+					[
+						68470.588235294,
+						2,
+						0,
+						"Alt Animation"
+					],
+					[
+						68735.294117647,
+						2,
+						0,
+						"Alt Animation"
+					],
+					[
+						68999.9999999999,
+						0,
 						0,
 						"Alt Animation"
 					]
@@ -1354,49 +1354,49 @@
 				"sectionNotes": [
 					[
 						69176.4705882352,
-						1,
+						2,
 						0,
 						"Alt Animation"
 					],
 					[
 						69441.1764705882,
-						1,
+						0,
 						0,
 						"Alt Animation"
 					],
 					[
 						69617.6470588235,
-						1,
+						2,
 						0,
 						"Alt Animation"
 					],
 					[
 						69705.8823529411,
-						1,
+						0,
 						0,
 						"Alt Animation"
 					],
 					[
 						69794.1176470587,
-						1,
+						2,
 						0,
 						"Alt Animation"
 					],
 					[
 						69882.3529411764,
-						1,
+						2,
 						0,
 						"Alt Animation"
 					],
 					[
 						70147.0588235293,
-						1,
+						0,
 						0,
 						"Alt Animation"
 					],
 					[
 						70411.7647058823,
-						1,
+						2,
 						0,
 						"Alt Animation"
 					]
@@ -1413,25 +1413,25 @@
 				"sectionNotes": [
 					[
 						70588.2352941176,
-						1,
+						0,
 						0,
 						"Alt Animation"
 					],
 					[
 						71117.6470588235,
-						1,
+						2,
 						0,
 						"Alt Animation"
 					],
 					[
 						71294.1176470587,
-						1,
+						0,
 						0,
 						"Alt Animation"
 					],
 					[
 						71382.3529411764,
-						1,
+						2,
 						0,
 						"Alt Animation"
 					]
@@ -4931,6 +4931,46 @@
 				"bpm": 170
 			},
 			{
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 170,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 170
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 170
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 170
+			},
+			{
 				"gfSection": false,
 				"altAnim": false,
 				"typeOfSection": 0,
@@ -5140,6 +5180,16 @@
 				]
 			],
 			[
+				56117.6470588235,
+				[
+					[
+						"Play Animation",
+						"giftRecieve",
+						"dad"
+					]
+				]
+			],
+			[
 				56470.5882352941,
 				[
 					[
@@ -5150,7 +5200,17 @@
 					[
 						"Alt Idle Animation",
 						"dad",
-						"-alt"
+						"-gift"
+					]
+				]
+			],
+			[
+				62117.6470588235,
+				[
+					[
+						"Closed Captions",
+						"*Toad epicly writes a DMCA*",
+						""
 					]
 				]
 			],
@@ -5191,6 +5251,16 @@
 						"Closed Captions",
 						"*LAZER IS DEAD.*",
 						""
+					]
+				]
+			],
+			[
+				71999.9999999999,
+				[
+					[
+						"Alt Idle Animation",
+						"dad",
+						"-alt"
 					]
 				]
 			],
@@ -5596,6 +5666,7 @@
 			]
 		],
 		"gfVersion": "nobody",
+		"leftMode": false,
 		"reverseHealth": false,
 		"stage": "bupground-alpha-minimum",
 		"needsVoices": true,
