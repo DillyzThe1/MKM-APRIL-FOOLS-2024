@@ -1,59 +1,70 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 24,
-			"name": "Circle Idle",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "Circle Idle"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-74,
 				0
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "Circle Left",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Circle Left"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				43,
 				-57
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "Circle Down",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Circle Down"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-199,
 				168
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "Circle Up",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "Circle Up"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-190,
 				0
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "Circle Right",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Circle Right"
+		},
+		{
+			"offsets": [
+				-51,
+				734
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "bup don't leave me here",
+			"loop": false,
+			"name": "bup don't leave me here"
 		}
 	],
 	"no_antialiasing": false,
