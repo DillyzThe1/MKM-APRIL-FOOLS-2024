@@ -1,0 +1,90 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "danceLeft",
+			"fps": 24,
+			"name": "Laptop Dance Left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-3,
+				0
+			],
+			"anim": "danceRight",
+			"fps": 24,
+			"name": "Laptop Dance Right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Laptop Left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				9,
+				-43
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "Laptop Down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-12,
+				15
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "Laptop Up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-9,
+				-2
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Laptop Right",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/laptop",
+	"position": [
+		200,
+		374
+	],
+	"sing_param": null,
+	"healthicon": "laptop",
+	"flip_x": true,
+	"healthbar_colors": [
+		255,
+		255,
+		255
+	],
+	"camera_position": [
+		-350,
+		0
+	],
+	"sing_duration": 4,
+	"scale": 1
+}
