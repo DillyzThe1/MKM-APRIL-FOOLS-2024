@@ -259,6 +259,7 @@ class MainMenuState extends MusicBeatState
 
 	var selectedSomethin:Bool = false;
 	var skipNext:Bool = false;
+	var freeplaysDied:Bool = false;
 
 	override function update(elapsed:Float)
 	{
@@ -316,9 +317,28 @@ class MainMenuState extends MusicBeatState
 
 			if (controls.ACCEPT && (FlxG.keys.justPressed.ENTER || !strictInput))
 			{
-				if ((selOnRight ? optionShitRight : optionShit)[curSelected] == 'donate')
+				if (!CoolUtil.peaceRestored() && (selOnRight ? optionShitRight : optionShit)[curSelected] == 'freeplay')
 				{
-					CoolUtil.browserLoad('https://ninja-muffin24.itch.io/funkin');
+					if (!freeplaysDied) {
+						getCurMenuItems().forEach(function(spr:FlxSprite)
+						{
+							if (curSelected == spr.ID)
+							{
+								var awesomeY:Float = spr.y;
+								FlxTween.tween(spr, {y: FlxG.height + 150}, 0.2, {
+									ease: FlxEase.cubeIn,
+									onComplete: function(twn:FlxTween)
+									{
+										freeplaysDied = true;
+										spr.y = awesomeY;
+										spr.kill();
+										FlxG.sound.play(Paths.sound("house/divorce in a "));
+										FlxG.camera.shake(0.1, 1);
+									}
+								});
+							}
+						});
+					}
 				}
 				else
 				{
