@@ -42,6 +42,9 @@ class PauseSubState extends MusicBeatSubstate
 
 	var songMode:Bool = false;
 
+	var extraWario:Array<String> = ["Listen To It", "My New Song", "Deem The Steam", "The Mustache's Command", "Pass the Time", "Gas the Time",
+									"giggle", "New Song", "WANNA LISTEN TO MY NEW SONG", "Listen", "Songify Premium", "Pay $12.99", "i forgot",
+									"WAAAAAAAAAAAAAH", "free song", "New Single Songs in YOUR Area", "songinator", "wrong song", "vs song full song song"];
 	var warioItems:Array<String> = ["Listen To It", "My New Song", "Deem The Steam", "The Mustache's Command", "...",
 										"MY", "MUSTACHE", "HAS", "DEEMED", "THAT", "YOU", "GET", "THE", "WARIO", "STEAM"];
 	var warioIndex:Int = 0;
@@ -202,7 +205,7 @@ class PauseSubState extends MusicBeatSubstate
 		if (downP)
 		{
 			if (songMode && curSelected >= menuItems.length - 2) {
-				var epicText:String = warioIndex >= warioItems.length ? "!" : warioItems[warioIndex];
+				var epicText:String = warioIndex >= warioItems.length ? ((warioIndex < 32 || FlxG.random.bool(95)) ? "!" : extraWario[FlxG.random.int(0, extraWario.length - 1)]) : warioItems[warioIndex];
 				var item = new Alphabet(0, 70 * (menuItems.length - 1) + 30, epicText, true, false);
 				item.isMenuItem = true;
 				item.targetY = menuItems.length - 1;
