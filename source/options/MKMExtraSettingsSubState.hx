@@ -14,11 +14,18 @@ class MKMExtraSettingsSubState extends BaseOptionsMenu
         "Feels at Home" => {name: "Feels at Home", file: "feels-at-home", bpm: 105, loopTime: 27420},
     ];
 
+    public static var menuThemes_stupidSwearWordingWorkaround:Array<String> = [
+        "MKM Menu Theme (Forgotten)",
+        "MKM Menu Theme",
+        "Baby Menu Theme (Forgotten)",
+        "Baby Menu Theme",
+        "Danger Bup Ahead!",
+        "Playtime Bup Ahead!",
+        "Feels at Home"
+    ];
+
     public static function getMenuTheme_keys() {
-        var stupidThing:Array<String> = [];
-        for (i in menuThemes.keys())
-            stupidThing.push(i);
-        return stupidThing;
+        return menuThemes_stupidSwearWordingWorkaround;
     }
 
 	public function new()
@@ -26,7 +33,7 @@ class MKMExtraSettingsSubState extends BaseOptionsMenu
 		title = 'MKM Extras';
 		rpcTitle = 'MKM Extras Menu'; // for Discord Rich Presence
 
-		var option:Option = new Option('Show Money', "Shows your money in-battle.\n(poor taste?)", 'showMoney', 'bool', false);
+		var option:Option = new Option('Show Money', "Shows your money in-battle.\n(poor taste?)", 'showMoney', 'bool', true);
 		addOption(option);
 
 		option = new Option('BGM:', "What should play in the menus?\n(Includes v2.Oh nvm & v1.1 songs)", 'menuBgmType', 'string', "Feels at Home", getMenuTheme_keys());

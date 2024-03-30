@@ -32,7 +32,7 @@ class PlayStateManiaOptionSubState extends MusicBeatSubstate
 		FlxG.cameras.add(newCam, false);
 
 		camText = new FlxText(0, 0, FlxG.width,
-			"Hey!\nThe next song here uses a few Extra Key mechanics!\n\nIf you wish to disable them, hit ESCAPE!\nOtherwise, hit ENTER!\n\n(In other words, ESCAPE will load a 4 key chart!)", 32);
+			"Hey!\nThe next song here uses a few Extra Key mechanics!\n\nIf you wish to disable them, hit ESCAPE!\nOtherwise, hit ENTER!\n\n\n\n(In other words, ESCAPE will load a 4 key chart!)", 32);
 		camText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		camText.screenCenter(Y);
 		add(camText);

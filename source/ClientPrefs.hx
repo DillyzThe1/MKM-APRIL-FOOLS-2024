@@ -31,7 +31,7 @@ class ClientPrefs
 	public static var timeBarType:String = 'Time Left';
 	public static var menuBgmType:String = 'Feels at Home';
 	public static var money:Float = 0.00;
-	public static var showMoney:Bool = false;
+	public static var showMoney:Bool = true;
 	public static var scoreZoom:Bool = true;
 	public static var noReset:Bool = false;
 	public static var healthBarAlpha:Float = 1;

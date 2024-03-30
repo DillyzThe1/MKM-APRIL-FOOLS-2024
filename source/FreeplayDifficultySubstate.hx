@@ -27,6 +27,7 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
     var songText:FlxText;
 
 	var funnyBupBupBupSound:FlxSound;
+	var coolCrap:Array<String>;
 
     public function new (song:String) {
         super();
@@ -37,6 +38,7 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
         super.create();
 
 		CoolUtil.loadSongDiffs(songName);
+		coolCrap = CoolUtil.getCrappyDifficulties(songName);
 
 		var offset:Float = FlxG.height * -0.1;
 
@@ -48,7 +50,7 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 
         for (i in 0...CoolUtil.difficulties.length) {
 			var diff:String = CoolUtil.difficulties[i];
-			if (CoolUtil.hiddenDifficulties.contains(diff) &&!CoolUtil.songCompletedOnDiff(songName, diff))
+			if (CoolUtil.hiddenDifficulties.contains(diff) && !CoolUtil.songCompletedOnDiff(songName, diff))
 				continue;
 			var star:MaroStar = new MaroStar(diff, songName);
 			star.screenCenter(X);
@@ -102,22 +104,15 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 		var epicfail:Bool = false;
 		
 		var songLowercase:String = Paths.formatToSongPath(songName);
-		var diffLowercase:String = stars.members[curStar].diffName.toLowerCase();
+		var difficultythinglol:String = stars.members[curStar].diffName;
 
-		if (songLowercase == "bup" && diffLowercase == "alpha" && !ClientPrefs.getKeyUnlocked("no-way-end")) {
+		if (songLowercase == "bup" && difficultythinglol.toLowerCase() == "alpha" && !ClientPrefs.getKeyUnlocked("no-way-end")) {
 			PlayState.storyDifficulty = CoolUtil.loadSongDiffs("No Way");
 			songLowercase = Paths.formatToSongPath("No Way");
 			goToChart = false;
 			epicfail = true;
 		} 
-		else if ((songLowercase == "chaotically-stupid" && (diffLowercase == "old" || diffLowercase == "alpha"))
-				|| (songLowercase == "bup" && diffLowercase == "old")
-				|| (songLowercase == "square" && diffLowercase == "alpha")
-				|| songLowercase == "tutorial"
-				|| songLowercase == "bug-blaster"
-				|| (songLowercase == "merry-way" && diffLowercase == "beta")
-				|| (songLowercase == "brrrrr" && (diffLowercase == "old" || diffLowercase == "alpha"))
-				|| (songLowercase == "wario's-song" && diffLowercase == "Ultra Dubstep Techno Rock Metal Song-Like New Song My New Song Super Duper Bros. U 64 Kart Deluxe Remix".toLowerCase())) {
+		else if (coolCrap.contains(difficultythinglol)) {	
 			var cahcnawagwgwgawgawaeassersdrtkjtdedr:Int = FlxG.random.int(1, 5);
 			switch(songLowercase) {
 				case "brrrrr":

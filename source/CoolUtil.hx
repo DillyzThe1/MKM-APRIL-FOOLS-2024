@@ -46,6 +46,20 @@ class CoolUtil
 		return 0;
 	}
 
+	public static function getCrappyDifficulties(song:String):Array<String> {
+		var formattedSong:String = song.toLowerCase().replace(" ", "-");
+		var newDifficulties:Array<String> = [];
+		var txtName:String = "data/" + formattedSong + "/crap.txt";
+		if (Paths.fileExists(txtName, AssetType.TEXT, false, "preload")) {
+			newDifficulties = Paths.getTextFromFile(txtName, false).trim().split("\n");
+			for (i in 0...newDifficulties.length)
+				newDifficulties[i] = newDifficulties[i].trim();
+			trace(newDifficulties);
+			return newDifficulties;
+		}
+		return newDifficulties;
+	}
+
 	public static function getSongDiffs(song:String):Array<String> {
 		var formattedSong:String = song.toLowerCase().replace(" ", "-");
 

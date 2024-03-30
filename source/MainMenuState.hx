@@ -259,7 +259,7 @@ class MainMenuState extends MusicBeatState
 
 	var selectedSomethin:Bool = false;
 	var skipNext:Bool = false;
-	var freeplaysDied:Bool = false;
+	var freeplaysDied:Array<Int> = [];
 
 	override function update(elapsed:Float)
 	{
@@ -315,11 +315,12 @@ class MainMenuState extends MusicBeatState
 				MusicBeatState.switchState(new TitleState());
 			}
 
-			if (controls.ACCEPT && (FlxG.keys.justPressed.ENTER || !strictInput))
+			if (controls.ACCEPT && (FlxG.keys.justPressed.ENTER || !strictInput) && !freeplaysDied.contains(curSelected))
 			{
-				if (!CoolUtil.peaceRestored() && (selOnRight ? optionShitRight : optionShit)[curSelected] == 'freeplay')
+				if ((CoolUtil.peaceRestored() && FlxG.keys.pressed.SHIFT) ||  (!CoolUtil.peaceRestored() && (selOnRight ? optionShitRight : optionShit)[curSelected] == 'freeplay'))
 				{
-					if (!freeplaysDied) {
+					if (!selOnRight && !freeplaysDied.contains(curSelected)) {
+						freeplaysDied.push(curSelected);
 						getCurMenuItems().forEach(function(spr:FlxSprite)
 						{
 							if (curSelected == spr.ID)
@@ -329,7 +330,6 @@ class MainMenuState extends MusicBeatState
 									ease: FlxEase.cubeIn,
 									onComplete: function(twn:FlxTween)
 									{
-										freeplaysDied = true;
 										spr.y = awesomeY;
 										spr.kill();
 										FlxG.sound.play(Paths.sound("house/divorce in a "));
