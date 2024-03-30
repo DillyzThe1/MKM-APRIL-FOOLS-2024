@@ -258,6 +258,7 @@ class PauseSubState extends MusicBeatSubstate
 						if (!canExitLmaooooo)
 							FlxG.sound.play(Paths.sound('kaching'));
 						canExitLmaooooo = true;
+						grpMenuShit.members[curSelected].changeText("You may now leave.");
 					case "exit to menu":
 						if (!canExitLmaooooo) {
 							trace("I FOUND YOU, YOU child-friendly-adjective CHEATER!!!!!!!!!");
