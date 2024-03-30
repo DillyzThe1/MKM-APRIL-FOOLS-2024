@@ -42,13 +42,13 @@ class PauseSubState extends MusicBeatSubstate
 
 	var songMode:Bool = false;
 
-	var warioItems:Array<String> = ["Listen To It", "My New Song", "Deem The Steam", "The Mustache's Command", "Exit to menu", 
-										"...", "MY", "MUSTACHE", "HAS", "DEEMED", "THAT", "YOU", "GET", "THE", "WARIO", "STEAM"];
+	var warioItems:Array<String> = ["Listen To It", "My New Song", "Deem The Steam", "The Mustache's Command", "...",
+										"MY", "MUSTACHE", "HAS", "DEEMED", "THAT", "YOU", "GET", "THE", "WARIO", "STEAM"];
 	var warioIndex:Int = 0;
 
 	function makeMenuItems() {
 		if (PlayState.SONG.song.toLowerCase() == "wario's song") {
-			menuItems = ["Obey Song"];
+			menuItems = ["Obey Song", "Exit to menu"];
 			songMode = true;
 			return;
 		}
