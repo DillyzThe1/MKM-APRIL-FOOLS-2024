@@ -202,8 +202,11 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
         else if (controls.ACCEPT)
 			select();
 	
-		if (controls.BACK)
+		if (controls.BACK) {
+			if (Paths.formatToSongPath(songName) == "wario's-song")
+				FreeplayState.instance.hasMustacheDeemed = true;
 			exitthing();
+		}
     }
 }
 

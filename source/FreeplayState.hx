@@ -53,6 +53,8 @@ class FreeplayState extends MusicBeatState
 
 	public var pleaseStop:Bool = false; 
 
+	public var hasMustacheDeemed:Bool = false;
+
 	override function create()
 	{
 		// Paths.clearStoredMemory();
@@ -204,6 +206,15 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		// soup soup soup
+		// soup soup souuup soup soup su soup soup
+		// soup soup soup
+		// soup soup  SOUUUP soup soup soup su soup
+
+		// su su soup su su soup
+		// SOUUUUP soup soup su soup suuuu
+		// soupsoupsoup soup su su soup soup su soup
+
+		// soup soup soup
 		this.subStateClosed.add(function(substate:FlxSubState) {
 			trace('substate died lmao');
 
@@ -246,7 +257,42 @@ class FreeplayState extends MusicBeatState
 					onComplete: function(t:FlxTween)
 					{
 						FlxG.camera.setFilters([]);
-						hasSelected = false;
+
+						if (!hasMustacheDeemed)
+							hasSelected = false;
+						else {
+							FlxG.sound.music.fadeOut(0.175, 0.25);
+							FlxG.sound.play(Paths.sound("deemed")).onComplete = function() {
+								var theSongEver:SongMetadata = songs[curIndex];
+								FlxG.sound.music.fadeOut(0.175);
+								FlxG.sound.play(Paths.sound('mario painting'), 1.35, false);
+								FlxTween.tween(theSongEver.portrait, {y: FlxG.height / 2 - theSongEver.portrait.height / 2, "scale.x": 1.15, "scale.y": 1.15}, 0.75,
+									{ease: FlxEase.cubeInOut});
+								FlxTween.tween(theSongEver.text, {y: FlxG.height + 100}, 0.75, {ease: FlxEase.cubeInOut});
+								FlxTween.tween(theSongEver.icon, {y: FlxG.height + 100}, 0.75, {ease: FlxEase.cubeInOut});
+								FlxTween.tween(theSongEver.portrait.scale, {x: 2.25, y: 2.25}, 1, {ease: FlxEase.cubeIn});
+								if (overspitrhwrwhjwak == null) {
+									overspitrhwrwhjwak = new FlxSprite(FlxG.width * -0.5, FlxG.height * -0.5).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.WHITE);
+									overspitrhwrwhjwak.alpha = 0;
+									add(overspitrhwrwhjwak);
+								}
+								if (epicOverTween != null)
+									epicOverTween.cancel();
+								epicOverTween = FlxTween.tween(overspitrhwrwhjwak, {alpha: 1}, 0.85);
+				
+								FlxTween.tween(FlxG.camera, {zoom: 2.25}, 1, {
+									ease: FlxEase.cubeIn,
+									onComplete: function(t:FlxTween)
+									{
+										FlxG.camera.setFilters([]);
+										PlayState.storyDifficulty = CoolUtil.difficulties.indexOf("Hard");
+										var peopleOrderOurPatties:String = Highscore.formatSong("wario's-song", PlayState.storyDifficulty);
+										PlayState.SONG = Song.loadFromJson(peopleOrderOurPatties, "wario's-song");
+										LoadingState.loadAndSwitchState(new PlayState());
+									}
+								});
+							};
+						}
 					}
 				});
 			}
