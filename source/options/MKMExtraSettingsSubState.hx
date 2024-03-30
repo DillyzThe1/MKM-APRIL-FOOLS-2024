@@ -26,7 +26,10 @@ class MKMExtraSettingsSubState extends BaseOptionsMenu
 		title = 'MKM Extras';
 		rpcTitle = 'MKM Extras Menu'; // for Discord Rich Presence
 
-		var option:Option = new Option('BGM:', "What should play in the menus?\n(Includes v2.Oh nvm & v1.1 songs)", 'menuBgmType', 'string', "Feels at Home", getMenuTheme_keys());
+		var option:Option = new Option('Show Money', "Shows your money in-battle.\n(poor taste?)", 'showMoney', 'bool', false);
+		addOption(option);
+
+		option = new Option('BGM:', "What should play in the menus?\n(Includes v2.Oh nvm & v1.1 songs)", 'menuBgmType', 'string', "Feels at Home", getMenuTheme_keys());
 		addOption(option);
         option.onChange = function() { CoolUtil.playMenuTheme(); };
 

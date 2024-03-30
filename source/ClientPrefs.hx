@@ -30,6 +30,8 @@ class ClientPrefs
 	public static var ghostTapping:Bool = true;
 	public static var timeBarType:String = 'Time Left';
 	public static var menuBgmType:String = 'Feels at Home';
+	public static var money:Float = 0.00;
+	public static var showMoney:Bool = false;
 	public static var scoreZoom:Bool = true;
 	public static var noReset:Bool = false;
 	public static var healthBarAlpha:Float = 1;
@@ -138,6 +140,8 @@ class ClientPrefs
 		FlxG.save.data.ghostTapping = ghostTapping;
 		FlxG.save.data.timeBarType = timeBarType;
 		FlxG.save.data.menuBgmType = menuBgmType;
+		FlxG.save.data.money = money;
+		FlxG.save.data.showMoney = showMoney;
 		FlxG.save.data.scoreZoom = scoreZoom;
 		FlxG.save.data.noReset = noReset;
 		FlxG.save.data.healthBarAlpha = healthBarAlpha;
@@ -255,6 +259,14 @@ class ClientPrefs
 		if (FlxG.save.data.menuBgmType != null)
 		{
 			menuBgmType = FlxG.save.data.menuBgmType;
+		}
+		if (FlxG.save.data.money != null)
+		{
+			money = FlxG.save.data.money;
+		}
+		if (FlxG.save.data.showMoney != null)
+		{
+			showMoney = FlxG.save.data.showMoney;
 		}
 		if (FlxG.save.data.scoreZoom != null)
 		{
@@ -411,5 +423,12 @@ class ClientPrefs
 			len = copiedArray.length;
 		}
 		return copiedArray;
+	}
+
+	public static function getMoney():String {
+		var ohYeah:String = "$" + Std.int(money * 100);
+		var firstPart:String = ohYeah.substr(0, ohYeah.length - 2);
+		var lastPart:String = ohYeah.substr(ohYeah.length - 2, 2);
+		return firstPart + "." + lastPart;
 	}
 }

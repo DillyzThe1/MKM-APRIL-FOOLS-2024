@@ -50,6 +50,8 @@ class PauseSubState extends MusicBeatSubstate
 										"MY", "MUSTACHE", "HAS", "DEEMED", "THAT", "YOU", "GET", "THE", "WARIO", "STEAM"];
 	var warioIndex:Int = 0;
 
+	var walletTxt:FlxText;
+
 	function makeMenuItems() {
 		if (PlayState.SONG.song.toLowerCase() == "wario's song") {
 			menuItems = ["Obey Song", "Exit to menu"];
@@ -134,6 +136,13 @@ class PauseSubState extends MusicBeatSubstate
 		epicfailsTxt.setFormat(Paths.font('vcr.ttf'), 32);
 		epicfailsTxt.updateHitbox();
 		add(epicfailsTxt);
+		
+		walletTxt = new FlxText(20, 15 + 96, 0, "", 32);
+		walletTxt.text = "Balance: " + ClientPrefs.getMoney();
+		walletTxt.scrollFactor.set();
+		walletTxt.setFormat(Paths.font('vcr.ttf'), 32);
+		walletTxt.updateHitbox();
+		add(walletTxt);
 
 		practiceText = new FlxText(20, 15 + 101, 0, "PRACTICE MODE", 32);
 		practiceText.scrollFactor.set();
@@ -155,15 +164,18 @@ class PauseSubState extends MusicBeatSubstate
 		epicfailsTxt.alpha = 0;
 		levelDifficulty.alpha = 0;
 		levelInfo.alpha = 0;
+		walletTxt.alpha = 0;
 
 		levelInfo.x = FlxG.width - (levelInfo.width + 20);
 		levelDifficulty.x = FlxG.width - (levelDifficulty.width + 20);
 		epicfailsTxt.x = FlxG.width - (epicfailsTxt.width + 20);
+		walletTxt.x = FlxG.width - (walletTxt.width + 20);
 
 		FlxTween.tween(bg, {alpha: 0.6}, 0.4, {ease: FlxEase.quartInOut});
 		FlxTween.tween(levelInfo, {alpha: 1, y: 20}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
 		FlxTween.tween(levelDifficulty, {alpha: 1, y: levelDifficulty.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
 		FlxTween.tween(epicfailsTxt, {alpha: 1, y: epicfailsTxt.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
+		FlxTween.tween(walletTxt, {alpha: 1, y: walletTxt.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
 
 		grpMenuShit = new FlxTypedGroup<Alphabet>();
 		add(grpMenuShit);
@@ -255,8 +267,17 @@ class PauseSubState extends MusicBeatSubstate
 			if (songMode) {
 				switch (daSelected.toLowerCase()) {
 					case "pay $12.99":
-						if (!canExitLmaooooo)
-							FlxG.sound.play(Paths.sound('kaching'));
+						if (canExitLmaooooo)
+							return;
+
+						if (ClientPrefs.money < 12.99) {
+							grpMenuShit.members[curSelected].changeText("get a job");
+							return;
+						}
+
+						ClientPrefs.money -= 12.99;
+						walletTxt.text = "Balance: " + ClientPrefs.getMoney();
+						FlxG.sound.play(Paths.sound('kaching'));
 						canExitLmaooooo = true;
 						grpMenuShit.members[curSelected].changeText("You may now leave.");
 					case "exit to menu":

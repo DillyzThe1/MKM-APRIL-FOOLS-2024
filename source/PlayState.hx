@@ -584,18 +584,21 @@ class PlayState extends MusicBeatState
 		rating.ratingMod = 0.7;
 		rating.score = 200;
 		rating.noteSplash = false;
+		rating.money = 0.01;
 		ratingsData.push(rating);
 
 		var rating:Rating = new Rating('bad');
 		rating.ratingMod = 0.4;
 		rating.score = 100;
 		rating.noteSplash = false;
+		rating.money = -0.01;
 		ratingsData.push(rating);
 
 		var rating:Rating = new Rating('shit');
 		rating.ratingMod = 0;
 		rating.score = 50;
 		rating.noteSplash = false;
+		rating.money = -0.02;
 		ratingsData.push(rating);
 
 		// For the "Just the Two of Us" achievement
@@ -1619,10 +1622,12 @@ class PlayState extends MusicBeatState
 		scoreTxt.text = 'Score: '
 			+ songScore
 			+ ' | Misses: '
-			+ songMisses
-			+ ' | Rating: '
-			+ ratingName
-			+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
+			+ songMisses;
+
+		if (ClientPrefs.showMoney)
+			scoreTxt.text += ' | Balance: ' + ClientPrefs.getMoney();
+		
+		scoreTxt.text += ' | Rating: ' + ratingName + (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
 
 		if (ClientPrefs.scoreZoom && !miss && !cpuControlled)
 		{
@@ -3545,6 +3550,9 @@ class PlayState extends MusicBeatState
 		if (!note.ratingDisabled)
 			daRating.increase();
 		note.rating = daRating.name;
+		ClientPrefs.money += daRating.money;
+		if (ClientPrefs.money < 0)
+			ClientPrefs.money = 0;
 
 		if (daRating.noteSplash && !note.noteSplashDisabled)
 		{
@@ -4207,6 +4215,10 @@ class PlayState extends MusicBeatState
 
 	function noteMiss(daNote:Note):Void
 	{ 
+		ClientPrefs.money -= 0.05;
+		if (ClientPrefs.money < 0)
+			ClientPrefs.money = 0;
+
 		// prevent missing notes you can't hit
 		if (daNote != null && Note.noteManiaSettings[PlayState.keyCount].length > 10) {
 			var intsofalltime:Array<Int> = Note.noteManiaSettings[PlayState.keyCount][10];
@@ -4308,6 +4320,10 @@ class PlayState extends MusicBeatState
 
 		if (ClientPrefs.ghostTapping)
 			return; // fuck it
+		
+		ClientPrefs.money -= 0.05;
+		if (ClientPrefs.money < 0)
+			ClientPrefs.money = 0;
 
 		if (!(isLeftMode ? dad : boyfriend).stunned)
 		{
