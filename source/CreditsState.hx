@@ -76,7 +76,7 @@ class CreditsState extends MusicBeatState
 				'Musician, Feedback, & Play Tester.',
 				'https://gamebanana.com/members/1862368/',
 				'FF99CC',
-				['circle']
+				['circle', 'wario']
 			],
 			[
 				'Impostor',
