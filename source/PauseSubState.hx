@@ -42,10 +42,13 @@ class PauseSubState extends MusicBeatSubstate
 
 	var songMode:Bool = false;
 
+	var warioItems:Array<String> = ["Listen To It", "My New Song", "Deem The Steam", "The Mustache's Command", "Exit to menu", 
+										"...", "MY", "MUSTACHE", "HAS", "DEEMED", "THAT", "YOU", "GET", "THE", "WARIO", "STEAM"];
+	var warioIndex:Int = 0;
+
 	function makeMenuItems() {
 		if (PlayState.SONG.song.toLowerCase() == "wario's song") {
-			menuItems = ["Obey Song", "Listen To It", "My New Song", "Deem The Steam", "The Mustache's Command", "...", 
-							"MY", "MUSTACHE", "HAS", "DEEMED", "THAT", "YOU", "GET", "THE", "WARIO", "STEAM", "!", "!", "Exit to menu"];
+			menuItems = ["Obey Song"];
 			songMode = true;
 			return;
 		}
@@ -199,11 +202,13 @@ class PauseSubState extends MusicBeatSubstate
 		if (downP)
 		{
 			if (songMode && curSelected >= menuItems.length - 2) {
-				var item = new Alphabet(0, 70 * (menuItems.length - 1) + 30, "!", true, false);
+				var epicText:String = warioIndex >= warioItems.length ? "!" : warioItems[warioIndex];
+				var item = new Alphabet(0, 70 * (menuItems.length - 1) + 30, epicText, true, false);
 				item.isMenuItem = true;
 				item.targetY = menuItems.length - 1;
-				menuItems.insert(menuItems.length - 1, "!");
+				menuItems.insert(menuItems.length - 1, epicText);
 				grpMenuShit.insert(grpMenuShit.length - 1, item);
+				warioIndex++;
 			}
 			changeSelection(1);
 		}
