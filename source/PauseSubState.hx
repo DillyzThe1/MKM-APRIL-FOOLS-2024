@@ -40,9 +40,17 @@ class PauseSubState extends MusicBeatSubstate
 	// var botplayText:FlxText;
 	public static var songName:String = '';
 
-	public function new(x:Float, y:Float)
-	{
-		super();
+	var songMode:Bool = false;
+
+	function makeMenuItems() {
+		if (PlayState.SONG.song.toLowerCase() == "wario's song") {
+			menuItems = ["Obey Song", "Listen To It", "My New Song", "Deem The Steam", "The Mustache's Command", "...", 
+							"MY", "MUSTACHE", "HAS", "DEEMED", "THAT", "YOU", "GET", "THE", "WARIO", "STEAM"];
+			for (i in 0...32)
+				menuItems.push("!");
+			songMode = true;
+			return;
+		}
 
 		if (PlayState.chartingMode)
 		{
@@ -61,7 +69,14 @@ class PauseSubState extends MusicBeatSubstate
 		menuItems = menuItemsOG;
 
 		//if (PlayState.SONG.song.toLowerCase().replace(" ", "-") == "house")
-			menuItemsOG.insert(2, 'Parental Controls');
+		menuItemsOG.insert(2, 'Parental Controls');
+	}
+
+	public function new(x:Float, y:Float)
+	{
+		super();
+
+		makeMenuItems();
 
 		for (i in 0...CoolUtil.difficulties.length)
 		{
@@ -170,10 +185,28 @@ class PauseSubState extends MusicBeatSubstate
 
 		if (upP)
 		{
-			changeSelection(-1);
+			if (songMode && curSelected == 0) {
+				menuItems.insert(0, "!");
+				for (i in 0...grpMenuShit.members.length)
+					grpMenuShit.members[i].targetY++;
+				var item = new Alphabet(0, 70 + 30, "!", true, false);
+				item.isMenuItem = true;
+				item.targetY = 0;
+				grpMenuShit.insert(0, item);
+				changeSelection();
+			}
+			else
+				changeSelection(-1);
 		}
 		if (downP)
 		{
+			if (songMode && curSelected >= menuItems.length - 3) {
+				menuItems.push("!");
+				var item = new Alphabet(0, 70 * (menuItems.length - 1) + 30, "!", true, false);
+				item.isMenuItem = true;
+				item.targetY = menuItems.length - 1;
+				grpMenuShit.add(item);
+			}
 			changeSelection(1);
 		}
 
@@ -212,6 +245,11 @@ class PauseSubState extends MusicBeatSubstate
 
 		if (accepted && (cantUnpause <= 0 || !ClientPrefs.controllerMode))
 		{
+			if (songMode) {
+				close();
+				return;
+			}
+
 			if (menuItems == difficultyChoices)
 			{
 				if (menuItems.length - 1 != curSelected && difficultyChoices.contains(daSelected))
