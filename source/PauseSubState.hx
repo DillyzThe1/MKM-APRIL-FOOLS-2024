@@ -41,6 +41,7 @@ class PauseSubState extends MusicBeatSubstate
 	public static var songName:String = '';
 
 	var songMode:Bool = false;
+	var canExitLmaooooo:Bool = false;
 
 	var extraWario:Array<String> = ["Listen To It", "My New Song", "Deem The Steam", "The Mustache's Command", "Pass the Time", "Gas the Time",
 									"giggle", "New Song", "WANNA LISTEN TO MY NEW SONG", "Listen", "Songify Premium", "Pay $12.99", "i forgot",
@@ -204,8 +205,8 @@ class PauseSubState extends MusicBeatSubstate
 		}
 		if (downP)
 		{
-			if (songMode && curSelected >= menuItems.length - 2) {
-				var epicText:String = warioIndex >= warioItems.length ? ((warioIndex < 32 || FlxG.random.bool(95)) ? "!" : extraWario[FlxG.random.int(0, extraWario.length - 1)]) : warioItems[warioIndex];
+			if (songMode && !canExitLmaooooo && curSelected >= menuItems.length - 2) {
+				var epicText:String = warioIndex >= warioItems.length ? ((warioIndex < 32 || FlxG.random.bool(80)) ? "!" : extraWario[FlxG.random.int(0, extraWario.length - 1)]) : warioItems[warioIndex];
 				var item = new Alphabet(0, 70 * (menuItems.length - 1) + 30, epicText, true, false);
 				item.isMenuItem = true;
 				item.targetY = menuItems.length - 1;
@@ -252,7 +253,27 @@ class PauseSubState extends MusicBeatSubstate
 		if (accepted && (cantUnpause <= 0 || !ClientPrefs.controllerMode))
 		{
 			if (songMode) {
-				close();
+				switch (daSelected.toLowerCase()) {
+					case "pay $12.99":
+						if (!canExitLmaooooo)
+							FlxG.sound.play(Paths.sound('kaching'));
+						canExitLmaooooo = true;
+					case "exit to menu":
+						if (!canExitLmaooooo) {
+							trace("I FOUND YOU, YOU child-friendly-adjective CHEATER!!!!!!!!!");
+							close();
+							return;
+						}
+						PlayState.deathCounter = 0;
+						PlayState.seenCutscene = false;
+						MusicBeatState.switchState(PlayState.isStoryMode ? new StoryMenuState() : new FreeplayState());
+						PlayState.cancelMusicFadeTween();
+						CoolUtil.playMenuTheme();
+						PlayState.changedDifficulty = false;
+						PlayState.chartingMode = false;
+					default:
+						close();
+				}
 				return;
 			}
 
