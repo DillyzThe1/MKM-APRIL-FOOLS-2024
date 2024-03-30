@@ -3550,9 +3550,11 @@ class PlayState extends MusicBeatState
 		if (!note.ratingDisabled)
 			daRating.increase();
 		note.rating = daRating.name;
-		ClientPrefs.money += daRating.money;
-		if (ClientPrefs.money < 0)
-			ClientPrefs.money = 0;
+		if (!cpuControlled) {
+			ClientPrefs.money += daRating.money;
+			if (ClientPrefs.money < 0)
+				ClientPrefs.money = 0;
+		}
 
 		if (daRating.noteSplash && !note.noteSplashDisabled)
 		{
@@ -4247,9 +4249,12 @@ class PlayState extends MusicBeatState
 		if (daNote.missPenalty) {
 			combo = 0;
 			health -= daNote.missHealth * healthLoss;
-			ClientPrefs.money -= 0.05;
-			if (ClientPrefs.money < 0)
-				ClientPrefs.money = 0;
+			
+			if (!cpuControlled) {
+				ClientPrefs.money -= 0.05;
+				if (ClientPrefs.money < 0)
+					ClientPrefs.money = 0;
+			}
 
 			if (instakillOnMiss)
 			{
@@ -4320,9 +4325,11 @@ class PlayState extends MusicBeatState
 		if (ClientPrefs.ghostTapping)
 			return; // fuck it
 		
-		ClientPrefs.money -= 0.05;
-		if (ClientPrefs.money < 0)
-			ClientPrefs.money = 0;
+		if (!cpuControlled) {
+			ClientPrefs.money -= 0.05;
+			if (ClientPrefs.money < 0)
+				ClientPrefs.money = 0;
+		}
 
 		if (!(isLeftMode ? dad : boyfriend).stunned)
 		{
@@ -4626,7 +4633,7 @@ class PlayState extends MusicBeatState
 					combo = 9999;
 				popUpScore(note);
 			}
-			else
+			else if (!cpuControlled)
 				ClientPrefs.money += 0.0025;
 			health += note.hitHealth * healthGain;
 
