@@ -45,9 +45,7 @@ class PauseSubState extends MusicBeatSubstate
 	function makeMenuItems() {
 		if (PlayState.SONG.song.toLowerCase() == "wario's song") {
 			menuItems = ["Obey Song", "Listen To It", "My New Song", "Deem The Steam", "The Mustache's Command", "...", 
-							"MY", "MUSTACHE", "HAS", "DEEMED", "THAT", "YOU", "GET", "THE", "WARIO", "STEAM"];
-			for (i in 0...32)
-				menuItems.push("!");
+							"MY", "MUSTACHE", "HAS", "DEEMED", "THAT", "YOU", "GET", "THE", "WARIO", "STEAM", "!", "!", "Exit to menu"];
 			songMode = true;
 			return;
 		}
@@ -200,12 +198,12 @@ class PauseSubState extends MusicBeatSubstate
 		}
 		if (downP)
 		{
-			if (songMode && curSelected >= menuItems.length - 3) {
-				menuItems.push("!");
+			if (songMode && curSelected >= menuItems.length - 2) {
 				var item = new Alphabet(0, 70 * (menuItems.length - 1) + 30, "!", true, false);
 				item.isMenuItem = true;
 				item.targetY = menuItems.length - 1;
-				grpMenuShit.add(item);
+				menuItems.insert(menuItems.length - 1, "!");
+				grpMenuShit.insert(grpMenuShit.length - 1, item);
 			}
 			changeSelection(1);
 		}
