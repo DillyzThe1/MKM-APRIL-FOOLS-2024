@@ -121,6 +121,10 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 			switch(songLowercase) {
 				case "brrrrr":
 					FlxG.sound.play(Paths.sound('brrrrr'), 1, false);
+				case "square":
+					FlxG.sound.play(Paths.sound('nosquare$cahcnawagwgwgawgawaeassersdrtkjtdedr'), 1, false);
+				case "wario's-song":
+					FlxG.sound.play(Paths.sound('hisnew$cahcnawagwgwgawgawaeassersdrtkjtdedr'), 1, false);
 				default:
 					FlxG.sound.play(Paths.sound('alpha/toadWeekRandom$cahcnawagwgwgawgawaeassersdrtkjtdedr'));
 			}
@@ -134,8 +138,10 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 			if (MusicBeatState.terror <= 0)
 				MusicBeatState.theHorrors();
 			#end
-			if (cahcnawagwgwgawgawaeassersdrtkjtdedr == 5)
+			if (cahcnawagwgwgawgawaeassersdrtkjtdedr == 5) {
+				FreeplayState.instance.deleteCurSelection();
 				exitthing();
+			}
 			return;
 		} 
 		else

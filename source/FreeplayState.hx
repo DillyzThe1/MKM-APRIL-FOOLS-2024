@@ -253,6 +253,17 @@ class FreeplayState extends MusicBeatState
 		});
 	}
 
+	public function deleteCurSelection() {
+		songs[curIndex].icon.visible = false;
+		songs[curIndex].portrait.visible = false;
+		songs[curIndex].text.visible = false;
+		grpSongs.members.remove(songs[curIndex].text);
+		iconArray.remove(songs[curIndex].icon);
+		portraits.remove(songs[curIndex].portrait);
+		songs.remove(songs[curIndex]);
+		changeSelection();
+	}
+
 	override function update(e:Float)
 	{
 		super.update(e);
@@ -340,14 +351,7 @@ class FreeplayState extends MusicBeatState
 				if (songs[curIndex].flag1 > 3)
 					return;
 				if (songs[curIndex].flag1 == 3) {
-					songs[curIndex].icon.visible = false;
-					songs[curIndex].portrait.visible = false;
-					songs[curIndex].text.visible = false;
-					grpSongs.members.remove(songs[curIndex].text);
-					iconArray.remove(songs[curIndex].icon);
-					portraits.remove(songs[curIndex].portrait);
-					songs.remove(songs[curIndex]);
-					changeSelection();
+					deleteCurSelection();
 					return;
 				}
 				songs[curIndex].flag1++;
