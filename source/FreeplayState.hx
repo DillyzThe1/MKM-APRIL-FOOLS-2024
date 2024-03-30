@@ -461,7 +461,7 @@ class FreeplayState extends MusicBeatState
 	var lastDifficultyName:String = "";
 
 	var top27freds:Array<String> = ["fred", "redf", "fref", "fan", "fork", "freed", "frolic", "derf", "fdre", "ferd", "dref", 
-									"FNF: VS Uncle Fred", "abcdeFREDghjiklmnopqrstuvwxyz", "ferf", "phineas and ferb"];
+									"': VS Uncle Fred", "abcdeFREDghjiklmnopqrstuvwxyz", "ferf", "phineas and ferb"];
 	function changeSelection(change:Int = 0, ?playSound:Bool = true)
 	{
 		#if !desktop

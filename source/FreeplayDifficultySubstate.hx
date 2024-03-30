@@ -10,6 +10,7 @@ import flixel.system.FlxSound;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import openfl.utils.AssetType;
+import sys.FileSystem;
 
 using StringTools;
 
@@ -89,7 +90,7 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 
 		stars.cameras = playerSymbol.cameras = songText.cameras = diffText.cameras = [diffCam];
 
-        funnyBupBupBupSound = FlxG.sound.play(Paths.sound("difficulty screen", "preload"), 0.75);
+        funnyBupBupBupSound = FlxG.sound.play((FileSystem.exists(Paths.modFolders('sounds/jingle/' + Paths.formatToSongPath(songName) + '.ogg'))) ? Paths.sound("jingle/" + Paths.formatToSongPath(songName)) : Paths.sound("difficulty screen", "preload"), 0.75);
 		changeSel();
     }
 
