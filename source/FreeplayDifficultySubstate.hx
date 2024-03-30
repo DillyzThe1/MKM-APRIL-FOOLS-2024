@@ -101,22 +101,41 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 		var epicfail:Bool = false;
 		
 		var songLowercase:String = Paths.formatToSongPath(songName);
+		var diffLowercase:String = stars.members[curStar].diffName.toLowerCase();
 
-		if (songLowercase == "bup" && stars.members[curStar].diffName.toLowerCase() == "alpha" && !ClientPrefs.getKeyUnlocked("no-way-end")) {
+		if (songLowercase == "bup" && diffLowercase == "alpha" && !ClientPrefs.getKeyUnlocked("no-way-end")) {
 			PlayState.storyDifficulty = CoolUtil.loadSongDiffs("No Way");
 			songLowercase = Paths.formatToSongPath("No Way");
 			goToChart = false;
 			epicfail = true;
 		} 
-		else if (songLowercase == "chaotically-stupid" && stars.members[curStar].diffName.toLowerCase() == "alpha") {
-			FlxG.sound.play(Paths.sound('alpha/toadWeekRandom${FlxG.random.int(1, 5)}'));
+		else if ((songLowercase == "chaotically-stupid" && (diffLowercase == "old" || diffLowercase == "alpha"))
+				|| (songLowercase == "bup" && diffLowercase == "old")
+				|| (songLowercase == "square" && diffLowercase == "alpha")
+				|| songLowercase == "tutorial"
+				|| songLowercase == "bug-blaster"
+				|| (songLowercase == "merry-way" && diffLowercase == "beta")
+				|| (songLowercase == "brrrrr" && (diffLowercase == "old" || diffLowercase == "alpha"))
+				|| (songLowercase == "wario's-song" && diffLowercase == "Ultra Dubstep Techno Rock Metal Song-Like New Song My New Song Super Duper Bros. U 64 Kart Deluxe Remix".toLowerCase())) {
+			var cahcnawagwgwgawgawaeassersdrtkjtdedr:Int = FlxG.random.int(1, 5);
+			switch(songLowercase) {
+				case "brrrrr":
+					FlxG.sound.play(Paths.sound('brrrrr'), 1, false);
+				default:
+					FlxG.sound.play(Paths.sound('alpha/toadWeekRandom$cahcnawagwgwgawgawaeassersdrtkjtdedr'));
+			}
 			FlxG.sound.play(Paths.sound('missnote${FlxG.random.int(1, 3)}', 'shared'));
 			diffCam.shake(0.05, 0.375);
 			hasSel = false;
+			FreeplayState.instance.pleaseStop = false;
+			#if CHAT_LU_E_G__ALLOWED
 			MusicBeatState.terror -= 120;
 			trace(MusicBeatState.terror);
 			if (MusicBeatState.terror <= 0)
 				MusicBeatState.theHorrors();
+			#end
+			if (cahcnawagwgwgawgawaeassersdrtkjtdedr == 5)
+				exitthing();
 			return;
 		} 
 		else
@@ -150,6 +169,19 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 		diffText.screenCenter(X);
     }
 
+	function exitthing() {
+		hasSel = true;
+		FlxG.sound.play(Paths.sound('cancelMenu'));
+		if (funnyBupBupBupSound != null)
+			funnyBupBupBupSound.fadeOut(0.25);
+		stars.destroy();
+		songText.destroy();
+		diffText.destroy();
+		persistentUpdate = false;
+		//diffCam.alpha = 0;
+		close();
+	}
+
     public override function update(e:Float) {
         super.update(e);
 
@@ -164,18 +196,7 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 			select();
 	
 		if (controls.BACK)
-		{
-			hasSel = true;
-			FlxG.sound.play(Paths.sound('cancelMenu'));
-			if (funnyBupBupBupSound != null)
-				funnyBupBupBupSound.fadeOut(0.25);
-			stars.destroy();
-			songText.destroy();
-			diffText.destroy();
-			persistentUpdate = false;
-			//diffCam.alpha = 0;
-			close();
-		}
+			exitthing();
     }
 }
 

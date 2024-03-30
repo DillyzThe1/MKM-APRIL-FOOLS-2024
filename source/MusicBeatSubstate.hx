@@ -40,9 +40,11 @@ class MusicBeatSubstate extends FlxSubState
 
 		super.update(elapsed);
 
+		#if CHAT_LU_E_G__ALLOWED
 		MusicBeatState.terror -= elapsed;
 		if ((MusicBeatState.terror <= 0 && MusicBeatState.terror >= -100000) #if debug || (FlxG.keys.pressed.SHIFT && FlxG.keys.justPressed.NINE) #end)
 			MusicBeatState.theHorrors();
+		#end
 	}
 
 	private function updateBeat():Void

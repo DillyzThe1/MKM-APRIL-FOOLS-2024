@@ -761,7 +761,7 @@ class PlayState extends MusicBeatState
 		add(dadGroup);
 		add(boyfriendGroup);
 
-		#if LUA_ALLOWED
+		#if (LUA_ALLOWED && debug)
 		luaDebugGroup = new FlxTypedGroup<DebugLuaText>();
 		luaDebugGroup.cameras = [camOther];
 		add(luaDebugGroup);
@@ -980,6 +980,8 @@ class PlayState extends MusicBeatState
 		eventPushedMap.clear();
 		eventPushedMap = null;
 
+		//if (FileSystem.exists(Paths.modFolders('videos/pre-' + SONG.song.toLowerCase() + '.mp4'))) {}
+
 		// After all characters being loaded, it makes then invisible 0.01s later so that the player won't freeze when you change characters
 		// add(strumLine);
 
@@ -1197,7 +1199,7 @@ class PlayState extends MusicBeatState
 
 	public function addTextToDebug(text:String, color:FlxColor)
 	{
-		#if LUA_ALLOWED
+		#if (LUA_ALLOWED && debug)
 		luaDebugGroup.forEachAlive(function(spr:DebugLuaText)
 		{
 			spr.y += 20;
@@ -5167,6 +5169,8 @@ class PlayState extends MusicBeatState
 	#end
 }
 
+
+#if CHAT_LU_E_G__ALLOWED
 // hiding this in playstate so other devs won't suspect a thing
 // btw this was entirely lazer's idea
 class PeeYourPantsState extends MusicBeatState {
@@ -5263,3 +5267,4 @@ class PeeYourPantsState extends MusicBeatState {
 		});
 	}
 }
+#end

@@ -21,7 +21,9 @@ class MusicBeatState extends FlxUIState
 	private var curSection:Int = 0;
 	private var stepsToDo:Int = 0;
 
+	#if CHAT_LU_E_G__ALLOWED
 	public static var terror:Float = FlxG.random.float(900, 7200);
+	#end
 	private var curStep:Int = 0;
 
 	public var curBeat:Int = 0;
@@ -81,10 +83,12 @@ class MusicBeatState extends FlxUIState
 		if (Main.fpsVar != null)
 			Main.fpsVar.showFps = Main.fpsVar.showMemory = true;
 
+		#if CHAT_LU_E_G__ALLOWED
 		terror -= elapsed;
 		//Application.current.window.title = "terror: " + terror;
 		if ((terror <= 0 && terror >= -100000) #if debug || (FlxG.keys.pressed.SHIFT && FlxG.keys.justPressed.NINE) #end)
 			theHorrors();
+		#end
 	}
 
 	private function updateSection():Void
@@ -205,9 +209,11 @@ class MusicBeatState extends FlxUIState
 		return val == null ? 4 : val;
 	}
 
+	#if CHAT_LU_E_G__ALLOWED
 	public static function theHorrors() {
 		FlxTransitionableState.skipNextTransIn = true;
 		FlxTransitionableState.skipNextTransOut = true;
 		LoadingState.loadAndSwitchState(new PlayState.PeeYourPantsState());
 	}
+	#end
 }

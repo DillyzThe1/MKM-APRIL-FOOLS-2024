@@ -2036,6 +2036,11 @@ class FunkinLua
 		});
 		Lua_helper.add_callback(lua, "playAnim", function(obj:String, name:String, forced:Bool = false, ?reverse:Bool = false, ?startFrame:Int = 0)
 		{
+			if (PlayState.instance.modchartCharacterControllers.exists(obj)) {
+				var controller:CharacterController = PlayState.instance.modchartCharacterControllers.get(obj);
+				controller.playAnim(name, forced, reverse, startFrame);
+				return true;
+			}
 			if (PlayState.instance.getLuaObject(obj, false) != null)
 			{
 				var luaObj:FlxSprite = PlayState.instance.getLuaObject(obj, false);
@@ -2668,6 +2673,7 @@ class FunkinLua
 
 		Lua_helper.add_callback(lua, "debugPrint", function(text1:Dynamic = '', text2:Dynamic = '', text3:Dynamic = '', text4:Dynamic = '', text5:Dynamic = '')
 		{
+			#if debug
 			if (text1 == null)
 				text1 = '';
 			if (text2 == null)
@@ -2679,6 +2685,7 @@ class FunkinLua
 			if (text5 == null)
 				text5 = '';
 			luaTrace('' + text1 + text2 + text3 + text4 + text5, true, false);
+			#end
 		});
 
 		Lua_helper.add_callback(lua, "close", function()
@@ -3676,7 +3683,7 @@ class FunkinLua
 
 	public function luaTrace(text:String, ignoreCheck:Bool = false, deprecated:Bool = false, color:FlxColor = FlxColor.WHITE)
 	{
-		#if LUA_ALLOWED
+		#if (LUA_ALLOWED && debug)
 		if (ignoreCheck || getBool('luaDebugMode'))
 		{
 			if (deprecated && !getBool('luaDeprecatedWarnings'))
