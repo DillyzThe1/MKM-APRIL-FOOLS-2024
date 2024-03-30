@@ -4215,10 +4215,6 @@ class PlayState extends MusicBeatState
 
 	function noteMiss(daNote:Note):Void
 	{ 
-		ClientPrefs.money -= 0.05;
-		if (ClientPrefs.money < 0)
-			ClientPrefs.money = 0;
-
 		// prevent missing notes you can't hit
 		if (daNote != null && Note.noteManiaSettings[PlayState.keyCount].length > 10) {
 			var intsofalltime:Array<Int> = Note.noteManiaSettings[PlayState.keyCount][10];
@@ -4251,6 +4247,9 @@ class PlayState extends MusicBeatState
 		if (daNote.missPenalty) {
 			combo = 0;
 			health -= daNote.missHealth * healthLoss;
+			ClientPrefs.money -= 0.05;
+			if (ClientPrefs.money < 0)
+				ClientPrefs.money = 0;
 
 			if (instakillOnMiss)
 			{
@@ -4627,6 +4626,8 @@ class PlayState extends MusicBeatState
 					combo = 9999;
 				popUpScore(note);
 			}
+			else
+				ClientPrefs.money += 0.0025;
 			health += note.hitHealth * healthGain;
 
 			if (!note.noAnimation)
