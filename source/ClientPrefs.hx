@@ -426,9 +426,6 @@ class ClientPrefs
 	}
 
 	public static function getMoney():String {
-		var ohYeah:String = "$" + Std.int(money * 100);
-		var firstPart:String = ohYeah.substr(0, ohYeah.length - 2);
-		var lastPart:String = ohYeah.substr(ohYeah.length - 2, 2);
-		return firstPart + "." + lastPart;
+		return '$$${Std.int(money)}.${Std.int(money * 100) % 100}';
 	}
 }
