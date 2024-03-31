@@ -178,9 +178,13 @@ class FunkinLua
 		set('defaultGirlfriendY', PlayState.instance.GF_Y);
 
 		// Character shit
-		set('boyfriendName', PlayState.SONG.player1);
-		set('dadName', PlayState.SONG.player2);
+		set('boyfriendName', PlayState.instance.overrideChar_right == null ? PlayState.SONG.player1 : PlayState.instance.overrideChar_right);
+		set('dadName', PlayState.instance.overrideChar_left == null ? PlayState.SONG.player2 : PlayState.instance.overrideChar_left);
 		set('gfName', PlayState.SONG.gfVersion);
+		
+		// top 10
+		set('isSoloMode', PlayState.instance.isSoloMode);
+		set('isLeftMode', PlayState.instance.isLeftMode);
 
 		// Some settings, no jokes
 		set('downscroll', ClientPrefs.downScroll);
@@ -2300,7 +2304,7 @@ class FunkinLua
 		{
 			if (PlayState.instance.modchartSprites.exists(characterName) || PlayState.instance.modchartCharacterControllers.exists(characterName))
 				return;
-			
+
 			var intendedChar:String = characterName;
 			if (playerChar && PlayState.instance.overrideChar_right != null)
 				intendedChar = PlayState.instance.overrideChar_right;

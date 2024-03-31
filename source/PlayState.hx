@@ -556,6 +556,24 @@ class PlayState extends MusicBeatState
 		doMiddleScroll = ClientPrefs.middleScroll || isSoloMode;
 		hideOpponentArrows = !ClientPrefs.opponentStrums || isSoloMode;
 
+		//
+		trace("HEY DEVS, HERE'S YOUR LUIGI SHOP CHARACTER CHECK!!!!!");
+
+		if (SONG.song.toLowerCase() != "normalized") {
+			if (ClientPrefs.ls_enabled("gtg-inator")) 
+				overrideChar_right = isLeftMode ? "impostor" : "impostor-player";
+			else if (ClientPrefs.ls_enabled("omnisphere")) 
+				overrideChar_right = isLeftMode ? "omnisphere" : "omnisphere-player";
+			else if (ClientPrefs.ls_enabled("familyguy")) 
+				overrideChar_right = isLeftMode ? "peter" : "peter-player";
+		}
+
+		if (isLeftMode) {
+			var oldRight:String = overrideChar_right;
+			overrideChar_right = overrideChar_left;
+			overrideChar_left = oldRight;
+		}
+
 		// for lua
 		instance = this;
 
@@ -826,23 +844,6 @@ class PlayState extends MusicBeatState
 		var gfvers:String = SONG.gfVersion;
 		if (gfvers == null || gfvers.length < 1)
 			SONG.gfVersion = gfvers = 'gf';
-
-		trace("HEY DEVS, HERE'S YOUR LUIGI SHOP CHARACTER CHECK!!!!!");
-
-		if (SONG.song.toLowerCase() != "normalized") {
-			if (ClientPrefs.ls_enabled("gtg-inator")) 
-				overrideChar_right = isLeftMode ? "impostor" : "impostor-player";
-			else if (ClientPrefs.ls_enabled("omnisphere")) 
-				overrideChar_right = isLeftMode ? "omnisphere" : "omnisphere-player";
-			else if (ClientPrefs.ls_enabled("familyguy")) 
-				overrideChar_right = isLeftMode ? "peter" : "peter-player";
-		}
-
-		if (isLeftMode) {
-			var oldRight:String = overrideChar_right;
-			overrideChar_right = overrideChar_left;
-			overrideChar_left = oldRight;
-		}
 
 		if (!stageData.hide_girlfriend)
 		{
