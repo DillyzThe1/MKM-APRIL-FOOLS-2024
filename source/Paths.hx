@@ -308,14 +308,13 @@ class Paths
 
 	public static function getTextFromMHAT(path:String) {
 		var mhatKey:String = "mhat:" + path;
-		var existssssss:Bool = localTrackedTexts.contains(mhatKey);
+		var existssssss:Bool = currentTrackedTexts.exists(mhatKey);
 
 		if (existssssss)
 			return currentTrackedTexts.get(mhatKey);
 		else if (Mhat.exists(path)) {
 			trace("oh hey this xml exists in the mhat (" + path + ")");
 			currentTrackedTexts.set(mhatKey, Mhat.getFile(path).toString());
-			localTrackedTexts.push(mhatKey);
 			return currentTrackedTexts.get(mhatKey);
 		}
 		return null;
@@ -324,6 +323,9 @@ class Paths
 	inline static public function getSparrowAtlas(key:String, ?library:String):FlxAtlasFrames
 	{
 		var imageLoaded:FlxGraphic = returnGraphic(key);
+
+		if (currentTrackedTexts.exists('text_xml:images/$key.xml'))
+			return FlxAtlasFrames.fromSparrow((imageLoaded != null ? imageLoaded : image(key, library)), currentTrackedTexts.get('text_xml:images/$key.xml'));
 
 		/*var mhatXML:String = null;
 		var mhatBytes:Bytes = Mhat.getFile('images/$key.xml');
@@ -338,8 +340,11 @@ class Paths
 		if (awesomeText == null && FileSystem.exists(modsXml(key)))
 			xmlExists = true;
 
-		return FlxAtlasFrames.fromSparrow((imageLoaded != null ? imageLoaded : image(key, library)),
-			awesomeText == null ? (xmlExists ? File.getContent(modsXml(key)) : file('images/$key.xml', library)) : awesomeText);
+		var crazyNewOutput:String = awesomeText == null ? (xmlExists ? File.getContent(modsXml(key)) : file('images/$key.xml', library)) : awesomeText;
+		currentTrackedTexts.set('text_xml:images/$key.xml', crazyNewOutput);
+		trace("caching text_xml:images/" + key + ".xml");
+
+		return FlxAtlasFrames.fromSparrow((imageLoaded != null ? imageLoaded : image(key, library)), crazyNewOutput);
 	}
 
 	inline static public function getPackerAtlas(key:String, ?library:String)
