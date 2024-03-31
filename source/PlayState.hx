@@ -175,6 +175,8 @@ class PlayState extends MusicBeatState
 	public var overrideChar_left:String = null;
 	public var overrideChar_right:String = null;
 
+	var peacefulMode:Bool = false;
+
 	public static var ratingStuff:Array<Dynamic> = [
 		['You Suck!', 0.2], // From 0% to 19%
 		['Shit', 0.4], // From 20% to 39%
@@ -555,6 +557,7 @@ class PlayState extends MusicBeatState
 		isLeftMode = SONG.leftMode;
 		doMiddleScroll = ClientPrefs.middleScroll || isSoloMode;
 		hideOpponentArrows = !ClientPrefs.opponentStrums || isSoloMode;
+		peacefulMode = CoolUtil.peaceRestored();
 
 		//
 		trace("HEY DEVS, HERE'S YOUR LUIGI SHOP CHARACTER CHECK!!!!!");
@@ -4292,6 +4295,11 @@ class PlayState extends MusicBeatState
 
 	function noteMiss(daNote:Note):Void
 	{ 
+		if (peacefulMode && songMisses >= 25 && SONG.song.toLowerCase() == "house") {
+			CoolUtil.loadFreeplaySong(CoolUtil.onePointFiveExtrasWeekName, "Academic Failure");
+			return;
+		}
+
 		// prevent missing notes you can't hit
 		if (daNote != null && Note.noteManiaSettings[PlayState.keyCount].length > 10) {
 			var intsofalltime:Array<Int> = Note.noteManiaSettings[PlayState.keyCount][10];

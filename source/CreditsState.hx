@@ -50,7 +50,7 @@ class CreditsState extends MusicBeatState
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
 
-		var pisspoop:Array<Array<Dynamic>> = [
+		var holycrapcredits:Array<Array<Dynamic>> = [
 			// Name - Icon name - Description - Link - BG Color - Voice(s)
 			['Mushroom Kingdom Madness'],
 			[
@@ -201,10 +201,11 @@ class CreditsState extends MusicBeatState
 			]
 		];
 
-		for (i in pisspoop)
-		{
+		if (CoolUtil.peaceRestored())
+			holycrapcredits[1][5].push("boymanreal");
+
+		for (i in holycrapcredits)
 			creditsStuff.push(i);
-		}
 
 		for (i in 0...creditsStuff.length)
 		{
