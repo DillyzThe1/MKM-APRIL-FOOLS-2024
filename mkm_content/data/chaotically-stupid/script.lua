@@ -5,6 +5,7 @@ function onGenerateStaticArrows(player, maxPlayer)
 end
 
 function onCreatePost()
+	setProperty('boyfriend.x', getProperty('boyfriend.x') - 617)
 	if not isInANormalMode() then
 		triggerEvent("Change Credits", "Composed by That1LazerBoi", "")
 	end
