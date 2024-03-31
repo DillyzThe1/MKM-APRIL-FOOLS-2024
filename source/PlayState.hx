@@ -820,27 +820,33 @@ class PlayState extends MusicBeatState
 			luaArray.push(new FunkinLua(luaFile));
 		#end
 
-		var gfVersion:String = SONG.gfVersion;
-		if (gfVersion == null || gfVersion.length < 1)
-		{
-			SONG.gfVersion = gfVersion = 'gf';
-		}
+		var intendedCharacters:Array<String> = [SONG.gfVersion, SONG.player2, SONG.player1];
+		if (intendedCharacters[0] == null || intendedCharacters[0].length < 1)
+			SONG.gfVersion = intendedCharacters[0] = 'gf';
+
+		trace("HEY DEVS, HERE'S YOUR LUIGI SHOP CHARACTER CHECK!!!!!");
+
+		var whoDoIReplace:Int = isLeftMode ? 1 : 2;
+		if (ClientPrefs.ls_enabled("gtg-inator"))
+			intendedCharacters[whoDoIReplace] = isLeftMode ? "impostor" : "impostor-player";
+		else if (ClientPrefs.ls_enabled("omnisphere"))
+			intendedCharacters[whoDoIReplace] = isLeftMode ? "omnisphere" : "omnisphere-player";
 
 		if (!stageData.hide_girlfriend)
 		{
-			gf = new Character(0, 0, gfVersion);
+			gf = new Character(0, 0, intendedCharacters[0]);
 			startCharacterPos(gf);
 			gf.scrollFactor.set(0.95, 0.95);
 			gfGroup.add(gf);
 			startCharacterLua(gf.curCharacter);
 		}
 
-		dad = new Character(0, 0, SONG.player2);
+		dad = new Character(0, 0, intendedCharacters[1]);
 		startCharacterPos(dad, true);
 		dadGroup.add(dad);
 		startCharacterLua(dad.curCharacter);
 
-		boyfriend = new Character(0, 0, SONG.player1, true);
+		boyfriend = new Character(0, 0, intendedCharacters[2], true);
 		startCharacterPos(boyfriend);
 		boyfriendGroup.add(boyfriend);
 		startCharacterLua(boyfriend.curCharacter);

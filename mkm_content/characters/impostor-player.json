@@ -1,0 +1,115 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "Impostor Idle"
+		},
+		{
+			"offsets": [
+				-130,
+				10
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Impostor Left"
+		},
+		{
+			"offsets": [
+				-66,
+				-23
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Impostor Down"
+		},
+		{
+			"offsets": [
+				-113,
+				3
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Impostor Up"
+		},
+		{
+			"offsets": [
+				-23,
+				-1
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Impostor Right"
+		},
+		{
+			"offsets": [
+				-80,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "nah",
+			"indices": [],
+			"name": "Impostor Nah"
+		},
+		{
+			"offsets": [
+				-80,
+				0
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "nah-loop",
+			"indices": [
+				72,
+				73
+			],
+			"name": "Impostor Nah"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-46,
+				0
+			],
+			"anim": "gtg",
+			"fps": 24,
+			"name": "Impostor gtg",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/impostor",
+	"position": [
+		-90,
+		265
+	],
+	"sing_param": "impostor",
+	"healthicon": "impostor",
+	"flip_x": false,
+	"healthbar_colors": [
+		78,
+		78,
+		78
+	],
+	"camera_position": [
+		145,
+		40
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}
