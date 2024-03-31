@@ -19,9 +19,9 @@ function onCreatePost()
 	characterController_summon(300, 0, 'circle-player', true, false)
 	characterController_summon(1050, -430, 'pico-sketch', false, false)
 	setProperty('pico-sketch_controller.sprite.singParam', 'right')
-	setProperty('pico-sketch_controller.sprite.visible', false)
-	setProperty('circle-player_controller.sprite.visible', false)
-	setProperty('boyfriend.visible', false)
+	setProperty('pico-sketch_controller.sprite.alpha', 0.001)
+	setProperty('circle-player_controller.sprite.alpha', 0.001)
+	setProperty('boyfriend.alpha', 0.001)
 end
 
 function onCreate()
@@ -35,7 +35,7 @@ end
 function onBeatHit()
 	if string.lower(difficultyName) == "hard" or string.lower(difficultyName) == "old" then
 		if beatEventCheck(30) then 
-			setProperty('pico-sketch_controller.sprite.visible', true)
+			setProperty('pico-sketch_controller.sprite.alpha', 1)
 			playAnim('pico-sketch', 'drawing')
 		end
 		if beatEventCheck(16) then 
@@ -50,12 +50,12 @@ function onBeatHit()
 			playAnim('mspaint', 'selection', true)
 		end
 		if beatEventCheck(82) then 
-			setProperty('circle-player_controller.sprite.visible', true)
+			setProperty('circle-player_controller.sprite.alpha', 1)
 			playAnim('circle-player', "bup don't leave me here")
 		end
 		if beatEventCheck(149) then 
-			setProperty('pico-sketch_controller.sprite.visible', false)
-			setProperty('boyfriend.visible', true)
+			setProperty('pico-sketch_controller.sprite.alpha', 0)
+			setProperty('boyfriend.alpha', 1)
 			cameraFlash('camGame', 'FFFFFF', 0.5, true)
 		end
 		if beatEventCheck(150) then 
