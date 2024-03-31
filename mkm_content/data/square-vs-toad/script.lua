@@ -23,14 +23,14 @@ function onCreatePost()
 	
 	-- vortex alpha
 	characterController_summon(0, 150, 'vort_toadAlpha', false, true)
-	characterController_summon(800, 100, 'vort_squareAlpha', false, true)
+	characterController_summon(800, 100, 'vort_squareAlpha', true, true)
 	
 	setProperty('vort_toadAlpha_controller.sprite.singParam', 'left')
 	setProperty('vort_squareAlpha_controller.sprite.singParam', 'right')
 	
 	-- vertex 1.0/1.5
 	characterController_summon(0, 150, 'vort_toad1015', false, true)
-	characterController_summon(800, 100, 'vort_square1015', false, true)
+	characterController_summon(800, 100, 'vort_square1015', true, true)
 	
 	setProperty('vort_toad1015_controller.sprite.singParam', 'left')
 	setProperty('vort_square1015_controller.sprite.singParam', 'right')

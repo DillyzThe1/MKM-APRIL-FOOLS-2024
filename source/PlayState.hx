@@ -3170,6 +3170,32 @@ class PlayState extends MusicBeatState
 				closedCaptions.text = value1;
 			case 'Show Countdown Index':
 				showCountdownPiece(Std.parseInt(value1), (value2 == "true" || value2 == "t" || value2 == "1" || value2 == "yes" || value2 == "y"));
+
+			case 'Change IconP1':
+				if (overrideChar_right != null)
+					return;
+
+				if (value1 != null && value1 != "")
+					iconP1.changeIcon(value1);
+
+				if (value2 == null || value2 == "")
+					healthBar.createColoredFilledBar(FlxColor.fromRGB(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1], boyfriend.healthColorArray[2]));
+				else
+					healthBar.createColoredFilledBar(Std.parseInt("0xFF" + value2));
+				healthBar.updateBar();
+
+			case 'Change IconP2':
+				if (overrideChar_left != null)
+					return;
+
+				if (value1 != null && value1 != "")
+					iconP2.changeIcon(value1);
+
+				if (value2 == null || value2 == "")
+					healthBar.createColoredEmptyBar(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArray[1], dad.healthColorArray[2]));
+				else
+					healthBar.createColoredEmptyBar(Std.parseInt("0xFF" + value2));
+				healthBar.updateBar();
 		}
 		callOnLuas('onEvent', [eventName, value1, value2]);
 	}

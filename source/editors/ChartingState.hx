@@ -121,6 +121,14 @@ class ChartingState extends MusicBeatState
 		[
 			'Show Countdown Index',
 			"Shows one of the sprites of the countdown.\nThe first box is the number between 1-4 to do.\nThe second box is a true/false for sounds."
+		],
+		[
+			'Change IconP1',
+			"Changes the icon for the right side.\nV1: Icon name.\nV2: Icon color. (Hexidecimal)"
+		],
+		[
+			'Change IconP2',
+			"Changes the icon for the left side.\nV1: Icon name.\nV2: Icon color. (Hexidecimal)"
 		]
 	];
 
