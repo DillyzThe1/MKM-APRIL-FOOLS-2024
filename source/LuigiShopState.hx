@@ -25,8 +25,9 @@ class LSI_Instance {
 
 class LuigiShopState extends MusicBeatState {
     var shopData:Array<LuigiShopItem> = [
-        {name: "gtg-inator", internalName: "gtg-inator", tip: "Play as Impostor anywhere... but beware!", price: 49.99, picture: "portraits/wrong-house"},
-        {name: "Omnipotent Sphere", internalName: "omnisphere", tip: "Play as the Omnipotent Sphere!", price: 499.99, picture: "portraits/none"},
+        {name: "Money Multiplier", internalName: "robloxgamepass", tip: "Get up to triple the cash... based on your combo!", price: 249.99, picture: "shop/stonks"},
+        {name: "gtg-inator", internalName: "gtg-inator", tip: "Play as Impostor anywhere... but beware!", price: 49.99, picture: "shop/gtg"},
+        {name: "Omnipotent Sphere", internalName: "omnisphere", tip: "Play as the Omnipotent Sphere!", price: 499.99, picture: "shop/omnisphere"},
         {name: "Family Guy Full Episodes", internalName: "familyguy", tip: "Play as Peter Griffin... due to our lack of originality!", price: 89.99, picture: "shop/peter"},
         {name: "Dev Tools", internalName: "hacks", tip: "Get access to dev tools! (Shift + 7 & 8 keys)", price: 749.99, picture: "shop/nerd"}
     ];

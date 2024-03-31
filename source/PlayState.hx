@@ -172,6 +172,9 @@ class PlayState extends MusicBeatState
 		}*/
 	];
 
+	public var overrideChar_left:String = null;
+	public var overrideChar_right:String = null;
+
 	public static var ratingStuff:Array<Dynamic> = [
 		['You Suck!', 0.2], // From 0% to 19%
 		['Shit', 0.4], // From 20% to 39%
@@ -820,37 +823,36 @@ class PlayState extends MusicBeatState
 			luaArray.push(new FunkinLua(luaFile));
 		#end
 
-		var intendedCharacters:Array<String> = [SONG.gfVersion, SONG.player2, SONG.player1];
-		if (intendedCharacters[0] == null || intendedCharacters[0].length < 1)
-			SONG.gfVersion = intendedCharacters[0] = 'gf';
+		var gfvers:String = SONG.gfVersion;
+		if (gfvers == null || gfvers.length < 1)
+			SONG.gfVersion = gfvers = 'gf';
 
 		trace("HEY DEVS, HERE'S YOUR LUIGI SHOP CHARACTER CHECK!!!!!");
 
-		var whoDoIReplace:Int = isLeftMode ? 1 : 2;
 		if (SONG.song.toLowerCase() != "normalized") {
-			if (ClientPrefs.ls_enabled("gtg-inator"))
-				intendedCharacters[whoDoIReplace] = isLeftMode ? "impostor" : "impostor-player";
-			else if (ClientPrefs.ls_enabled("omnisphere"))
-				intendedCharacters[whoDoIReplace] = isLeftMode ? "omnisphere" : "omnisphere-player";
-			else if (ClientPrefs.ls_enabled("familyguy"))
-				intendedCharacters[whoDoIReplace] = isLeftMode ? "peter" : "peter-player";
+			if (ClientPrefs.ls_enabled("gtg-inator")) 
+				overrideChar_left = isLeftMode ? "impostor" : "impostor-player";
+			else if (ClientPrefs.ls_enabled("omnisphere")) 
+				overrideChar_left = isLeftMode ? "omnisphere" : "omnisphere-player";
+			else if (ClientPrefs.ls_enabled("familyguy")) 
+				overrideChar_left = isLeftMode ? "peter" : "peter-player";
 		}
 
 		if (!stageData.hide_girlfriend)
 		{
-			gf = new Character(0, 0, intendedCharacters[0]);
+			gf = new Character(0, 0, gfvers);
 			startCharacterPos(gf);
 			gf.scrollFactor.set(0.95, 0.95);
 			gfGroup.add(gf);
 			startCharacterLua(gf.curCharacter);
 		}
 
-		dad = new Character(0, 0, intendedCharacters[1]);
+		dad = new Character(0, 0, overrideChar_left == null ? SONG.player2 : overrideChar_left);
 		startCharacterPos(dad, true);
 		dadGroup.add(dad);
 		startCharacterLua(dad.curCharacter);
 
-		boyfriend = new Character(0, 0, intendedCharacters[2], true);
+		boyfriend = new Character(0, 0, overrideChar_right == null ? SONG.player1 : overrideChar_right, true);
 		startCharacterPos(boyfriend);
 		boyfriendGroup.add(boyfriend);
 		startCharacterLua(boyfriend.curCharacter);
@@ -1638,7 +1640,7 @@ class PlayState extends MusicBeatState
 			+ songMisses;
 
 		if (ClientPrefs.showMoney)
-			scoreTxt.text += ' | Balance: ' + ClientPrefs.getMoney();
+			scoreTxt.text += ' | Balance: ' + ClientPrefs.getMoney() + displayedMulti;
 		
 		scoreTxt.text += ' | Rating: ' + ratingName + (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
 
@@ -1975,9 +1977,16 @@ class PlayState extends MusicBeatState
 						charType = 2;
 					case 'dad' | 'opponent' | '0':
 						charType = 1;
+
+						if (overrideChar_left != null)
+							return;
 					default:
 						charType = Std.parseInt(event.value1);
-						if (Math.isNaN(charType)) charType = 0;
+						if (Math.isNaN(charType)) 
+							charType = 0;
+
+						if (overrideChar_right != null)
+							return;
 				}
 
 				var newCharacter:String = event.value2;
@@ -3037,9 +3046,16 @@ class PlayState extends MusicBeatState
 						charType = 2;
 					case 'dad' | 'opponent':
 						charType = 1;
+
+						if (overrideChar_left != null)
+							return;
 					default:
 						charType = Std.parseInt(value1);
-						if (Math.isNaN(charType)) charType = 0;
+						if (Math.isNaN(charType)) 
+							charType = 0;
+
+						if (overrideChar_right != null)
+							return;
 				}
 
 				switch (charType)
@@ -3512,6 +3528,8 @@ class PlayState extends MusicBeatState
 	var comboamtstuff:Array<FlxSprite> = [];
 	var combotweenstuff:Array<FlxTween> = [];
 
+	var displayedMulti:String = "";
+
 	private function popUpScore(note:Note = null):Void
 	{
 		var noteDiff:Float = Math.abs(note.strumTime - Conductor.songPosition + ClientPrefs.ratingOffset);
@@ -3560,7 +3578,21 @@ class PlayState extends MusicBeatState
 			daRating.increase();
 		note.rating = daRating.name;
 		if (!cpuControlled) {
-			ClientPrefs.money += daRating.money;
+			var moneyMulti:Float = 1;
+			// a combo of 0 will get you 0.5x the money
+			// a combo of 10 will get you 0.75x the money
+			// a combo of 20 will get you 1.0x the money
+			// a combo of 50 will get you 1.75x the money
+			// a combo of 75 will get you 1.875x the money
+			// a combo of 100 will get you 3x the money
+			if (daRating.money > 0 && ClientPrefs.ls_enabled("robloxgamepass")) {
+				moneyMulti = 0.5 + (combo * 0.025);
+				if (moneyMulti > 3)
+					moneyMulti = 3;
+
+				displayedMulti = ' (x${Std.int(moneyMulti * 100)/100.0})';
+			}
+			ClientPrefs.money += daRating.money * moneyMulti;
 			if (ClientPrefs.money < 0)
 				ClientPrefs.money = 0;
 		}

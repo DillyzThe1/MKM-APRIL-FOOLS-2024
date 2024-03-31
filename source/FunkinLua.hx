@@ -2300,7 +2300,14 @@ class FunkinLua
 		{
 			if (PlayState.instance.modchartSprites.exists(characterName) || PlayState.instance.modchartCharacterControllers.exists(characterName))
 				return;
-			var brandNewCharacter:Character = new Character(x, y, characterName, playerChar);
+			
+			var intendedChar:String = characterName;
+			if (playerChar && PlayState.instance.overrideChar_right != null)
+				intendedChar = PlayState.instance.overrideChar_right;
+			if (!playerChar && PlayState.instance.overrideChar_left != null)
+				intendedChar = PlayState.instance.overrideChar_left;
+
+			var brandNewCharacter:Character = new Character(x, y, intendedChar, playerChar);
 			brandNewCharacter.debugMode = true;
 			brandNewCharacter.x += brandNewCharacter.positionArray[0];
 			brandNewCharacter.y += brandNewCharacter.positionArray[1];
