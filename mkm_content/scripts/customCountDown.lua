@@ -2,20 +2,30 @@ local prefix = 'default'
 local volume = 0.6
 
 function onCreatePost()
-	if dadName == 'toad-new' or dadName == 'toad' or dadName == 'gmod toad' or dadName == 'hs toad' or dadName == 'hs toad' 
-		or dadName == 'irregular-toad' or dadName == 'toad-mc' or dadName == 'toad-nes'  or dadName == 'toad-old' or dadName == "tokia" then
+	if string.lower(songName) == 'square' then 
+		setProperty("introSoundsVolume", 0)
+		return
+	end
+	
+	local nameToCheck = dadName
+	if isLeftMode then
+		nameToCheck = boyfriendName
+	end
+	
+	if nameToCheck == 'toad-new' or nameToCheck == 'toad' or nameToCheck == 'gmod toad' or nameToCheck == 'hs toad' or nameToCheck == 'hs toad' 
+		or nameToCheck == 'irregular-toad' or nameToCheck == 'toad-mc' or nameToCheck == 'toad-nes'  or nameToCheck == 'toad-old' or nameToCheck == "tokia" then
 		prefix = 'toad'
 		volume = 2
-	elseif dadName == 'impostor' or dadName == 'impostor top 10' then
+	elseif nameToCheck == 'impostor'or nameToCheck == 'impostor-player' or nameToCheck == 'impostor top 10' then
 		prefix = 'eggToaster'
 		volume = 2
-	elseif dadName == 'normal luigi' then
+	elseif nameToCheck == 'normal luigi' then
 		prefix = 'luigi'
 		volume = 2
-	--elseif dadName == 'square' then
-		--prefix = 'square' LATER
-		--volume = 2
-	elseif dadName == 'uncle-fred' then
+	elseif nameToCheck == 'square' or nameToCheck == 'square-angry' then
+		prefix = 'square'
+		volume = 2
+	elseif nameToCheck == 'uncle-fred' then
 		prefix = 'fred'
 		volume = 2
 	end

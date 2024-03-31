@@ -1,0 +1,101 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "peter idle"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "peter left"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "peter up"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "peter up"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "peter down"
+		},
+		{
+			"offsets": [
+				194,
+				27
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLaugh",
+			"indices": [],
+			"name": "peter laugh"
+		},
+		{
+			"offsets": [
+				-67,
+				20
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singShoot",
+			"indices": [],
+			"name": "peter shoot"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/peter",
+	"position": [
+		-10,
+		75
+	],
+	"sing_param": "peter",
+	"healthicon": "peter",
+	"flip_x": false,
+	"healthbar_colors": [
+		41,
+		101,
+		49
+	],
+	"camera_position": [
+		190,
+		-290
+	],
+	"sing_duration": 4,
+	"scale": 1.6
+}
