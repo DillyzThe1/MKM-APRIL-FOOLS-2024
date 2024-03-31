@@ -60,7 +60,7 @@ class CreditsState extends MusicBeatState
 				'https://github.com/DillyzThe1/',
 				'FF9933',
 				// NOTE: sometimes i voice boyman, but he doesn't exist... soooo.....
-				['square', 'luigi', 'pico']
+				['square', 'luigi', 'pico', 'peter']
 			],
 			[
 				'That1LazerBoi',
