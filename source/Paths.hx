@@ -79,6 +79,7 @@ class Paths
 
 	// define the locally tracked assets
 	public static var localTrackedAssets:Array<String> = [];
+	public static var localTrackedTexts:Array<String> = [];
 
 	public static function clearStoredMemory(?cleanUnused:Bool = false)
 	{
@@ -305,21 +306,40 @@ class Paths
 		return false;
 	}
 
+	public static function getTextFromMHAT(path:String) {
+		var mhatKey:String = "mhat:" + path;
+		var existssssss:Bool = localTrackedTexts.contains(mhatKey);
+
+		if (existssssss)
+			return currentTrackedTexts.get(mhatKey);
+		else if (Mhat.exists(path)) {
+			trace("oh hey this xml exists in the mhat (" + path + ")");
+			currentTrackedTexts.set(mhatKey, Mhat.getFile(path).toString());
+			localTrackedTexts.push(mhatKey);
+			return currentTrackedTexts.get(mhatKey);
+		}
+		return null;
+	}
+
 	inline static public function getSparrowAtlas(key:String, ?library:String):FlxAtlasFrames
 	{
 		var imageLoaded:FlxGraphic = returnGraphic(key);
 
-		var mhatXML:String = null;
+		/*var mhatXML:String = null;
 		var mhatBytes:Bytes = Mhat.getFile('images/$key.xml');
 		if (mhatBytes != null && mhatBytes.length != 0)
-			mhatXML = mhatBytes.toString();
+			mhatXML = mhatBytes.toString();*/
+
+		var awesomeText:String = getTextFromMHAT('images/$key.xml');
+		//if (awesomeText != null)
+		//	trace("GOT XML: " + awesomeText);
 
 		var xmlExists:Bool = false;
-		if (mhatXML == null && FileSystem.exists(modsXml(key)))
+		if (awesomeText == null && FileSystem.exists(modsXml(key)))
 			xmlExists = true;
 
 		return FlxAtlasFrames.fromSparrow((imageLoaded != null ? imageLoaded : image(key, library)),
-		mhatXML == null ? (xmlExists ? File.getContent(modsXml(key)) : file('images/$key.xml', library)) : mhatXML);
+			awesomeText == null ? (xmlExists ? File.getContent(modsXml(key)) : file('images/$key.xml', library)) : awesomeText);
 	}
 
 	inline static public function getPackerAtlas(key:String, ?library:String)
@@ -342,6 +362,7 @@ class Paths
 
 	// completely rewritten asset loading? fuck!
 	public static var currentTrackedAssets:Map<String, FlxGraphic> = [];
+	public static var currentTrackedTexts:Map<String, String> = [];
 
 	public static function returnGraphic(key:String, ?library:String)
 	{

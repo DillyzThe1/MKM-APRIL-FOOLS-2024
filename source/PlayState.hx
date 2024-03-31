@@ -3556,6 +3556,7 @@ class PlayState extends MusicBeatState
 				ClientPrefs.money = 0;
 		}
 
+		//daRating.noteSplash = false;
 		if (daRating.noteSplash && !note.noteSplashDisabled)
 		{
 			spawnNoteSplashOnNote(note);

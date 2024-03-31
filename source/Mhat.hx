@@ -14,6 +14,7 @@ class MhatData {
     public var version:Int;
     public var heapSize:Int;
     public var indexCache:Array<String>;
+    public var fullCache:Array<String>;
     public var count(get, never):Int;
     public var mounted(get, set):Bool;
     public var add:Array<String>;
@@ -53,6 +54,7 @@ class MhatData {
         // debug the file
         var pos:Int = 0x20;
         indexCache = new Array<String>();
+        fullCache = new Array<String>();
 
         for (i in 0...fileCount) {
             var awesomeFileName:String = readNTS(pos);
@@ -63,6 +65,7 @@ class MhatData {
     
             //File.saveBytes('debug/$fileName/$awesomeFileName.png', data.sub(pos, awesomeFileSize));
             indexCache.push(awesomeFileName);
+            fullCache.push(hostPath + awesomeFileName);
             pos += awesomeFileSize;
         }
         //
@@ -160,6 +163,7 @@ typedef MountMetadata = {
 class Mhat {
     public static var mount:MountMetadata;
     public static var mhats:Array<MhatData>;
+    //public static var fullCache:Array<String> = [];
 
     public static function initialize() {
         trace('MHAT MANAGER: Initializing.');
@@ -168,8 +172,16 @@ class Mhat {
 
         for (i in mount.mhats) {
             trace('MHAT MANAGER: File ${i.data} detected.');
-            mhats.push(new MhatData(i.data, i.parent, i.zstd, i.add, i.remove, i.key));
+            var data:MhatData = new MhatData(i.data, i.parent, i.zstd, i.add, i.remove, i.key);
+            mhats.push(data);
+
+            /*for (o in data.indexCache)
+                fullCache.push(data.hostPath + o);*/
         }
+
+        //for (i in mhats)
+        //    for (o in i.fullCache)
+        ////        trace("mhat asset: " + o);
     }
 
     public static function call(key:String) {
@@ -183,6 +195,16 @@ class Mhat {
             else if (mhat.remove.contains(key))
                 mhat.mounted = false;
         }
+    }    
+    
+    public static function exists(key:String) {
+        for (mhat in mhats) {
+            if (!mhat.mounted)
+                continue;
+            if (mhat.fullCache.contains(key))
+                return true;
+        }
+        return false;
     }
 
     public static function getFile(path:String):Bytes {
