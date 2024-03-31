@@ -303,7 +303,10 @@ class CoolUtil
 		var menuThemeName:String = 'toadMenu';
 		var babyMode:Bool = FlxG.save.data.babymode;
 
-		if (peaceRestored()) {
+		if (peaceRestored() && babyMode) {
+			menuThemeName = "Baby Menu Theme";
+		}
+		else if (peaceRestored()) {
 			if (ClientPrefs.menuBgmType == "Feels at Home")
 				trace('mkm if it used massive x');
 			menuThemeName = ClientPrefs.menuBgmType;
