@@ -831,11 +831,17 @@ class PlayState extends MusicBeatState
 
 		if (SONG.song.toLowerCase() != "normalized") {
 			if (ClientPrefs.ls_enabled("gtg-inator")) 
-				overrideChar_left = isLeftMode ? "impostor" : "impostor-player";
+				overrideChar_right = isLeftMode ? "impostor" : "impostor-player";
 			else if (ClientPrefs.ls_enabled("omnisphere")) 
-				overrideChar_left = isLeftMode ? "omnisphere" : "omnisphere-player";
+				overrideChar_right = isLeftMode ? "omnisphere" : "omnisphere-player";
 			else if (ClientPrefs.ls_enabled("familyguy")) 
-				overrideChar_left = isLeftMode ? "peter" : "peter-player";
+				overrideChar_right = isLeftMode ? "peter" : "peter-player";
+		}
+
+		if (isLeftMode) {
+			var oldRight:String = overrideChar_right;
+			overrideChar_right = overrideChar_left;
+			overrideChar_left = oldRight;
 		}
 
 		if (!stageData.hide_girlfriend)
