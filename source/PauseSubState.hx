@@ -143,6 +143,7 @@ class PauseSubState extends MusicBeatSubstate
 		walletTxt.setFormat(Paths.font('vcr.ttf'), 32);
 		walletTxt.updateHitbox();
 		add(walletTxt);
+		FlxG.save.data.money = ClientPrefs.money;
 
 		practiceText = new FlxText(20, 15 + 101, 0, "PRACTICE MODE", 32);
 		practiceText.scrollFactor.set();

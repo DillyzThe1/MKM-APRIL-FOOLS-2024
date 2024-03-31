@@ -54,6 +54,9 @@ class MainMenuState extends MusicBeatState
 	var bg:FlxSprite;
 	var magenta:FlxSprite;
 
+	var luigiShop:FlxSprite;
+	var luigiShop_hb:FlxSprite;
+
 	var bgNormalized:FlxSprite;
 	var magentaNormalized:FlxSprite;
 
@@ -62,6 +65,26 @@ class MainMenuState extends MusicBeatState
 	var debugKeys:Array<FlxKey>;
 
 	var typingDisplay:CaptionObject;
+
+	var luigiOpen:Bool = false;
+	var canLuigi:Bool = true;
+
+	function setLuigi(open:Bool) {
+		if (!canLuigi)
+			return false;
+		if (luigiOpen == open)
+			return luigiOpen;
+		luigiOpen = open;
+		if (luigiShop == null || luigiShop.animation == null)
+			return false;
+		// ugh...
+		//var aaaa = luigiShop.animation.curAnim;
+		//luigiShop.animation.play(luigiOpen ? "open" : "close", true, false, (aaaa != null && !aaaa.finished && aaaa.curFrame < 12) ? aaaa.curFrame : 0);
+		//luigiShop.animation.play(luigiOpen ? "open" : "close", true, false, (aaaa != null && !aaaa.finished && aaaa.curFrame < 17) ? aaaa.curFrame : 0);
+		//luigiShop.animation.play("close", true, !luigiOpen, (aaaa != null && !aaaa.finished && aaaa.curFrame < 17) ? aaaa.curFrame : 0);
+		luigiShop.animation.play(luigiOpen ? "open" : "close", true);
+		return luigiOpen;
+	}
 
 	override function create()
 	{
@@ -136,6 +159,31 @@ class MainMenuState extends MusicBeatState
 		magentaNormalized.visible = false;
 		magentaNormalized.antialiasing = ClientPrefs.globalAntialiasing;
 		add(magentaNormalized);
+
+		luigiShop = new FlxSprite(FlxG.width - 350, FlxG.height - 500);
+		luigiShop_hb = new FlxSprite(FlxG.width - 300, FlxG.height - 500).makeGraphic(275, 350);
+		if (CoolUtil.peaceRestored()) {
+			FlxG.mouse.visible = true;
+			luigiShop.frames = Paths.getSparrowAtlas("luigishop");
+			luigiShop.scrollFactor.set(0, 0);
+			luigiShop.antialiasing = ClientPrefs.globalAntialiasing;
+
+			luigiShop.animation.addByPrefix("close", "luigishop_close", 24, false);
+			luigiShop.animation.addByPrefix("open", "luigishop_open", 24, false);
+			luigiShop.animation.play("close", true);
+
+			add(luigiShop);
+
+			luigiShop_hb.scrollFactor.set(0, 0);
+			//#if debug
+			//luigiShop_hb.color = FlxColor.RED;
+			//luigiShop_hb.alpha = 0.25;
+			//#else
+			luigiShop_hb.alpha = 0;
+			//#end
+			add(luigiShop_hb);
+			canLuigi = true;
+		}
 
 		// magenta.scrollFactor.set();
 
@@ -294,6 +342,30 @@ class MainMenuState extends MusicBeatState
 				changeItem(1);
 			}
 
+			if (canLuigi && setLuigi(FlxG.mouse.overlaps(luigiShop_hb)) && FlxG.mouse.pressed) {
+				selectedSomethin = true;
+				FlxG.sound.play(Paths.sound('confirmMenu'));
+				FlxFlicker.flicker(selOnRight ? magentaNormalized : magenta, 1.1, 0.15, false);
+
+				getCurMenuItems().forEach(function(spr:FlxSprite)
+				{
+					FlxTween.tween(spr, {alpha: 0}, 0.4, {
+						ease: FlxEase.quadOut,
+						onComplete: function(twn:FlxTween)
+						{
+							spr.kill();
+						}
+					});
+				});
+
+				FlxG.sound.play(Paths.sound("click_" + FlxG.random.int(0, 2)));
+
+				FlxFlicker.flicker(luigiShop, 1, 0.06, false, false, function(flick:FlxFlicker)
+				{
+					MusicBeatState.switchState(new StoryMenuState());
+				});
+			}
+
 			if (beatenToadWeekONE)
 			{
 				if (controls.UI_RIGHT_P && (FlxG.keys.justPressed.RIGHT || !strictInput))
@@ -310,6 +382,7 @@ class MainMenuState extends MusicBeatState
 
 			if (controls.BACK && (FlxG.keys.justPressed.ESCAPE || !strictInput))
 			{
+				setLuigi(false);
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				MusicBeatState.switchState(new TitleState());
@@ -317,6 +390,7 @@ class MainMenuState extends MusicBeatState
 
 			if (controls.ACCEPT && (FlxG.keys.justPressed.ENTER || !strictInput) && !freeplaysDied.contains(curSelected))
 			{
+				setLuigi(false);
 				if ((CoolUtil.peaceRestored() && FlxG.keys.pressed.SHIFT) ||  (!CoolUtil.peaceRestored() && (selOnRight ? optionShitRight : optionShit)[curSelected] == 'freeplay'))
 				{
 					if (!selOnRight && !freeplaysDied.contains(curSelected)) {
@@ -360,6 +434,7 @@ class MainMenuState extends MusicBeatState
 							}
 						});
 					});
+					luigiShop.visible = false;
 
 					getCurMenuItems().forEach(function(spr:FlxSprite)
 					{
@@ -415,6 +490,7 @@ class MainMenuState extends MusicBeatState
 			}
 			else if (FlxG.keys.anyJustPressed(debugKeys) && !strictInput)
 			{
+				setLuigi(false);
 				selectedSomethin = true;
 				MusicBeatState.switchState(new MasterEditorMenu());
 			}
