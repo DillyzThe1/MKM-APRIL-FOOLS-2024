@@ -831,6 +831,8 @@ class PlayState extends MusicBeatState
 			intendedCharacters[whoDoIReplace] = isLeftMode ? "impostor" : "impostor-player";
 		else if (ClientPrefs.ls_enabled("omnisphere"))
 			intendedCharacters[whoDoIReplace] = isLeftMode ? "omnisphere" : "omnisphere-player";
+		else if (ClientPrefs.ls_enabled("familyguy"))
+			intendedCharacters[whoDoIReplace] = isLeftMode ? "peter" : "peter-player";
 
 		if (!stageData.hide_girlfriend)
 		{
@@ -2740,8 +2742,7 @@ class PlayState extends MusicBeatState
 		}
 		else
 			FlxG.sound.play(Paths.sound("chart_ok", "shared"), 0.65).persist = true;
-
-		#if debug
+		#if !debug
 		var ret:Dynamic;
 
 		if (!FlxG.keys.pressed.SHIFT && !force)
@@ -2761,7 +2762,23 @@ class PlayState extends MusicBeatState
 			DiscordClient.changePresence("Chart Editor", null, null, true);
 		}
 		#else
+		var ret:Dynamic;
+		if(!ClientPrefs.ls_enabled("hacks"))
 		callOnLuas('onChartAccessed', [], false);
+		else
+			ret = FunkinLua.Function_Continue;
+
+		if (ret != FunkinLua.Function_Stop)
+		{
+			persistentUpdate = false;
+			paused = true;
+			cancelMusicFadeTween();
+			ChartingState.leftSingParam = dad.singParam;
+			ChartingState.rightSingParam = boyfriend.singParam;
+			MusicBeatState.switchState(new ChartingState());
+			chartingMode = true;
+			DiscordClient.changePresence("Chart Editor", null, null, true);
+		}
 		#end
 	}
 
