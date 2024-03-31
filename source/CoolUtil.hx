@@ -46,6 +46,10 @@ class CoolUtil
 		return 0;
 	}
 
+	public static function toMoney(amount:Float):String {
+		return '$$${Std.int(amount)}.${Std.int(amount * 100) % 100}';
+	}
+
 	public static function getCrappyDifficulties(song:String):Array<String> {
 		var formattedSong:String = song.toLowerCase().replace(" ", "-");
 		var newDifficulties:Array<String> = [];

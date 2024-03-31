@@ -345,6 +345,7 @@ class MainMenuState extends MusicBeatState
 			if (canLuigi && setLuigi(FlxG.mouse.overlaps(luigiShop_hb)) && FlxG.mouse.pressed) {
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('confirmMenu'));
+				FlxG.sound.play(Paths.sound("luigiShop/click_" + FlxG.random.int(0, 2)));
 				FlxFlicker.flicker(selOnRight ? magentaNormalized : magenta, 1.1, 0.15, false);
 
 				getCurMenuItems().forEach(function(spr:FlxSprite)
@@ -358,11 +359,9 @@ class MainMenuState extends MusicBeatState
 					});
 				});
 
-				FlxG.sound.play(Paths.sound("click_" + FlxG.random.int(0, 2)));
-
 				FlxFlicker.flicker(luigiShop, 1, 0.06, false, false, function(flick:FlxFlicker)
 				{
-					MusicBeatState.switchState(new StoryMenuState());
+					MusicBeatState.switchState(new LuigiShopState());
 				});
 			}
 

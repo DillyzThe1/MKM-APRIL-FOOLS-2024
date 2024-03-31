@@ -426,6 +426,6 @@ class ClientPrefs
 	}
 
 	public static function getMoney():String {
-		return '$$${Std.int(money)}.${Std.int(money * 100) % 100}';
+		return CoolUtil.toMoney(money);
 	}
 }
