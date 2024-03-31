@@ -13,7 +13,6 @@ typedef LuigiShopItem = {
     var tip:String;
     var price:Float;
     var picture:String;
-    var contradicts:Array<String>;
 }
 
 class LSI_Instance {
@@ -26,11 +25,13 @@ class LSI_Instance {
 
 class LuigiShopState extends MusicBeatState {
     var shopData:Array<LuigiShopItem> = [
-        {name: "gtg-inator", internalName: "gtg-inator", tip: "Play as Impostor anywhere... but beware!", price: 49.99, picture: "portraits/wrong-house", contradicts: ["omnisphere", "familyguy"]},
-        {name: "Omnipotent Sphere", internalName: "omnisphere", tip: "Play as the Omnipotent Sphere!", price: 499.99, picture: "portraits/none", contradicts: ["gtg-inator", "familyguy"]},
-        {name: "Family Guy Full Episodes", internalName: "familyguy", tip: "Play as Peter Griffin... due to our lack of originality!", price: 89.99, picture: "shop/peter", contradicts: ["gtg-inator", "omnisphere"]},
-        {name: "Dev Tools", internalName: "hacks", tip: "Get access to dev tools! (Shift + 7 & 8 keys)", price: 749.99, picture: "shop/nerd", contradicts: []}
+        {name: "gtg-inator", internalName: "gtg-inator", tip: "Play as Impostor anywhere... but beware!", price: 49.99, picture: "portraits/wrong-house"},
+        {name: "Omnipotent Sphere", internalName: "omnisphere", tip: "Play as the Omnipotent Sphere!", price: 499.99, picture: "portraits/none"},
+        {name: "Family Guy Full Episodes", internalName: "familyguy", tip: "Play as Peter Griffin... due to our lack of originality!", price: 89.99, picture: "shop/peter"},
+        {name: "Dev Tools", internalName: "hacks", tip: "Get access to dev tools! (Shift + 7 & 8 keys)", price: 749.99, picture: "shop/nerd"}
     ];
+
+    var contradictionArray:Array<Array<String>> = [["gtg-inator", "omnisphere", "familyguy"]];
 
 
     var bg:FlxSprite;
@@ -131,9 +132,17 @@ class LuigiShopState extends MusicBeatState {
             if (ClientPrefs.ls_owned(items[curIndex].data.internalName)) {
                 trace("Toggled!");
 
-                for (i in items)
-                    if (items[curIndex].data.contradicts.contains(i.data.internalName))
-                        ClientPrefs.ls_enable(i.data.internalName, false);
+                for (c in contradictionArray) {
+                    if (!c.contains(items[curIndex].data.internalName))
+                        continue;
+
+                    trace("Contradictions: " + c);
+
+                    for (i in items)
+                        if (i.data.internalName != items[curIndex].data.internalName && c.contains(i.data.internalName))
+                            ClientPrefs.ls_enable(i.data.internalName, false);
+                }
+                
 
                 ClientPrefs.ls_enable(items[curIndex].data.internalName, !ClientPrefs.ls_enabled(items[curIndex].data.internalName));
                 ClientPrefs.saveSettings();

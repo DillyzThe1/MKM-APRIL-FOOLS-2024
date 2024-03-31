@@ -81,6 +81,9 @@ class CoolUtil
 			trace("HIDDEN - " + hiddenDifficulties);
 		}
 
+		if (formattedSong == "wrong-house" && ClientPrefs.ls_enabled("gtg-inator"))
+			return ["Solo"];
+
 		txtName = "data/" + formattedSong + "/difficulties.txt";
 		if (Paths.fileExists(txtName, AssetType.TEXT, false, "preload")) {
 			newDifficulties = Paths.getTextFromFile(txtName, false).trim().split("\n");
@@ -406,6 +409,9 @@ class CoolUtil
 		trace(PlayState.storyWeek);
 		var songLowercase:String = Paths.formatToSongPath(songName);
 		// CoolUtil.difficulties = ['Hard'];
+
+		if (songLowercase == "wrong-house" && ClientPrefs.ls_enabled("gtg-inator"))
+			diff = "Solo";
 
 		PlayState.storyDifficulty = CoolUtil.loadSongDiffs(songName, diff, fallbackDiff);
 		var songDataStuff:String = Highscore.formatSong(songLowercase, PlayState.storyDifficulty);

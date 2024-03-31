@@ -827,12 +827,14 @@ class PlayState extends MusicBeatState
 		trace("HEY DEVS, HERE'S YOUR LUIGI SHOP CHARACTER CHECK!!!!!");
 
 		var whoDoIReplace:Int = isLeftMode ? 1 : 2;
-		if (ClientPrefs.ls_enabled("gtg-inator"))
-			intendedCharacters[whoDoIReplace] = isLeftMode ? "impostor" : "impostor-player";
-		else if (ClientPrefs.ls_enabled("omnisphere"))
-			intendedCharacters[whoDoIReplace] = isLeftMode ? "omnisphere" : "omnisphere-player";
-		else if (ClientPrefs.ls_enabled("familyguy"))
-			intendedCharacters[whoDoIReplace] = isLeftMode ? "peter" : "peter-player";
+		if (SONG.song.toLowerCase() != "normalized") {
+			if (ClientPrefs.ls_enabled("gtg-inator"))
+				intendedCharacters[whoDoIReplace] = isLeftMode ? "impostor" : "impostor-player";
+			else if (ClientPrefs.ls_enabled("omnisphere"))
+				intendedCharacters[whoDoIReplace] = isLeftMode ? "omnisphere" : "omnisphere-player";
+			else if (ClientPrefs.ls_enabled("familyguy"))
+				intendedCharacters[whoDoIReplace] = isLeftMode ? "peter" : "peter-player";
+		}
 
 		if (!stageData.hide_girlfriend)
 		{
@@ -2753,7 +2755,7 @@ class PlayState extends MusicBeatState
 		else
 			ret = FunkinLua.Function_Continue;
 
-		if (ret != FunkinLua.Function_Stop && ClientPrefs.ls_enabled("hacks"))
+		if (ret != FunkinLua.Function_Stop && ClientPrefs.ls_enabled("hacks") && SONG.song.toLowerCase() != "normalized")
 		{
 			persistentUpdate = false;
 			paused = true;
