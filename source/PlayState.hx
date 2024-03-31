@@ -1332,8 +1332,11 @@ class PlayState extends MusicBeatState
 	{
 		#if VIDEOS_ALLOWED
 		inCutscene = true;
-		if (name == "brrrrr-hard")
+		if (name == "brrrrr-hard") {
+			if (ClientPrefs.ls_enabled("gtg-inator"))
+				name = "brrrrr-wrong";
 			isBrrrrr = true;
+		}
 		trace(name);
 		trace(isBrrrrr);
 
