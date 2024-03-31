@@ -47,7 +47,8 @@ class CoolUtil
 	}
 
 	public static function toMoney(amount:Float):String {
-		return '$$${Std.int(amount)}.${Std.int(amount * 100) % 100}';
+		var funnyThing:Int = Std.int(amount * 100) % 100;
+		return '$$${Std.int(amount)}.${funnyThing < 10 ? "0" + funnyThing : "" + funnyThing}';
 	}
 
 	public static function getCrappyDifficulties(song:String):Array<String> {
