@@ -3,6 +3,9 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxColor;
 
 typedef LuigiShopItem = {
     var name:String;
@@ -29,6 +32,7 @@ class LuigiShopState extends MusicBeatState {
 
 
     var bg:FlxSprite;
+    var balance:FlxText;
     var items:Array<LSI_Instance> = [];
     var tipObj:CaptionObject;
 
@@ -44,8 +48,18 @@ class LuigiShopState extends MusicBeatState {
         bg = new FlxSprite(-80).loadGraphic(Paths.image('menuBG-Luigi'));
 		bg.scrollFactor.set(0, 0);
 		bg.screenCenter();
+        bg.alpha = 0;
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
+
+        FlxTween.tween(bg, {alpha: 1}, 1, { ease: FlxEase.cubeInOut });
+
+        balance = new FlxText(0, FlxG.height * 0.025, 0, "Balance: $0.00", 32, true);
+        balance.alignment = CENTER;
+		balance.scrollFactor.set(0, 0);
+        balance.screenCenter(X);
+        balance.setBorderStyle(FlxTextBorderStyle.OUTLINE, FlxColor.BLACK, 3, 1);
+        add(balance);
 
         tipObj = new CaptionObject("Description");
 		add(tipObj);
@@ -55,7 +69,8 @@ class LuigiShopState extends MusicBeatState {
             lsi.data = shopData[i];
             lsi.picture = new FlxSprite().loadGraphic(Paths.image(lsi.data.picture));
 			lsi.picture.y = (FlxG.height / 2) - (lsi.picture.height / 2) - 75;
-			lsi.picture.x = (FlxG.width / 2 + (i * 600)) - (lsi.picture.width / 2);
+			//lsi.picture.x = (FlxG.width / 2 + (i * 600)) - (lsi.picture.width / 2);
+            lsi.picture.x = -500;
 			lsi.picture.antialiasing = ClientPrefs.globalAntialiasing;
             add(lsi.picture);
 
@@ -68,7 +83,11 @@ class LuigiShopState extends MusicBeatState {
         changeSelection();
     }
 
+    var counter_Money_current:Float = 0;
+
     public override function update(e:Float) {
+        counter_Money_current = FlxMath.lerp(counter_Money_current, ClientPrefs.money, Math.exp(-e * 256));
+        balance.text = "Balance: " + CoolUtil.toMoney(counter_Money_current);
 
         for (i in 0...items.length) {
 			var lerpAmount:Float = e * 114 * (ClientPrefs.framerate / 120);
@@ -87,6 +106,18 @@ class LuigiShopState extends MusicBeatState {
 
 		if (hasSelected)
 			return;
+
+        #if debug
+        if (FlxG.keys.justPressed.ONE) {
+            ClientPrefs.money += 100;
+            changeSelection();
+        }
+        if (FlxG.keys.justPressed.R) {
+            ClientPrefs.ls_purchase(items[curIndex].data.internalName, false);
+            ClientPrefs.ls_enable(items[curIndex].data.internalName, false);
+            changeSelection();
+        }
+        #end
         
 		if (controls.UI_LEFT_P)
 			changeSelection(-1, true);
@@ -94,6 +125,34 @@ class LuigiShopState extends MusicBeatState {
 			changeSelection(1, true);
         if (controls.BACK)
             exitShop();
+        if (controls.ACCEPT) {
+            if (ClientPrefs.ls_owned(items[curIndex].data.internalName)) {
+                trace("Toggled!");
+
+                for (i in items)
+                    if (items[curIndex].data.contradicts.contains(i.data.internalName))
+                        ClientPrefs.ls_enable(i.data.internalName, false);
+
+                ClientPrefs.ls_enable(items[curIndex].data.internalName, !ClientPrefs.ls_enabled(items[curIndex].data.internalName));
+                ClientPrefs.saveSettings();
+                changeSelection();
+                return;
+            }
+
+            if (ClientPrefs.money < items[curIndex].data.price) {
+                trace("Too broke!");
+                FlxG.camera.shake(0.01, 0.15);
+				FlxG.sound.play(Paths.sound('missnote${FlxG.random.int(1, 3)}', 'shared'));
+                return;
+            }
+            
+            trace("Purchased!");
+            FlxG.sound.play(Paths.sound('kaching'));
+            ClientPrefs.money -= items[curIndex].data.price;
+            ClientPrefs.ls_purchase(items[curIndex].data.internalName);
+            ClientPrefs.saveSettings();
+            changeSelection();
+        }
     }
 
 	function recalcOffset()
@@ -122,7 +181,10 @@ class LuigiShopState extends MusicBeatState {
 
         recalcOffset();
 
-        tipObj.text = items[curIndex].data.tip + (false ? "\n (Disabled, hit ENTER to enable)" : ("\n Price: " + CoolUtil.toMoney(items[curIndex].data.price)));
+        var enableddddd:Bool = ClientPrefs.ls_enabled(items[curIndex].data.internalName);
+        tipObj.text = items[curIndex].data.tip + (ClientPrefs.ls_owned(items[curIndex].data.internalName) ? 
+            '\n(${!enableddddd ? "Disabled" : "Enabled"}, hit ENTER to ${enableddddd ? 'disable' : 'enable'})'
+            : ("\nPrice: " + CoolUtil.toMoney(items[curIndex].data.price)));
 
         for (i in 0...items.length)
         {

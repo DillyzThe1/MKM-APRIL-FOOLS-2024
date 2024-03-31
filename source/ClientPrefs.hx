@@ -72,6 +72,10 @@ class ClientPrefs
 	public static var simpleRatingPopup:Bool = false;
 	public static var simpleNoteSplash:Bool = false;
 
+
+	public static var luigiShop_owned:Map<String, Bool> = ['' => true];
+	public static var luigiShop_enabled:Map<String, Bool> = ['' => true];
+
 	// Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
 	public static var keyBinds:Map<String, Array<FlxKey>> = [
 		// Key Bind, Name for ControlsSubState
@@ -156,6 +160,8 @@ class ClientPrefs
 		FlxG.save.data.safeFrames = safeFrames;
 		FlxG.save.data.gameplaySettings = gameplaySettings;
 		FlxG.save.data.fnf_mkm_keyUnlockerStuffs = keyUnlockerStuffs;
+		FlxG.save.data.mkm_luigiShop_owned = luigiShop_owned;
+		FlxG.save.data.mkm_luigiShop_enabled = luigiShop_enabled;
 		FlxG.save.data.controllerMode = controllerMode;
 		FlxG.save.data.hitsoundVolume = hitsoundVolume;
 		FlxG.save.data.pauseMusic = pauseMusic;
@@ -333,6 +339,22 @@ class ClientPrefs
 				keyUnlockerStuffs.set(name, value);
 			}
 		}
+		//FlxG.save.data.fnf_mkm_keyUnlockerStuffs = keyUnlockerStuffs;
+		
+		//FlxG.save.data.mkm_luigiShop_owned = luigiShop_owned;
+		//FlxG.save.data.mkm_luigiShop_enabled = luigiShop_enabled;
+		if (FlxG.save.data.mkm_luigiShop_owned != null)
+		{
+			var savedMap:Map<String, Dynamic> = FlxG.save.data.mkm_luigiShop_owned;
+			for (name => value in savedMap)
+				luigiShop_owned.set(name, value);
+		}
+		if (FlxG.save.data.mkm_luigiShop_enabled != null)
+		{
+			var savedMap:Map<String, Dynamic> = FlxG.save.data.mkm_luigiShop_enabled;
+			for (name => value in savedMap)
+				luigiShop_enabled.set(name, value);
+		}
 
 		// flixel automatically saves your volume!
 		if (FlxG.save.data.volume != null)
@@ -390,6 +412,24 @@ class ClientPrefs
 	inline public static function finishCutscene(name:String)
 	{
 		return setKeyUnlocked("cutsceneKeys_" + name, true);
+	}
+
+	public static function ls_owned(key:String) {
+		return luigiShop_owned.exists(key) ? luigiShop_owned.get(key) : false;
+	}
+
+	public static function ls_enabled(key:String) {
+		return ls_owned(key) && (luigiShop_enabled.exists(key) ? luigiShop_enabled.get(key) : false);
+	}
+
+	public static function ls_purchase(key:String, ?res:Bool = true) {
+		trace('setting luigi shop key "$key" to $res!');
+		return luigiShop_owned.set(key, res);
+	}
+
+	public static function ls_enable(key:String, ?res:Bool = true) {
+		trace('setting luigi shop "$key" to be $res!');
+		return luigiShop_enabled.set(key, res);
 	}
 
 	public static function reloadControls()

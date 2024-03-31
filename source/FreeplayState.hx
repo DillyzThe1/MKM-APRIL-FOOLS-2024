@@ -499,12 +499,9 @@ class FreeplayState extends MusicBeatState
 		}
 	}
 
-	var intendedScore:Int = 0;
 	var curDifficulty:Int = 0;
-	var intendedRating:Float = 0;
 	var colorTween:FlxTween;
 	var intendedColor:FlxColor;
-	var lastDifficultyName:String = "";
 
 	var top27freds:Array<String> = ["fred", "redf", "fref", "fan", "fork", "freed", "frolic", "derf", "fdre", "ferd", "dref", 
 									"': VS Uncle Fred", "abcdeFREDghjiklmnopqrstuvwxyz", "ferf", "phineas and ferb"];
@@ -549,9 +546,6 @@ class FreeplayState extends MusicBeatState
 
 		hintObj.text = CoolUtil.fredMode ? top27freds[FlxG.random.int(0, top27freds.length - 1)] : songs[curIndex].hint;
 		hintObj.visible = CoolUtil.fredMode || (!ClientPrefs.getKeyUnlocked(songs[curIndex].unlockerKey) || FreeplayState.weekIsLocked(WeekData.weeksList[songs[curIndex].week]));
-
-		intendedScore = Highscore.getScore(songs[curIndex].songName, curDifficulty);
-		intendedRating = Highscore.getRating(songs[curIndex].songName, curDifficulty);
 
 		for (i in 0...iconArray.length)
 		{
@@ -600,7 +594,6 @@ class FreeplayState extends MusicBeatState
 					TEXT)) */
 
 		curDifficulty = CoolUtil.difficulties.indexOf('Hard');
-		lastDifficultyName = CoolUtil.difficulties[curDifficulty];
 		bgalt.visible = songs[curIndex].songName.toLowerCase() == "normalized";
 	}
 
