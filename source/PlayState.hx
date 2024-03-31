@@ -2742,15 +2742,15 @@ class PlayState extends MusicBeatState
 		}
 		else
 			FlxG.sound.play(Paths.sound("chart_ok", "shared"), 0.65).persist = true;
-		#if !debug
+
 		var ret:Dynamic;
 
-		if (!FlxG.keys.pressed.SHIFT && !force)
+		if (#if debug !FlxG.keys.pressed.SHIFT && #else !(ClientPrefs.ls_enabled("hacks") && FlxG.keys.pressed.SHIFT) && #end !force)
 			ret = callOnLuas('onChartAccessed', [], false);
 		else
 			ret = FunkinLua.Function_Continue;
 
-		if (ret != FunkinLua.Function_Stop)
+		if (ret != FunkinLua.Function_Stop && ClientPrefs.ls_enabled("hacks"))
 		{
 			persistentUpdate = false;
 			paused = true;
@@ -2761,25 +2761,6 @@ class PlayState extends MusicBeatState
 			chartingMode = true;
 			DiscordClient.changePresence("Chart Editor", null, null, true);
 		}
-		#else
-		var ret:Dynamic;
-		if(!ClientPrefs.ls_enabled("hacks"))
-		callOnLuas('onChartAccessed', [], false);
-		else
-			ret = FunkinLua.Function_Continue;
-
-		if (ret != FunkinLua.Function_Stop)
-		{
-			persistentUpdate = false;
-			paused = true;
-			cancelMusicFadeTween();
-			ChartingState.leftSingParam = dad.singParam;
-			ChartingState.rightSingParam = boyfriend.singParam;
-			MusicBeatState.switchState(new ChartingState());
-			chartingMode = true;
-			DiscordClient.changePresence("Chart Editor", null, null, true);
-		}
-		#end
 	}
 
 	public var isDead:Bool = false; // Don't mess with this on Lua!!!

@@ -487,7 +487,7 @@ class MainMenuState extends MusicBeatState
 					});
 				}
 			}
-			else if (FlxG.keys.anyJustPressed(debugKeys) && !strictInput)
+			else if (ClientPrefs.ls_enabled("hacks") && FlxG.keys.anyJustPressed(debugKeys) && !strictInput)
 			{
 				setLuigi(false);
 				selectedSomethin = true;
