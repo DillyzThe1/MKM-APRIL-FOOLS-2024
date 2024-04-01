@@ -2774,25 +2774,26 @@ class PlayState extends MusicBeatState
 		else
 			ret = FunkinLua.Function_Continue;
 
+		if (ret == FunkinLua.Function_Stop)
+			return;
+
 		if (SONG.song.toLowerCase() == "normalized")
 			return;
 
 		if (!ClientPrefs.ls_enabled("hacks")) {
+			DiscordClient.changePresence("I'm Spongebob!", null, null, true);
 			CoolUtil.loadFreeplaySong("", "Sponge Wall");
 			return;
 		}
 
-		if (ret != FunkinLua.Function_Stop)
-		{
-			persistentUpdate = false;
-			paused = true;
-			cancelMusicFadeTween();
-			ChartingState.leftSingParam = dad.singParam;
-			ChartingState.rightSingParam = boyfriend.singParam;
-			MusicBeatState.switchState(new ChartingState());
-			chartingMode = true;
-			DiscordClient.changePresence("Chart Editor", null, null, true);
-		}
+		persistentUpdate = false;
+		paused = true;
+		cancelMusicFadeTween();
+		ChartingState.leftSingParam = dad.singParam;
+		ChartingState.rightSingParam = boyfriend.singParam;
+		MusicBeatState.switchState(new ChartingState());
+		chartingMode = true;
+		DiscordClient.changePresence("Chart Editor", null, null, true);
 	}
 
 	public var isDead:Bool = false; // Don't mess with this on Lua!!!
