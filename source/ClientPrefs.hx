@@ -2,7 +2,6 @@ package;
 
 import Controls;
 import flixel.FlxG;
-import flixel.graphics.FlxGraphic;
 import flixel.input.keyboard.FlxKey;
 import flixel.util.FlxSave;
 

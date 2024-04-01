@@ -38,12 +38,12 @@
 	<define name="MODS_ALLOWED"/>
 	<!--define name="CHAT_LU_E_G__ALLOWED"/-->
 	<define name="DISCORD_RPC_ALLOWED" unless="debug"/>
-	<define name="LUA_ALLOWED" if="desktop" />
+	<define name="LUA_ALLOWED" />
 	<!-- <define name="ACHIEVEMENTS_ALLOWED" /> they're broken so i'm gonna rewrite them in 2.0 or if i feel like having time for 1.5 -->
 	<define name="TITLE_SCREEN_EASTER_EGG" />
-	<define name="VIDEOS_ALLOWED" if="web || windows" unless="32bits"/>
+	<define name="VIDEOS_ALLOWED" if="windows" unless="32bits"/>
 	<define name="PSYCH_WATERMARKS"/> <!-- DELETE THIS TO REMOVE WATERMARKS/DEV NAMES ON TITLE SCREEN -->
-	<define name="CRASH_HANDLER" if="desktop release" />
+	<!--define name="CRASH_HANDLER" if="desktop release" /-->
 
 	<assets path="assets/preload" rename="assets" exclude="*.ogg" if="web"/>
 	<assets path="assets/preload" rename="assets" exclude="*.mp3"  unless="web"/>
@@ -102,7 +102,7 @@
 	<haxelib name="hxCodec" if="VIDEOS_ALLOWED"/>
 	<haxelib name="faxe" if='switch'/>
 	<!--<haxelib name="polymod"/> -->
-	<haxelib name="discord_rpc" if="desktop DISCORD_RPC_ALLOWED"/>
+	<haxelib name="discord_rpc" if="DISCORD_RPC_ALLOWED"/>
 	<!-- <haxelib name="hxcpp-debug-server" if="desktop"/> -->
 
 	<!-- spr map 1 https://github.com/Dot-Stuff/flxanimate (git) -->
@@ -176,6 +176,6 @@
 	<icon path="art/iconOG.png" />
 
 	<section unless="cpp">
-		<error value="FNF: MKM can only be compiled for CPP! (Windows, Mac, and Linux) ( also, screw off >:[ )" />
+		<error value="': MKM can only be compiled for CPP! (Windows, Mac, and Linux) ( also, screw off >:[ )" />
 	</section>
 </project>

@@ -402,7 +402,7 @@ class PlayState extends MusicBeatState
 	{
 		var redAngryBirdIsComingToTakeYourWifi:Array<Array<FlxKey>> = [];
 		var keyNames:Array<String> = Note.noteManiaSettings[keyCount][keysGonnaSwap ? 9 : 7];
-		trace(keyNames);
+		//trace(keyNames);
 		for (i in keyNames)
 			redAngryBirdIsComingToTakeYourWifi.push(ClientPrefs.copyKey(ClientPrefs.keyBinds.get(i)));
 		return redAngryBirdIsComingToTakeYourWifi;

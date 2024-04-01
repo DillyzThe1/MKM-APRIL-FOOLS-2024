@@ -1,22 +1,13 @@
 package;
 
 // "you cannot access the sys package while targetting js (for sys.filesystem)" 🤓
-import Section.SwagSection;
 import animateatlas.AtlasFrameMaker;
-import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.addons.effects.FlxTrail;
-import flixel.animation.FlxBaseAnimation;
-import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxSort;
 import haxe.Exception;
 import haxe.Json;
-import haxe.Json;
-import haxe.format.JsonParser;
-import openfl.utils.AssetType;
-import openfl.utils.Assets;
 import openfl.utils.Assets;
 import sys.FileSystem;
 import sys.io.File;
