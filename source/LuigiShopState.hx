@@ -1,6 +1,7 @@
 import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.input.keyboard.FlxKey;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
@@ -24,6 +25,8 @@ class LSI_Instance {
 }
 
 class LuigiShopState extends MusicBeatState {
+    var isMario:Bool = false;
+
     var shopData:Array<LuigiShopItem> = [
         {name: "Money Multiplier", internalName: "robloxgamepass", tip: "Get up to triple the cash... based on your combo!", price: 249.99, picture: "shop/stonks"},
         {name: "gtg-inator", internalName: "gtg-inator", tip: "Play as Impostor anywhere... but beware!", price: 49.99, picture: "shop/gtg"},
@@ -35,7 +38,7 @@ class LuigiShopState extends MusicBeatState {
         {name: "free robux", internalName: null, tip: "free robux", price: 19.99, picture: "shop/none"}
     ];
 
-    var contradictionArray:Array<Array<String>> = [["gtg-inator", "omnisphere", "familyguy", "frank", "brokenglass"]];
+    var contradictionArray:Array<Array<String>> = [["gtg-inator", "omnisphere", "familyguy", "frank", "brokenglass", "mario"]];
 
 
     var bg:FlxSprite;
@@ -124,6 +127,17 @@ class LuigiShopState extends MusicBeatState {
             ClientPrefs.ls_enable(items[curIndex].data.internalName, false);
             changeSelection();
         }
+        if (FlxG.keys.justPressed.M)
+            if (isMario)
+            {
+                ClientPrefs.marioState = 0;
+                trace("reset mario state to 0");
+            }
+            else
+                LoadingState.loadAndSwitchState(new MarioShopState());
+        #else
+        if (FlxG.keys.justPressed.M && !isMario)
+            LoadingState.loadAndSwitchState(new MarioShopState());
         #end
         
 		if (controls.UI_LEFT_P)
@@ -211,5 +225,24 @@ class LuigiShopState extends MusicBeatState {
     function exitShop() {
         hasSelected = true;
         MusicBeatState.switchState(new MainMenuState());
+    }
+}
+
+class MarioShopState extends LuigiShopState {
+
+    public override function create() {
+        isMario = true;
+
+        shopData = [
+            {name: "Super Mushroom", internalName: "mario", tip: "Play as Super Mario!", price: 59.99, picture: "shop/mario/mushroom"},
+            {name: "Wario Repellent", internalName: "nosong", tip: "Spray this at Wario to prevent him from\nforcing you to hear his song!", price: 119.99, picture: "shop/mario/wariorepellent"},
+            {name: "Atmosphere Custom Firmware", internalName: "killmario", tip: "Why's Mario selling this..? Won't Nintendo find out?", price: 999.99, picture: "shop/mario/atmosphere"},
+            {name: "paid robux", internalName: null, tip: "paid robux", price: -19.99, picture: "shop/none"}
+        ];
+
+        super.create();
+
+        bg.loadGraphic(Paths.image('menuBG-Mario'));
+
     }
 }

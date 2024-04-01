@@ -75,6 +75,8 @@ class ClientPrefs
 	public static var luigiShop_owned:Map<String, Bool> = ['' => true];
 	public static var luigiShop_enabled:Map<String, Bool> = ['' => true];
 
+	public static var marioState:Int = 0;
+
 	// Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
 	public static var keyBinds:Map<String, Array<FlxKey>> = [
 		// Key Bind, Name for ControlsSubState
@@ -161,6 +163,7 @@ class ClientPrefs
 		FlxG.save.data.fnf_mkm_keyUnlockerStuffs = keyUnlockerStuffs;
 		FlxG.save.data.mkm_luigiShop_owned = luigiShop_owned;
 		FlxG.save.data.mkm_luigiShop_enabled = luigiShop_enabled;
+		FlxG.save.data.mkm_marioState = marioState;
 		FlxG.save.data.controllerMode = controllerMode;
 		FlxG.save.data.hitsoundVolume = hitsoundVolume;
 		FlxG.save.data.pauseMusic = pauseMusic;
@@ -353,6 +356,11 @@ class ClientPrefs
 			var savedMap:Map<String, Dynamic> = FlxG.save.data.mkm_luigiShop_enabled;
 			for (name => value in savedMap)
 				luigiShop_enabled.set(name, value);
+		}
+		
+		if (FlxG.save.data.mkm_marioState != null)
+		{
+			marioState = FlxG.save.data.mkm_marioState;
 		}
 
 		// flixel automatically saves your volume!

@@ -11,6 +11,7 @@ import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
+import flixel.util.FlxTimer;
 import lime.utils.Assets;
 import sys.FileSystem;
 import sys.io.File;
@@ -36,6 +37,8 @@ class CreditsState extends MusicBeatState
 
 	var offsetThing:Float = -75;
 
+	var marioTimer:FlxTimer;
+
 	override function create()
 	{
 		// Updating Discord Rich Presence
@@ -49,6 +52,8 @@ class CreditsState extends MusicBeatState
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
+
+		marioTimer = new FlxTimer();
 
 		var holycrapcredits:Array<Array<Dynamic>> = [
 			// Name - Icon name - Description - Link - BG Color - Voice(s)
@@ -425,6 +430,20 @@ class CreditsState extends MusicBeatState
 			if (voiceIcons_Tweens[i] != null)
 				voiceIcons_Tweens[i].cancel();
 			voiceIcons_Tweens[i] = FlxTween.tween(voiceIcons[i], {x: realTwitterValue, "scale.x": 1, "scale.y": 1}, 0.25, {ease: FlxEase.cubeOut});
+		}
+
+		if (curSelected == 4 && ClientPrefs.marioState < 1)
+		{
+			marioTimer.start(7, function(x:FlxTimer) {
+				ClientPrefs.marioState = 1;
+				FlxG.sound.play(Paths.sound("luigiShop/mario/explain"));
+				trace("mario explained his shop, mario state is now " + ClientPrefs.marioState);
+			});
+			
+		}
+		else
+		{
+			marioTimer.cancel();
 		}
 	}
 
