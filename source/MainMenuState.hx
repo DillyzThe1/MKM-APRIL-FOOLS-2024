@@ -251,15 +251,19 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "Mushroom Kingdom Madness v" + MainMenuState.mushroomKingdomMadnessVersion, 12);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 84, 0, "Hit E to visit the OFFICIAL YouTube channel!", 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, " Engine v" + psychEngineVersion, 12);
+		versionShit = new FlxText(12, FlxG.height - 64, 0, "Mushroom Kingdom Madness v" + MainMenuState.mushroomKingdomMadnessVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "  ' v0.2.8", 12);
+		versionShit = new FlxText(12, FlxG.height - 44, 0, " Engine v" + psychEngineVersion, 12);
+		versionShit.scrollFactor.set();
+		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		add(versionShit);
+		versionShit = new FlxText(12, FlxG.height - 24, 0, "  ' v0.2.8", 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
@@ -330,6 +334,9 @@ class MainMenuState extends MusicBeatState
 
 		if (!selectedSomethin)
 		{
+			if (FlxG.keys.justPressed.E)
+				Sys.command("start https://www.youtube.com/channel/UCHyyIIUYuXPPNbIs0YEjudg");
+
 			if (controls.UI_UP_P && (FlxG.keys.justPressed.UP || !strictInput))
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
