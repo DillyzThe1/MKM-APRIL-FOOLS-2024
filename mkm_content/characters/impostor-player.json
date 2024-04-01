@@ -1,95 +1,95 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "Impostor Idle"
+			"fps": 24,
+			"name": "Impostor Idle",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-130,
 				10
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "Impostor Left"
+			"fps": 24,
+			"name": "Impostor Left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-66,
 				-23
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "Impostor Down"
+			"fps": 24,
+			"name": "Impostor Down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-113,
 				3
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "Impostor Up"
+			"fps": 24,
+			"name": "Impostor Up",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-23,
 				-1
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "Impostor Right"
+			"fps": 24,
+			"name": "Impostor Right",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-80,
-				0
-			],
 			"loop": false,
-			"fps": 24,
-			"anim": "nah",
-			"indices": [],
-			"name": "Impostor Nah"
-		},
-		{
 			"offsets": [
 				-80,
 				0
 			],
-			"loop": true,
+			"anim": "nah",
 			"fps": 24,
+			"name": "Impostor Nah",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-80,
+				0
+			],
 			"anim": "nah-loop",
+			"fps": 24,
+			"name": "Impostor Nah",
 			"indices": [
 				72,
 				73
-			],
-			"name": "Impostor Nah"
+			]
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-46,
 				0
 			],
-			"anim": "gtg",
+			"loop": false,
 			"fps": 24,
-			"name": "Impostor gtg",
-			"indices": []
+			"anim": "gtg",
+			"indices": [],
+			"name": "Impostor gtg"
 		}
 	],
 	"no_antialiasing": false,
@@ -107,8 +107,8 @@
 		78
 	],
 	"camera_position": [
-		145,
-		40
+		-35,
+		0
 	],
 	"sing_duration": 6.1,
 	"scale": 1

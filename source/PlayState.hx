@@ -694,7 +694,7 @@ class PlayState extends MusicBeatState
 		var mario:String = SONG.audioPostfix;
 
 		if ((FileSystem.exists('assets/songs/$songName/Voices$mario-left') || FileSystem.exists('mkm_content/songs/$songName/Voices$mario-left'))
-			&& (FileSystem.exists('assets/songs/$songName/Voices$mario-right') || FileSystem.exists('mkm_content/songs/$songName/Voices$mario-right')))
+			|| (FileSystem.exists('assets/songs/$songName/Voices$mario-right') || FileSystem.exists('mkm_content/songs/$songName/Voices$mario-right')))
 			splitVocals = true;
 
 		trace('split vocals? $splitVocals...');
