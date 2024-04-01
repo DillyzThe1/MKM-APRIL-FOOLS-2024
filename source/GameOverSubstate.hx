@@ -25,6 +25,8 @@ class GameOverSubstate extends MusicBeatSubstate
 
 	public static var instance:GameOverSubstate;
 
+	var hint:CaptionObject;
+
 	public static function resetVariables()
 	{
 		characterName = 'toad-dead';
@@ -68,6 +70,10 @@ class GameOverSubstate extends MusicBeatSubstate
 		camFollowPos = new FlxObject(0, 0, 1, 1);
 		camFollowPos.setPosition(FlxG.camera.scroll.x + (FlxG.camera.width / 2), FlxG.camera.scroll.y + (FlxG.camera.height / 2));
 		add(camFollowPos);
+
+		hint = new CaptionObject("");
+		add(hint);
+		hint.animate = true;
 	}
 
 	var isFollowingAlready:Bool = false;
@@ -118,6 +124,7 @@ class GameOverSubstate extends MusicBeatSubstate
 		{
 			coolStartDeath();
 			boyfriend.startedDeath = true;
+			hint.text = "Stuck?\nTry the \"Parental Controls\" in the pause menu!";
 		}
 
 		if (FlxG.sound.music.playing)
@@ -145,6 +152,7 @@ class GameOverSubstate extends MusicBeatSubstate
 	{
 		if (!isEnding)
 		{
+			hint.visible = false;
 			isEnding = true;
 			boyfriend.playAnim('deathConfirm', true);
 			FlxG.sound.music.stop();

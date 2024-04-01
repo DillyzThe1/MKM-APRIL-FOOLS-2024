@@ -12,7 +12,7 @@ function onCreatePost()
 		nameToCheck = boyfriendName
 	end
 	
-	if nameToCheck == 'toad-new' or nameToCheck == 'toad' or nameToCheck == 'gmod toad' or nameToCheck == 'hs toad' or nameToCheck == 'hs toad' 
+	if string.lower(songName) == 'house' or nameToCheck == 'toad-new' or nameToCheck == 'toad' or nameToCheck == 'gmod toad' or nameToCheck == 'hs toad' or nameToCheck == 'hs toad' 
 		or nameToCheck == 'irregular-toad' or nameToCheck == 'toad-mc' or nameToCheck == 'toad-nes'  or nameToCheck == 'toad-old' or nameToCheck == "tokia" then
 		prefix = 'toad'
 		volume = 2

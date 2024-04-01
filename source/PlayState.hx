@@ -2387,7 +2387,7 @@ class PlayState extends MusicBeatState
 		iconP3.makeGraphic(100, 100, FlxColor.WHITE);
 		#end
 
-		if (FlxG.keys.anyJustPressed(debugKeysCharacter) && !endingSong && !inCutscene && !CoolUtil.fredMode)
+		if (SONG.song.toLowerCase() != "normalized" && ClientPrefs.ls_enabled("hacks") && FlxG.keys.anyJustPressed(debugKeysCharacter) && !endingSong && !inCutscene && !CoolUtil.fredMode)
 		{
 			persistentUpdate = false;
 			paused = true;

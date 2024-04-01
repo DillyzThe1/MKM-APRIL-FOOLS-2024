@@ -1,0 +1,167 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				272,
+				1
+			],
+			"anim": "singUPmiss",
+			"fps": 24,
+			"name": "Toad Guitar Miss",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				16,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "Toad Guitar Idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle-og",
+			"fps": 24,
+			"name": "Toad Idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-57,
+				2
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Toad Guitar Right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				342,
+				-256
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "Toad Guitar Down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				20,
+				255
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "Toad Guitar Up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				157,
+				8
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Toad Gutiar Left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				120,
+				20
+			],
+			"anim": "singLEFT-alt",
+			"fps": 24,
+			"name": "Toad Saxophone Left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				50,
+				100
+			],
+			"anim": "singUP-alt",
+			"fps": 24,
+			"name": "Toad Saxophone Up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-170,
+				0
+			],
+			"anim": "singRIGHT-alt",
+			"fps": 24,
+			"name": "Toad Saxophone Right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				100,
+				-350
+			],
+			"anim": "singDOWN-alt",
+			"fps": 24,
+			"name": "Toad Saxophone Down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle-alt",
+			"fps": 24,
+			"name": "Toad Saxophone Idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				24,
+				0
+			],
+			"anim": "qoute",
+			"fps": 24,
+			"name": "Toad Saxophone Qoute",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Toad Instruments",
+	"position": [
+		60,
+		230
+	],
+	"sing_param": "toad",
+	"healthicon": "toad",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		0,
+		51
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}
