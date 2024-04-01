@@ -569,6 +569,8 @@ class PlayState extends MusicBeatState
 				overrideChar_right = isLeftMode ? "omnisphere" : "omnisphere-player";
 			else if (ClientPrefs.ls_enabled("familyguy")) 
 				overrideChar_right = isLeftMode ? "peter" : "peter-player";
+			else if (ClientPrefs.ls_enabled("frank")) 
+				overrideChar_right = isLeftMode ? "circle" : "circle-player";
 		}
 
 		if (isLeftMode) {
