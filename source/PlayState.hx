@@ -880,6 +880,11 @@ class PlayState extends MusicBeatState
 		if (isLeftMode)
 			trace('EPIC LEFT MODE SET THINGS');
 
+		if (boyfriend.isPlayer)
+			boyfriend.scale.set(1.5, 1.5);
+		if (dad.isPlayer)
+			dad.scale.set(1.5, 1.5);
+
 		Note.oppositeMode = isLeftMode;
 
 		dad.onPlayAnim = function(name:String, force:Bool, reversed:Bool, frame:Int) {
