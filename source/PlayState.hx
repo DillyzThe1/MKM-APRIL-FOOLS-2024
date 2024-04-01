@@ -2780,6 +2780,9 @@ class PlayState extends MusicBeatState
 		if (SONG.song.toLowerCase() == "normalized")
 			return;
 
+		if (!peacefulMode)
+			return;
+
 		if (!ClientPrefs.ls_enabled("hacks")) {
 			DiscordClient.changePresence("I'm Spongebob!", null, null, true);
 			CoolUtil.loadFreeplaySong("", "Sponge Wall");
