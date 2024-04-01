@@ -24,10 +24,10 @@ class PauseSubState extends MusicBeatSubstate
 	var menuItems:Array<String> = [];
 	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Exit to menu'];
 
-	public static var parentalControls_vals_default:Array<Bool> = [true, false, false, true, false, false, true];
+	public static var parentalControls_vals_default:Array<Bool> = [true, false, false, true, false, false, true, #if debug true, #end];
 	public static var parentalControls_vals:Array<Bool> = parentalControls_vals_default.copy();
 
-	var parentalControls:Array<String> = ['Input', 'Health Regen', 'Baby Mode', 'UI', 'Cinematic Mode', 'No Death', 'Mute On Miss', 'Back'];
+	var parentalControls:Array<String> = ['Input', 'Health Regen', 'Baby Mode', 'UI', 'Cinematic Mode', 'No Death', 'Mute On Miss', #if debug 'miss notes', #end 'Back'];
 	var difficultyChoices:Array<String> = [];
 	var curSelected:Int = 0;
 

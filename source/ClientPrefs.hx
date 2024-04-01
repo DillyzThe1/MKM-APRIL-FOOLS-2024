@@ -415,19 +415,27 @@ class ClientPrefs
 	}
 
 	public static function ls_owned(key:String) {
+		if (key == null)
+			return false;
 		return luigiShop_owned.exists(key) ? luigiShop_owned.get(key) : false;
 	}
 
 	public static function ls_enabled(key:String) {
+		if (key == null)
+			return false;
 		return ls_owned(key) && (luigiShop_enabled.exists(key) ? luigiShop_enabled.get(key) : false);
 	}
 
 	public static function ls_purchase(key:String, ?res:Bool = true) {
+		if (key == null)
+			return;
 		trace('setting luigi shop key "$key" to $res!');
 		return luigiShop_owned.set(key, res);
 	}
 
 	public static function ls_enable(key:String, ?res:Bool = true) {
+		if (key == null)
+			return;
 		trace('setting luigi shop "$key" to be $res!');
 		return luigiShop_enabled.set(key, res);
 	}

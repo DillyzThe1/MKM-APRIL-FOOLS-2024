@@ -249,7 +249,7 @@ class Character extends FlxSprite
 		recalculateDanceIdle();
 		dance();
 
-		if (isPlayer)
+		if (isPlayer && curCharacter.toLowerCase() != "frye")
 			flipX = !flipX;
 	}
 

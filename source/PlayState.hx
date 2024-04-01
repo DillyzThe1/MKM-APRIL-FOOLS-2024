@@ -3615,6 +3615,7 @@ class PlayState extends MusicBeatState
 		note.rating = daRating.name;
 		if (!cpuControlled) {
 			var moneyMulti:Float = 1;
+			var moneyMultCap:Float = 3;
 			// a combo of 0 will get you 0.5x the money
 			// a combo of 10 will get you 0.75x the money
 			// a combo of 20 will get you 1.0x the money
@@ -3623,12 +3624,26 @@ class PlayState extends MusicBeatState
 			// a combo of 100 will get you 3x the money
 			if (daRating.money > 0 && ClientPrefs.ls_enabled("robloxgamepass")) {
 				moneyMulti = 0.5 + (combo * 0.025);
-				if (moneyMulti > 3)
-					moneyMulti = 3;
+
+				// 250 will get you 3x the money
+				// 300 will get you 6x the money
+				if (combo > 250) {
+					moneyMulti = 3 + ((combo - 250) * 0.05);
+					moneyMultCap = 6;
+				}
+				// 500 will get you 6x the money
+				// 540 will get you 9x the money
+				else if (combo > 500) {
+					moneyMulti = 6 + ((combo - 500) * 0.1);
+					moneyMultCap = 9;
+				}
+
+				if (moneyMulti > moneyMultCap)
+					moneyMulti = moneyMultCap;
 
 				displayedMulti = ' (x${Std.int(moneyMulti * 100)/100.0})';
 			}
-			ClientPrefs.money += daRating.money * moneyMulti;
+			ClientPrefs.money += daRating.money * moneyMulti * (FlxG.random.int(1,30) / 10);
 			if (ClientPrefs.money < 0)
 				ClientPrefs.money = 0;
 		}
@@ -4295,6 +4310,10 @@ class PlayState extends MusicBeatState
 
 	function noteMiss(daNote:Note):Void
 	{ 
+		#if debug
+		if (!PauseSubState.parentalControls_vals[PauseSubState.parentalControls_vals.length - 1])
+			return;
+		#end
 		if (peacefulMode && songMisses >= 25 && SONG.song.toLowerCase() == "house") {
 			CoolUtil.loadFreeplaySong(CoolUtil.onePointFiveExtrasWeekName, "Academic Failure");
 			return;

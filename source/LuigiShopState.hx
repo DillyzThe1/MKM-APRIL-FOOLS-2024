@@ -29,7 +29,8 @@ class LuigiShopState extends MusicBeatState {
         {name: "gtg-inator", internalName: "gtg-inator", tip: "Play as Impostor anywhere... but beware!", price: 49.99, picture: "shop/gtg"},
         {name: "Omnipotent Sphere", internalName: "omnisphere", tip: "Play as the Omnipotent Sphere!", price: 499.99, picture: "shop/omnisphere"},
         {name: "Family Guy Full Episodes", internalName: "familyguy", tip: "Play as Peter Griffin... due to our lack of originality!", price: 89.99, picture: "shop/peter"},
-        {name: "Dev Tools", internalName: "hacks", tip: "Get access to dev tools! (Shift + 7 & 8 keys)", price: 749.99, picture: "shop/nerd"}
+        {name: "Dev Tools", internalName: "hacks", tip: "Get access to dev tools! (Shift + 7 & 8 keys)", price: 749.99, picture: "shop/nerd"},
+        {name: "free robux", internalName: null, tip: "free robux", price: 19.99, picture: "shop/none"}
     ];
 
     var contradictionArray:Array<Array<String>> = [["gtg-inator", "omnisphere", "familyguy"]];
