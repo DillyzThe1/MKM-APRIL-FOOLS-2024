@@ -880,10 +880,12 @@ class PlayState extends MusicBeatState
 		if (isLeftMode)
 			trace('EPIC LEFT MODE SET THINGS');
 
-		if (boyfriend.isPlayer)
-			boyfriend.scale.set(1.5, 1.5);
-		if (dad.isPlayer)
-			dad.scale.set(1.5, 1.5);
+		if (ClientPrefs.ls_enabled("shroom")) {
+			if (boyfriend.isPlayer)
+				boyfriend.scale.set(1.5, 1.5);
+			if (dad.isPlayer)
+				dad.scale.set(1.5, 1.5);
+		}
 
 		Note.oppositeMode = isLeftMode;
 

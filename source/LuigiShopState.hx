@@ -168,7 +168,7 @@ class LuigiShopState extends MusicBeatState {
                 return;
             }
 
-            if (ClientPrefs.money < items[curIndex].data.price) {
+            if (ClientPrefs.money < items[curIndex].data.price && !ClientPrefs.ls_enabled("killmario")) {
                 trace("Too broke!");
                 FlxG.camera.shake(0.01, 0.15);
 				FlxG.sound.play(Paths.sound('missnote${FlxG.random.int(1, 3)}', 'shared'));
@@ -177,7 +177,8 @@ class LuigiShopState extends MusicBeatState {
             
             trace("Purchased!");
             FlxG.sound.play(Paths.sound('kaching'));
-            ClientPrefs.money -= items[curIndex].data.price;
+            if (!ClientPrefs.ls_enabled("killmario"))
+                ClientPrefs.money -= items[curIndex].data.price;
             ClientPrefs.ls_purchase(items[curIndex].data.internalName);
             ClientPrefs.saveSettings();
             changeSelection();
@@ -213,7 +214,7 @@ class LuigiShopState extends MusicBeatState {
         var enableddddd:Bool = ClientPrefs.ls_enabled(items[curIndex].data.internalName);
         tipObj.text = items[curIndex].data.tip + (ClientPrefs.ls_owned(items[curIndex].data.internalName) ? 
             '\n(${!enableddddd ? "Disabled" : "Enabled"}, hit ENTER to ${enableddddd ? 'disable' : 'enable'})'
-            : ("\nPrice: " + CoolUtil.toMoney(items[curIndex].data.price)));
+            : ("\nPrice: " + (ClientPrefs.ls_enabled("killmario") ? "you can steal it" : CoolUtil.toMoney(items[curIndex].data.price))));
 
         for (i in 0...items.length)
         {

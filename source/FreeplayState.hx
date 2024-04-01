@@ -392,6 +392,11 @@ class FreeplayState extends MusicBeatState
 				FlxG.sound.play(Paths.sound('brrrrr'), 1, false);
 			else if (songs[curIndex].songName.toLowerCase() == "nether brrrrr")
 				FlxG.sound.play(Paths.sound("brrrrrn't"), 1, false);
+			else if (ClientPrefs.ls_enabled("nosong") && songs[curIndex].songName.toLowerCase() == "wario's song") {
+				FlxG.sound.play(Paths.sound("spraybottle"), 1, false);
+				deleteCurSelection();
+				return;
+			}
 
 			if (songs[curIndex].flag0) {
 				if (songs[curIndex].flag1 > 3)
