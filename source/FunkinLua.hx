@@ -2300,15 +2300,15 @@ class FunkinLua
 			PlayState.instance.modchartCharacterControllers.remove(tag);
 		});*/
 
-		Lua_helper.add_callback(lua, "characterController_summon", function(x:Float, y:Float, characterName:String, playerChar:Bool, ?front:Bool = false)
+		Lua_helper.add_callback(lua, "characterController_summon", function(x:Float, y:Float, characterName:String, playerChar:Bool, ?front:Bool = false, ?affectedByLuigi:Bool = true)
 		{
 			if (PlayState.instance.modchartSprites.exists(characterName) || PlayState.instance.modchartCharacterControllers.exists(characterName))
 				return;
 
 			var intendedChar:String = characterName;
-			if (playerChar && PlayState.instance.overrideChar_right != null)
+			if (affectedByLuigi && playerChar && PlayState.instance.overrideChar_right != null)
 				intendedChar = PlayState.instance.overrideChar_right;
-			if (!playerChar && PlayState.instance.overrideChar_left != null)
+			if (affectedByLuigi && !playerChar && PlayState.instance.overrideChar_left != null)
 				intendedChar = PlayState.instance.overrideChar_left;
 
 			var brandNewCharacter:Character = new Character(x, y, intendedChar, playerChar);

@@ -1,0 +1,123 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-40,
+				-100
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": false,
+			"name": "Frye Idle"
+		},
+		{
+			"offsets": [
+				-80,
+				115
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "Frye Up"
+		},
+		{
+			"offsets": [
+				97,
+				-72
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "Frye Left"
+		},
+		{
+			"offsets": [
+				62,
+				-316
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "Frye Down"
+		},
+		{
+			"offsets": [
+				-97,
+				-28
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "Frye Right"
+		},
+		{
+			"offsets": [
+				-94,
+				-174
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUPmiss",
+			"loop": false,
+			"name": "Frye Miss"
+		},
+		{
+			"offsets": [
+				-94,
+				-174
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFTmiss",
+			"loop": false,
+			"name": "Frye Miss"
+		},
+		{
+			"offsets": [
+				-94,
+				-174
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWNmiss",
+			"loop": false,
+			"name": "Frye Miss"
+		},
+		{
+			"offsets": [
+				-94,
+				-174
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHTmiss",
+			"loop": false,
+			"name": "Frye Miss"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Frye Onaga",
+	"position": [
+		60,
+		230
+	],
+	"sing_param": "frye",
+	"healthicon": "frye",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		255,
+		11
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

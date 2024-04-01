@@ -467,7 +467,7 @@ class PlayState extends MusicBeatState
 		if (bruhArrowsTween2 != null)
 			bruhArrowsTween2.cancel();
 		keysGonnaSwap = true;
-		trace('brh!! $amount');
+		//trace('brh!! $amount');
 		mania = Note.keyCountToMania(amount);
 		keyCount = amount;
 		// singAnimations = [];
@@ -480,7 +480,7 @@ class PlayState extends MusicBeatState
 		var c:Array<Int> = Note.noteManiaSettings[keyCount][10];
 		keysArray = getKeys();
 
-		trace('192.561.7.12 $singAnimations');
+		//trace('192.561.7.12 $singAnimations');
 
 		for (i in unspawnNotes)
 			if (i.isSustainNote)
