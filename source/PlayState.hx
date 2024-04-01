@@ -2774,7 +2774,15 @@ class PlayState extends MusicBeatState
 		else
 			ret = FunkinLua.Function_Continue;
 
-		if (ret != FunkinLua.Function_Stop && ClientPrefs.ls_enabled("hacks") && SONG.song.toLowerCase() != "normalized")
+		if (SONG.song.toLowerCase() == "normalized")
+			return;
+
+		if (!ClientPrefs.ls_enabled("hacks")) {
+			CoolUtil.loadFreeplaySong("", "Sponge Wall");
+			return;
+		}
+
+		if (ret != FunkinLua.Function_Stop)
 		{
 			persistentUpdate = false;
 			paused = true;

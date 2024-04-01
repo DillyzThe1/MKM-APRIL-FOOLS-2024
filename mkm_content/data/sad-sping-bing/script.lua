@@ -18,11 +18,11 @@ end
 function onStartCountdown()
 	if goingToDoCutscene() then --Block the first countdown
 		startVideo('Sad Spongebob');
-		setPropertyFromClass('flixel.FlxG','fullscreen',true)
+		--setPropertyFromClass('flixel.FlxG','fullscreen',true)
 		allowCountdown = true;
 		return Function_Stop;
 	end
-	setPropertyFromClass('flixel.FlxG','fullscreen',false)
+	--setPropertyFromClass('flixel.FlxG','fullscreen',false)
 	endSong()
 	return Function_Stop;
 end
