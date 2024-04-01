@@ -548,6 +548,8 @@ class PlayState extends MusicBeatState
 		});
 	}
 
+	var fullPlayerVolume:Float = 1;
+
 	override public function create()
 	{
 		Paths.clearStoredMemory();
@@ -571,6 +573,10 @@ class PlayState extends MusicBeatState
 				overrideChar_right = isLeftMode ? "peter" : "peter-player";
 			else if (ClientPrefs.ls_enabled("frank")) 
 				overrideChar_right = isLeftMode ? "circle" : "circle-player";
+			else if (ClientPrefs.ls_enabled("brokenglass")) {
+				overrideChar_right = "brokenglass";
+				fullPlayerVolume = 0;
+			}
 		}
 
 		if (isLeftMode) {
@@ -3586,7 +3592,7 @@ class PlayState extends MusicBeatState
 		// trace(noteDiff, ' ' + Math.abs(note.strumTime - Conductor.songPosition));
 
 		// boyfriend.playAnim('hey');
-		(splitVocals ? (isLeftMode ? vocalsLeft : vocalsRight) : vocals).volume = 1;
+		(splitVocals ? (isLeftMode ? vocalsLeft : vocalsRight) : vocals).volume = fullPlayerVolume;
 
 		var placement:String = Std.string(combo);
 
@@ -4847,7 +4853,9 @@ class PlayState extends MusicBeatState
 				});
 			}
 			note.wasGoodHit = true;
-			(splitVocals ? (!isLeftMode ? vocalsLeft : vocalsRight) : vocals).volume = 1;
+			//(splitVocals ? (!isLeftMode ? vocalsLeft : vocalsRight) : vocals).volume = fullPlayerVolume;
+			if (!note.isSustainNote && (isLeftMode ? overrideChar_left : overrideChar_right) == "brokenglass")
+				FlxG.sound.play(Paths.sound('brokenglass${FlxG.random.int(0,3)}'));
 
 			var isSus:Bool = note.isSustainNote; // GET OUT OF MY HEAD, GET OUT OF MY HEAD, GET OUT OF MY HEAD
 			var leData:Int = Math.round(Math.abs(note.noteData));
