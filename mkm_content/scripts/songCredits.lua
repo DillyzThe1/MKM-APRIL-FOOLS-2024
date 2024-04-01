@@ -20,7 +20,9 @@ local creditsMatch = {
 	{'wrong house', 'Composed by Impostor5875'},
 	{'yeah', 'Composed by DillyzThe1'},
 	{'no way', 'Composed by That1LazerBoi'},
-	{'bup blaster', 'Guys? I have a theory.'}
+	{'bup blaster', 'Guys? I have a theory.'},
+	{'final sweat', 'Composed by That1LazerBoi, Impostor5875, & Zarzok'},
+	{'square vs toad', 'Composed by Impostor5875 & DillyzThe1'}
 }
 
 function onCreatePost()
