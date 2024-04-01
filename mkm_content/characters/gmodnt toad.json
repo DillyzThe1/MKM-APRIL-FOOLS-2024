@@ -1,0 +1,134 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "GT Idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				40,
+				0
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "GT Note Right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				140,
+				-130
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "GT Note Left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-280,
+				-200
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "GT Note Down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				40,
+				93
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "GT Note Up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "bruh",
+			"fps": 24,
+			"name": "GT bruh",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singUPmiss",
+			"fps": 48,
+			"name": "GT Miss",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singDOWNmiss",
+			"fps": 48,
+			"name": "GT Miss",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singLEFTmiss",
+			"fps": 48,
+			"name": "GT Miss",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singRIGHTmiss",
+			"fps": 48,
+			"name": "GT Miss",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/toad but he forgot the gmod",
+	"position": [
+		-350,
+		-100
+	],
+	"sing_param": "toad",
+	"healthicon": "toad-up-in-3d",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		45,
+		50
+	],
+	"camera_position": [
+		250,
+		150
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}
