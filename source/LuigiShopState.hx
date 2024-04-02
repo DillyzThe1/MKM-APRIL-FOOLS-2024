@@ -238,7 +238,8 @@ class MarioShopState extends LuigiShopState {
             {name: "Super Mushroom", internalName: "shroom", tip: "Grow larger upon eating this mushroom!", price: 59.99, picture: "shop/mario/mushroom"},
             {name: "Wario Repellent", internalName: "nosong", tip: "Spray this at Wario to prevent him from\nforcing you to hear his song!", price: 1972855.63, picture: "shop/mario/wariorepellent"},
             {name: "Atmosphere Custom Firmware", internalName: "killmario", tip: "Why's Mario selling this..? Won't Nintendo find out?", price: 999.99, picture: "shop/mario/atmosphere"},
-            {name: "paid robux", internalName: null, tip: "paid robux", price: -19.99, picture: "shop/none"}
+            {name: "poisonous potato", internalName: "potato", tip: "ALRIGHT I GET IT!!", price: 24.14, picture: "shop/mario/poisonouspotato"},
+            {name: "paid robux", internalName: null, tip: "paid robux", price: -19.99, picture: "shop/mario/none"}
         ];
 
         super.create();
