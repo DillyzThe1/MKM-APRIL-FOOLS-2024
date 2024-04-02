@@ -2,84 +2,117 @@
 	"animations": [
 		{
 			"offsets": [
-				0,
+				-2,
 				0
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "idle",
 			"indices": [],
-			"name": "nothing"
+			"name": "omnisphere idle"
 		},
 		{
 			"offsets": [
-				0,
-				0
+				-193,
+				30
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singLEFT",
 			"indices": [],
-			"name": "nothing"
+			"name": "omnisphere left"
 		},
 		{
 			"offsets": [
-				0,
-				0
+				-140,
+				-80
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "omnisphere down"
+		},
+		{
+			"offsets": [
+				-200,
+				-20
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singRIGHT",
 			"indices": [],
-			"name": "nothing"
+			"name": "omnisphere right"
 		},
 		{
 			"offsets": [
-				0,
+				-90,
 				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFTmiss",
+			"indices": [],
+			"name": "omnisphere miss"
+		},
+		{
+			"offsets": [
+				-90,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWNmiss",
+			"indices": [],
+			"name": "omnisphere miss"
+		},
+		{
+			"offsets": [
+				-90,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUPmiss",
+			"indices": [],
+			"name": "omnisphere miss"
+		},
+		{
+			"offsets": [
+				-90,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "omnisphere miss"
+		},
+		{
+			"offsets": [
+				-190,
+				50
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singUP",
 			"indices": [],
-			"name": "nothing"
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singUP",
-			"indices": [],
-			"name": "nothing"
-		},
-		{
-			"loop": false,
-			"offsets": [
-				0,
-				0
-			],
-			"anim": "singDOWN",
-			"fps": 24,
-			"name": "nothing",
-			"indices": []
+			"name": "omnisphere up"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/none",
+	"image": "characters/omnisphere player",
 	"position": [
 		0,
 		350
 	],
 	"sing_param": "omnisphere",
-	"healthicon": "none",
+	"healthicon": "omnisphere-player",
 	"flip_x": true,
 	"healthbar_colors": [
-		0,
-		0,
-		0
+		55,
+		75,
+		164
 	],
 	"camera_position": [
 		0,

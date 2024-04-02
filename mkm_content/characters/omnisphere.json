@@ -1,84 +1,118 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "nothing"
+			"fps": 24,
+			"name": "omnisphere idle",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
-				0,
+				10,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "nothing"
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"loop": false,
 			"fps": 24,
-			"anim": "singRIGHT",
-			"indices": [],
-			"name": "nothing"
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singUP",
-			"indices": [],
-			"name": "nothing"
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singUP",
-			"indices": [],
-			"name": "nothing"
+			"name": "omnisphere left",
+			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				0,
-				0
+				10,
+				-70
 			],
 			"anim": "singDOWN",
 			"fps": 24,
-			"name": "nothing",
+			"name": "omnisphere down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-140,
+				0
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "omnisphere right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singLEFTmiss",
+			"fps": 24,
+			"name": "omnisphere miss",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singDOWNmiss",
+			"fps": 24,
+			"name": "omnisphere miss",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singUPmiss",
+			"fps": 24,
+			"name": "omnisphere miss",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "omnisphere miss",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-47,
+				71
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "omnisphere up",
 			"indices": []
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/none",
+	"image": "characters/omnisphere",
 	"position": [
 		0,
 		350
 	],
-	"healthicon": "none",
-	"flip_x": true,
+	"sing_param": "omnisphere",
+	"healthicon": "omnisphere",
+	"flip_x": false,
 	"healthbar_colors": [
-		0,
-		0,
-		0
+		55,
+		75,
+		164
 	],
 	"camera_position": [
 		0,
