@@ -113,7 +113,7 @@ class TitleState extends MusicBeatState
 		if (!closedState)
 		{
 			trace('checking for update');
-			var http = new haxe.Http("https://raw.githubusercontent.com/DillyzThe1/FNF-MKM-PUBLIC/main/gitVersion.txt");
+			var http = new haxe.Http("https://raw.githubusercontent.com/DillyzThe1/MKM-APRIL-FOOLS-2024/main/gitVersion.txt");
 
 			http.onData = function(data:String)
 			{

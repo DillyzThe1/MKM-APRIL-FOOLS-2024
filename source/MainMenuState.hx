@@ -29,8 +29,8 @@ import vlc.MP4Handler;
 class MainMenuState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '0.6.2'; // This is also used for Discord RPC
-	public static var mushroomKingdomMadnessVersion:String = '0.0.0-dev';
-	public static var mkm_RELEASE_TRACKER:Int = 4;
+	public static var mushroomKingdomMadnessVersion:String = '2.Oh NVM.1';
+	public static var mkm_RELEASE_TRACKER:Int = 6;
 	public static var curSelected:Int = 0;
 	public static var selOnRight:Bool = false;
 

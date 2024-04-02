@@ -24,7 +24,7 @@ function onStartCountdown()
 		allowCountdown = true;
 		return Function_Stop;
 	end
-	setProperty('camGame.alpha',1)
+	--setProperty('camGame.alpha',1)
 	return Function_Continue;
 end
 

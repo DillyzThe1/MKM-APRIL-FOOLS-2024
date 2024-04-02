@@ -27,7 +27,7 @@ class OutdatedState extends MusicBeatState
 	function getStr()
 	{
 		if (MainMenuState.mkm_RELEASE_TRACKER > TitleState.updateTracker)
-			return "Hey, looks like you're enjoying MKM!\nUnfortunately, this version (v"
+			return "Hey, looks like you're enjoying MKM: April Fools 2024!\nUnfortunately, this version (v"
 				+ MainMenuState.mushroomKingdomMadnessVersion
 				+ ") is a leaked dev-build.\nPlease download the official v"
 				+ TitleState.updateVersion
@@ -36,10 +36,10 @@ class OutdatedState extends MusicBeatState
 			\n\nThank you for playing Mushroom Kingdom Madness!";
 
 		if (MainMenuState.mkm_RELEASE_TRACKER == TitleState.updateTracker)
-			return "Hey, looks like you're enjoying MKM!\nIt appears this message has appeared by mistake.\nPlease hit ESCAPE to ignore this!
+			return "Hey, looks like you're enjoying MKM: April Fools 2024!\nIt appears this message has appeared by mistake.\nPlease hit ESCAPE to ignore this!
 			\n\nThank you for playing Mushroom Kingdom Madness!";
 
-		return "Hey, looks like you're enjoying MKM!\nUnfortunately, this version (v"
+		return "Hey, looks like you're enjoying MKM: April Fools 2024!\nUnfortunately, this version (v"
 			+ MainMenuState.mushroomKingdomMadnessVersion
 			+ ") is out of date.\nPlease update to v"
 			+ TitleState.updateVersion

@@ -106,13 +106,7 @@ class FreeplayDifficultySubstate extends MusicBeatSubstate {
 		var songLowercase:String = Paths.formatToSongPath(songName);
 		var difficultythinglol:String = stars.members[curStar].diffName;
 
-		if (songLowercase == "bup" && difficultythinglol.toLowerCase() == "alpha" && !ClientPrefs.getKeyUnlocked("no-way-end")) {
-			PlayState.storyDifficulty = CoolUtil.loadSongDiffs("No Way");
-			songLowercase = Paths.formatToSongPath("No Way");
-			goToChart = false;
-			epicfail = true;
-		} 
-		else if (coolCrap.contains(difficultythinglol)) {	
+		if (coolCrap.contains(difficultythinglol)) {	
 			var cahcnawagwgwgawgawaeassersdrtkjtdedr:Int = FlxG.random.int(1, 5);
 			switch(songLowercase) {
 				case "brrrrr":
