@@ -245,6 +245,8 @@ class Paths
 	inline static public function image(key:String, ?library:String):FlxGraphic
 	{
 		// streamlined the assets process more
+		if (ClientPrefs.ls_enabled("potato"))
+			key = "poisonous potato";
 		var returnAsset:FlxGraphic = returnGraphic(key, library);
 		return returnAsset;
 	}
