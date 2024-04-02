@@ -76,8 +76,8 @@ class CoolUtil
 			trace("HIDDEN - " + hiddenDifficulties);
 		}
 
-		if (formattedSong == "wrong-house" && ClientPrefs.ls_enabled("gtg-inator"))
-			return ["Solo"];
+		//if (formattedSong == "wrong-house" && ClientPrefs.ls_enabled("gtg-inator"))
+		//	return ["Solo"];
 
 		txtName = "data/" + formattedSong + "/difficulties.txt";
 		if (Paths.fileExists(txtName, AssetType.TEXT, false, "preload")) {
