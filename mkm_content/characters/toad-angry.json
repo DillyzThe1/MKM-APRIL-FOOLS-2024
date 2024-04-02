@@ -1,103 +1,114 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "Toad Idle"
+			"fps": 24,
+			"name": "Toad Idle",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				48,
 				11
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "Toad Sing Left"
+			"fps": 24,
+			"name": "Toad Sing Left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				91,
 				-22
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "Toad Sing Right"
+			"fps": 24,
+			"name": "Toad Sing Right",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				27,
 				27
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "Toad Sing Up"
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-1,
-				-19
-			],
-			"anim": "singDOWN",
 			"fps": 24,
-			"name": "Toad Sing Down",
+			"name": "Toad Sing Up",
 			"indices": []
 		},
 		{
 			"offsets": [
-				0,
-				31
+				-1,
+				-19
 			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singDOWNmiss",
 			"loop": false,
-			"name": "Toad Miss Down"
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Toad Sing Down"
 		},
 		{
+			"loop": false,
+			"offsets": [
+				0,
+				-11
+			],
+			"anim": "singDOWNmiss",
+			"fps": 24,
+			"name": "Toad Miss Down",
+			"indices": []
+		},
+		{
+			"loop": false,
 			"offsets": [
 				51,
-				30
+				8
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singLEFTmiss",
-			"loop": false,
-			"name": "Toad Miss Left"
+			"fps": 24,
+			"name": "Toad Miss Left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				100,
-				16
+				-25
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "Toad Miss Right",
+			"indices": []
+		},
+		{
 			"loop": false,
-			"name": "Toad Miss Right"
+			"offsets": [
+				30,
+				32
+			],
+			"anim": "singUPmiss",
+			"fps": 24,
+			"name": "Toad Miss Up",
+			"indices": []
 		},
 		{
 			"offsets": [
-				30,
-				59
+				70,
+				20
 			],
 			"indices": [],
 			"fps": 24,
-			"anim": "singUPmiss",
-			"loop": false,
-			"name": "Toad Miss Up"
+			"anim": "dance",
+			"loop": true,
+			"name": "zToad64"
 		}
 	],
 	"no_antialiasing": false,
