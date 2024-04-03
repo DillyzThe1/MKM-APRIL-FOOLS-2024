@@ -128,17 +128,13 @@ class LuigiShopState extends MusicBeatState {
             changeSelection();
         }
         if (FlxG.keys.justPressed.M)
-            if (isMario)
-            {
-                ClientPrefs.marioState = 0;
-                trace("reset mario state to 0");
-            }
-            else
-                LoadingState.loadAndSwitchState(new MarioShopState());
-        #else
-        if (FlxG.keys.justPressed.M && !isMario)
-            LoadingState.loadAndSwitchState(new MarioShopState());
+        {
+            ClientPrefs.marioState = 0;
+            trace("reset mario state to 0");
+        }
         #end
+        if (controls.UI_DOWN_P)
+            LoadingState.loadAndSwitchState(new MarioShopState());
         
 		if (controls.UI_LEFT_P)
 			changeSelection(-1, true);

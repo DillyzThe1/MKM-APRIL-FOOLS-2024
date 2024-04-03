@@ -1196,6 +1196,10 @@ class PlayState extends MusicBeatState
 		camGame.angle = camHUD.angle = 0;
 
 		Conductor.safeZoneOffset = (ClientPrefs.safeFrames / 60) * 1000;
+
+		if (curSong.toLowerCase() == "karrd kollision" && CoolUtil.difficulties[storyDifficulty].toLowerCase() == "shower curtain")
+			FlxG.mouse.visible = true;
+
 		callOnLuas('onCreatePost', []);
 
 		super.create();
@@ -2251,7 +2255,9 @@ class PlayState extends MusicBeatState
 			vocals.pause();
 		songExtra.pause();
 
-		FlxG.sound.music.play();
+		if (curtainSequenceState < 2)
+			FlxG.sound.music.play();
+
 		Conductor.songPosition = FlxG.sound.music.time;
 		if (splitVocals)
 		{
@@ -2281,6 +2287,8 @@ class PlayState extends MusicBeatState
 
 	var startedCountdown:Bool = false;
 	var canPause:Bool = true;
+
+	private var curtainSequenceState:Int = 0;
 
 	override public function update(elapsed:Float)
 	{
@@ -2708,6 +2716,34 @@ class PlayState extends MusicBeatState
 
 		if (inCutscene && DiscordClient.lastDetails != detailsCutsceneText)
 			DiscordClient.changePresence(detailsCutsceneText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
+
+		//hi guys i hate lua
+		if (FlxG.mouse.justPressed && FlxG.mouse.overlaps(getLuaObject("curtainHitbox")))
+		{
+			if (curtainSequenceState == 0)
+			{
+				curtainSequenceState = 1;
+				getLuaObject("curtain").scale.x = 0.5;
+				getLuaObject("curtain").offset.x = 100;
+
+				getLuaObject("curtainHitbox").scale.set(0.4, 0.4);
+				getLuaObject("curtainHitbox").updateHitbox();
+				FlxG.sound.play(Paths.sound("curtainopen"));
+				getLuaObject("curtainHitbox").y = getLuaObject("key").y + 180;
+			}
+			else if (curtainSequenceState == 1)
+			{
+				curtainSequenceState = 2;
+				updateTime = false;
+				FlxG.sound.music.pause();
+				canPause = false;
+				FlxG.sound.play(Paths.sound("key obtained"));
+				FlxTween.tween(getLuaObject("key"), {x: (FlxG.width / 2) - (getLuaObject("key").width / 2),
+				 y: (FlxG.height / 2) - (getLuaObject("key").height / 2)}, 4, {ease: FlxEase.cubeOut});
+				FlxTween.tween(getLuaObject("key").scale, {x: 1.5, y: 1.5}, 4, {ease: FlxEase.cubeOut});
+				//getLuaObject("key").visible = false;
+			}
+		}
 
 		health_display = (SONG.soloMode || SONG.leftMode) ? 2 - health : health;
 		setOnLuas('cameraX', camFollowPos.x);

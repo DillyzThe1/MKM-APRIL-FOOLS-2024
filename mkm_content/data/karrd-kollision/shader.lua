@@ -1,9 +1,15 @@
+curtainOpen = false;
+
 function onCreatePost()
 	if string.lower(difficultyName) == "shower curtain" then
 		runHaxeCode('camGameFilters = [makeShader("shower curtain port")];')
 		runHaxeCode('game.camGame.setFilters(camGameFilters);')
 		runHaxeCode('game.camHUD.setFilters(camGameFilters);')
 		runHaxeCode('getMadeShader("shower curtain port").setFloat("blockyness", 1);')
+		
+		makeLuaSprite("key", "key", 1280*0.755, 720*0.425)
+		setObjectCamera("key", "camother")
+		addLuaSprite("key", true)
 		
 		makeLuaSprite("curtain", "showercurtain", 1280*0.755, 720*0.425)
 		setObjectCamera("curtain", "camother")
@@ -22,6 +28,10 @@ function onCreatePost()
 end
 
 function onUpdatePost()
+	if getPropertyFromClass("flixel.FlxG", "mouse.justPressed") and objectsOverlap(getPropertyFromClass("flixel.FlxG", "mouse"), "curtain") then
+		setProperty('curtain.visible', false)
+	end
+	
 	if mustHitSection then
 		setProperty("curtain.x", 1280*0.625)
 	else
