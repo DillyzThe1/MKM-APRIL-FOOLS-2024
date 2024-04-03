@@ -2718,7 +2718,7 @@ class PlayState extends MusicBeatState
 			DiscordClient.changePresence(detailsCutsceneText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 
 		//hi guys i hate lua
-		if (FlxG.mouse.justPressed && FlxG.mouse.overlaps(getLuaObject("curtainHitbox")))
+		if ((!startingSong && !endingSong) && (FlxG.mouse.justPressed && FlxG.mouse.overlaps(getLuaObject("curtainHitbox"))))
 		{
 			if (curtainSequenceState == 0)
 			{
@@ -2739,9 +2739,19 @@ class PlayState extends MusicBeatState
 				canPause = false;
 				FlxG.sound.play(Paths.sound("key obtained"));
 				FlxTween.tween(getLuaObject("key"), {x: (FlxG.width / 2) - (getLuaObject("key").width / 2),
-				 y: (FlxG.height / 2) - (getLuaObject("key").height / 2)}, 4, {ease: FlxEase.cubeOut});
+				 y: (FlxG.height / 2) - (getLuaObject("key").height / 2) - 130}, 4, {ease: FlxEase.cubeOut, onComplete: function(t:FlxTween) {
+					camOther.fade(FlxColor.WHITE, 3, false, function(){
+						var itemGetScreen:FlxSprite = new FlxSprite().loadGraphic(Paths.image("pvz item get screen"));
+						itemGetScreen.cameras = [camOther];
+						add(itemGetScreen);
+						getLuaObject("curtain").kill();
+						modchartSprites.remove("curtain");
+						getLuaObject("port").kill();
+						modchartSprites.remove("port");
+						camOther.fade(FlxColor.WHITE, 3, true);
+					});
+				 }});
 				FlxTween.tween(getLuaObject("key").scale, {x: 1.5, y: 1.5}, 4, {ease: FlxEase.cubeOut});
-				//getLuaObject("key").visible = false;
 			}
 		}
 
