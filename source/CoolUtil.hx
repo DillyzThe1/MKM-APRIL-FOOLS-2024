@@ -338,7 +338,7 @@ class CoolUtil
 			diff = 0;
 		}
 
-		if (force || !weekIsLocked(curWeek.fileName))
+		if ((force || !weekIsLocked(curWeek.fileName)) && !ClientPrefs.ls_enabled("killmario"))
 		{
 			// We can't use Dynamic Array .copy() because that crashes HTML5, here's a workaround.
 			var songArrayStrs:Array<String> = [];

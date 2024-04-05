@@ -4,7 +4,9 @@ import flixel.FlxG;
 import flixel.FlxState;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.addons.ui.FlxUIState;
+import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
+import flixel.util.FlxTimer;
 
 class MusicBeatState extends FlxUIState
 {
@@ -73,6 +75,19 @@ class MusicBeatState extends FlxUIState
 
 		if (Main.fpsVar != null)
 			Main.fpsVar.showFps = Main.fpsVar.showMemory = true;
+
+		#if debug
+			if (FlxG.keys.pressed.SHIFT && FlxG.keys.justPressed.B)
+			{
+				if (FlxG.sound.music != null)
+				{
+					FlxG.sound.music.fadeOut(0.13, 0, function(t:FlxTween) {
+						FlxG.sound.music.pause();
+					});
+				}
+				openSubState(new TheUseOfPlayStateDotHxOnThisMKMIsCurrentlyRestrictedByNintendo());
+			}
+		#end
 
 		#if CHAT_LU_E_G__ALLOWED
 		terror -= elapsed;
@@ -198,6 +213,27 @@ class MusicBeatState extends FlxUIState
 		if (PlayState.SONG != null && PlayState.SONG.notes[curSection] != null)
 			val = PlayState.SONG.notes[curSection].sectionBeats;
 		return val == null ? 4 : val;
+	}
+
+	public function checkBan(delay:Float = 0):Bool
+	{
+		if (ClientPrefs.ls_enabled("killmario"))
+		{
+			trace("mario has been killed");
+			new FlxTimer().start(delay, function(t:FlxTimer)
+			{
+				if (FlxG.sound.music != null)
+				{
+					FlxG.sound.music.fadeOut(0.13, 0, function(t:FlxTween) {
+						FlxG.sound.music.pause();
+					});
+				}
+			
+				openSubState(new TheUseOfPlayStateDotHxOnThisMKMIsCurrentlyRestrictedByNintendo());
+			});
+			return true;
+		}
+		return false;
 	}
 
 	#if CHAT_LU_E_G__ALLOWED

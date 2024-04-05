@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="The use of PlayState.hx is currently restricted by Nintendo.png">
+	<!-- Created with Adobe Animate version 24.0.2.12 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="message box close0000" x="5460" y="922" width="780" height="304"/>
+	<SubTexture name="message box close0001" x="6240" y="922" width="780" height="304"/>
+	<SubTexture name="message box close0002" x="5460" y="1226" width="780" height="304"/>
+	<SubTexture name="message box close0003" x="6240" y="1226" width="780" height="304"/>
+	<SubTexture name="message box close0004" x="7020" y="1232" width="780" height="304"/>
+	<SubTexture name="message box close0005" x="3120" y="1234" width="780" height="304"/>
+	<SubTexture name="message box close0006" x="3900" y="1234" width="780" height="304"/>
+	<SubTexture name="message box close0007" x="4680" y="1234" width="780" height="304"/>
+	<SubTexture name="message box close0008" x="5460" y="1530" width="780" height="304"/>
+	<SubTexture name="message box close0009" x="6240" y="1530" width="780" height="304"/>
+	<SubTexture name="message box close0010" x="7020" y="1536" width="780" height="304"/>
+	<SubTexture name="message box close0011" x="0" y="1538" width="780" height="304"/>
+	<SubTexture name="message box close0012" x="780" y="1538" width="780" height="304"/>
+	<SubTexture name="message box close0013" x="1560" y="1538" width="780" height="304"/>
+	<SubTexture name="message box close0014" x="2340" y="1538" width="780" height="304"/>
+	<SubTexture name="message box close0015" x="3120" y="1538" width="780" height="304"/>
+	<SubTexture name="message box close0016" x="3900" y="1538" width="780" height="304"/>
+	<SubTexture name="message box close0017" x="4680" y="1538" width="780" height="304"/>
+	<SubTexture name="message box close0018" x="5460" y="1834" width="780" height="304"/>
+	<SubTexture name="message box close0019" x="6240" y="1834" width="780" height="304"/>
+	<SubTexture name="message box default0000" x="7020" y="1840" width="780" height="304"/>
+	<SubTexture name="message box default0001" x="0" y="1842" width="780" height="304"/>
+	<SubTexture name="message box default0002" x="780" y="1842" width="780" height="304"/>
+	<SubTexture name="message box default0003" x="1560" y="1842" width="780" height="304"/>
+	<SubTexture name="message box default0004" x="2340" y="1842" width="780" height="304"/>
+	<SubTexture name="message box default0005" x="3120" y="1842" width="780" height="304"/>
+	<SubTexture name="message box default0006" x="3900" y="1842" width="780" height="304"/>
+	<SubTexture name="message box default0007" x="4680" y="1842" width="780" height="304"/>
+	<SubTexture name="message box default0008" x="5460" y="2138" width="780" height="304"/>
+	<SubTexture name="message box default0009" x="6240" y="2138" width="780" height="304"/>
+	<SubTexture name="message box default0010" x="7020" y="2144" width="780" height="304"/>
+	<SubTexture name="message box default0011" x="0" y="2146" width="780" height="304"/>
+	<SubTexture name="message box default0012" x="780" y="2146" width="780" height="304"/>
+	<SubTexture name="message box default0013" x="1560" y="2146" width="780" height="304"/>
+	<SubTexture name="message box default0014" x="2340" y="2146" width="780" height="304"/>
+	<SubTexture name="message box default0015" x="3120" y="2146" width="780" height="304"/>
+	<SubTexture name="message box default0016" x="3900" y="2146" width="780" height="304"/>
+	<SubTexture name="message box default0017" x="4680" y="2146" width="780" height="304"/>
+	<SubTexture name="message box default0018" x="5460" y="2442" width="780" height="304"/>
+	<SubTexture name="message box default0019" x="6240" y="2442" width="780" height="304"/>
+	<SubTexture name="message box default0020" x="7020" y="2448" width="780" height="304"/>
+	<SubTexture name="message box default0021" x="0" y="2450" width="780" height="304"/>
+	<SubTexture name="message box default0022" x="780" y="2450" width="780" height="304"/>
+	<SubTexture name="message box default0023" x="1560" y="2450" width="780" height="304"/>
+	<SubTexture name="message box default0024" x="2340" y="2450" width="780" height="304"/>
+	<SubTexture name="message box default0025" x="3120" y="2450" width="780" height="304"/>
+	<SubTexture name="message box default0026" x="3900" y="2450" width="780" height="304"/>
+	<SubTexture name="message box default0027" x="4680" y="2450" width="780" height="304"/>
+	<SubTexture name="message box default0028" x="5460" y="2746" width="780" height="304"/>
+	<SubTexture name="message box default0029" x="6240" y="2746" width="780" height="304"/>
+	<SubTexture name="message box default0030" x="7020" y="2752" width="780" height="304"/>
+	<SubTexture name="message box default0031" x="0" y="2754" width="780" height="304"/>
+	<SubTexture name="message box default0032" x="780" y="2754" width="780" height="304"/>
+	<SubTexture name="message box default0033" x="1560" y="2754" width="780" height="304"/>
+	<SubTexture name="message box default0034" x="2340" y="2754" width="780" height="304"/>
+	<SubTexture name="message box default0035" x="3120" y="2754" width="780" height="304"/>
+	<SubTexture name="message box default0036" x="3900" y="2754" width="780" height="304"/>
+	<SubTexture name="message box default0037" x="4680" y="2754" width="780" height="304"/>
+	<SubTexture name="message box default0038" x="5460" y="3050" width="780" height="304"/>
+	<SubTexture name="message box default0039" x="6240" y="3050" width="780" height="304"/>
+	<SubTexture name="message box default0040" x="7020" y="3056" width="780" height="304"/>
+	<SubTexture name="message box default0041" x="0" y="3058" width="780" height="304"/>
+	<SubTexture name="message box default0042" x="780" y="3058" width="780" height="304"/>
+	<SubTexture name="message box default0043" x="1560" y="3058" width="780" height="304"/>
+	<SubTexture name="message box default0044" x="2340" y="3058" width="780" height="304"/>
+	<SubTexture name="message box default0045" x="3120" y="3058" width="780" height="304"/>
+	<SubTexture name="message box default0046" x="3900" y="3058" width="780" height="304"/>
+	<SubTexture name="message box default0047" x="4680" y="3058" width="780" height="304"/>
+	<SubTexture name="message box default0048" x="5460" y="3354" width="780" height="304"/>
+	<SubTexture name="message box default0049" x="6240" y="3354" width="780" height="304"/>
+	<SubTexture name="message box default0050" x="7020" y="3360" width="780" height="304"/>
+	<SubTexture name="message box default0051" x="0" y="3362" width="780" height="304"/>
+	<SubTexture name="message box default0052" x="780" y="3362" width="780" height="304"/>
+	<SubTexture name="message box default0053" x="1560" y="3362" width="780" height="304"/>
+	<SubTexture name="message box default0054" x="2340" y="3362" width="780" height="304"/>
+	<SubTexture name="message box default0055" x="3120" y="3362" width="780" height="304"/>
+	<SubTexture name="message box default0056" x="3900" y="3362" width="780" height="304"/>
+	<SubTexture name="message box default0057" x="4680" y="3362" width="780" height="304"/>
+	<SubTexture name="message box default0058" x="5460" y="3658" width="780" height="304"/>
+	<SubTexture name="message box default0059" x="6240" y="3658" width="780" height="304"/>
+	<SubTexture name="message box open0000" x="7020" y="3664" width="780" height="304"/>
+	<SubTexture name="message box open0001" x="0" y="3666" width="780" height="304"/>
+	<SubTexture name="message box open0002" x="780" y="3666" width="780" height="304"/>
+	<SubTexture name="message box open0003" x="1560" y="3666" width="780" height="304"/>
+	<SubTexture name="message box open0004" x="2340" y="3666" width="780" height="304"/>
+	<SubTexture name="message box open0005" x="3120" y="3666" width="780" height="304"/>
+	<SubTexture name="message box open0006" x="3900" y="3666" width="780" height="304"/>
+	<SubTexture name="message box open0007" x="4680" y="3666" width="780" height="304"/>
+	<SubTexture name="message box open0008" x="5460" y="3962" width="780" height="304"/>
+	<SubTexture name="move down0000" x="3252" y="608" width="780" height="314"/>
+	<SubTexture name="move down0001" x="0" y="912" width="780" height="314"/>
+	<SubTexture name="move down0002" x="780" y="912" width="780" height="314"/>
+	<SubTexture name="move down0003" x="1560" y="912" width="780" height="314"/>
+	<SubTexture name="move down0004" x="2340" y="912" width="780" height="314"/>
+	<SubTexture name="move down0005" x="4032" y="608" width="780" height="314"/>
+	<SubTexture name="move down0006" x="4812" y="608" width="780" height="314"/>
+	<SubTexture name="move down0007" x="5592" y="608" width="780" height="314"/>
+	<SubTexture name="move down0008" x="6372" y="608" width="780" height="314"/>
+	<SubTexture name="move left0000" x="0" y="0" width="819" height="304"/>
+	<SubTexture name="move left0001" x="819" y="0" width="819" height="304"/>
+	<SubTexture name="move left0002" x="1638" y="0" width="819" height="304"/>
+	<SubTexture name="move left0003" x="2457" y="0" width="819" height="304"/>
+	<SubTexture name="move left0004" x="3276" y="0" width="819" height="304"/>
+	<SubTexture name="move left0005" x="4095" y="0" width="819" height="304"/>
+	<SubTexture name="move left0006" x="4914" y="0" width="819" height="304"/>
+	<SubTexture name="move left0007" x="5733" y="0" width="819" height="304"/>
+	<SubTexture name="move left0008" x="6552" y="0" width="819" height="304"/>
+	<SubTexture name="move left0009" x="7371" y="0" width="819" height="304"/>
+	<SubTexture name="move left0010" x="0" y="304" width="819" height="304"/>
+	<SubTexture name="move left0011" x="819" y="304" width="819" height="304"/>
+	<SubTexture name="move right0000" x="1638" y="304" width="813" height="304"/>
+	<SubTexture name="move right0001" x="2451" y="304" width="813" height="304"/>
+	<SubTexture name="move right0002" x="3264" y="304" width="813" height="304"/>
+	<SubTexture name="move right0003" x="4077" y="304" width="813" height="304"/>
+	<SubTexture name="move right0004" x="4890" y="304" width="813" height="304"/>
+	<SubTexture name="move right0005" x="5703" y="304" width="813" height="304"/>
+	<SubTexture name="move right0006" x="6516" y="304" width="813" height="304"/>
+	<SubTexture name="move right0007" x="7329" y="304" width="813" height="304"/>
+	<SubTexture name="move right0008" x="0" y="608" width="813" height="304"/>
+	<SubTexture name="move right0009" x="813" y="608" width="813" height="304"/>
+	<SubTexture name="move right0010" x="1626" y="608" width="813" height="304"/>
+	<SubTexture name="move right0011" x="2439" y="608" width="813" height="304"/>
+	<SubTexture name="move up0000" x="7152" y="608" width="780" height="312"/>
+	<SubTexture name="move up0001" x="7152" y="920" width="780" height="312"/>
+	<SubTexture name="move up0002" x="3120" y="922" width="780" height="312"/>
+	<SubTexture name="move up0003" x="0" y="1226" width="780" height="312"/>
+	<SubTexture name="move up0004" x="780" y="1226" width="780" height="312"/>
+	<SubTexture name="move up0005" x="1560" y="1226" width="780" height="312"/>
+	<SubTexture name="move up0006" x="2340" y="1226" width="780" height="312"/>
+	<SubTexture name="move up0007" x="3900" y="922" width="780" height="312"/>
+	<SubTexture name="move up0008" x="4680" y="922" width="780" height="312"/>
+</TextureAtlas>

@@ -35,7 +35,7 @@ class FreeplayState extends MusicBeatState
 
 	var curIndexOffset:Int = 0;
 
-	var hasSelected:Bool = false;
+	public static var hasSelected:Bool = false;
 
 	#if FREEPLAY_SHADER_THING
 	var zoomShader:ZoomBlurShader;
@@ -385,101 +385,109 @@ class FreeplayState extends MusicBeatState
 
 		if (controls.ACCEPT)
 		{
-			if (CoolUtil.fredMode)
-				changeSelection(theFunnyyyyyyyyyyyy - curIndex);
-			
-			if (songs[curIndex].songName.toLowerCase() == "brrrrr")
-				FlxG.sound.play(Paths.sound('brrrrr'), 1, false);
-			else if (songs[curIndex].songName.toLowerCase() == "nether brrrrr")
-				FlxG.sound.play(Paths.sound("brrrrrn't"), 1, false);
-			else if (ClientPrefs.ls_enabled("nosong") && songs[curIndex].songName.toLowerCase() == "wario's song") {
-				FlxG.sound.play(Paths.sound("spraybottle"), 1, false);
-				deleteCurSelection();
-				return;
-			}
-
-			if (songs[curIndex].flag0) {
-				if (songs[curIndex].flag1 > 3)
-					return;
-				if (songs[curIndex].flag1 == 3) {
+			if (!checkBan())
+			{
+				if (CoolUtil.fredMode)
+					changeSelection(theFunnyyyyyyyyyyyy - curIndex);
+				
+				if (songs[curIndex].songName.toLowerCase() == "brrrrr")
+					FlxG.sound.play(Paths.sound('brrrrr'), 1, false);
+				else if (songs[curIndex].songName.toLowerCase() == "nether brrrrr")
+					FlxG.sound.play(Paths.sound("brrrrrn't"), 1, false);
+				else if (ClientPrefs.ls_enabled("nosong") && songs[curIndex].songName.toLowerCase() == "wario's song") {
+					FlxG.sound.play(Paths.sound("spraybottle"), 1, false);
 					deleteCurSelection();
 					return;
 				}
-				songs[curIndex].flag1++;
-				var newlevel:Float = ((FlxG.height / 2) - (songs[curIndex].portrait.height / 2) - 75) + (175 * songs[curIndex].flag1);
-				FlxTween.tween(songs[curIndex].portrait, {y: newlevel}, 0.75, {ease: FlxEase.cubeInOut});
-				FlxTween.tween(songs[curIndex].text, {y: newlevel + songs[curIndex].portrait.height + 20}, 0.75, {ease: FlxEase.cubeInOut});
-				FlxTween.tween(songs[curIndex].icon, {y: newlevel + songs[curIndex].portrait.height + 75}, 0.75, {ease: FlxEase.cubeInOut});
-			}
-			else if (CoolUtil.fredMode || (ClientPrefs.getKeyUnlocked(songs[curIndex].unlockerKey)
-				&& !FreeplayState.weekIsLocked(WeekData.weeksList[songs[curIndex].week])))
-			{
-				hasSelected = true;
-
-				// soup soup soup
-				trace(CoolUtil.difficulties);
-				PlayState.storyDifficulty = CoolUtil.difficulties.indexOf('Hard');
-				if (PlayState.storyDifficulty < 0)
-					PlayState.storyDifficulty = 0;
-				persistentUpdate = false;
-				PlayState.isStoryMode = false;
-
-				trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
-				if (colorTween != null)
-					colorTween.cancel();
-
-				//var goToChart:Bool = FlxG.keys.pressed.SHIFT;
-				var theSongEver:SongMetadata = songs[curIndex];
-
-				FlxG.sound.music.fadeOut(0.175);
-
-				FlxG.sound.play(Paths.sound('mario painting'), 1.35, false);
-
-				if (WeekData.weeksList[theSongEver.week] == CoolUtil.fredCrossoverWeekName)
-					FlxG.sound.play(Paths.sound('fred'), 0.125, false);
-
-				//FlxG.camera.fade(FlxColor.WHITE, 0.85, false, null, true);
-				FlxTween.tween(theSongEver.portrait, {y: FlxG.height / 2 - theSongEver.portrait.height / 2, "scale.x": 1.15, "scale.y": 1.15}, 0.75,
-					{ease: FlxEase.cubeInOut});
-				FlxTween.tween(theSongEver.text, {y: FlxG.height + 100}, 0.75, {ease: FlxEase.cubeInOut});
-				FlxTween.tween(theSongEver.icon, {y: FlxG.height + 100}, 0.75, {ease: FlxEase.cubeInOut});
-				FlxTween.tween(theSongEver.portrait.scale, {x: 2.25, y: 2.25}, 1, {ease: FlxEase.cubeIn});
-
-				if (overspitrhwrwhjwak == null) {
-					overspitrhwrwhjwak = new FlxSprite(FlxG.width * -0.5, FlxG.height * -0.5).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.WHITE);
-					overspitrhwrwhjwak.alpha = 0;
-					add(overspitrhwrwhjwak);
-				}
-
-				if (epicOverTween != null)
-					epicOverTween.cancel();
-				epicOverTween = FlxTween.tween(overspitrhwrwhjwak, {alpha: 1}, 0.85);
-
-				FlxTween.tween(FlxG.camera, {zoom: 2.25}, 1, {
-					ease: FlxEase.cubeIn,
-					#if FREEPLAY_SHADER_THING
-					onUpdate: function(t:FlxTween)
-					{
-						if (zoomShader != null && zoomShader.zoomRadius != null && zoomShader.zoomRadius.value != null)
-							zoomShader.zoomRadius.value[0] = t.percent;
-					},
-					#end
-					onComplete: function(t:FlxTween)
-					{
-						FlxG.camera.setFilters([]);
-						/*FlxG.camera.fade(FlxColor.BLACK, 0.15, false, function()
-						{
-							LoadingState.loadAndSwitchState(goToChart ? new ChartingState() : new PlayState());
-						});*/
-
-						openSubState(new FreeplayDifficultySubstate(songs[curIndex].songName));
+	
+				if (songs[curIndex].flag0) {
+					if (songs[curIndex].flag1 > 3)
+						return;
+					if (songs[curIndex].flag1 == 3) {
+						deleteCurSelection();
+						return;
 					}
-				});
+					songs[curIndex].flag1++;
+					var newlevel:Float = ((FlxG.height / 2) - (songs[curIndex].portrait.height / 2) - 75) + (175 * songs[curIndex].flag1);
+					FlxTween.tween(songs[curIndex].portrait, {y: newlevel}, 0.75, {ease: FlxEase.cubeInOut});
+					FlxTween.tween(songs[curIndex].text, {y: newlevel + songs[curIndex].portrait.height + 20}, 0.75, {ease: FlxEase.cubeInOut});
+					FlxTween.tween(songs[curIndex].icon, {y: newlevel + songs[curIndex].portrait.height + 75}, 0.75, {ease: FlxEase.cubeInOut});
+				}
+				else if (CoolUtil.fredMode || (ClientPrefs.getKeyUnlocked(songs[curIndex].unlockerKey)
+					&& !FreeplayState.weekIsLocked(WeekData.weeksList[songs[curIndex].week])))
+				{
+					hasSelected = true;
+	
+					// soup soup soup
+					trace(CoolUtil.difficulties);
+					PlayState.storyDifficulty = CoolUtil.difficulties.indexOf('Hard');
+					if (PlayState.storyDifficulty < 0)
+						PlayState.storyDifficulty = 0;
+					persistentUpdate = false;
+					PlayState.isStoryMode = false;
+	
+					trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
+					if (colorTween != null)
+						colorTween.cancel();
+	
+					//var goToChart:Bool = FlxG.keys.pressed.SHIFT;
+					var theSongEver:SongMetadata = songs[curIndex];
+	
+					FlxG.sound.music.fadeOut(0.175);
+	
+					FlxG.sound.play(Paths.sound('mario painting'), 1.35, false);
+	
+					if (WeekData.weeksList[theSongEver.week] == CoolUtil.fredCrossoverWeekName)
+						FlxG.sound.play(Paths.sound('fred'), 0.125, false);
+	
+					//FlxG.camera.fade(FlxColor.WHITE, 0.85, false, null, true);
+					FlxTween.tween(theSongEver.portrait, {y: FlxG.height / 2 - theSongEver.portrait.height / 2, "scale.x": 1.15, "scale.y": 1.15}, 0.75,
+						{ease: FlxEase.cubeInOut});
+					FlxTween.tween(theSongEver.text, {y: FlxG.height + 100}, 0.75, {ease: FlxEase.cubeInOut});
+					FlxTween.tween(theSongEver.icon, {y: FlxG.height + 100}, 0.75, {ease: FlxEase.cubeInOut});
+					FlxTween.tween(theSongEver.portrait.scale, {x: 2.25, y: 2.25}, 1, {ease: FlxEase.cubeIn});
+	
+					if (overspitrhwrwhjwak == null) {
+						overspitrhwrwhjwak = new FlxSprite(FlxG.width * -0.5, FlxG.height * -0.5).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.WHITE);
+						overspitrhwrwhjwak.alpha = 0;
+						add(overspitrhwrwhjwak);
+					}
+	
+					if (epicOverTween != null)
+						epicOverTween.cancel();
+					epicOverTween = FlxTween.tween(overspitrhwrwhjwak, {alpha: 1}, 0.85);
+	
+					FlxTween.tween(FlxG.camera, {zoom: 2.25}, 1, {
+						ease: FlxEase.cubeIn,
+						#if FREEPLAY_SHADER_THING
+						onUpdate: function(t:FlxTween)
+						{
+							if (zoomShader != null && zoomShader.zoomRadius != null && zoomShader.zoomRadius.value != null)
+								zoomShader.zoomRadius.value[0] = t.percent;
+						},
+						#end
+						onComplete: function(t:FlxTween)
+						{
+							FlxG.camera.setFilters([]);
+							/*FlxG.camera.fade(FlxColor.BLACK, 0.15, false, function()
+							{
+								LoadingState.loadAndSwitchState(goToChart ? new ChartingState() : new PlayState());
+							});*/
+	
+							openSubState(new FreeplayDifficultySubstate(songs[curIndex].songName));
+						}
+					});
+				}
+				else
+				{
+					FlxG.camera.shake(0.01, 0.15);
+					FlxG.sound.play(Paths.sound('missnote${FlxG.random.int(1, 3)}', 'shared'));
+				}
 			}
 			else
 			{
-				FlxG.camera.shake(0.01, 0.15);
-				FlxG.sound.play(Paths.sound('missnote${FlxG.random.int(1, 3)}', 'shared'));
+				hasSelected = true;
+				TheUseOfPlayStateDotHxOnThisMKMIsCurrentlyRestrictedByNintendo.state = "freeplay";
 			}
 		}
 	}

@@ -38,11 +38,11 @@ class StoryMenuState extends MusicBeatState
 	var txtWeekTitle:FlxText;
 	var bgSprite:FlxSprite;
 
-	private static var curWeek:Int = 0;
+	public static var curWeek:Int = 0;
 
 	var txtTracklist:FlxText;
 
-	var grpWeekText:FlxTypedGroup<MenuItem>;
+	public static var grpWeekText:FlxTypedGroup<MenuItem>;
 	var grpWeekCharacters:FlxTypedGroup<MenuCharacter>;
 
 	var grpLocks:FlxTypedGroup<FlxSprite>;
@@ -312,14 +312,16 @@ class StoryMenuState extends MusicBeatState
 	}
 
 	var movedBack:Bool = false;
-	var selectedWeek:Bool = false;
-	var stopspamming:Bool = false;
+	public static var selectedWeek:Bool = false;
+	public static var stopspamming:Bool = false;
 
 	var songArray:Array<StorySongData> = [];
 
 	function selectWeek()
 	{
-		if (!CoolUtil.loadWeek(loadedWeeks[curWeek], curDifficulty, 1))
+		var bruh:Bool = checkBan(1);
+		trace('banning is $bruh...');
+		if (!bruh && !CoolUtil.loadWeek(loadedWeeks[curWeek], curDifficulty, 1))
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			return;
@@ -336,6 +338,7 @@ class StoryMenuState extends MusicBeatState
 					character.animation.play('confirm', true);
 			}
 			stopspamming = true;
+			TheUseOfPlayStateDotHxOnThisMKMIsCurrentlyRestrictedByNintendo.state = "storyMenu";
 		}
 	}
 
