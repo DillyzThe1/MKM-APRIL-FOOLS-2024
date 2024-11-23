@@ -57,6 +57,7 @@ class FreeplayState extends MusicBeatState
 
 	override function create()
 	{
+		hasSelected = false;
 		// Paths.clearStoredMemory();
 		// Paths.clearUnusedMemory();
 		Mhat.call("menu_freeplay");
